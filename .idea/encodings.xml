@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/com/RacingDroneWIKI" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/RacingDroneWIKI/dao/dao/MotoDao.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/RacingDroneWIKI/dao/daoImpl/AntennaDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/RacingDroneWIKI/dao/daoImpl/BatteryDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/RacingDroneWIKI/dao/daoImpl/CamDaoImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/index.html" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
