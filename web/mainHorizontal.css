@@ -9,6 +9,7 @@ html,body{
     width: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: sans-serif;
 }
 #main{
     background-color: deepskyblue;
@@ -36,7 +37,6 @@ form{
     margin-bottom: 1%;
 }
 #search{
-    display: table-cell;
     background-color: white;
     width: 50%;
     height: 48px;
