@@ -169,7 +169,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 				if(resSet.getString(10)!=null)
 					im.setCam(null);
 				else
-					im.setCam(new CamDAOProxy().findByModel(resSet.getString(10)).get(0));
+					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			} 
 		} catch (SQLException | IOException | ClassNotFoundException e) {
@@ -214,10 +214,10 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
 	                im.setExtraPictures(ls);
 				}
-				if(resSet.getString(10)!=null)
+				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
-					im.setCam(new CamDAOProxy().findByModel(resSet.getString(10)).get(0));
+					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			} 
 		} catch (SQLException | IOException | ClassNotFoundException e) {

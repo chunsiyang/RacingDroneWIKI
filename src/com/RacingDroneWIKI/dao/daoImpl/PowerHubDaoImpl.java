@@ -147,7 +147,7 @@ public class PowerHubDaoImpl implements PowerHubDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<PowerHub> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.power_hub `ant_model`like '%"+model+"%';";
+		String sql="SELECT * FROM racingdronewiki.power_hub WHERE `ph_model`like '%"+model+"%';";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();

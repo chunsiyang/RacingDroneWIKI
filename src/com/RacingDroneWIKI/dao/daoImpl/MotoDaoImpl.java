@@ -134,15 +134,15 @@ public class MotoDaoImpl implements MotoDao {
 				Blob inBlob=resSet.getBlob(12);
 				if(inBlob!=null)
 				{
-					InputStream is=inBlob.getBinaryStream();                //��ȡ������������  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //����������������  
+					InputStream is=inBlob.getBinaryStream();
+	                BufferedInputStream bis=new BufferedInputStream(is);
 	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //һ����ȫ������buff��  
+	                bis.read(buff, 0, buff.length);
 	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
 	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
 	                moto.setExtraPictures(ls);
 				}
-				EfficacyChartDaoProxy ecPro=new EfficacyChartDaoProxy();
+				EfficacyChartDaoImpl ecPro=new EfficacyChartDaoImpl(connection);
 				moto.setEfficacyChart(ecPro.findByModel(moto.getModel()));
 				result.add(moto);
 			} 
@@ -174,15 +174,15 @@ public class MotoDaoImpl implements MotoDao {
 				Blob inBlob=resSet.getBlob(17);
 				if(inBlob!=null)
 				{
-					InputStream is=inBlob.getBinaryStream();                //��ȡ������������  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //����������������  
+					InputStream is=inBlob.getBinaryStream();
+	                BufferedInputStream bis=new BufferedInputStream(is);
 	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //һ����ȫ������buff��  
+	                bis.read(buff, 0, buff.length);
 	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
 	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
 	                moto.setExtraPictures(ls);
 				}
-				EfficacyChartDaoProxy ecPro=new EfficacyChartDaoProxy();
+				EfficacyChartDaoImpl ecPro=new EfficacyChartDaoImpl(connection);
 				moto.setEfficacyChart(ecPro.findByModel(moto.getModel()));
 				result.add(moto);
 			} 

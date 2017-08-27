@@ -128,7 +128,7 @@ public class PropDaoImpl implements PropDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<Prop> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.prop WHERE `ant_model`like '%"+model+"%';";
+		String sql="SELECT * FROM racingdronewiki.prop WHERE `prop_model`like '%"+model+"%';";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();

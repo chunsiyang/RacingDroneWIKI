@@ -126,11 +126,13 @@ public class FrameDaoImpl implements FrameDao {
 						resSet.getString(11), resSet.getInt(12),
 						resSet.getFloat(13), resSet.getFloat(14),
 						resSet.getFloat(15));
-				PowerHub pb=new PowerHubDaoProxy().findByModel(resSet.getString(8)).get(0);
-				if(pb==null)
+				if(resSet.getString(8)==null)
 					fra.setIntegratedPh(null);
 				else
-					fra.setIntegratedPh(pb);
+				{
+					PowerHub ph=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
+					fra.setIntegratedPh(ph);
+				}
 				Blob inBlob=resSet.getBlob(16);
 				if(inBlob!=null)
 				{
@@ -171,11 +173,12 @@ public class FrameDaoImpl implements FrameDao {
 						resSet.getString(11), resSet.getInt(12),
 						resSet.getFloat(13), resSet.getFloat(14),
 						resSet.getFloat(15));
-				PowerHub pb=new PowerHubDaoProxy().findByModel(resSet.getString(8)).get(0);
-				if(pb==null)
+				if(resSet.getString(8)==null)
 					fra.setIntegratedPh(null);
-				else
+				else{
+					PowerHub pb=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
 					fra.setIntegratedPh(pb);
+				}
 				Blob inBlob=resSet.getBlob(16);
 				if(inBlob!=null)
 				{

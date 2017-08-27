@@ -186,14 +186,14 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 								resSet.getBoolean(16), resSet.getBoolean(17),
 								resSet.getBoolean(18),resSet.getBoolean(19),
 								resSet.getBoolean(20));
-				Blob inBlob=resSet.getBlob(12);
+				Blob inBlob=resSet.getBlob(21);
 				if(inBlob!=null)
 				{
 					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
 	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
 	                byte[] buff=new byte[(int) inBlob.length()]; 
 	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
+					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
 	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
 	                esc.setExtraPictures(ls);
 				}

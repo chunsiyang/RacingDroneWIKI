@@ -152,22 +152,28 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				fc.setBuzzer(resSet.getBoolean(15));
 				fc.setMaxPidLoopFrequancy(resSet.getInt(16));
 				fc.setMaxGyroUpdata(resSet.getInt(17));
-				ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoProxy().
-						findByModel(resSet.getString(18)).get(0);
-				if(esc==null)
+				if(resSet.getString(18)==null)
 					fc.setEsc(null);
 				else
+				{
+					ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoProxy().
+							findByModel(resSet.getString(18)).get(0);
 					fc.setEsc(esc);
-				PowerHub pb=new PowerHubDaoProxy().findByModel(resSet.getString(19)).get(0);
-				if(pb==null)
+				}
+				if(resSet.getString(19)==null)
 					fc.setPowerHub(null);
 				else
+				{
+					PowerHub pb=new PowerHubDaoImpl(connection).findByModel(resSet.getString(19)).get(0);
 					fc.setPowerHub(pb);
-				ImageTransmission im =new ImageTransmissionDaoProxy().findByModel(resSet.getString(20)).get(0);
-				if(im==null)
+				}
+				if(resSet.getString(20)==null)
 					fc.setImageTransmission(null);
 				else
+				{
+					ImageTransmission im =new ImageTransmissionDaoImpl(connection).findByModel(resSet.getString(20)).get(0);
 					fc.setImageTransmission(im);
+				}
 				fc.setPinDefintionDiagram(resSet.getString(21));
 				fc.setExtraPictures(null);
 				fc.setCaption(resSet.getString(23));	
@@ -220,22 +226,28 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				fc.setBuzzer(resSet.getBoolean(15));
 				fc.setMaxPidLoopFrequancy(resSet.getInt(16));
 				fc.setMaxGyroUpdata(resSet.getInt(17));
-				ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoProxy().
-						findByModel(resSet.getString(18)).get(0);
-				if(esc==null)
+				if(resSet.getString(18)==null)
 					fc.setEsc(null);
 				else
+				{
+					ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoImpl(connection).
+							findByModel(resSet.getString(18)).get(0);
 					fc.setEsc(esc);
-				PowerHub pb=new PowerHubDaoProxy().findByModel(resSet.getString(19)).get(0);
-				if(pb==null)
+				}
+				if(resSet.getString(19)==null)
 					fc.setPowerHub(null);
 				else
+				{
+					PowerHub pb=new PowerHubDaoImpl(connection).findByModel(resSet.getString(19)).get(0);
 					fc.setPowerHub(pb);
-				ImageTransmission im =new ImageTransmissionDaoProxy().findByModel(resSet.getString(20)).get(0);
-				if(im==null)
+				}
+				if(resSet.getString(20)==null)
 					fc.setImageTransmission(null);
 				else
+				{
+					ImageTransmission im =new ImageTransmissionDaoImpl(connection).findByModel(resSet.getString(20)).get(0);
 					fc.setImageTransmission(im);
+				}
 				fc.setPinDefintionDiagram(resSet.getString(21));
 				fc.setExtraPictures(null);
 				fc.setCaption(resSet.getString(23));		
