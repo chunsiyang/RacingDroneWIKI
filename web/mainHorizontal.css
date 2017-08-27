@@ -33,6 +33,7 @@ form{
     text-align: center;
 }
 #searchBar {
+    font-size: 0px;
     margin-top: 1%;
     margin-bottom: 1%;
 }
@@ -42,6 +43,7 @@ form{
     height: 48px;
     border: none;
     font-size: 20px;
+    padding-left: 10px;
 }
 
 #searchButton:hover ,.item:hover{
@@ -53,17 +55,19 @@ form{
     height: 50px;
     width: 100px;
     font-size: 20px;
+    padding: 0px;
     background-color: cornflowerblue;
     color: white;
     border-color: cornflowerblue;
 }
 nav{
     padding: 2%;
+    font-size: 0px;
     text-align: center;
 }
 .item{
     padding-top: 5px;
-    border-color: deepskyblue;
+    border-color: cornflowerblue;
     background-color: cornflowerblue;
 }
 .item a{
@@ -71,6 +75,7 @@ nav{
 }
 .item p{
     color: white;
+
 }
 .itemImg{
     width: 100px;
