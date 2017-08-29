@@ -10,6 +10,7 @@ html,body{
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
+    font-weight: 900;
 }
 #main{
     background-color: deepskyblue;
@@ -75,7 +76,6 @@ nav{
 }
 .item p{
     color: white;
-
 }
 .itemImg{
     width: 100px;
