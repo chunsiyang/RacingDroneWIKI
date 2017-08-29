@@ -30,37 +30,37 @@ public class SearchAllReq extends javax.servlet.http.HttpServlet {
         if(url==context.getInitParameter("esc"))
         {
             List<ElectroSpeedRegulator> list=new ElectroSpeedRegulatorDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("electroSpeedRegulatorList",list);
         }
         if(url==context.getInitParameter("fra"))
         {
             List<Frame> list=new FrameDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("frameList",list);
         }
         if(url==context.getInitParameter("it"))
         {
             List<ImageTransmission> list=new ImageTransmissionDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("imageTransmissionList",list);
         }
         if(url==context.getInitParameter("cam"))
         {
             List<Cam> list=new CamDAOProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("camList",list);
         }
         if(url==context.getInitParameter("fc"))
         {
             List<FlightControl> list=new FlightControlDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("flightControlList",list);
         }
         if(url==context.getInitParameter("ant"))
         {
             List<Antenna> list= new AntennaDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("antennaList",list);
         }
         if(url==context.getInitParameter("prop"))
         {
             List<Prop> list=new PropDaoProxy().findAll();
-            request.setAttribute("motoList",list);
+            request.setAttribute("propList",list);
         }
         request.getRequestDispatcher("/resultSet.jsp").forward(request,response);
     }
