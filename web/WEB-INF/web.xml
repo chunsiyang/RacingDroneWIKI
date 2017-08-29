@@ -8,40 +8,40 @@
         <servlet-class>com.RacingDroneWILI.servlet.SearchAllReq</servlet-class>
         <init-param>
             <param-name>moto</param-name>
-            <param-value>/list/moto</param-value>
+            <param-value>/moto.list</param-value>
         </init-param>
         <init-param>
             <param-name>esc</param-name>
-            <param-value>/list/esc</param-value>
+            <param-value>/esc.list</param-value>
         </init-param>
         <init-param>
             <param-name>fra</param-name>
-            <param-value>/list/fra</param-value>
+            <param-value>/fra.list</param-value>
         </init-param>
         <init-param>
             <param-name>it</param-name>
-            <param-value>/list/it</param-value>
+            <param-value>/it.list</param-value>
         </init-param>
         <init-param>
             <param-name>cam</param-name>
-            <param-value>/list/cam</param-value>
+            <param-value>/cam.list</param-value>
         </init-param>
         <init-param>
             <param-name>fc</param-name>
-            <param-value>/list/fc</param-value>
+            <param-value>/fc.list</param-value>
         </init-param>
         <init-param>
             <param-name>ant</param-name>
-            <param-value>/list/ant</param-value>
+            <param-value>/ant.list</param-value>
         </init-param>
         <init-param>
             <param-name>prop</param-name>
-            <param-value>/list/prop</param-value>
+            <param-value>/prop.list</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchAllReq</servlet-name>
-        <url-pattern>/list/*</url-pattern>
+        <url-pattern>*.list</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>SearchByModel</servlet-name>
