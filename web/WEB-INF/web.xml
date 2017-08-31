@@ -35,8 +35,16 @@
             <param-value>/ant.list</param-value>
         </init-param>
         <init-param>
+            <param-name>ph</param-name>
+            <param-value>/ph.list</param-value>
+        </init-param>
+        <init-param>
             <param-name>prop</param-name>
             <param-value>/prop.list</param-value>
+        </init-param>
+        <init-param>
+            <param-name>bat</param-name>
+            <param-value>/bat.list</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
