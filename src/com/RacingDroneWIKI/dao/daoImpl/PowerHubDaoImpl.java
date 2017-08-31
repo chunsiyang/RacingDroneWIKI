@@ -113,10 +113,10 @@ public class PowerHubDaoImpl implements PowerHubDao {
 			resSet=pstmt.executeQuery();
 			while(resSet.next())
 			{
-				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(2), 
-						resSet.getInt(3), resSet.getString(4),
+				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
 						null, resSet.getString(17),
-						resSet.getBoolean(5), resSet.getFloat(6), 
+						resSet.getBoolean(2), resSet.getFloat(6),
 						resSet.getFloat(7), resSet.getFloat(8), 
 						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getBoolean(11), resSet.getBoolean(12), 
@@ -153,10 +153,10 @@ public class PowerHubDaoImpl implements PowerHubDao {
 			resSet=pstmt.executeQuery();
 			while(resSet.next())
 			{
-				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(2), 
-						resSet.getInt(3), resSet.getString(4),
+				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
 						null, resSet.getString(17),
-						resSet.getBoolean(5), resSet.getFloat(6), 
+						resSet.getBoolean(2), resSet.getFloat(6),
 						resSet.getFloat(7), resSet.getFloat(8), 
 						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getBoolean(11), resSet.getBoolean(12), 

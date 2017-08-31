@@ -114,7 +114,7 @@ public class AntennaDaoImpl implements AntennaDao {
 						resSet.getString(13), 
 						resSet.getFloat(5), resSet.getFloat(6), 
 						resSet.getString(7), resSet.getString(8),
-						resSet.getInt(9), resSet.getInt(10),
+						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getString(11));
 				Blob inBlob=resSet.getBlob(12);
 				if(inBlob!=null)
@@ -152,7 +152,7 @@ public class AntennaDaoImpl implements AntennaDao {
 						resSet.getString(4), null, resSet.getString(13), 
 						resSet.getFloat(5), resSet.getFloat(6), 
 						resSet.getString(7), resSet.getString(8),
-						resSet.getInt(9), resSet.getInt(10),
+						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getString(11));
 				Blob inBlob=resSet.getBlob(12);
 				if(inBlob!=null)

@@ -131,7 +131,7 @@ public class MotoDaoImpl implements MotoDao {
 						resSet.getInt(12),resSet.getInt(13), resSet.getString(14), resSet.getFloat(15),
 						resSet.getInt(16),
 						null);
-				Blob inBlob=resSet.getBlob(12);
+				Blob inBlob=resSet.getBlob(17);
 				if(inBlob!=null)
 				{
 					InputStream is=inBlob.getBinaryStream();

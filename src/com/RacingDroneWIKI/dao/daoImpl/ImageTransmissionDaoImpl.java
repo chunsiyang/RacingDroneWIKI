@@ -142,10 +142,10 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			resSet=pstmt.executeQuery();
 			while(resSet.next())
 			{
-				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(2),
-						resSet.getInt(3), resSet.getString(4), 
+				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
 						null, resSet.getString(28), 
-						resSet.getBoolean(5), resSet.getFloat(6), resSet.getFloat(7),
+						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null, 
 						resSet.getInt(11), resSet.getBoolean(12), 
 						resSet.getBoolean(13), resSet.getBoolean(14), 
@@ -166,7 +166,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
 	                im.setExtraPictures(ls);
 				}
-				if(resSet.getString(10)!=null)
+				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
 					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
@@ -190,10 +190,10 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			resSet=pstmt.executeQuery();
 			while(resSet.next())
 			{
-				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(2),
-						resSet.getInt(3), resSet.getString(4), 
+				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
 						null, resSet.getString(28), 
-						resSet.getBoolean(5), resSet.getFloat(6), resSet.getFloat(7),
+						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null, 
 						resSet.getInt(11), resSet.getBoolean(12), 
 						resSet.getBoolean(13), resSet.getBoolean(14), 
