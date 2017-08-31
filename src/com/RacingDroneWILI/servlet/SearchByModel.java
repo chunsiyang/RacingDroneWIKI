@@ -3,6 +3,7 @@ package com.RacingDroneWILI.servlet;
 import com.RacingDroneWIKI.dao.daoProxy.*;
 import com.RacingDroneWIKI.javaBean.*;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,7 @@ public class SearchByModel extends HttpServlet {
         List<Antenna> antennaList=new AntennaDaoProxy().findByModel(model);
         List<PowerHub> powerHubList=new PowerHubDaoProxy().findByModel(model);
         List<Prop> propList=new PropDaoProxy().findByModel(model);
+        List<Battery> batteryList=new BatteryDaoProxy().findByModel(model);
         request.setAttribute("motoList",motoList);
         request.setAttribute("electroSpeedRegulatorList",electroSpeedRegulatorList);
         request.setAttribute("frameList",frameList);
@@ -38,7 +40,9 @@ public class SearchByModel extends HttpServlet {
         request.setAttribute("camList",camList);
         request.setAttribute("flightControlList",flightControlList);
         request.setAttribute("antennaList",antennaList);
+        request.setAttribute("powerHubList",powerHubList);
         request.setAttribute("propList",propList);
+        request.setAttribute("batteryList",batteryList);
         request.getRequestDispatcher("/resultSet.jsp").forward(request,response);
 
     }
