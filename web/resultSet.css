@@ -1,0 +1,50 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+section{
+    width: 100%;
+    text-align: center;
+}
+table{
+    text-align: center;
+    margin: auto;
+}
+h2{
+    text-align: left;
+    clear: right;
+}
+h4{
+    display: inline;
+}
+.mainImg{
+    width: 100px;
+    height: 100px;
+}
+a{
+    text-decoration: none;
+}
+.listItem:hover{
+    background-color: lightgray;
+}
+.list{
+    border-collapse: collapse;
+    width: 80%;
+    background-color: gainsboro;
+}
+.list th{
+    background-color:lightgray ;
+}
+.listItem{
+    border-collapse: collapse;
+    border-width:0px;
+    border-style:hidden;
+    width: 100%;
+    background-color: gainsboro;
+    table-layout : fixed
+}
+.tdImg{
+    width: 110px;
+    height: 110px;
+
+}
