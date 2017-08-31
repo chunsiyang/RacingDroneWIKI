@@ -149,7 +149,8 @@ public class FrameDaoImpl implements FrameDao {
 		} catch (SQLException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -195,7 +196,8 @@ public class FrameDaoImpl implements FrameDao {
 		} catch (SQLException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

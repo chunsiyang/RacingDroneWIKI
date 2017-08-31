@@ -138,7 +138,8 @@ public class PowerHubDaoImpl implements PowerHubDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -178,7 +179,8 @@ public class PowerHubDaoImpl implements PowerHubDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

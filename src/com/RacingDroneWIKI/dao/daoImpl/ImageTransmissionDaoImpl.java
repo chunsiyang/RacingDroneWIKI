@@ -175,7 +175,8 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -223,7 +224,8 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

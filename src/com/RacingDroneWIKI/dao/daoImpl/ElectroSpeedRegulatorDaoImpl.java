@@ -158,7 +158,8 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -202,7 +203,8 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

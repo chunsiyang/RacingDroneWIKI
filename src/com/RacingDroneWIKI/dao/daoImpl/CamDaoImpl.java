@@ -159,7 +159,8 @@ public class CamDaoImpl implements CamDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -196,7 +197,8 @@ public class CamDaoImpl implements CamDao {
 		} catch (SQLException | IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

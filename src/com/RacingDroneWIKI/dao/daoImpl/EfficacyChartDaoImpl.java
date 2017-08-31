@@ -108,7 +108,8 @@ public class EfficacyChartDaoImpl implements EfficacyChartDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -134,7 +135,8 @@ public class EfficacyChartDaoImpl implements EfficacyChartDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 

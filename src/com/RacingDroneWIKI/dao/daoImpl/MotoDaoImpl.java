@@ -149,7 +149,8 @@ public class MotoDaoImpl implements MotoDao {
 		} catch (SQLException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
@@ -189,7 +190,8 @@ public class MotoDaoImpl implements MotoDao {
 		} catch (SQLException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-
+		if(!result.iterator().hasNext())
+			return null;
 		return result;
 	}
 
