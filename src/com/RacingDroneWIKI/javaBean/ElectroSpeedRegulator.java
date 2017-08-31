@@ -36,7 +36,7 @@ public class ElectroSpeedRegulator extends Item {
 	 */
 	private float length;
 	/**
-	 * 跨度
+	 * 宽度
 	 */
 	private float width;
 	/**

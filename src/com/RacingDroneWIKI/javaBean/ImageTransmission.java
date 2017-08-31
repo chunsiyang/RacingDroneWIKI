@@ -28,7 +28,7 @@ public class ImageTransmission extends Item {
 	 */
 	private Cam cam;
 	/**
-	 * 频率
+	 * 频道数
 	 */
 	private int frequencyQuantity;
 	/**
@@ -64,11 +64,11 @@ public class ImageTransmission extends Item {
 	 */
 	private String antennaConnectors;
 	/**
-	 * 
+	 * 视频带宽
 	 */
 	private String videoBandWidth;
 	/**
-	 * 视频带宽
+	 * 音频带宽
 	 */
 	private String audioCarrierFrequency;
 	/**
