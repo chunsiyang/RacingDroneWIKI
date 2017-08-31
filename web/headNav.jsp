@@ -61,6 +61,11 @@
                 <p>桨叶</p>
             </a>
         </button>
+        <button class="item" onclick="javascript:window.location.href='/bat.list';">
+            <a href="bat.list" >
+                <p>电池</p>
+            </a>
+        </button>
     </nav>
     <form id="searchBar" method="get" action="/search">
         <input id="search" type="text" name="model" placeholder="  输入设备型号搜索...">
