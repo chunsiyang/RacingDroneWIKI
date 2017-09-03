@@ -18,8 +18,8 @@ h4{
     display: inline;
 }
 .mainImg{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
 }
 a{
     text-decoration: none;
@@ -44,7 +44,7 @@ a{
     table-layout : fixed
 }
 .tdImg{
-    width: 110px;
-    height: 110px;
+    width: 160px;
+    height: 160px;
 
 }

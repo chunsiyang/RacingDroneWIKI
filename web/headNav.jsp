@@ -68,7 +68,7 @@
         </button>
     </nav>
     <form id="searchBar" method="get" action="/search">
-        <input id="search" type="text" name="model" placeholder="  输入设备型号搜索...">
+        <input id="search" type="text" name="model" placeholder="  输入设备型号搜索..." value="${param.model}">
         <input id="searchButton" type="submit" value="搜索">
     </form>
 </header>
