@@ -38,5 +38,14 @@ public interface PowerHubDao {
 	 * @return
 	 */
 	List<PowerHub> findByModel(String model);
+	/**
+	 * @return
+	 */
+	List<PowerHub> findAllUseAlone();
 
+	/**
+	 * @param model
+	 * @return
+	 */
+	List<PowerHub> findByModelUseAlone(String model);
 }

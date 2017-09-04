@@ -33,7 +33,7 @@ public class SearchAllReq extends javax.servlet.http.HttpServlet {
         }
         if(url.equals(config.getInitParameter("esc")))
         {
-            List<ElectroSpeedRegulator> list=new ElectroSpeedRegulatorDaoProxy().findAll();
+            List<ElectroSpeedRegulator> list=new ElectroSpeedRegulatorDaoProxy().findAllUseAlone();
             request.setAttribute("electroSpeedRegulatorList",list);
         }
         if(url.equals(config.getInitParameter("fra")))
@@ -43,12 +43,12 @@ public class SearchAllReq extends javax.servlet.http.HttpServlet {
         }
         if(url.equals(config.getInitParameter("it")))
         {
-            List<ImageTransmission> list=new ImageTransmissionDaoProxy().findAll();
+            List<ImageTransmission> list=new ImageTransmissionDaoProxy().findAllUseAlone();
             request.setAttribute("imageTransmissionList",list);
         }
         if(url.equals(config.getInitParameter("cam")))
         {
-            List<Cam> list=new CamDAOProxy().findAll();
+            List<Cam> list=new CamDAOProxy().findAllUseAlone();
             request.setAttribute("camList",list);
         }
         if(url.equals(config.getInitParameter("fc")))
@@ -63,7 +63,7 @@ public class SearchAllReq extends javax.servlet.http.HttpServlet {
         }
         if(url.equals(config.getInitParameter("ph")))
         {
-            List<PowerHub> list=new PowerHubDaoProxy().findAll();
+            List<PowerHub> list=new PowerHubDaoProxy().findAllUseAlone();
             request.setAttribute("powerHubList",list);
         }
         if(url.equals(config.getInitParameter("prop")))

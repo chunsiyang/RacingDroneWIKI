@@ -156,7 +156,7 @@ public class FlightControlDaoImpl implements FlightControlDao {
 					fc.setEsc(null);
 				else
 				{
-					ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoProxy().
+					ElectroSpeedRegulator esc = new ElectroSpeedRegulatorDaoImpl(connection).
 							findByModel(resSet.getString(18)).get(0);
 					fc.setEsc(esc);
 				}

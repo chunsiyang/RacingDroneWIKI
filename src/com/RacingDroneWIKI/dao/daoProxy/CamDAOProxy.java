@@ -43,5 +43,20 @@ public class CamDAOProxy implements CamDao {
 		DatabaseConnection.close();
 		return res;
 	}
+	public List<Cam> findAllUseAlone() {
+		List<Cam> res;
+		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findAllUseAlone();
+		DatabaseConnection.close();
+		return res;
+	}
+
+	public List<Cam> findByModelUseAlone(String model) {
+		List<Cam> res;
+		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findByModelUseAlone(model);
+		DatabaseConnection.close();
+		return res;
+	}
 
 }

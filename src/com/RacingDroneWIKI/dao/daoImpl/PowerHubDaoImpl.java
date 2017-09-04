@@ -183,5 +183,86 @@ public class PowerHubDaoImpl implements PowerHubDao {
 			return null;
 		return result;
 	}
+	@SuppressWarnings("unchecked")
+	public List<PowerHub> findAllUseAlone() {
+		PreparedStatement pstmt;
+		ResultSet resSet;
+		List<PowerHub> result=new LinkedList<>();
+		String sql="SELECT * FROM racingdronewiki.power_hub WHERE ph_use_alone=1;";
+		try {
+			pstmt = (PreparedStatement) connection.prepareStatement(sql);
+			resSet=pstmt.executeQuery();
+			while(resSet.next())
+			{
+				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
+						null, resSet.getString(17),
+						resSet.getBoolean(2), resSet.getFloat(6),
+						resSet.getFloat(7), resSet.getFloat(8),
+						resSet.getFloat(9), resSet.getFloat(10),
+						resSet.getBoolean(11), resSet.getBoolean(12),
+						resSet.getBoolean(13), resSet.getInt(14),
+						resSet.getString(15));
+				Blob inBlob=resSet.getBlob(16);
+				if(inBlob!=null)
+				{
+					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
+					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
+					byte[] buff=new byte[(int) inBlob.length()];
+					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
+					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
+					LinkedList<String> ls=(LinkedList<String>) in.readObject();
+					ph.setExtraPictures(ls);
+				}
+				result.add(ph);
+			}
+		} catch (SQLException | IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		if(!result.iterator().hasNext())
+			return null;
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<PowerHub> findByModelUseAlone(String model) {
+		PreparedStatement pstmt;
+		ResultSet resSet;
+		List<PowerHub> result=new LinkedList<>();
+		String sql="SELECT * FROM racingdronewiki.power_hub WHERE `ph_model`like '%"+model+"%'AND ph_use_alone=1;";
+		try {
+			pstmt = (PreparedStatement) connection.prepareStatement(sql);
+			resSet=pstmt.executeQuery();
+			while(resSet.next())
+			{
+				PowerHub ph=new PowerHub(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
+						null, resSet.getString(17),
+						resSet.getBoolean(2), resSet.getFloat(6),
+						resSet.getFloat(7), resSet.getFloat(8),
+						resSet.getFloat(9), resSet.getFloat(10),
+						resSet.getBoolean(11), resSet.getBoolean(12),
+						resSet.getBoolean(13), resSet.getInt(14),
+						resSet.getString(15));
+				Blob inBlob=resSet.getBlob(16);
+				if(inBlob!=null)
+				{
+					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
+					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
+					byte[] buff=new byte[(int) inBlob.length()];
+					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
+					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
+					LinkedList<String> ls=(LinkedList<String>) in.readObject();
+					ph.setExtraPictures(ls);
+				}
+				result.add(ph);
+			}
+		} catch (SQLException | IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		if(!result.iterator().hasNext())
+			return null;
+		return result;
+	}
 
 }

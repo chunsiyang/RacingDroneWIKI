@@ -228,5 +228,101 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			return null;
 		return result;
 	}
+	public List<ImageTransmission> findAllUseAlone() {
+		PreparedStatement pstmt;
+		ResultSet resSet;
+		List<ImageTransmission> result=new LinkedList<>();
+		String sql="SELECT * FROM racingdronewiki.image_transmission WHERE it_use_alone=1;";
+		try {
+			pstmt = (PreparedStatement) connection.prepareStatement(sql);
+			resSet=pstmt.executeQuery();
+			while(resSet.next())
+			{
+				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
+						null, resSet.getString(28),
+						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
+						resSet.getFloat(8), resSet.getFloat(9), null,
+						resSet.getInt(11), resSet.getBoolean(12),
+						resSet.getBoolean(13), resSet.getBoolean(14),
+						resSet.getBoolean(15), resSet.getString(16),
+						resSet.getString(17), resSet.getString(18),
+						resSet.getString(19), resSet.getString(20),
+						resSet.getString(21), resSet.getString(22),
+						resSet.getString(23), resSet.getString(24),
+						resSet.getString(25), resSet.getString(26));
+				Blob inBlob=resSet.getBlob(27);
+				if(inBlob!=null)
+				{
+					InputStream is=inBlob.getBinaryStream();
+					BufferedInputStream bis=new BufferedInputStream(is);
+					byte[] buff=new byte[(int) inBlob.length()];
+					bis.read(buff, 0, buff.length);
+					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
+					LinkedList<String> ls=(LinkedList<String>) in.readObject();
+					im.setExtraPictures(ls);
+				}
+				if(resSet.getString(10)==null)
+					im.setCam(null);
+				else
+					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
+				result.add(im);
+			}
+		} catch (SQLException | IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		if(!result.iterator().hasNext())
+			return null;
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<ImageTransmission> findByModelUseAlone(String model) {
+		PreparedStatement pstmt;
+		ResultSet resSet;
+		List<ImageTransmission> result=new LinkedList<>();
+		String sql="SELECT * FROM racingdronewiki.image_transmission WHERE `it_model`like '%"+model+"%'AND it_use_alone=1;";
+		try {
+			pstmt = (PreparedStatement) connection.prepareStatement(sql);
+			resSet=pstmt.executeQuery();
+			while(resSet.next())
+			{
+				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
+						resSet.getInt(4), resSet.getString(5),
+						null, resSet.getString(28),
+						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
+						resSet.getFloat(8), resSet.getFloat(9), null,
+						resSet.getInt(11), resSet.getBoolean(12),
+						resSet.getBoolean(13), resSet.getBoolean(14),
+						resSet.getBoolean(15), resSet.getString(16),
+						resSet.getString(17), resSet.getString(18),
+						resSet.getString(19), resSet.getString(20),
+						resSet.getString(21), resSet.getString(22),
+						resSet.getString(23), resSet.getString(24),
+						resSet.getString(25), resSet.getString(26));
+				Blob inBlob=resSet.getBlob(27);
+				if(inBlob!=null)
+				{
+					InputStream is=inBlob.getBinaryStream();
+					BufferedInputStream bis=new BufferedInputStream(is);
+					byte[] buff=new byte[(int) inBlob.length()];
+					bis.read(buff, 0, buff.length);
+					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
+					LinkedList<String> ls=(LinkedList<String>) in.readObject();
+					im.setExtraPictures(ls);
+				}
+				if(resSet.getString(10)==null)
+					im.setCam(null);
+				else
+					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
+				result.add(im);
+			}
+		} catch (SQLException | IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		if(!result.iterator().hasNext())
+			return null;
+		return result;
+	}
 
 }

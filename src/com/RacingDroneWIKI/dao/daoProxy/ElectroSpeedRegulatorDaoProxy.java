@@ -43,5 +43,20 @@ public class ElectroSpeedRegulatorDaoProxy implements ElectroSpeedRegulatorDao {
 		DatabaseConnection.close();
 		return res;
 	}
+	public List<ElectroSpeedRegulator> findAllUseAlone() {
+		List<ElectroSpeedRegulator> res;
+		ElectroSpeedRegulatorDaoImpl ant=new ElectroSpeedRegulatorDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findAllUseAlone();
+		DatabaseConnection.close();
+		return res;
+	}
+
+	public List<ElectroSpeedRegulator> findByModelUseAlone(String model) {
+		List<ElectroSpeedRegulator> res;
+		ElectroSpeedRegulatorDaoImpl ant=new ElectroSpeedRegulatorDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findByModelUseAlone(model);
+		DatabaseConnection.close();
+		return res;
+	}
 
 }

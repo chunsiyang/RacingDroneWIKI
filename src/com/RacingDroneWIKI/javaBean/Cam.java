@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.javaBean;
 
 import java.util.*;
 
-public class Cam extends Item {
+public class Cam extends Item implements Integratable{
 	/**
 	 * 是否可单独使用
 	 */

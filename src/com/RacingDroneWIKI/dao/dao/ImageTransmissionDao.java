@@ -41,5 +41,15 @@ public interface ImageTransmissionDao {
 	 * @return
 	 */
 	List<ImageTransmission> findByModel(String model);
+	/**
+	 * @return
+	 */
+	List<ImageTransmission> findAllUseAlone();
+
+	/**
+	 * @param model
+	 * @return
+	 */
+	List<ImageTransmission> findByModelUseAlone(String model);
 
 }

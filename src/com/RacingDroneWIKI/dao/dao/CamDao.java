@@ -31,11 +31,18 @@ public interface CamDao {
 	 * @return
 	 */
 	List<Cam> findAll();
-
+	/**
+	 * @return
+	 */
+	List<Cam> findAllUseAlone();
 	/**
 	 * @param model
 	 * @return
 	 */
 	List<Cam> findByModel(String model);
-
+	/**
+	 * @param model
+	 * @return
+	 */
+	List<Cam> findByModelUseAlone(String model);
 }

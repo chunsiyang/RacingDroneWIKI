@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.javaBean;
 
 import java.util.*;
 
-public class ElectroSpeedRegulator extends Item {
+public class ElectroSpeedRegulator extends Item implements Integratable{
 	/**
 	 * 可单独使用
 	 */

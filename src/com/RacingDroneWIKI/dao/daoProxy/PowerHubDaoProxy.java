@@ -43,5 +43,20 @@ public class PowerHubDaoProxy implements PowerHubDao {
 		DatabaseConnection.close();
 		return res;
 	}
+	public List<PowerHub> findAllUseAlone() {
+		List<PowerHub> res;
+		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findAllUseAlone();
+		DatabaseConnection.close();
+		return res;
+	}
+
+	public List<PowerHub> findByModelUseAlone(String model) {
+		List<PowerHub> res;
+		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findByModelUseAlone(model);
+		DatabaseConnection.close();
+		return res;
+	}
 
 }

@@ -38,5 +38,15 @@ public interface ElectroSpeedRegulatorDao {
 	 * @return
 	 */
 	List<ElectroSpeedRegulator> findByModel(String model);
+	/**
+	 * @return
+	 */
+	List<ElectroSpeedRegulator> findAllUseAlone();
+
+	/**
+	 * @param model
+	 * @return
+	 */
+	List<ElectroSpeedRegulator> findByModelUseAlone(String model);
 
 }

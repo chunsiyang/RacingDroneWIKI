@@ -56,7 +56,7 @@ public class FlightControl extends Item {
 	 */
 	private int maxGyroUpdata;
 	/**
-	 * 内置电子调速器
+	 * 内置电子调速器00
 	 */
 	private ElectroSpeedRegulator esc;
 	/**

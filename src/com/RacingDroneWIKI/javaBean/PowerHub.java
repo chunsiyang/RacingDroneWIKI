@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.javaBean;
 
 import java.util.*;
 
-public class PowerHub extends Item {
+public class PowerHub extends Item implements Integratable{
 	/**
 	 * 可单独使用
 	 */

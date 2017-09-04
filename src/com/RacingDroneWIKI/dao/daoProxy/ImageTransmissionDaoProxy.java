@@ -43,5 +43,20 @@ public class ImageTransmissionDaoProxy implements ImageTransmissionDao {
 		DatabaseConnection.close();
 		return res;
 	}
+	public List<ImageTransmission> findAllUseAlone() {
+		List<ImageTransmission> res;
+		ImageTransmissionDaoImpl ant=new ImageTransmissionDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findAllUseAlone();
+		DatabaseConnection.close();
+		return res;
+	}
+
+	public List<ImageTransmission> findByModelUseAlone(String model) {
+		List<ImageTransmission> res;
+		ImageTransmissionDaoImpl ant=new ImageTransmissionDaoImpl(DatabaseConnection.getConnection());
+		res=ant.findByModelUseAlone(model);
+		DatabaseConnection.close();
+		return res;
+	}
 
 }

@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.javaBean;
 
 import java.util.*;
 
-public class ImageTransmission extends Item {
+public class ImageTransmission extends Item implements Integratable{
 	/**
 	 * 可单独使用
 	 */
