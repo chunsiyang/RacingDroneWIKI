@@ -5,7 +5,7 @@
          version="3.1">
     <servlet>
         <servlet-name>SearchAllReq</servlet-name>
-        <servlet-class>com.RacingDroneWILI.servlet.SearchAllReq</servlet-class>
+        <servlet-class>com.RacingDroneWIKI.servlet.SearchAllReq</servlet-class>
         <init-param>
             <param-name>moto</param-name>
             <param-value>/moto.list</param-value>
@@ -53,10 +53,18 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>SearchByModel</servlet-name>
-        <servlet-class>com.RacingDroneWILI.servlet.SearchByModel</servlet-class>
+        <servlet-class>com.RacingDroneWIKI.servlet.SearchByModel</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchByModel</servlet-name>
         <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Detail</servlet-name>
+        <servlet-class>com.RacingDroneWIKI.servlet.Detail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Detail</servlet-name>
+        <url-pattern>/detail</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,4 +1,4 @@
-package com.RacingDroneWILI.servlet;
+package com.RacingDroneWIKI.servlet;
 
 import com.RacingDroneWIKI.dao.daoProxy.*;
 import com.RacingDroneWIKI.javaBean.*;

@@ -10,8 +10,8 @@
     <button id="back" onclick="javascript:history.back(-1);" title="返回">
         <P>&nbsp;&lt;&nbsp;</P>
     </button>
-    <button id="home" title="返回首页" onclick="javascript:window.location.href='/index.html';">
-        <a href="index.html">
+    <button id="home" title="返回首页" onclick="javascript:window.location.href='../index.html';">
+        <a href="/index.html">
             <P>首页</P>
         </a>
     </button>
@@ -68,7 +68,7 @@
         </button>
     </nav>
     <form id="searchBar" method="get" action="/search">
-        <input id="search" type="text" name="model" placeholder="  输入设备型号搜索..." value="${param.model}">
+        <input id="search" type="text" name="model" placeholder="  输入设备型号搜索..." value="${param.models}">
         <input id="searchButton" type="submit" value="搜索">
     </form>
 </header>
