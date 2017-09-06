@@ -13,8 +13,11 @@ section {
 section img {
     position: relative;
     float: right;
-    width: 30%;
+    width: 40%;
     clear: right;
+    border: 1px;
+    border-style: solid;
+    border-color: gray;
 }
 
 section h2 {
