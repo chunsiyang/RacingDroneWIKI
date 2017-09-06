@@ -14,11 +14,12 @@ public class Detail extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
         String item=request.getParameter("item");
         String model=request.getParameter("model");
+        System.out.println(item);
+        System.out.println(model);
         if(item.equals("moto"))
         {
             request.setAttribute("item",new MotoDAOProxy().findByModel(model).get(0));
             request.getRequestDispatcher("/item/moto.jsp").forward(request,response);
-            System.out.println("123"+new MotoDAOProxy().findByModel(model).get(0).getEfficacyChart());
         }
         if(item.equals("esc"))
         {
