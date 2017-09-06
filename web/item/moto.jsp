@@ -10,30 +10,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/headNav.css">
-    <link type="text/css" rel="stylesheet" href="/item/item.css">
+    <link type="text/css" rel="stylesheet" href="../headNav.css">
+    <link type="text/css" rel="stylesheet" href="../item/item.css">
     <style>
-        body {
-            padding: 0px;
-            margin: 0px;
+
+        #effcha tr:nth-child(odd) {
+            background-color: darkgray;
         }
-        section{
-            padding-left: 20px;
-            width: 80%;
-            margin: auto;
+        #effcha th{
             background-color: lightgray;
         }
-        img{
-            position: relative;
-            float: right;
-            width: 30%;
-            clear: right;
-        }
-        h2{
-            padding: 20px;
-        }
-        footer{
-            clear: right;
+
+        #effcha {
+            margin: auto;
+            width: 80%;
+            text-align: center;
+
         }
     </style>
     <title>竞速无人机资料库</title>
@@ -63,16 +55,16 @@
     <footer>
         <C:if test="${item.efficacyChart!=null}">
             <h4>力效表</h4>
-            <table>
+            <table id="effcha" border="5px">
                 <tr>
-                    <th>桨叶</th>
-                    <th>电压</th>
-                    <th>油门</th>
-                    <th>负载电流</th>
-                    <th>推力</th>
-                    <th>功率</th>
-                    <th>力效</th>
-                    <th>温度</th>
+                    <th>桨叶（寸）</th>
+                    <th>电压（V）</th>
+                    <th>油门（%）</th>
+                    <th>负载电流（A）</th>
+                    <th>推力（g）</th>
+                    <th>功率（W）</th>
+                    <th>力效（g/W）</th>
+                    <th>温度（℃）</th>
                 </tr>
                 <C:forEach items="${item.efficacyChart}" var="ec">
                     <tr>
@@ -94,13 +86,16 @@
                     </tr>
                 </C:forEach>
             </table>
+            <br>
         </C:if>
         <p>${item.caption}</p>
         <C:if test="${item.extraPictures!=null}">
+            <br>
             <C:forEach items="${item.extraPictures}" var="expic">
-                <img id="expImg" src="img/${expic}"/>
+                <img class="expImg" src="img/${expic}"/>
             </C:forEach>
         </C:if>
+        <br>
     </footer>
 </section>
 </body>
