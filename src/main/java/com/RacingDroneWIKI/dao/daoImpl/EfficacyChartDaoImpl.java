@@ -117,7 +117,7 @@ public class EfficacyChartDaoImpl implements EfficacyChartDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<EfficacyChart> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.efficacy_chart WHERE `efct_id`like '%"+model+"%';";
+		String sql="SELECT * FROM racingdronewiki.efficacy_chart WHERE `moto_model`= '"+model+"';";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();
