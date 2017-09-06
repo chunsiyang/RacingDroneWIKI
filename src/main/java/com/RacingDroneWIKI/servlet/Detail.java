@@ -18,6 +18,7 @@ public class Detail extends javax.servlet.http.HttpServlet {
         {
             request.setAttribute("item",new MotoDAOProxy().findByModel(model).get(0));
             request.getRequestDispatcher("/item/moto.jsp").forward(request,response);
+            System.out.println("123"+new MotoDAOProxy().findByModel(model).get(0).getEfficacyChart());
         }
         if(item.equals("esc"))
         {
