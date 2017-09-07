@@ -19,7 +19,7 @@
     <jsp:param name="model" value="${param.model}"/>
 </jsp:include>
 <section>
-    <img src="img/${item.imgUrl}"/>
+    <img id="mainImg" src="img/${item.imgUrl}"/>
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
@@ -43,12 +43,14 @@
         <C:if test="${item.extraPictures!=null}">
             <br>
             <C:forEach items="${item.extraPictures}" var="expic">
-                <img id="expImg" src="img/${expic}"/>
+                <div class="expImgDiv">
+                    <img class="expImg" src="img/${expic}"/>
+                </div>
             </C:forEach>
         </C:if>
         <br>
     </section>
 </section>
-<%@include file="../foot.html"%>
+<%@include file="../foot.html" %>
 </body>
 </html>
