@@ -74,7 +74,21 @@
             <p>9V BEC供电：<bTs:BoolToString bool="${item.integratedPh.bec9v}"/></p>
         </C:if>
         <C:if test="${item.integratedPh.bec12v}">
-            <p>12V BEC供电：<bTs:BoolToString bool="${item.integratedPh.bec12v}"/></p
+            <p>12V BEC供电：<bTs:BoolToString bool="${item.integratedPh.bec12v}"/></p>
+        </C:if>
+        <C:if test="${item.integratedPh.pinDefinitionDiagram!=null}">
+            <h4>引脚定义图：</h4>
+            <div class="expImgDiv">
+                <img class="expImg" src="img/${item.integratedPh.pinDefinitionDiagram}"/>
+            </div>
+        </C:if>
+        <C:if test="${item.integratedPh.extraPictures!=null}">
+            <br>
+            <C:forEach items="${item.integratedPh.extraPictures}" var="expic">
+                <div class="expImgDiv">
+                    <img class="expImg" src="img/${expic}"/>
+                </div>
+            </C:forEach>
         </C:if>
     </C:if>
     <section id="other">
