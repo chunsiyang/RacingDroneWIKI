@@ -191,6 +191,14 @@
                 <img class="expImg" src="img/${item.pinDefinitionDiagram}"/>
             </div>
         </C:if>
+        <C:if test="${item.powerHub!=null}">
+            <C:if test="${item.powerHub.pinDefinitionDiagram!=null}">
+                <h4>分电板针脚定义图：</h4>
+                <div class="expImgDiv">
+                    <img class="expImg" src="img/${item.powerHub.pinDefinitionDiagram}"/>
+                </div>
+            </C:if>
+        </C:if>
         <C:if test="${item.imageTransmission!=null}">
             <C:if test="${item.imageTransmission.pinDefinitionDiagram!=null}">
                 <h4>图传针脚定义图：</h4>
@@ -200,8 +208,15 @@
             </C:if>
         </C:if>
         <p>${item.caption}</p>
-        <p>${item.esc.caption}</p>
-        <p>${item.imageTransmission.caption}</p>
+        <C:if test="${item.powerHub!=null}">
+            <p>${item.powerHub.caption}</p>
+        </C:if>
+        <C:if test="${item.esc!=null}">
+            <p>${item.esc.caption}</p>
+        </C:if>
+        <C:if test="${item.imageTransmission!=null}">
+            <p>${item.imageTransmission.caption}</p>
+        </C:if>
         <C:if test="${item.extraPictures!=null}">
             <br>
             <C:forEach items="${item.extraPictures}" var="expic">
@@ -209,6 +224,16 @@
                     <img class="expImg" src="img/${expic}"/>
                 </div>
             </C:forEach>
+        </C:if>
+        <C:if test="${item.powerHub!=null}">
+            <C:if test="${item.powerHub.extraPictures!=null}">
+                <br>
+                <C:forEach items="${item.powerHub.extraPictures}" var="expic">
+                    <div class="expImgDiv">
+                        <img class="expImg" src="img/${expic}"/>
+                    </div>
+                </C:forEach>
+            </C:if>
         </C:if>
         <C:if test="${item.esc!=null}">
             <C:if test="${item.esc.extraPictures!=null}">
