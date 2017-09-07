@@ -38,7 +38,7 @@
     <p>推荐充电电流：${item.recommendedChargingCurrent}A</p>
     <p>最大充电电流：${item.maximumChargeCurrent}A</p>
     <br>
-    <footer>
+    <section id="other">
         <p>${item.caption}</p>
         <C:if test="${item.extraPictures!=null}">
             <br>
@@ -47,7 +47,8 @@
             </C:forEach>
         </C:if>
         <br>
-    </footer>
+    </section>
 </section>
+<%@include file="../foot.html"%>
 </body>
 </html>

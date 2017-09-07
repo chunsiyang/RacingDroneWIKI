@@ -32,6 +32,9 @@ section h4 {
     width: 90%;
 }
 
-footer {
+#other {
     clear: right;
+}
+#main{
+    min-height: 90%;
 }

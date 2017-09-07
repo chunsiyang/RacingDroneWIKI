@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:jsp="http://java.sun.com/jsf/facelets">
 <head>
     <meta charset="UTF-8">
     <title>竞速无人机资料库</title>
@@ -43,6 +43,7 @@
                 <p>摄像头</p>
             </a>
         </button>
+        <br>
         <button class="item" onclick="javascript:window.location.href='/fc.list';">
             <a href="/fc.list" >
                 <img src="img/fc.jpg" class="itemImg"/>
@@ -74,6 +75,7 @@
             </a>
         </button>
     </nav>
+    <%@include file="foot.html"%>
 </section>
 </body>
 </html>

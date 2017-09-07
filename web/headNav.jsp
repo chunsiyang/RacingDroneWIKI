@@ -10,8 +10,8 @@
     <button id="back" onclick="javascript:history.back(-1);" title="返回">
         <P>&nbsp;&lt;&nbsp;</P>
     </button>
-    <button id="home" title="返回首页" onclick="javascript:window.location.href='../index.html';">
-        <a href="/index.html">
+    <button id="home" title="返回首页" onclick="javascript:window.location.href='index.jsp';">
+        <a href="/index.jsp">
             <P>首页</P>
         </a>
     </button>

@@ -48,3 +48,6 @@ a{
     height: 160px;
 
 }
+body div{
+    min-height: 90%
+}
