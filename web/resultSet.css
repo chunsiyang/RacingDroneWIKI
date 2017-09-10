@@ -51,3 +51,6 @@ a{
 body div{
     min-height: 90%
 }
+#noInfo{
+    text-align: center;
+}

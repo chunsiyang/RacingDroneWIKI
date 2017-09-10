@@ -20,6 +20,13 @@
         <jsp:param name="models" value="${param.model}"/>
     </jsp:include>
     <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+    <C:if test="${motoList==null&&electroSpeedRegulatorList==null&&
+                frameList==null&&imageTransmissionList==null&&
+                camList==null&&flightControlList==null&&
+                antennaList==null&&powerHubList==null&&
+                propList==null&&batteryList==null}">
+        <p id="noInfo">暂无搜索结果</p>
+    </C:if>
     <!--无刷电机-->
     <section>
         <C:if test="${motoList!=null}">
