@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
    private final static String DBDRIVER="com.mysql.jdbc.Driver";
-   private static final String DBURL="jdbc:mysql://127.0.0.1:3306/racingdronewiki?characterEncoding=utf-8";
-   //private static final String DBURL="jdbc:mysql://47.95.225.180:3306/racingdronewiki?characterEncoding=utf-8";
+   private static final String DBURL="jdbc:mysql://47.95.225.180:3306/racingdronewiki?characterEncoding=utf-8";
    private static final String DBUSER="root";
-   //private static final String DBPASS="uAiqwVwjJ8-i";
-   private static final String DBPASS="";
+   private static final String DBPASS="uAiqwVwjJ8-i";
+	//private static final String DBURL="jdbc:mysql://127.0.0.1:3306/racingdronewiki?characterEncoding=utf-8";
+   //private static final String DBPASS="";
    private static java.sql.Connection connection;
    private DatabaseConnection() {
 		super();
