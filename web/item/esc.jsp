@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="/headNav.jsp">
-    <jsp:param name="model" value="${param.model}"/>
+    <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
     <img id="mainImg" src="img/${item.imgUrl}"/>
@@ -40,7 +40,7 @@
     <p>mutishot输入模式：<bTs:BoolToString bool="${item.mutishot}"/></p>
     <p>dshot输入模式：<bTs:BoolToString bool="${item.dshot}"/></p>
     <br>
-    <section id="other">
+    <div id="other">
         <p>${item.caption}</p>
         <C:if test="${item.extraPictures!=null}">
             <br>
@@ -51,7 +51,7 @@
             </C:forEach>
         </C:if>
         <br>
-    </section>
+    </div>
 </section>
 <%@include file="../foot.html" %>
 </body>

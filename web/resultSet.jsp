@@ -1,5 +1,4 @@
-<%@ page import="java.util.Iterator" %>
-<%@ page import="com.RacingDroneWIKI.javaBean.Moto" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: asus-pc
   Date: 2017/8/27
@@ -17,7 +16,7 @@
 <body>
 <div>
     <jsp:include page="headNav.jsp">
-        <jsp:param name="models" value="${param.model}"/>
+        <jsp:param name="searchModel" value="${param.searchModel}"/>
     </jsp:include>
     <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
     <C:if test="${motoList==null&&electroSpeedRegulatorList==null&&

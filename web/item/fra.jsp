@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="/headNav.jsp">
-    <jsp:param name="model" value="${param.model}"/>
+    <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
     <img id="mainImg" src="img/${item.imgUrl}"/>
@@ -91,7 +91,7 @@
             </C:forEach>
         </C:if>
     </C:if>
-    <section id="other">
+    <div id="other">
         <p>${item.caption}</p>
         <C:if test="${item.extraPictures!=null}">
             <br>
@@ -102,7 +102,7 @@
             </C:forEach>
         </C:if>
         <br>
-    </section>
+    </div>
 </section>
 <%@include file="../foot.html" %>
 </body>

@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="/headNav.jsp">
-    <jsp:param name="model" value="${param.model}"/>
+    <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
     <img id="mainImg" src="img/${item.imgUrl}"/>
@@ -34,7 +34,7 @@
     <p>12V BEC供电：<bTs:BoolToString bool="${item.bec12v}"/></p>
     <p>最大电流：${item.maxCurrent}A</p>
     <br>
-    <section id="other">
+    <div id="other">
         <C:if test="${item.pinDefinitionDiagram!=null}">
             <h4>引脚定义图：</h4>
             <div class="expImgDiv">
@@ -51,7 +51,7 @@
             </C:forEach>
         </C:if>
         <br>
-    </section>
+    </div>
 </section>
 <%@include file="../foot.html" %>
 </body>

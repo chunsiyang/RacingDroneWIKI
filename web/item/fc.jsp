@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="/headNav.jsp">
-    <jsp:param name="model" value="${param.model}"/>
+    <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
     <img id="mainImg" src="img/${item.imgUrl}"/>
@@ -184,7 +184,7 @@
         </C:if>
     </C:if>
     <br>
-    <section id="other">
+    <div id="other">
         <C:if test="${item.pinDefintionDiagram!=null}">
             <h4>飞控针脚定义图：</h4>
             <div class="expImgDiv">
@@ -256,7 +256,7 @@
             </C:if>
         </C:if>
         <br>
-    </section>
+    </div>
 </section>
 <%@include file="../foot.html" %>
 </body>

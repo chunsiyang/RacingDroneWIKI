@@ -33,7 +33,7 @@
 </head>
 <body>
 <jsp:include page="/headNav.jsp">
-    <jsp:param name="model" value="${param.model}"/>
+    <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
     <img id="mainImg" src="img/${item.imgUrl}"/>
@@ -53,7 +53,7 @@
     <p>最大推力：${item.maxThrust}g</p>
     <p>可装桨叶尺寸：${item.propeller}寸</p>
     <br>
-    <section id="other">
+    <div id="other">
         <C:if test="${item.efficacyChart!=null}">
             <h4>力效表</h4>
             <table id="effcha" border="5px">
@@ -99,7 +99,7 @@
             </C:forEach>
         </C:if>
         <br>
-    </section>
+    </div>
 </section>
 <%@include file="../foot.html" %>
 </body>
