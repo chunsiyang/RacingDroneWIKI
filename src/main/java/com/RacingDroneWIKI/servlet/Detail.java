@@ -12,6 +12,8 @@ import java.io.IOException;
  */
 public class Detail extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String item=request.getParameter("item");
         String model=request.getParameter("model");
         if(item.equals("moto"))

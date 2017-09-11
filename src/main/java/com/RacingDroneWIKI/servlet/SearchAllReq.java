@@ -14,6 +14,8 @@ import java.util.List;
  */
 public class SearchAllReq extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String url=request.getRequestURI().toString();
         ServletConfig config= getServletConfig();
         request.setAttribute("motoList",null);

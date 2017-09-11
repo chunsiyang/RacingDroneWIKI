@@ -22,7 +22,14 @@ public class SearchByModel extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String model=request.getParameter("model");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String model=request.getParameter("searchModel");
+        /*
+        String url=java.net.URLEncoder.encode(model, "utf-8");
+        url=url.replaceAll("%","-");
+        System.out.println(url);
+        */
         List<Moto> motoList=new MotoDAOProxy().findByModel(model);
         List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorDaoProxy().findByModelUseAlone(model);
         List<Frame> frameList =new FrameDaoProxy().findByModel(model);
