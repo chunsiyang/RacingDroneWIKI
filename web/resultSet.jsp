@@ -19,6 +19,7 @@
         <jsp:param name="searchModel" value="${param.searchModel}"/>
     </jsp:include>
     <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="changKW" uri="http://RacingDroneWIKI.com" %>
     <C:if test="${motoList==null&&electroSpeedRegulatorList==null&&
                 frameList==null&&imageTransmissionList==null&&
                 camList==null&&flightControlList==null&&
@@ -41,7 +42,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.model}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -107,7 +108,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -172,7 +173,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -238,7 +239,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -304,7 +305,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -369,7 +370,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -435,7 +436,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -501,7 +502,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -556,7 +557,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -611,7 +612,7 @@
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4>${item.getModel()}</h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
