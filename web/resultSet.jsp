@@ -265,10 +265,10 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p>输入电压：${item.getInputVoltage()}A</p>
+                                            <p>输入电压：${item.getInputVoltage()}V</p>
                                         </td>
                                         <td>
-                                            <p>输出电压：${item.getOutputVoltage()}A</p>
+                                            <p>输出电压：${item.getOutputVoltage()}V</p>
                                         </td>
                                         <td>
 
