@@ -35,7 +35,9 @@ public class KeywordDiscoloration extends SimpleTagSupport {
         JspContext context=getJspContext();
         JspWriter out=context.getOut();
         String temp=title;
+        keyWord=keyWord.toUpperCase();
         String replacement="<P style=\"color:red;display: inline;\">"+keyWord+"</P>";
-        temp=temp.replaceAll(keyWord,replacement);
+        temp=temp.replaceAll("(?i)"+keyWord,replacement);
+        out.print(temp);
     }
 }

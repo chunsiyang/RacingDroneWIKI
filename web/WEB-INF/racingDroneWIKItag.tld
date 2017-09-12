@@ -20,4 +20,19 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>KeywordDiscoloration</name>
+        <tag-class>com.RacingDroneWIKI.taglibs.KeywordDiscoloration</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>keyWord</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>title</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>
