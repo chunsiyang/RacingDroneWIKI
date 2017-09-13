@@ -12,6 +12,7 @@
         <input id="search" type="text" name="searchModel" placeholder="  输入设备型号搜索...">
         <input id="searchButton" type="submit" value="搜索">
     </form>
+
     <nav>
         <button class="item" onclick="javascript:window.location.href='/moto.list';" >
             <a href="/moto.list" >
