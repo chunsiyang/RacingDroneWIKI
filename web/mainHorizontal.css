@@ -59,7 +59,9 @@ form{
     padding: 0px;
     background-color: cornflowerblue;
     color: white;
-    border-color: cornflowerblue;
+    border:none;
+    -webkit-appearance: none;
+
 }
 nav{
     padding: 2%;
