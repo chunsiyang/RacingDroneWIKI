@@ -26,7 +26,7 @@
     <p>重量：${item.weight} g</p>
     <p>叶片数：${item.bladeNumber}</p>
     <p>尺寸：${item.size}</p>
-    <p>安装孔距：${item.mountingHoleSpacing}</p>
+    <p>安装孔距：${item.mountingHoleSpacing} mm</p>
     <p>材料：${item.material}</p>
     <br>
     <div id="other">
