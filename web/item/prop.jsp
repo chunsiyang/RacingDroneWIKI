@@ -23,7 +23,7 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
+    <p>重量：${item.weight} g</p>
     <p>叶片数：${item.bladeNumber}</p>
     <p>尺寸：${item.size}</p>
     <p>安装孔距：${item.mountingHoleSpacing}</p>

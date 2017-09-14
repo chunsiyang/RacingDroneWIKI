@@ -29,7 +29,7 @@
     <p>宽度：${item.width}mm</p>
     <p>厚度：${item.thickness}mm</p>
     <p>输入电压：${item.inputVoltages}V</p>
-    <p>水平分辨率：${item.horizontalResolustion}</p>
+    <p>水平分辨率：${item.horizontalResolustion}TVL</p>
     <p>结成OSD：<bTs:BoolToString bool="${item.integratedOsd}"/></p>
     <p>集成MIC：<bTs:BoolToString bool="${item.integratedMic}"/></p>
     <p>自动增益：<bTs:BoolToString bool="${item.autoGainControl}"/></p>
@@ -44,13 +44,13 @@
         <p>信号制式：${item.signalSystem}</p>
     </C:if>
     <C:if test="${item.snRatio!=null}">
-        <p>信噪比：${item.snRatio}</p>
+        <p>信噪比：${item.snRatio} dB</p>
     </C:if>
     <C:if test="${item.electronicShutterSpeed!=null}">
         <p>电子快门速度：${item.electronicShutterSpeed}</p>
     </C:if>
     <C:if test="${item.minIllumination!=null}">
-        <p>最低照度：${item.minIllumination}</p>
+        <p>最低照度：${item.minIllumination} Lux/F</p>
     </C:if>
     <C:if test="${item.wdr!=null}">
         <p>宽动态：${item.wdr}</p>

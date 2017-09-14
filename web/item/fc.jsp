@@ -28,7 +28,7 @@
     <p>长度：${item.length}mm</p>
     <p>宽度：${item.width}mm</p>
     <p>厚度：${item.thickness}mm</p>
-    <p>安装孔间距：${item.mountingHoleSpacing}mm</p>
+    <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
     <p>SD卡支持：<bTs:BoolToString bool="${item.sdcard}"/></p>
     <p>BOOT按键：<bTs:BoolToString bool="${item.bootButton}"/></p>
     <p>内置OSD：<bTs:BoolToString bool="${item.osd}"/></p>
@@ -40,31 +40,31 @@
         <p>mpu：${item.mpu}</p>
     </C:if>
     <C:if test="${item.maxPidLoopFrequancy!=0}">
-        <p>最大PID刷新率：${item.maxPidLoopFrequancy}Khz</p>
+        <p>最大PID刷新率：${item.maxPidLoopFrequancy} Khz</p>
     </C:if>
     <C:if test="${item.maxGyroUpdata!=0}">
-        <p>最大陀螺仪刷新率：${item.maxGyroUpdata}Khz</p>
+        <p>最大陀螺仪刷新率：${item.maxGyroUpdata} Khz</p>
     </C:if>
     <!--内置分电板!-->
     <C:if test="${item.powerHub!=null}">
         <h4>内置分电板：</h4>
         <C:if test="${item.powerHub.weight!=0}">
-            <p>重量：${item.powerHub.weight}g</p>
+            <p>重量：${item.powerHub.weight} g</p>
         </C:if>
         <C:if test="${item.powerHub.length!=0}">
-            <p>长度：${item.powerHub.length}mm</p>
+            <p>长度：${item.powerHub.length} mm</p>
         </C:if>
         <C:if test="${item.powerHub.width!=0}">
-            <p>宽度：${item.powerHub.width}mm</p>
+            <p>宽度：${item.powerHub.width} mm</p>
         </C:if>
         <C:if test="${item.powerHub.thickness!=0}">
-            <p>厚度：${item.powerHub.thickness}mm</p>
+            <p>厚度：${item.powerHub.thickness} mm</p>
         </C:if>
         <C:if test="${item.powerHub.mountingHoleSpacing!=0}">
-            <p>安装孔间距：${item.powerHub.mountingHoleSpacing}mm</p>
+            <p>安装孔间距：${item.powerHub.mountingHoleSpacing} mm</p>
         </C:if>
         <C:if test="${item.powerHub.maxCurrent!=0}">
-            <<p>最大电流：${item.powerHub.maxCurrent}A</p>
+            <<p>最大电流：${item.powerHub.maxCurrent} A</p>
         </C:if>
         <C:if test="${item.powerHub.bec5v}">
             <p>5V BEC供电：<bTs:BoolToString bool="${item.powerHub.bec5v}"/></p>
@@ -80,16 +80,16 @@
     <C:if test="${item.esc!=null}">
         <h4>内置电调</h4>
         <C:if test="${item.esc.weight!=0}">
-            <p>重量：${item.esc.weight}g</p>
+            <p>重量：${item.esc.weight} g</p>
         </C:if>
         <C:if test="${item.esc.length!=0}">
-            <p>长度：${item.esc.length}mm</p>
+            <p>长度：${item.esc.length} mm</p>
         </C:if>
         <C:if test="${item.esc.width!=0}">
-            <p>宽度：${item.esc.width}mm</p>
+            <p>宽度：${item.esc.width} mm</p>
         </C:if>
         <C:if test="${item.esc.thickness!=0}">
-            <p>厚度：${item.esc.thickness}mm</p>
+            <p>厚度：${item.esc.thickness} mm</p>
         </C:if>
         <C:if test="${item.esc.noOfCells!=null}">
             <p>支持锂电池电芯片数：${item.esc.noOfCells}S</p>

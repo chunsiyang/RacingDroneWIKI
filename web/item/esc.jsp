@@ -24,13 +24,13 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
-    <p>宽度：${item.width}mm</p>
-    <p>厚度：${item.thickness}mm</p>
-    <p>支持锂电池电芯片数：${item.noOfCells}S</p>
-    <p>持续工作电流：${item.persistentCurrent}A</p>
-    <p>瞬时工作电流：${item.instantaneousCurrent}A</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
+    <p>宽度：${item.width} mm</p>
+    <p>厚度：${item.thickness} mm</p>
+    <p>支持锂电池电芯片数：${item.noOfCells} S</p>
+    <p>持续工作电流：${item.persistentCurrent} A</p>
+    <p>瞬时工作电流：${item.instantaneousCurrent} A</p>
     <p>固件：${item.firmware}</p>
     <p>主控制芯片：${item.controlChip}</p>
     <p>四合一集成电调：<bTs:BoolToString bool="${item.fourInone}"/></p>

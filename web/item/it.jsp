@@ -33,22 +33,22 @@
     <p>音频支持：<bTs:BoolToString bool="${item.audioSupport}"/></p>
     <p>内置收音器：<bTs:BoolToString bool="${item.integratedMic}"/></p>
     <p>功率可调：<bTs:BoolToString bool="${item.powerAdjustable}"/></p>
-    <p>频道数：${item.frequencyQuantity}</p>
-    <p>输出功率：${item.outputPower}mW</p>
+    <p>频道数：${item.frequencyQuantity} CH</p>
+    <p>输出功率：${item.outputPower} mW</p>
     <C:if test="${item.inputVoltage!=null}">
-        <p>输入电压：${item.inputVoltage}V</p>
+        <p>输入电压：${item.inputVoltage} V</p>
     </C:if>
     <C:if test="${item.outputVoltage!=null}">
-        <p>输出电压：${item.outputVoltage}V</p>
+        <p>输出电压：${item.outputVoltage} V</p>
     </C:if>
     <C:if test="${item.antennaConnectors!=null}">
         <p>天线接头：${item.antennaConnectors}</p>
     </C:if>
     <C:if test="${item.videoBandWidth!=null}">
-        <p>视频带宽：${item.videoBandWidth}MHz</p>
+        <p>视频带宽：${item.videoBandWidth} MHz</p>
     </C:if>
     <C:if test="${item.audioCarrierFrequency!=null}">
-        <P>音频带宽：${item.audioCarrierFrequency}MHz</P>
+        <P>音频带宽：${item.audioCarrierFrequency} MHz</P>
     </C:if>
     <C:if test="${item.videoInputLevel!=null}">
         <p>视频输入电平：${item.videoInputLevel} Vp-p</p>
@@ -101,13 +101,13 @@
             <p>信号制式：${item.cam.signalSystem}</p>
         </C:if>
         <C:if test="${item.cam.snRatio!=null}">
-            <p>信噪比：${item.cam.snRatio}</p>
+            <p>信噪比：${item.cam.snRatio} dB</p>
         </C:if>
         <C:if test="${item.cam.electronicShutterSpeed!=null}">
             <p>电子快门速度：${item.cam.electronicShutterSpeed}</p>
         </C:if>
         <C:if test="${item.cam.minIllumination!=null}">
-            <p>最低照度：${item.cam.minIllumination}</p>
+            <p>最低照度：${item.cam.minIllumination} Lux/F</p>
         </C:if>
         <C:if test="${item.cam.wdr!=null}">
             <p>宽动态：${item.cam.wdr}</p>

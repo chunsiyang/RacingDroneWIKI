@@ -24,15 +24,15 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
-    <p>宽度：${item.width}mm</p>
-    <p>厚度：${item.thickness}mm</p>
-    <p>安装孔间距：${item.mountingHoleSpacing}mm</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
+    <p>宽度：${item.width} mm</p>
+    <p>厚度：${item.thickness} mm</p>
+    <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
     <p>5V BEC供电：<bTs:BoolToString bool="${item.bec5v}"/></p>
     <p>9V BEC供电：<bTs:BoolToString bool="${item.bec9v}"/></p>
     <p>12V BEC供电：<bTs:BoolToString bool="${item.bec12v}"/></p>
-    <p>最大电流：${item.maxCurrent}A</p>
+    <p>最大电流：${item.maxCurrent} A</p>
     <br>
     <div id="other">
         <C:if test="${item.pinDefinitionDiagram!=null}">

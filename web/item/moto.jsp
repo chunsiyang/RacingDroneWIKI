@@ -40,18 +40,18 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>KV值：${item.kv}</p>
-    <p>定子长度:${item.statorLength}mm</p>
-    <p>定子直径:${item.statorDiameter}</p>
-    <p>轴径:${item.shaftDiameter}mm</p>
-    <p>重量：${item.weight}g</p>
-    <p>直径：${item.diameter}mm</p>
-    <p>长度：${item.diameter}mm</p>
-    <p>空载电流：${item.idleCurrent}A</p>
-    <P>内阻：${item.internalRestance}Ω</P>
-    <p>支持锂电池节数：${item.noOfCells}s</p>
-    <p>最大推力：${item.maxThrust}g</p>
-    <p>可装桨叶尺寸：${item.propeller}寸</p>
+    <p>KV值：${item.kv} KV</p>
+    <p>定子长度:${item.statorLength} mm</p>
+    <p>定子直径:${item.statorDiameter} mm</p>
+    <p>轴径:${item.shaftDiameter} mm</p>
+    <p>重量：${item.weight} g</p>
+    <p>直径：${item.diameter} mm</p>
+    <p>长度：${item.diameter} mm</p>
+    <p>空载电流：${item.idleCurrent} A</p>
+    <P>内阻：${item.internalRestance} Ω</P>
+    <p>支持锂电池节数：${item.noOfCells} s</p>
+    <p>最大推力：${item.maxThrust} g</p>
+    <p>可装桨叶尺寸：${item.propeller} 寸</p>
     <br>
     <div id="other">
         <C:if test="${item.efficacyChart!=null}">

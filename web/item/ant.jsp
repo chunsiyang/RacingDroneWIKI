@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<
 <head>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="/headNav.css">
@@ -27,7 +26,7 @@
     <p>重量：${item.weight}g</p>
     <p>长度：${item.length}mm</p>
     <p>天线插头：${item.connectors}</p>
-    <p>天线频率：${item.frequency}Hz</p>
+    <p>天线频率：${item.frequency} Hz</p>
     <p>增益：${item.gain}</p>
     <p>轴比：${item.axialRatic}</p>
     <p>极化方式：${item.polarization}</p>
