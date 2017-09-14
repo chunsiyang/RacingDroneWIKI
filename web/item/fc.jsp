@@ -24,10 +24,10 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
-    <p>宽度：${item.width}mm</p>
-    <p>厚度：${item.thickness}mm</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
+    <p>宽度：${item.width} mm</p>
+    <p>厚度：${item.thickness} mm</p>
     <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
     <p>SD卡支持：<bTs:BoolToString bool="${item.sdcard}"/></p>
     <p>BOOT按键：<bTs:BoolToString bool="${item.bootButton}"/></p>
@@ -92,13 +92,13 @@
             <p>厚度：${item.esc.thickness} mm</p>
         </C:if>
         <C:if test="${item.esc.noOfCells!=null}">
-            <p>支持锂电池电芯片数：${item.esc.noOfCells}S</p>
+            <p>支持锂电池电芯片数：${item.esc.noOfCells} S</p>
         </C:if>
         <C:if test="${item.esc.persistentCurrent!=null}">
-            <p>持续工作电流：${item.esc.persistentCurrent}A</p>
+            <p>持续工作电流：${item.esc.persistentCurrent} A</p>
         </C:if>
         <C:if test="${item.esc.instantaneousCurrent!=null}">
-            <p>瞬时工作电流：${item.esc.instantaneousCurrent}A</p>
+            <p>瞬时工作电流：${item.esc.instantaneousCurrent} A</p>
         </C:if>
         <C:if test="${item.esc.firmware!=null}">
             <p>固件：${item.esc.firmware}</p>
@@ -129,16 +129,16 @@
     <C:if test="${item.imageTransmission!=null}">
         <h4>内置图传</h4>
         <C:if test="${item.imageTransmission.weight!=0}">
-            <p>重量：${item.imageTransmission.weight}g</p>
+            <p>重量：${item.imageTransmission.weight} g</p>
         </C:if>
         <C:if test="${item.imageTransmission.length!=0}">
-            <p>长度：${item.imageTransmission.length}mm</p>
+            <p>长度：${item.imageTransmission.length} mm</p>
         </C:if>
         <C:if test="${item.imageTransmission.width!=0}">
-            <p>宽度：${item.imageTransmission.width}mm</p>
+            <p>宽度：${item.imageTransmission.width} mm</p>
         </C:if>
         <C:if test="${item.imageTransmission.thickness!=0}">
-            <p>厚度：${item.imageTransmission.thickness}mm</p>
+            <p>厚度：${item.imageTransmission.thickness} mm</p>
         </C:if>
         <C:if test="${item.imageTransmission.sbus!=null}">
             <p>SBUS支持：<bTs:BoolToString bool="${item.imageTransmission.sbus}"/></p>
@@ -156,22 +156,22 @@
             <p>频道数：${item.imageTransmission.frequencyQuantity}</p>
         </C:if>
         <C:if test="${item.imageTransmission.outputPower!=null}">
-            <p>输出功率：${item.imageTransmission.outputPower}mW</p>
+            <p>输出功率：${item.imageTransmission.outputPower} mW</p>
         </C:if>
         <C:if test="${item.imageTransmission.inputVoltage!=null}">
-            <p>输入电压：${item.imageTransmission.inputVoltage}V</p>
+            <p>输入电压：${item.imageTransmission.inputVoltage} V</p>
         </C:if>
         <C:if test="${item.imageTransmission.outputVoltage!=null}">
-            <p>输出电压：${item.imageTransmission.outputVoltage}V</p>
+            <p>输出电压：${item.imageTransmission.outputVoltage} V</p>
         </C:if>
         <C:if test="${item.imageTransmission.antennaConnectors!=null}">
             <p>天线接头：${item.imageTransmission.antennaConnectors}</p>
         </C:if>
         <C:if test="${item.imageTransmission.videoBandWidth!=null}">
-            <p>视频带宽：${item.imageTransmission.videoBandWidth}MHz</p>
+            <p>视频带宽：${item.imageTransmission.videoBandWidth} MHz</p>
         </C:if>
         <C:if test="${item.imageTransmission.audioCarrierFrequency!=null}">
-            <P>音频带宽：${item.imageTransmission.audioCarrierFrequency}MHz</P>
+            <P>音频带宽：${item.imageTransmission.audioCarrierFrequency} MHz</P>
         </C:if>
         <C:if test="${item.imageTransmission.videoInputLevel!=null}">
             <p>视频输入电平：${item.imageTransmission.videoInputLevel} Vp-p</p>

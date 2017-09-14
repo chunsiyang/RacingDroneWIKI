@@ -24,10 +24,10 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
-    <p>宽度：${item.width}mm</p>
-    <p>厚度：${item.thickness}mm</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
+    <p>宽度：${item.width} mm</p>
+    <p>厚度：${item.thickness} mm</p>
     <p>内置摄像头：<bTs:BoolToString bool="${item.cam}"/></p>
     <p>SBUS支持：<bTs:BoolToString bool="${item.sbus}"/></p>
     <p>音频支持：<bTs:BoolToString bool="${item.audioSupport}"/></p>
@@ -62,16 +62,16 @@
     <C:if test="${item.cam!=null}">
         <h4>内置摄像头：</h4>
         <C:if test="${item.cam.weight!=0}">
-            <p>重量：${item.cam.weight}g</p>
+            <p>重量：${item.cam.weight} g</p>
         </C:if>
         <C:if test="${item.cam.length!=0}">
-            <p>长度：${item.cam.length}mm</p>
+            <p>长度：${item.cam.length} mm</p>
         </C:if>
         <C:if test="${item.cam.width!=0}">
-            <p>宽度：${item.cam.width}mm</p>
+            <p>宽度：${item.cam.width} mm</p>
         </C:if>
         <C:if test="${item.cam.thickness!=0}">
-            <p>厚度：${item.cam.thickness}mm</p>
+            <p>厚度：${item.cam.thickness} mm</p>
         </C:if>
         <C:if test="${item.cam.inputVoltages!=null}">
             <p>输入电压：${item.cam.inputVoltages}V</p>

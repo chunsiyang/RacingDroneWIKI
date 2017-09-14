@@ -24,12 +24,12 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
-    <p>宽度：${item.width}mm</p>
-    <p>厚度：${item.thickness}mm</p>
-    <p>输入电压：${item.inputVoltages}V</p>
-    <p>水平分辨率：${item.horizontalResolustion}TVL</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
+    <p>宽度：${item.width} mm</p>
+    <p>厚度：${item.thickness} mm</p>
+    <p>输入电压：${item.inputVoltages} V</p>
+    <p>水平分辨率：${item.horizontalResolustion} TVL</p>
     <p>结成OSD：<bTs:BoolToString bool="${item.integratedOsd}"/></p>
     <p>集成MIC：<bTs:BoolToString bool="${item.integratedMic}"/></p>
     <p>自动增益：<bTs:BoolToString bool="${item.autoGainControl}"/></p>

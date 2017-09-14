@@ -23,8 +23,8 @@
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
-    <p>重量：${item.weight}g</p>
-    <p>长度：${item.length}mm</p>
+    <p>重量：${item.weight} g</p>
+    <p>长度：${item.length} mm</p>
     <p>天线插头：${item.connectors}</p>
     <p>天线频率：${item.frequency} Hz</p>
     <p>增益：${item.gain}</p>
