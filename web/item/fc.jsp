@@ -25,14 +25,30 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight} g</p>
-    <p>长度：${item.length} mm</p>
-    <p>宽度：${item.width} mm</p>
-    <p>厚度：${item.thickness} mm</p>
-    <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
-    <p>SD卡支持：<bTs:BoolToString bool="${item.sdcard}"/></p>
-    <p>BOOT按键：<bTs:BoolToString bool="${item.bootButton}"/></p>
-    <p>内置OSD：<bTs:BoolToString bool="${item.osd}"/></p>
-    <p>内置蜂鸣器：<bTs:BoolToString bool="${item.buzzer}"/></p>
+    <C:if test="${item.length!=0}">
+        <p>长度：${item.length} mm</p>
+    </C:if>
+    <C:if test="${item.width!=0}">
+        <p>宽度：${item.width} mm</p>
+    </C:if>
+    <C:if test="${item.thickness!=0}">
+        <p>厚度：${item.thickness} mm</p>
+    </C:if>
+    <C:if test="${item.mountingHoleSpacing!=null}">
+        <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
+    </C:if>
+    <C:if test="${item.sdcard}">
+        <p>SD卡支持：<bTs:BoolToString bool="${item.sdcard}"/></p>
+    </C:if>
+    <C:if test="${item.bootButton}">
+        <p>BOOT按键：<bTs:BoolToString bool="${item.bootButton}"/></p>
+    </C:if>
+    <C:if test="${item.osd}">
+        <p>内置OSD：<bTs:BoolToString bool="${item.osd}"/></p>
+    </C:if>
+    <C:if test="${item.buzzer}">
+        <p>内置蜂鸣器：<bTs:BoolToString bool="${item.buzzer}"/></p>
+    </C:if>
     <C:if test="${item.mcu!=null}">
         <p>mcu：${item.mcu}</p>
     </C:if>

@@ -25,20 +25,48 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight} g</p>
-    <p>长度：${item.length} mm</p>
-    <p>宽度：${item.width} mm</p>
-    <p>厚度：${item.thickness} mm</p>
-    <p>支持锂电池电芯片数：${item.noOfCells} S</p>
-    <p>持续工作电流：${item.persistentCurrent} A</p>
-    <p>瞬时工作电流：${item.instantaneousCurrent} A</p>
-    <p>固件：${item.firmware}</p>
-    <p>主控制芯片：${item.controlChip}</p>
-    <p>四合一集成电调：<bTs:BoolToString bool="${item.fourInone}"/></p>
-    <p>PWM输入模式：<bTs:BoolToString bool="${item.pwmMode}"/></p>
-    <p>oneshot125输入模式：<bTs:BoolToString bool="${item.oneshot125}"/></p>
-    <p>oneshot42输入模式：<bTs:BoolToString bool="${item.oneshot42}"/></p>
-    <p>mutishot输入模式：<bTs:BoolToString bool="${item.mutishot}"/></p>
-    <p>dshot输入模式：<bTs:BoolToString bool="${item.dshot}"/></p>
+    <C:if test="${item.length!=0}">
+        <p>长度：${item.length} mm</p>
+    </C:if>
+    <C:if test="${item.width!=0}">
+        <p>宽度：${item.width} mm</p>
+    </C:if>
+    <C:if test="${item.thickness!=0}">
+        <p>厚度：${item.thickness} mm</p>
+    </C:if>
+    <C:if test="${item.noOfCells!=null}">
+        <p>支持锂电池电芯片数：${item.noOfCells} S</p>
+    </C:if>
+    <C:if test="${item.persistentCurrent!=null}">
+        <p>持续工作电流：${item.persistentCurrent} A</p>
+    </C:if>
+    <C:if test="${item.instantaneousCurrent!=null}">
+        <p>瞬时工作电流：${item.instantaneousCurrent} A</p>
+    </C:if>
+    <C:if test="${item.firmware!=null}">
+        <p>固件：${item.firmware}</p>
+    </C:if>
+    <C:if test="${item.controlChip!=null}">
+        <p>主控制芯片：${item.controlChip}</p>
+    </C:if>
+    <C:if test="${item.fourInone}">
+        <p>四合一集成电调：<bTs:BoolToString bool="${item.fourInone}"/></p>
+    </C:if>
+    <C:if test="${item.pwmMode}">
+        <p>PWM输入模式：<bTs:BoolToString bool="${item.pwmMode}"/></p>
+    </C:if>
+    <C:if test="${item.oneshot125}">
+        <p>oneshot125输入模式：<bTs:BoolToString bool="${item.oneshot125}"/></p>
+    </C:if>
+    <C:if test="${item.oneshot42}">
+        <p>oneshot42输入模式：<bTs:BoolToString bool="${item.oneshot42}"/></p>
+    </C:if>
+    <C:if test="${item.mutishot}">
+        <p>mutishot输入模式：<bTs:BoolToString bool="${item.mutishot}"/></p>
+    </C:if>
+    <C:if test="${item.dshot}">
+        <p>dshot输入模式：<bTs:BoolToString bool="${item.dshot}"/></p>
+    </C:if>
     <br>
     <div id="other">
         <p>${item.caption}</p>

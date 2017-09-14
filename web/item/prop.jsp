@@ -24,10 +24,18 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight} g</p>
-    <p>叶片数：${item.bladeNumber}</p>
-    <p>尺寸：${item.size}</p>
-    <p>安装孔距：${item.mountingHoleSpacing} mm</p>
-    <p>材料：${item.material}</p>
+    <C:if test="${item.bladeNumber!=0}">
+        <p>叶片数：${item.bladeNumber}</p>
+    </C:if>
+    <C:if test="${item.size!=null}">
+        <p>尺寸：${item.size}</p>
+    </C:if>
+    <C:if test="${item.mountingHoleSpacing!=0}">
+        <p>安装孔距：${item.mountingHoleSpacing} mm</p>
+    </C:if>
+    <C:if test="${item.material!=null}">
+        <p>材料：${item.material}</p>
+    </C:if>
     <br>
     <div id="other">
         <p>${item.caption}</p>

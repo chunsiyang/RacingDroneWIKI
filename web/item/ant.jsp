@@ -24,12 +24,24 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight} g</p>
-    <p>长度：${item.length} mm</p>
-    <p>天线插头：${item.connectors}</p>
-    <p>天线频率：${item.frequency} Hz</p>
-    <p>增益：${item.gain}</p>
-    <p>轴比：${item.axialRatic}</p>
-    <p>极化方式：${item.polarization}</p>
+    <C:if test="${item.length!=0}">
+        <p>长度：${item.length} mm</p>
+    </C:if>
+    <C:if test="${item.connectors!=null}">
+        <p>天线插头：${item.connectors}</p>
+    </C:if>
+    <C:if test="${item.frequency!=null}">
+        <p>天线频率：${item.frequency} Hz</p>
+    </C:if>
+    <C:if test="${item.gain!=null}">
+        <p>增益：${item.gain}</p>
+    </C:if>
+    <C:if test="${item.axialRatic!=null}">
+        <p>轴比：${item.axialRatic}</p>
+    </C:if>
+    <C:if test="${item.polarization!=null}">
+        <p>极化方式：${item.polarization}</p>
+    </C:if>
     <br>
     <div id="other">
         <p>${item.caption}</p>

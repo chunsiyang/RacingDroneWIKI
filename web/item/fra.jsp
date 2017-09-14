@@ -25,7 +25,9 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight}g</p>
-    <p>轴距：${item.wheekbase} mm</p>
+    <C:if test="${item.wheekbase!=null}">
+        <p>轴距：${item.wheekbase} mm</p>
+    </C:if>
     <C:if test="${item.fcMountingHoleSpacing!=null}">
         <p>飞控安装孔距：${item.fcMountingHoleSpacing} mm</p>
     </C:if>

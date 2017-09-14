@@ -25,16 +25,33 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight} g</p>
-    <p>长度：${item.length} mm</p>
-    <p>宽度：${item.width} mm</p>
-    <p>厚度：${item.thickness} mm</p>
-    <p>内置摄像头：<bTs:BoolToString bool="${item.cam}"/></p>
-    <p>SBUS支持：<bTs:BoolToString bool="${item.sbus}"/></p>
-    <p>音频支持：<bTs:BoolToString bool="${item.audioSupport}"/></p>
-    <p>内置收音器：<bTs:BoolToString bool="${item.integratedMic}"/></p>
-    <p>功率可调：<bTs:BoolToString bool="${item.powerAdjustable}"/></p>
-    <p>频道数：${item.frequencyQuantity} CH</p>
-    <p>输出功率：${item.outputPower} mW</p>
+    <C:if test="${item.length!=0}">
+        <p>长度：${item.length} mm</p>
+    </C:if>
+    <C:if test="${item.width!=0}">
+        <p>宽度：${item.width} mm</p>
+    </C:if>
+    <C:if test="${item.thickness!=0}">
+        <p>厚度：${item.thickness} mm</p>
+    </C:if>
+    <C:if test="${item.sbus}">
+        <p>SBUS支持：<bTs:BoolToString bool="${item.sbus}"/></p>
+    </C:if>
+    <C:if test="${item.audioSupport}">
+        <p>音频支持：<bTs:BoolToString bool="${item.audioSupport}"/></p>
+    </C:if>
+    <C:if test="${item.integratedMic}">
+        <p>内置收音器：<bTs:BoolToString bool="${item.integratedMic}"/></p>
+    </C:if>
+    <C:if test="${item.powerAdjustable}">
+        <p>功率可调：<bTs:BoolToString bool="${item.powerAdjustable}"/></p>
+    </C:if>
+    <C:if test="${item.frequencyQuantity!=null}">
+        <p>频道数：${item.frequencyQuantity} CH</p>
+    </C:if>
+    <C:if test="${item.outputPower!=null}">
+        <p>输出功率：${item.outputPower} mW</p>
+    </C:if>
     <C:if test="${item.inputVoltage!=null}">
         <p>输入电压：${item.inputVoltage} V</p>
     </C:if>
@@ -74,10 +91,10 @@
             <p>厚度：${item.cam.thickness} mm</p>
         </C:if>
         <C:if test="${item.cam.inputVoltages!=null}">
-            <p>输入电压：${item.cam.inputVoltages}V</p>
+            <p>输入电压：${item.cam.inputVoltages} V</p>
         </C:if>
         <C:if test="${item.cam.horizontalResolustion!=null}">
-            <p>水平分辨率：${item.cam.horizontalResolustion}</p>
+            <p>水平分辨率：${item.cam.horizontalResolustion} TVL</p>
         </C:if>
         <C:if test="${item.cam.integratedOsd}">
             <p>结成OSD：<bTs:BoolToString bool="${item.cam.integratedOsd}"/></p>
@@ -95,7 +112,7 @@
             <p>图像传感器：${item.cam.imageSensor}</p>
         </C:if>
         <C:if test="${item.cam.lensFov!=null}">
-            <p>镜头视场：${item.cam.lensFov}</p>
+            <p>镜头视场：${item.cam.lensFov} °</p>
         </C:if>
         <C:if test="${item.cam.signalSystem!=null}">
             <p>信号制式：${item.cam.signalSystem}</p>
