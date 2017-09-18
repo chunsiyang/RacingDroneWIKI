@@ -5,12 +5,13 @@
   Time: 21:22
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <button id="back" onclick="javascript:history.back(-1);" title="返回">
         <P>&nbsp;&lt;&nbsp;</P>
     </button>
-    <button id="home" title="返回首页" onclick="javascript:window.location.href='index.jsp';">
+    <button id="home" title="返回首页" onclick="javascript:window.location.href='/index.jsp';">
         <a href="/index.jsp">
             <P>首页</P>
         </a>
@@ -57,12 +58,12 @@
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/prop.list';">
-            <a href="prop.list" >
+            <a href="/prop.list" >
                 <p>桨叶</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/bat.list';">
-            <a href="bat.list" >
+            <a href="/bat.list" >
                 <p>电池</p>
             </a>
         </button>
