@@ -32,8 +32,8 @@
                 <p>增益：</p>
                 <p>轴比：</p>
                 <p>极化方式：</p>
-                <p>文字描述：</p>
-                <p id="expImgP">辅助图片：</p>
+                <p id="capP">文字描述：</p>
+                <p>辅助图片：</p>
             </div>
             <div class="value">
                 <form id="itemInfo" method="post" action="putIntoDB" enctype="multipart/form-data">
