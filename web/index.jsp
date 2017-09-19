@@ -7,12 +7,12 @@
 </head>
 <body>
 <section id="main" >
+    <a id="dataInput" href="itemInsert/dataInput.jsp">数据录入</a>
     <h1>竞速无人机资料库</h1>
     <form id="searchBar" method="get" action="/search">
         <input id="search" type="text" name="searchModel" placeholder="  输入设备型号搜索...">
         <input id="searchButton" type="submit" value="搜索">
     </form>
-
     <nav>
         <button class="item" onclick="javascript:window.location.href='/moto.list';" >
             <a href="/moto.list" >
@@ -64,13 +64,13 @@
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/prop.list';">
-            <a href="prop.list" >
+            <a href="/prop.list" >
                 <img src="img/prop.png" class="itemImg"/>
                 <p>桨叶</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/bat.list';">
-            <a href="bat.list" >
+            <a href="/bat.list" >
                 <img src="img/bat.jpg" class="itemImg"/>
                 <p>电池</p>
             </a>
