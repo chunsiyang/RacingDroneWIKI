@@ -41,11 +41,18 @@ form{
     margin: 5px;
     height: 30px;
 }
-.value input{
+.inputText{
     padding: 2px;
     margin: 5px;
     height: 30px;
     width: 70%;
+}
+.inputRadio{
+    width: auto;
+    padding: 2px;
+    margin: 5px;
+    height: 30px;
+    vertical-align: middle;
 }
 .value textarea{
     width: 70%;

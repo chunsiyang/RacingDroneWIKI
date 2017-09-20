@@ -29,42 +29,42 @@
                 <p>长度：</p>
                 <p>宽度：</p>
                 <p>厚度：</p>
-                <p>容量:</p>
-                <p>放电倍率:</p>
-                <p>电压:</p>
-                <p>瞬时放电倍率:</p>
-                <P>最大充电倍率:</P>
-                <p>推荐充电电流:</p>
-                <p>最大充电电流:</p>
-                <p>电源线号:</p>
-                <p>电源线长度:</p>
+                <p>容量：</p>
+                <p>放电倍率：</p>
+                <p>电压：</p>
+                <p>瞬时放电倍率：</p>
+                <P>最大充电倍率：</P>
+                <p>推荐充电电流：</p>
+                <p>最大充电电流：</p>
+                <p>电源线号：</p>
+                <p>电源线长度：</p>
                 <p>插头类型：</p>
                 <p id="capP">文字描述：</p>
                 <p>辅助图片：</p>
             </div>
             <div class="value">
                 <form id="itemInfo" method="post" action="putIntoDB" enctype="multipart/form-data">
-                    <input type="text" name="model" placeholder="电池型号"><br>
-                    <input type="file" name="mainImg"><br>
-                    <input type="text" name="referencePrice" placeholder="电池参考价格"><br>
-                    <input type="text" name="anufacturer" placeholder="电池制造商、品牌"><br>
-                    <input type="text" name="weight" placeholder="电池净重，单位：g"><br>
-                    <input type="text" name="length" placeholder="电池长度，单位：mm"><br>
-                    <input type="text" name="width" placeholder="电池宽度，单位：mm"><br>
-                    <input type="text" name="thickness" placeholder="电池厚度，单位：mm"><br>
-                    <input type="text" name="capacity" placeholder="电池容量，单位：mah"><br>
-                    <input type="text" name="dischargeRate" placeholder="放电倍率，单位：C"><br>
-                    <input type="text" name="voltage" placeholder="电压，单位：V"><br>
-                    <input type="text" name="instantaneousDischargeRate" placeholder="瞬时放电倍率，单位：C"><br>
-                    <input type="text" name="maxChargingRate" placeholder="最大充电倍率，单位：C"><br>
-                    <input type="text" name="recommendedChargingCurrent" placeholder="推荐充电电流,单位：A"><br>
-                    <input type="text" name="maximumChargeCurrent" placeholder="最大充电电流，单位：A"><br>
-                    <input type="text" name="wireNumber" placeholder="电源线号"><br>
-                    <input type="text" name="wireLength" placeholder="电源线长度，单位：mm"><br>
-                    <input type="text" name="connector" placeholder="插头类型"><br>
-                    <textarea name="caption" placeholder="电池相关文字描述、配置、备注等信息"></textarea>
-                    <input type="file" name="files" multiple/><br/>
-                    <input type="submit" value="   提交   ">
+                    <input type="text" name="model" placeholder="电池型号"class="inputText"><br>
+                    <input type="file" name="mainImg"class="inputText"><br>
+                    <input type="text" name="referencePrice" class="inputText"placeholder="电池参考价格"><br>
+                    <input type="text" name="anufacturer" class="inputText"placeholder="电池制造商、品牌"><br>
+                    <input type="text" name="weight" class="inputText"placeholder="电池净重，单位：g"><br>
+                    <input type="text" name="length" class="inputText"placeholder="电池长度，单位：mm"><br>
+                    <input type="text" name="width" class="inputText"placeholder="电池宽度，单位：mm"><br>
+                    <input type="text" name="thickness" class="inputText"placeholder="电池厚度，单位：mm"><br>
+                    <input type="text" name="capacity" class="inputText"placeholder="电池容量，单位：mah"><br>
+                    <input type="text" name="dischargeRate" class="inputText"placeholder="放电倍率，单位：C"><br>
+                    <input type="text" name="voltage" class="inputText"placeholder="电压，单位：V"><br>
+                    <input type="text" name="instantaneousDischargeRate" class="inputText"placeholder="瞬时放电倍率，单位：C"><br>
+                    <input type="text" name="maxChargingRate" class="inputText"placeholder="最大充电倍率，单位：C"><br>
+                    <input type="text" name="recommendedChargingCurrent" class="inputText"placeholder="推荐充电电流,单位：A"><br>
+                    <input type="text" name="maximumChargeCurrent" class="inputText"placeholder="最大充电电流，单位：A"><br>
+                    <input type="text" name="wireNumber" class="inputText"placeholder="电源线号"><br>
+                    <input type="text" name="wireLength" class="inputText"placeholder="电源线长度，单位：mm"><br>
+                    <input type="text" name="connector" class="inputText"placeholder="插头类型"><br>
+                    <textarea name="caption" class="inputText"placeholder="电池相关文字描述、配置、备注等信息"></textarea>
+                    <input type="file" name="files" multiple class="inputText"/><br/>
+                    <input type="submit" value="   提交   "class="inputText"/>
                 </form>
             </div>
         </div>
