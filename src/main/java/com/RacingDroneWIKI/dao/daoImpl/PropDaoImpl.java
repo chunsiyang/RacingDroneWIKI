@@ -26,8 +26,8 @@ public class PropDaoImpl implements PropDao {
 		String sql="INSERT INTO `racingdronewiki`.`prop` (`prop_model`,"
 				+ " `prop_img`, `prop_reference_price`, `prop_anufacturer`, "
 				+ "`prop_blade_number`, `prop_size`, `prop_weight`, "
-				+ "`prop_mounting_hole_spacing`, `prop_material`, `prop_extra_pictures`,"
-				+ " `prop_caption`) VALUES ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "`prop_mounting_hole_spacing`, `prop_material`, "
+				+ " `prop_caption`) VALUES ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		
 		PreparedStatement pstmt;
 	    try {
@@ -41,10 +41,10 @@ public class PropDaoImpl implements PropDao {
 	        pstmt.setFloat(7, prop.getWeight());
 	        pstmt.setFloat(8, prop.getMountingHoleSpacing());
 	        pstmt.setString(9, prop.getMaterial());
-	        pstmt.setObject(10, prop.getExtraPictures());
-	        pstmt.setString(11, prop.getCaption()); 
+	        pstmt.setString(10, prop.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(prop.getModel(),prop.getExtraPictures());
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
@@ -61,7 +61,7 @@ public class PropDaoImpl implements PropDao {
 				+ "`prop_img`=?, `prop_reference_price`=?, `prop_anufacturer`=?,"
 				+ " `prop_blade_number`=?, `prop_size`=?, `prop_weight`=?,"
 				+ " `prop_mounting_hole_spacing`=?, `prop_material`=?,"
-				+ " `prop_extra_pictures`=?, `prop_caption`=? WHERE `prop_model`=?;";
+				+ " `prop_caption`=? WHERE `prop_model`=?;";
 		
 		PreparedStatement pstmt;
 	    try {
@@ -75,9 +75,8 @@ public class PropDaoImpl implements PropDao {
 	        pstmt.setFloat(7, prop.getWeight());
 	        pstmt.setFloat(8, prop.getMountingHoleSpacing());
 	        pstmt.setString(9, prop.getMaterial());
-	        pstmt.setObject(10, prop.getExtraPictures());
-	        pstmt.setString(11, prop.getCaption()); 
-	        pstmt.setString(12, prop.getModel());
+	        pstmt.setString(10, prop.getCaption());
+	        pstmt.setString(11, prop.getModel());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	    } catch (SQLException e) {
@@ -99,24 +98,15 @@ public class PropDaoImpl implements PropDao {
 			{
 				Prop prop=new Prop(resSet.getString(1), resSet.getString(2),
 						resSet.getInt(3), resSet.getString(4),
-						null, resSet.getString(11),
+						null, resSet.getString(10),
 						resSet.getInt(5), resSet.getString(6), 
 						resSet.getFloat(7), resSet.getFloat(8),
 						resSet.getString(9));
-				Blob inBlob=resSet.getBlob(10);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                prop.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(prop.getModel());
+				prop.setExtraPictures(expImg);
 				result.add(prop);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -137,24 +127,15 @@ public class PropDaoImpl implements PropDao {
 			{
 				Prop prop=new Prop(resSet.getString(1), resSet.getString(2),
 						resSet.getInt(3), resSet.getString(4),
-						null, resSet.getString(11),
+						null, resSet.getString(10),
 						resSet.getInt(5), resSet.getString(6), 
 						resSet.getFloat(7), resSet.getFloat(8),
 						resSet.getString(9));
-				Blob inBlob=resSet.getBlob(10);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                prop.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(prop.getModel());
+				prop.setExtraPictures(expImg);
 				result.add(prop);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

@@ -32,8 +32,8 @@ public class CamDaoImpl implements CamDao {
 				+ "`cam_electronic_shutter_speed`, `cam_auto_gain_control`,"
 				+ " `cam_back_light_compensation`, `cam_min_illumination`, "
 				+ "`cam_w_d_r`, `cam_d_n_r`, `cam_day_night`, `cam_input_voltages`, "
-				+ "`cam_housing_material`, `cam_extra_pictures`, `cam_caption`) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" + ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "`cam_housing_material`, `cam_caption`) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -62,10 +62,10 @@ public class CamDaoImpl implements CamDao {
 			pstmt.setString(23, cam.getDayNight());
 			pstmt.setString(24, cam.getInputVoltages());
 			pstmt.setString(25, cam.getHousingMasterial());
-			pstmt.setObject(26, cam.getExtraPictures());
-			pstmt.setString(27, cam.getCaption());
+			pstmt.setString(26, cam.getCaption());
 			pstmt.executeUpdate();
 			pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(cam.getModel(),cam.getExtraPictures());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,7 +86,7 @@ public class CamDaoImpl implements CamDao {
 				+ " `cam_back_light_compensation`=?, `cam_min_illumination`=?, "
 				+ "`cam_w_d_r`=?, `cam_d_n_r`=?, `cam_day_night`=?,"
 				+ " `cam_input_voltages`=?, `cam_housing_material`=?, "
-				+ "`cam_extra_pictures`=?, `cam_caption`=? WHERE " + "`cam_model`=?;";
+				+ " `cam_caption`=? WHERE " + "`cam_model`=?;";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -115,9 +115,8 @@ public class CamDaoImpl implements CamDao {
 			pstmt.setString(23, cam.getDayNight());
 			pstmt.setString(24, cam.getInputVoltages());
 			pstmt.setString(25, cam.getHousingMasterial());
-			pstmt.setObject(26, cam.getExtraPictures());
-			pstmt.setString(27, cam.getCaption());
-			pstmt.setString(28, cam.getModel());
+			pstmt.setString(26, cam.getCaption());
+			pstmt.setString(27, cam.getModel());
 			pstmt.executeUpdate();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -137,26 +136,17 @@ public class CamDaoImpl implements CamDao {
 			resSet = pstmt.executeQuery();
 			while (resSet.next()) {
 				Cam cam = new Cam(resSet.getString(1), resSet.getString(3), resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(27), resSet.getBoolean(2),
+						null, resSet.getString(26), resSet.getBoolean(2),
 						resSet.getFloat(6), resSet.getFloat(7), resSet.getFloat(8), resSet.getFloat(9),
 						resSet.getString(10), resSet.getInt(11), resSet.getInt(12), resSet.getString(13),
 						resSet.getBoolean(14), resSet.getBoolean(15), resSet.getString(16), resSet.getString(17),
 						resSet.getBoolean(18), resSet.getBoolean(19), resSet.getString(20), resSet.getString(21),
 						resSet.getString(22), resSet.getString(23), resSet.getString(24), resSet.getString(25));
-				Blob inBlob=resSet.getBlob(26);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                cam.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(cam.getModel());
+				cam.setExtraPictures(expImg);
 				result.add(cam);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -174,26 +164,17 @@ public class CamDaoImpl implements CamDao {
 			resSet = pstmt.executeQuery();
 			while (resSet.next()) {
 				Cam cam = new Cam(resSet.getString(1), resSet.getString(3), resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(27), resSet.getBoolean(2),
+						null, resSet.getString(26), resSet.getBoolean(2),
 						resSet.getFloat(6), resSet.getFloat(7), resSet.getFloat(8), resSet.getFloat(9),
 						resSet.getString(10), resSet.getInt(11), resSet.getInt(12), resSet.getString(13),
 						resSet.getBoolean(14), resSet.getBoolean(15), resSet.getString(16), resSet.getString(17),
 						resSet.getBoolean(18), resSet.getBoolean(19), resSet.getString(20), resSet.getString(21),
 						resSet.getString(22), resSet.getString(23), resSet.getString(24), resSet.getString(25));
-				Blob inBlob=resSet.getBlob(26);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
-					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					cam.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(cam.getModel());
+				cam.setExtraPictures(expImg);
 				result.add(cam);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -211,26 +192,17 @@ public class CamDaoImpl implements CamDao {
 			resSet = pstmt.executeQuery();
 			while (resSet.next()) {
 				Cam cam = new Cam(resSet.getString(1), resSet.getString(3), resSet.getInt(4), resSet.getString(5),
-						(LinkedList<String>) resSet.getObject(26), resSet.getString(27), resSet.getBoolean(2),
+						null, resSet.getString(26), resSet.getBoolean(2),
 						resSet.getFloat(6), resSet.getFloat(7), resSet.getFloat(8), resSet.getFloat(9),
 						resSet.getString(10), resSet.getInt(11), resSet.getInt(12), resSet.getString(13),
 						resSet.getBoolean(14), resSet.getBoolean(15), resSet.getString(16), resSet.getString(17),
 						resSet.getBoolean(18), resSet.getBoolean(19), resSet.getString(20), resSet.getString(21),
 						resSet.getString(22), resSet.getString(23), resSet.getString(24), resSet.getString(25));
-				Blob inBlob=resSet.getBlob(26);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                cam.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(cam.getModel());
+				cam.setExtraPictures(expImg);
 				result.add(cam);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -248,26 +220,17 @@ public class CamDaoImpl implements CamDao {
 			resSet = pstmt.executeQuery();
 			while (resSet.next()) {
 				Cam cam = new Cam(resSet.getString(1), resSet.getString(3), resSet.getInt(4), resSet.getString(5),
-						(LinkedList<String>) resSet.getObject(26), resSet.getString(27), resSet.getBoolean(2),
+						null, resSet.getString(26), resSet.getBoolean(2),
 						resSet.getFloat(6), resSet.getFloat(7), resSet.getFloat(8), resSet.getFloat(9),
 						resSet.getString(10), resSet.getInt(11), resSet.getInt(12), resSet.getString(13),
 						resSet.getBoolean(14), resSet.getBoolean(15), resSet.getString(16), resSet.getString(17),
 						resSet.getBoolean(18), resSet.getBoolean(19), resSet.getString(20), resSet.getString(21),
 						resSet.getString(22), resSet.getString(23), resSet.getString(24), resSet.getString(25));
-				Blob inBlob=resSet.getBlob(26);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
-					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					cam.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(cam.getModel());
+				cam.setExtraPictures(expImg);
 				result.add(cam);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

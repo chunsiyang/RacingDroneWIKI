@@ -30,8 +30,8 @@ public class BatteryDaoImpl implements BatteryDao {
 				+ " `bat_voltage`, `bat_recommended_charging_current`, "
 				+ "`bat_maximum_charge_current`, `bat_weight`, `bat_length`, "
 				+ "`bat_width`, `bat_thickness`, `bat_connector`, `bat_wire_number`, "
-				+ "`bat_wire_length`, `bat_extra_pictures`, `bat_caption`) "
-				+ "VALUES (?,? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "`bat_wire_length`, `bat_caption`) "
+				+ "VALUES (?,? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -53,10 +53,10 @@ public class BatteryDaoImpl implements BatteryDao {
 	        pstmt.setString(16, battery.getConnector());
 	        pstmt.setInt(17, battery.getWireNumber());
 	        pstmt.setInt(18, battery.getWireLength());
-	        pstmt.setObject(19, battery.getExtraPictures());
-	        pstmt.setString(20, battery.getCaption()); 
+	        pstmt.setString(19, battery.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(battery.getModel(),battery.getExtraPictures());
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
@@ -76,7 +76,7 @@ public class BatteryDaoImpl implements BatteryDao {
 				+ "`bat_recommended_charging_current`=?, `bat_maximum_charge_current`=?,"
 				+ " `bat_weight`=?, `bat_length`=?, `bat_width`=?, `bat_thickness`=?,"
 				+ " `bat_connector`=?, `bat_wire_number`=?, `bat_wire_length`=?, "
-				+ "`bat_extra_pictures`=?, `bat_caption`=? WHERE `bat_model`=?;";
+				+ "`bat_caption`=? WHERE `bat_model`=?;";
 		 PreparedStatement pstmt;
 		    try {
 		        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -98,9 +98,8 @@ public class BatteryDaoImpl implements BatteryDao {
 		        pstmt.setString(16, battery.getConnector());
 		        pstmt.setInt(17, battery.getWireNumber());
 		        pstmt.setInt(18, battery.getWireLength());
-		        pstmt.setObject(19, battery.getExtraPictures());
-		        pstmt.setString(20, battery.getCaption()); 
-		        pstmt.setString(21, battery.getModel());
+		        pstmt.setString(19, battery.getCaption());
+		        pstmt.setString(20, battery.getModel());
 		        pstmt.executeUpdate();
 		        pstmt.close();
 		    } catch (SQLException e) {
@@ -123,27 +122,18 @@ public class BatteryDaoImpl implements BatteryDao {
 				Battery bat=new Battery(resSet.getString(1),
 						resSet.getString(2),  resSet.getInt(3), 
 						resSet.getString(4), null, 
-						resSet.getString(20), resSet.getInt(5), resSet.getInt(6),
+						resSet.getString(19), resSet.getInt(5), resSet.getInt(6),
 						resSet.getInt(7), 
 						resSet.getInt(8), resSet.getFloat(9),
 						resSet.getFloat(10),
 						resSet.getFloat(11), resSet.getFloat(12), 
 						resSet.getFloat(13), resSet.getFloat(14), resSet.getFloat(15), 
 						resSet.getString(16), resSet.getInt(17), resSet.getInt(18));
-				Blob inBlob=resSet.getBlob(19);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                bat.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(bat.getModel());
+				bat.setExtraPictures(expImg);
 				result.add(bat);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -164,28 +154,19 @@ public class BatteryDaoImpl implements BatteryDao {
 			{
 				Battery bat=new Battery(resSet.getString(1),
 						resSet.getString(2),  resSet.getInt(3), 
-						resSet.getString(4), (LinkedList<String>)resSet.getObject(19), 
-						resSet.getString(20), resSet.getInt(5), resSet.getInt(6),
+						resSet.getString(4),null,
+						resSet.getString(19), resSet.getInt(5), resSet.getInt(6),
 						resSet.getInt(7), 
 						resSet.getInt(8), resSet.getFloat(9),
 						resSet.getFloat(10),
 						resSet.getFloat(11), resSet.getFloat(12), 
 						resSet.getFloat(13), resSet.getFloat(14), resSet.getFloat(15), 
 						resSet.getString(16), resSet.getInt(17), resSet.getInt(18));
-				Blob inBlob=resSet.getBlob(19);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()];
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                bat.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(bat.getModel());
+				bat.setExtraPictures(expImg);
 				result.add(bat);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

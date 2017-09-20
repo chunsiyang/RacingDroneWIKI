@@ -32,9 +32,9 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 				+ " `esc_control_chip`, `esc_weight`, `esc_length`,"
 				+ " `esc_width`, `esc_thickness`, `esc_4in1`, `esc_pwm`,"
 				+ " `esc_oneshot125`, `esc_oneshot42`, `esc_mutishot`,"
-				+ " `esc_dshot`, `esc_extra_pictures`, `esc_caption`)"
+				+ " `esc_dshot`, `esc_caption`)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -57,11 +57,11 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 	        pstmt.setBoolean(17, esc.isOneshot125());
 	        pstmt.setBoolean(18, esc.isOneshot42());
 	        pstmt.setBoolean(19, esc.isMutishot());
-	        pstmt.setBoolean(20, esc.isDshot());       
-	        pstmt.setObject(21, esc.getExtraPictures());
-	        pstmt.setString(22, esc.getCaption()); 
+	        pstmt.setBoolean(20, esc.isDshot());
+	        pstmt.setString(21, esc.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(esc.getModel(),esc.getExtraPictures());
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
@@ -82,7 +82,7 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 				+ "`esc_control_chip`=?, `esc_weight`=?, `esc_length`=?,"
 				+ " `esc_width`=?, `esc_thickness`=?, `esc_4in1`=?, `esc_pwm`=?, "
 				+ "`esc_oneshot125`=?, `esc_oneshot42`=?, `esc_mutishot`=? , "
-				+ "`esc_dshot`=?, `esc_extra_pictures`=?, `esc_caption`=?"
+				+ "`esc_dshot`=?, `esc_caption`=?"
 				+ " WHERE `esc_model`=?;";
 		PreparedStatement pstmt;
 	    try {
@@ -106,10 +106,9 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 	        pstmt.setBoolean(17, esc.isOneshot125());
 	        pstmt.setBoolean(18, esc.isOneshot42());
 	        pstmt.setBoolean(19, esc.isMutishot());
-	        pstmt.setBoolean(20, esc.isDshot());       
-	        pstmt.setObject(21, esc.getExtraPictures());
-	        pstmt.setString(22, esc.getCaption()); 
-	        pstmt.setString(23, esc.getModel());
+	        pstmt.setBoolean(20, esc.isDshot());
+	        pstmt.setString(21, esc.getCaption());
+	        pstmt.setString(22, esc.getModel());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	    } catch (SQLException e) {
@@ -133,7 +132,7 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 						(resSet.getString(1), resSet.getString(3), 
 								resSet.getInt(4), resSet.getString(5), 
 								null,
-								resSet.getString(22), resSet.getBoolean(2), 
+								resSet.getString(21), resSet.getBoolean(2),
 								resSet.getString(6), resSet.getInt(7),
 								resSet.getInt(8), resSet.getString(9), 
 								resSet.getString(10), resSet.getFloat(11), 
@@ -142,20 +141,11 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 								resSet.getBoolean(16), resSet.getBoolean(17),
 								resSet.getBoolean(18),resSet.getBoolean(19),
 								resSet.getBoolean(20));
-				Blob inBlob=resSet.getBlob(21);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                esc.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(esc.getModel());
+				esc.setExtraPictures(expImg);
 				result.add(esc);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException  e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -178,7 +168,7 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 						(resSet.getString(1), resSet.getString(3), 
 								resSet.getInt(4), resSet.getString(5), 
 								null,
-								resSet.getString(22), resSet.getBoolean(2), 
+								resSet.getString(21), resSet.getBoolean(2),
 								resSet.getString(6), resSet.getInt(7),
 								resSet.getInt(8), resSet.getString(9), 
 								resSet.getString(10), resSet.getFloat(11), 
@@ -187,20 +177,11 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 								resSet.getBoolean(16), resSet.getBoolean(17),
 								resSet.getBoolean(18),resSet.getBoolean(19),
 								resSet.getBoolean(20));
-				Blob inBlob=resSet.getBlob(21);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                esc.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(esc.getModel());
+				esc.setExtraPictures(expImg);
 				result.add(esc);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -221,7 +202,7 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 						(resSet.getString(1), resSet.getString(3),
 								resSet.getInt(4), resSet.getString(5),
 								null,
-								resSet.getString(22), resSet.getBoolean(2),
+								resSet.getString(21), resSet.getBoolean(2),
 								resSet.getString(6), resSet.getInt(7),
 								resSet.getInt(8), resSet.getString(9),
 								resSet.getString(10), resSet.getFloat(11),
@@ -230,20 +211,11 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 								resSet.getBoolean(16), resSet.getBoolean(17),
 								resSet.getBoolean(18),resSet.getBoolean(19),
 								resSet.getBoolean(20));
-				Blob inBlob=resSet.getBlob(21);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
-					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					esc.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(esc.getModel());
+				esc.setExtraPictures(expImg);
 				result.add(esc);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -266,7 +238,7 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 						(resSet.getString(1), resSet.getString(3),
 								resSet.getInt(4), resSet.getString(5),
 								null,
-								resSet.getString(22), resSet.getBoolean(2),
+								resSet.getString(21), resSet.getBoolean(2),
 								resSet.getString(6), resSet.getInt(7),
 								resSet.getInt(8), resSet.getString(9),
 								resSet.getString(10), resSet.getFloat(11),
@@ -275,20 +247,11 @@ public class ElectroSpeedRegulatorDaoImpl implements ElectroSpeedRegulatorDao {
 								resSet.getBoolean(16), resSet.getBoolean(17),
 								resSet.getBoolean(18),resSet.getBoolean(19),
 								resSet.getBoolean(20));
-				Blob inBlob=resSet.getBlob(21);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象
-					BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);          //一次性全部读到buff中
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					esc.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(esc.getModel());
+				esc.setExtraPictures(expImg);
 				result.add(esc);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

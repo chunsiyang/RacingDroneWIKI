@@ -36,8 +36,8 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				+ " `fc_mcu`, `fc_mpu`, `fc_sdcard`, `fc_boot_button`, `fc_osd`, "
 				+ "`fc_buzzer`, `fc_max_pid_loop_frequancy`, `fc_max_gyro_updata`,"
 				+ " `fc_esc`, `fc_power_hub`, `fc_image_transmission`,"
-				+ " `fc_pin_definition_diagram`, `fc_extra_pictures`, `fc_caption`) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ " `fc_pin_definition_diagram`,`fc_caption`) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		 PreparedStatement pstmt;
 		    try {
 		        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -63,9 +63,9 @@ public class FlightControlDaoImpl implements FlightControlDao {
 		        pstmt.setString(20, fc.getImageTransmission().getModel());
 		        pstmt.setString(21,fc.getPinDefintionDiagram());     
 		        pstmt.setObject(22, fc.getExtraPictures());
-		        pstmt.setString(23, fc.getCaption()); 
 		        pstmt.executeUpdate();
 		        pstmt.close();
+				new ExtraPicturesImpl(connection).addExtPic(fc.getModel(),fc.getExtraPictures());
 		    } catch (SQLException e) {
 		        e.printStackTrace(); 
 		    }
@@ -86,7 +86,7 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				+ " `fc_osd`=?, `fc_buzzer`=?, `fc_max_pid_loop_frequancy`=?, "
 				+ "`fc_max_gyro_updata`=?, `fc_esc`=?, `fc_power_hub`=?, "
 				+ "`fc_image_transmission`=?, `fc_pin_definition_diagram`=? ,"
-				+ "`fc_extra_pictures`=?, `fc_caption`=?"
+				+ "`fc_caption`=?"
 				+ " WHERE `fc_model`=?;";
 		PreparedStatement pstmt;
 	    try {
@@ -111,10 +111,9 @@ public class FlightControlDaoImpl implements FlightControlDao {
 	        pstmt.setString(18, fc.getEsc().getModel());
 	        pstmt.setString(19, fc.getPowerHub().getModel());
 	        pstmt.setString(20, fc.getImageTransmission().getModel());
-	        pstmt.setString(21,fc.getPinDefintionDiagram());     
-	        pstmt.setObject(22, fc.getExtraPictures());
-	        pstmt.setString(23, fc.getCaption()); 
-	        pstmt.setString(24, fc.getModel());
+	        pstmt.setString(21,fc.getPinDefintionDiagram());
+	        pstmt.setString(22, fc.getCaption());
+	        pstmt.setString(23, fc.getModel());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	    } catch (SQLException e) {
@@ -176,21 +175,12 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				}
 				fc.setPinDefintionDiagram(resSet.getString(21));
 				fc.setExtraPictures(null);
-				fc.setCaption(resSet.getString(23));	
-				Blob inBlob=resSet.getBlob(22);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                fc.setExtraPictures(ls);
-				}
+				fc.setCaption(resSet.getString(22));
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fc.getModel());
+				fc.setExtraPictures(expImg);
 				result.add(fc);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -251,21 +241,12 @@ public class FlightControlDaoImpl implements FlightControlDao {
 				}
 				fc.setPinDefintionDiagram(resSet.getString(21));
 				fc.setExtraPictures(null);
-				fc.setCaption(resSet.getString(23));		
-				Blob inBlob=resSet.getBlob(22);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                fc.setExtraPictures(ls);
-				}
+				fc.setCaption(resSet.getString(22));
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fc.getModel());
+				fc.setExtraPictures(expImg);
 				result.add(fc);
 			} 
-		} catch (SQLException | ClassNotFoundException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

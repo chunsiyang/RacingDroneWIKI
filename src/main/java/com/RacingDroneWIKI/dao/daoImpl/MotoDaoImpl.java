@@ -35,9 +35,9 @@ public class MotoDaoImpl implements MotoDao {
 				+ "`moto_diameter`, `moto_length`, `moto_no_of_cells`,"
 				+ " `moto_max_thrust`, `moto_kv`, `moto_propeller`,"
 				+ " `moto_stator_diameter`, `moto_internal_reslstance`, "
-				+ "`moto_extra_pictures`, `moto_caption`)"
+				+ " `moto_caption`)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?, "
-				+ "?, ?, ?, ?, ? ?, ?);";
+				+ "?, ?, ?, ?, ? ?);";
 		PreparedStatement pstmt;
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -57,10 +57,10 @@ public class MotoDaoImpl implements MotoDao {
 			pstmt.setString(14, moto.getPropeller());
 			pstmt.setFloat(15, moto.getStatorDiameter());
 			pstmt.setInt(16, moto.getInternalRestance());
-			pstmt.setObject(17, moto.getExtraPictures());
-			pstmt.setString(18, moto.getCaption());
+			pstmt.setString(17, moto.getCaption());
 			pstmt.executeUpdate();
 			pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(moto.getModel(),moto.getExtraPictures());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -81,7 +81,7 @@ public class MotoDaoImpl implements MotoDao {
 				+ "`moto_weight`=?, `moto_diameter`=?, `moto_length`=?,"
 				+ " `moto_no_of_cells`=?, `moto_max_thrust`=?, `moto_kv`=?,"
 				+ " `moto_propeller`=?, `moto_stator_diameter`=?, "
-				+ "`moto_internal_reslstance`=?, `moto_extra_pictures`=?,"
+				+ "`moto_internal_reslstance`=?,"
 				+ " `moto_caption`=? WHERE `moto_model`=?;";
 		PreparedStatement pstmt;
 		try {
@@ -102,9 +102,8 @@ public class MotoDaoImpl implements MotoDao {
 			pstmt.setString(14, moto.getPropeller());
 			pstmt.setFloat(15, moto.getStatorDiameter());
 			pstmt.setInt(16, moto.getInternalRestance());
-			pstmt.setObject(17, moto.getExtraPictures());
-			pstmt.setString(18, moto.getCaption());
-			pstmt.setString(19, moto.getModel());
+			pstmt.setString(17, moto.getCaption());
+			pstmt.setString(18, moto.getModel());
 			pstmt.executeUpdate();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -125,28 +124,19 @@ public class MotoDaoImpl implements MotoDao {
 			while(resSet.next())
 			{
 				Moto moto=new Moto(resSet.getString(1), resSet.getString(2), resSet.getInt(3),
-						resSet.getString(4), null, resSet.getString(18), 
+						resSet.getString(4), null, resSet.getString(17),
 						resSet.getFloat(5), resSet.getFloat(6), resSet.getFloat(7), 
 						resSet.getFloat(8), resSet.getFloat(9), resSet.getFloat(10), resSet.getString(11), 
 						resSet.getInt(12),resSet.getInt(13), resSet.getString(14), resSet.getFloat(15),
 						resSet.getInt(16),
 						null);
-				Blob inBlob=resSet.getBlob(17);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                moto.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(moto.getModel());
+				moto.setExtraPictures(expImg);
 				EfficacyChartDaoImpl ecPro=new EfficacyChartDaoImpl(connection);
 				moto.setEfficacyChart(ecPro.findByModel(moto.getModel()));
 				result.add(moto);
 			} 
-		} catch (SQLException | ClassNotFoundException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -166,28 +156,19 @@ public class MotoDaoImpl implements MotoDao {
 			while(resSet.next())
 			{
 				Moto moto=new Moto(resSet.getString(1), resSet.getString(2), resSet.getInt(3),
-						resSet.getString(4), null, resSet.getString(18), 
+						resSet.getString(4), null, resSet.getString(17),
 						resSet.getFloat(5), resSet.getFloat(6), resSet.getFloat(7), 
 						resSet.getFloat(8), resSet.getFloat(9), resSet.getFloat(10), resSet.getString(11), 
 						resSet.getInt(12),resSet.getInt(13), resSet.getString(14), resSet.getFloat(15),
 						resSet.getInt(16),
 						null);
-				Blob inBlob=resSet.getBlob(17);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                moto.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(moto.getModel());
+				moto.setExtraPictures(expImg);
 				EfficacyChartDaoImpl ecPro=new EfficacyChartDaoImpl(connection);
 				moto.setEfficacyChart(ecPro.findByModel(moto.getModel()));
 				result.add(moto);
 			} 
-		} catch (SQLException | ClassNotFoundException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
