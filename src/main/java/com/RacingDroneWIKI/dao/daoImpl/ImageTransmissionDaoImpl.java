@@ -32,9 +32,9 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 				+ " `it_output_power`, `it_input_voltage`, `it_output_voltage`, "
 				+ "`it_antenna_connectors`, `it_video_band_width`, `it_audio_carrier_frequency`,"
 				+ " `it_video_input_level`, `it_audio_input_level`, `it_audio_input_impedance`, "
-				+ "`it_pin_definition_diagram`, `it_frequency_table`, `it_extra_pictures`, `it_caption`)"
+				+ "`it_pin_definition_diagram`, `it_frequency_table`, `it_caption`)"
 				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -64,10 +64,10 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 	        pstmt.setString(24, im.getAudioInputImpedance());
 	        pstmt.setString(25, im.getPinDefinitionDiagram());
 	        pstmt.setString(26, im.getFrequencyTable());
-	        pstmt.setObject(27, im.getExtraPictures());
-	        pstmt.setString(28, im.getCaption()); 
+	        pstmt.setString(27, im.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
+			new ExtraPicturesImpl(connection).addExtPic(im.getModel(),im.getExtraPictures());
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
@@ -91,7 +91,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 				+ "`it_audio_carrier_frequency`=?, `it_video_input_level`=?, "
 				+ "`it_audio_input_level`=?, `it_audio_input_impedance`=?, "
 				+ "`it_pin_definition_diagram`=?, `it_frequency_table`=?, "
-				+ "`it_extra_pictures`=?, `it_caption`=? WHERE `it_model`=?;";
+				+ " `it_caption`=? WHERE `it_model`=?;";
 		PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -120,9 +120,8 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 	        pstmt.setString(23, im.getAudioInputLevel());
 	        pstmt.setString(24, im.getAudioInputImpedance());
 	        pstmt.setString(25, im.getPinDefinitionDiagram());
-	        pstmt.setString(26, im.getFrequencyTable());
-	        pstmt.setObject(27, im.getExtraPictures());
-	        pstmt.setString(28, im.getCaption()); 
+	        pstmt.setObject(26, im.getExtraPictures());
+	        pstmt.setString(27, im.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	    } catch (SQLException e) {
@@ -144,7 +143,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			{
 				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
 						resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(28), 
+						null, resSet.getString(27),
 						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null, 
 						resSet.getInt(11), resSet.getBoolean(12), 
@@ -155,24 +154,15 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 						resSet.getString(21), resSet.getString(22),
 						resSet.getString(23), resSet.getString(24),
 						resSet.getString(25), resSet.getString(26));
-				Blob inBlob=resSet.getBlob(27);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                im.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(im.getModel());
+				im.setExtraPictures(expImg);
 				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
 					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -193,7 +183,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			{
 				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
 						resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(28), 
+						null, resSet.getString(27),
 						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null, 
 						resSet.getInt(11), resSet.getBoolean(12), 
@@ -204,24 +194,15 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 						resSet.getString(21), resSet.getString(22),
 						resSet.getString(23), resSet.getString(24),
 						resSet.getString(25), resSet.getString(26));
-				Blob inBlob=resSet.getBlob(27);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                im.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(im.getModel());
+				im.setExtraPictures(expImg);
 				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
 					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -240,7 +221,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			{
 				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
 						resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(28),
+						null, resSet.getString(27),
 						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null,
 						resSet.getInt(11), resSet.getBoolean(12),
@@ -251,24 +232,15 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 						resSet.getString(21), resSet.getString(22),
 						resSet.getString(23), resSet.getString(24),
 						resSet.getString(25), resSet.getString(26));
-				Blob inBlob=resSet.getBlob(27);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-					BufferedInputStream bis=new BufferedInputStream(is);
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					im.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(im.getModel());
+				im.setExtraPictures(expImg);
 				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
 					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -289,7 +261,7 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 			{
 				ImageTransmission im=new ImageTransmission(resSet.getString(1), resSet.getString(3),
 						resSet.getInt(4), resSet.getString(5),
-						null, resSet.getString(28),
+						null, resSet.getString(27),
 						resSet.getBoolean(2), resSet.getFloat(6), resSet.getFloat(7),
 						resSet.getFloat(8), resSet.getFloat(9), null,
 						resSet.getInt(11), resSet.getBoolean(12),
@@ -300,24 +272,15 @@ public class ImageTransmissionDaoImpl implements ImageTransmissionDao {
 						resSet.getString(21), resSet.getString(22),
 						resSet.getString(23), resSet.getString(24),
 						resSet.getString(25), resSet.getString(26));
-				Blob inBlob=resSet.getBlob(27);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-					BufferedInputStream bis=new BufferedInputStream(is);
-					byte[] buff=new byte[(int) inBlob.length()];
-					bis.read(buff, 0, buff.length);
-					ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-					LinkedList<String> ls=(LinkedList<String>) in.readObject();
-					im.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(im.getModel());
+				im.setExtraPictures(expImg);
 				if(resSet.getString(10)==null)
 					im.setCam(null);
 				else
 					im.setCam(new CamDaoImpl(connection).findByModel(resSet.getString(10)).get(0));
 				result.add(im);
 			}
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.AntennaDao;
+import com.RacingDroneWIKI.dao.dao.ExtraPictures;
+import com.RacingDroneWIKI.dao.daoProxy.ExtraPicturesProxy;
 import com.RacingDroneWIKI.javaBean.Antenna;
 
 
@@ -27,9 +29,9 @@ public class AntennaDaoImpl implements AntennaDao {
 	    String sql = "INSERT INTO `racingdronewiki`.`antenna` "
 	    		+ "(`ant_model`, `ant_img`, `ant_reference_price`, `ant_anufacturer`,"
 	    		+ " `ant_weight`, `ant_length`, `ant_connectors`, `ant_frequency`, "
-	    		+ "`ant_gain`, `ant_axial_ratic`, `ant_polarization`, `ant_extra_pictures`,"
+	    		+ "`ant_gain`, `ant_axial_ratic`, `ant_polarization`,"
 	    		+ " `ant_caption`) "
-	    		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	    		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -44,10 +46,10 @@ public class AntennaDaoImpl implements AntennaDao {
 	        pstmt.setFloat(9, ant.getGain());
 	        pstmt.setFloat(10, ant.getAxialRatic());
 	        pstmt.setString(11, ant.getPolarization());
-	        pstmt.setObject(12, ant.getExtraPictures());
-	        pstmt.setString(13, ant.getCaption()); 
+	        pstmt.setString(12, ant.getCaption());
 	        pstmt.executeUpdate();
 	        pstmt.close();
+	        new ExtraPicturesImpl(connection).addExtPic(ant.getModel(),ant.getExtraPictures());
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
@@ -85,9 +87,8 @@ public class AntennaDaoImpl implements AntennaDao {
 	        pstmt.setFloat(9, ant.getGain());
 	        pstmt.setFloat(10, ant.getAxialRatic());
 	        pstmt.setString(11, ant.getPolarization());
-	        pstmt.setObject(12, ant.getExtraPictures());
-	        pstmt.setString(13, ant.getCaption()); 
-	        pstmt.setString(14, ant.getModel());
+	        pstmt.setString(12, ant.getCaption());
+	        pstmt.setString(13, ant.getModel());
 	        pstmt.executeUpdate();
 	        pstmt.close();
 	    } catch (SQLException e) {
@@ -111,25 +112,16 @@ public class AntennaDaoImpl implements AntennaDao {
 						resSet.getString(2), resSet.getInt(3), 
 						resSet.getString(4),
 						null, 
-						resSet.getString(13), 
+						resSet.getString(12),
 						resSet.getFloat(5), resSet.getFloat(6), 
 						resSet.getString(7), resSet.getString(8),
 						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getString(11));
-				Blob inBlob=resSet.getBlob(12);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                ant.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(ant.getModel());
+				ant.setExtraPictures(expImg);
 				result.add(ant);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -150,25 +142,16 @@ public class AntennaDaoImpl implements AntennaDao {
 			{
 				Antenna ant=new Antenna(resSet.getString(1),
 						resSet.getString(2), resSet.getInt(3), 
-						resSet.getString(4), null, resSet.getString(13), 
+						resSet.getString(4), null, resSet.getString(12),
 						resSet.getFloat(5), resSet.getFloat(6), 
 						resSet.getString(7), resSet.getString(8),
 						resSet.getFloat(9), resSet.getFloat(10),
 						resSet.getString(11));
-				Blob inBlob=resSet.getBlob(12);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();
-	                BufferedInputStream bis=new BufferedInputStream(is);
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                ant.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(ant.getModel());
+				ant.setExtraPictures(expImg);
 				result.add(ant);
 			} 
-		} catch (SQLException | IOException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())

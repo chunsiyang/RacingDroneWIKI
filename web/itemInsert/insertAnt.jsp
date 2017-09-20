@@ -32,25 +32,25 @@
                 <p>增益：</p>
                 <p>轴比：</p>
                 <p>极化方式：</p>
-                <p>文字描述：</p>
-                <p id="expImgP">辅助图片：</p>
+                <p id="capP">文字描述：</p>
+                <p>辅助图片：</p>
             </div>
             <div class="value">
                 <form id="itemInfo" method="post" action="putIntoDB" enctype="multipart/form-data">
-                    <input type="text" name="model" placeholder="天线型号"><br>
-                    <input type="file" name="mainImg"><br>
-                    <input type="text" name="referencePrice" placeholder="天线参考价格"><br>
-                    <input type="text" name="anufacturer" placeholder="天线制造商、品牌"><br>
-                    <input type="text" name="weight" placeholder="天线净重，单位：g"><br>
-                    <input type="text" name="length" placeholder="天线长度，单位：mm"><br>
-                    <input type="text" name="connectors" placeholder="天线接头类型RP-SMA(内螺纹内孔)SMA(内螺纹内针)"><br>
-                    <input type="text" name="frequency" placeholder="天线频率 exp：5600-5900，单位：Hz"><br>
-                    <input type="text" name="gain" placeholder="天线增益"><br>
-                    <input type="text" name="axialRatic" placeholder="天线轴比"><br>
-                    <input type="text" name="polarization" placeholder="天线极化方式RHCP(右旋极化)LHCP(左旋极化)"><br>
-                    <textarea name="caption" placeholder="天线相关文字描述、配置、备注等信息"></textarea>
-                    <input type="file" name="files" multiple/><br/>
-                    <input type="submit" value="   提交   ">
+                    <input type="text" name="model"class="inputText" placeholder="天线型号"><br>
+                    <input type="file" name="mainImg"class="inputText"><br>
+                    <input type="text" name="referencePrice" class="inputText" placeholder="天线参考价格"><br>
+                    <input type="text" name="anufacturer" class="inputText" placeholder="天线制造商、品牌"><br>
+                    <input type="text" name="weight" class="inputText" placeholder="天线净重，单位：g"><br>
+                    <input type="text" name="length" class="inputText" placeholder="天线长度，单位：mm"><br>
+                    <input type="text" name="connectors" class="inputText" placeholder="天线接头类型RP-SMA(内螺纹内孔)SMA(内螺纹内针)"><br>
+                    <input type="text" name="frequency" class="inputText" placeholder="天线频率 exp：5600-5900，单位：Hz"><br>
+                    <input type="text" name="gain" class="inputText" placeholder="天线增益"><br>
+                    <input type="text" name="axialRatic" class="inputText" placeholder="天线轴比"><br>
+                    <input type="text" name="polarization" class="inputText" placeholder="天线极化方式RHCP(右旋极化)LHCP(左旋极化)"><br>
+                    <textarea name="caption" class="inputText" placeholder="天线相关文字描述、配置、备注等信息"></textarea>
+                    <input type="file" name="files" multiple class="inputText"/><br/>
+                    <input type="submit" value="   提交   " class="inputText">
                 </form>
             </div>
         </div>

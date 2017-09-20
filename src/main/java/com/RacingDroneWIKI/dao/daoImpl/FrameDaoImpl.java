@@ -32,9 +32,9 @@ public class FrameDaoImpl implements FrameDao {
 				+ " `fra_integrated_led`, `fra_camra_adjusting_angle`, "
 				+ "`fra_material`, `fra_maximum_support_prop`,"
 				+ " `fra_bottom_thickness`, `fra_roof_thickness`, "
-				+ "`fra_arm_thickness`, `fra_extra_pictures`,"
+				+ "`fra_arm_thickness`,"
 				+ " `fra_caption`) VALUES (?, ?, ?, ?, ?, ?,"
-				+ " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				+ " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 		 PreparedStatement pstmt;
 		    try {
 		        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -53,10 +53,10 @@ public class FrameDaoImpl implements FrameDao {
 		        pstmt.setFloat(13, fra.getBottomThickness());
 		        pstmt.setFloat(14,fra.getRoofThickness());
 		        pstmt.setFloat(15, fra.getArmThikness());
-		        pstmt.setObject(16, fra.getExtraPictures());
-		        pstmt.setString(17, fra.getCaption()); 
+		        pstmt.setString(16, fra.getCaption());
 		        pstmt.executeUpdate();
 		        pstmt.close();
+				new ExtraPicturesImpl(connection).addExtPic(fra.getModel(),fra.getExtraPictures());
 		    } catch (SQLException e) {
 		        e.printStackTrace(); 
 		    }
@@ -75,7 +75,7 @@ public class FrameDaoImpl implements FrameDao {
 				+ " `fra_integrated_ph`=?, `fra_integrated_led`=?, "
 				+ "`fra_camra_adjusting_angle`=?, `fra_material`=?,"
 				+ " `fra_maximum_support_prop`=?, `fra_bottom_thickness`=?, "
-				+ "`fra_roof_thickness`=?, `fra_arm_thickness`=?, `fra_extra_pictures`=?,"
+				+ "`fra_roof_thickness`=?,`fra_extra_pictures`=?,"
 				+ " `fra_caption`=? WHERE `fra_model`=?;";
 		PreparedStatement pstmt;
 	    try {
@@ -95,12 +95,11 @@ public class FrameDaoImpl implements FrameDao {
 	        pstmt.setFloat(13, fra.getBottomThickness());
 	        pstmt.setFloat(14,fra.getRoofThickness());
 	        pstmt.setFloat(15, fra.getArmThikness());
-	        pstmt.setObject(16, fra.getExtraPictures());
-	        pstmt.setString(17, fra.getCaption()); 
-	        pstmt.setString(18, fra.getModel());
+	        pstmt.setString(16, fra.getCaption());
+	        pstmt.setString(17, fra.getModel());
 	        pstmt.executeUpdate();
 	        pstmt.close();
-	    } catch (SQLException e) {
+		} catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
 		return true;
@@ -120,7 +119,7 @@ public class FrameDaoImpl implements FrameDao {
 				Frame fra=new Frame(resSet.getString(1), resSet.getString(2), 
 						resSet.getInt(3), resSet.getString(4), 
 						null,
-						resSet.getString(17),resSet.getInt(5),
+						resSet.getString(16),resSet.getInt(5),
 						resSet.getFloat(6), resSet.getFloat(7), null, 
 						resSet.getBoolean(9), resSet.getString(10),
 						resSet.getString(11), resSet.getInt(12),
@@ -133,20 +132,11 @@ public class FrameDaoImpl implements FrameDao {
 					PowerHub ph=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
 					fra.setIntegratedPh(ph);
 				}
-				Blob inBlob=resSet.getBlob(16);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                fra.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
+				fra.setExtraPictures(expImg);
 				result.add(fra);
 			} 
-		} catch (SQLException | ClassNotFoundException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
@@ -168,7 +158,7 @@ public class FrameDaoImpl implements FrameDao {
 				Frame fra=new Frame(resSet.getString(1), resSet.getString(2), 
 						resSet.getInt(3), resSet.getString(4), 
 						null,
-						resSet.getString(17),resSet.getInt(5),
+						resSet.getString(16),resSet.getInt(5),
 						resSet.getFloat(6), resSet.getFloat(7), null, 
 						resSet.getBoolean(9), resSet.getString(10),
 						resSet.getString(11), resSet.getInt(12),
@@ -180,20 +170,11 @@ public class FrameDaoImpl implements FrameDao {
 					PowerHub pb=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
 					fra.setIntegratedPh(pb);
 				}
-				Blob inBlob=resSet.getBlob(16);
-				if(inBlob!=null)
-				{
-					InputStream is=inBlob.getBinaryStream();                //获取二进制流对象  
-	                BufferedInputStream bis=new BufferedInputStream(is);    //带缓冲区的流对象  
-	                byte[] buff=new byte[(int) inBlob.length()]; 
-	                bis.read(buff, 0, buff.length);          //一次性全部读到buff中  
-	                ObjectInputStream in=new ObjectInputStream(new ByteArrayInputStream(buff));  
-	                LinkedList<String> ls=(LinkedList<String>) in.readObject();
-	                fra.setExtraPictures(ls);
-				}
+				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
+				fra.setExtraPictures(expImg);
 				result.add(fra);
 			} 
-		} catch (SQLException | ClassNotFoundException | IOException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(!result.iterator().hasNext())
