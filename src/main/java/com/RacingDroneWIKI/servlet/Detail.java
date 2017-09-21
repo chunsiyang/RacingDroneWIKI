@@ -48,7 +48,7 @@ public class Detail extends javax.servlet.http.HttpServlet {
         }
         if(item.equals("ant"))
         {
-            request.setAttribute("item",new AntennaDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new AntennaDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/ant.jsp").forward(request,response);
         }
         if(item.equals("ph"))
