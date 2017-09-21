@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.FlightControlDao;
 import com.RacingDroneWIKI.dao.daoImpl.FlightControlDaoImpl;
-import com.RacingDroneWIKI.javaBean.FlightControl;
+import com.RacingDroneWIKI.pojo.FlightControl;
 
 public class FlightControlDaoProxy implements FlightControlDao {
 

@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.ImageTransmission;
+import com.RacingDroneWIKI.pojo.ImageTransmission;
 
 /**
  * @author user

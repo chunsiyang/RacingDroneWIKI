@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.BatteryDao;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.daoImpl.BatteryDaoImpl;
-import com.RacingDroneWIKI.javaBean.Battery;
+import com.RacingDroneWIKI.pojo.Battery;
 
 public class BatteryDaoProxy implements BatteryDao {
 

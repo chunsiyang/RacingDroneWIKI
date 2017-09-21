@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.EfficacyChartDao;
 import com.RacingDroneWIKI.dao.daoImpl.EfficacyChartDaoImpl;
-import com.RacingDroneWIKI.javaBean.EfficacyChart;
+import com.RacingDroneWIKI.pojo.EfficacyChart;
 
 public class EfficacyChartDaoProxy implements EfficacyChartDao {
 

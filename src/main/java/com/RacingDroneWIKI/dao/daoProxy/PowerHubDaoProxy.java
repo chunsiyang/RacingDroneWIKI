@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.PowerHubDao;
 import com.RacingDroneWIKI.dao.daoImpl.PowerHubDaoImpl;
-import com.RacingDroneWIKI.javaBean.PowerHub;
+import com.RacingDroneWIKI.pojo.PowerHub;
 
 public class PowerHubDaoProxy implements PowerHubDao {
 

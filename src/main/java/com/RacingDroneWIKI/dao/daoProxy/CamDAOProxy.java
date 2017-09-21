@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.CamDao;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.daoImpl.CamDaoImpl;
-import com.RacingDroneWIKI.javaBean.Cam;
+import com.RacingDroneWIKI.pojo.Cam;
 
 public class CamDAOProxy implements CamDao {
 

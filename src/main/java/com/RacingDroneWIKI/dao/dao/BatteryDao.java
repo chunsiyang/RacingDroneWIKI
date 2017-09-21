@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.Battery;
+import com.RacingDroneWIKI.pojo.Battery;
 
 /**
  * @author user

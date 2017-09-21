@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.ElectroSpeedRegulatorDao;
 import com.RacingDroneWIKI.dao.daoImpl.ElectroSpeedRegulatorDaoImpl;
-import com.RacingDroneWIKI.javaBean.ElectroSpeedRegulator;
+import com.RacingDroneWIKI.pojo.ElectroSpeedRegulator;
 
 public class ElectroSpeedRegulatorDaoProxy implements ElectroSpeedRegulatorDao {
 

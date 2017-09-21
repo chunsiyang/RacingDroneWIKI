@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.Cam;
+import com.RacingDroneWIKI.pojo.Cam;
 
 /**
  * @author user
