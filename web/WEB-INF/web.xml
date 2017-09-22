@@ -67,4 +67,21 @@
         <servlet-name>Detail</servlet-name>
         <url-pattern>/detail</url-pattern>
     </servlet-mapping>
+    <!--数据录入相关servlet-->
+    <servlet>
+        <servlet-name>InsertFC</servlet-name>
+        <servlet-class>com.RacingDroneWIKI.servlet.itemInsert.InsertFC</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertFC</servlet-name>
+        <url-pattern>/itemInsert/InsertFC</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>InsertEsc</servlet-name>
+        <servlet-class>com.RacingDroneWIKI.servlet.itemInsert.InsertEsc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertEsc</servlet-name>
+        <url-pattern>/itemInsert/InsertEsc</url-pattern>
+    </servlet-mapping>
 </web-app>

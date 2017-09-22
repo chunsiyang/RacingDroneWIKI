@@ -43,7 +43,7 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="putIntoDB" enctype="multipart/form-data">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertFC">
           <input type="text" name="model" class="inputText" placeholder="飞控型号"><br>
           <input type="file" name="mainImg" class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText" placeholder="飞控参考价格"><br>
