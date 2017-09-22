@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.Antenna;
+import com.RacingDroneWIKI.pojo.Antenna;
 
 /**
  * @author user
@@ -13,19 +13,19 @@ public interface AntennaDao {
 	 * @param ant
 	 * @return
 	 */
-	boolean addAntenna(Antenna ant);
+	int addAntenna(Antenna ant);
 
 	/**
 	 * @param ant
 	 * @return
 	 */
-	boolean deleteAntenna(Antenna ant);
+	int deleteAntenna(Antenna ant);
 
 	/**
 	 * @param ant
 	 * @return
 	 */
-	boolean updatAantenna(Antenna ant);
+	int updatAantenna(Antenna ant);
 
 	/**
 	 * @return
@@ -37,5 +37,9 @@ public interface AntennaDao {
 	 * @return
 	 */
 	List<Antenna> findByModel(String model);
-
+	/**
+	 * @param model
+	 * @return
+	 */
+	Antenna findDetail(String model);
 }

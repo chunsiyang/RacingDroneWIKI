@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.FlightControl;
+import com.RacingDroneWIKI.pojo.FlightControl;
 
 /**
  * @author user

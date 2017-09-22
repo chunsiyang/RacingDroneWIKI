@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.ImageTransmissionDao;
 import com.RacingDroneWIKI.dao.daoImpl.ImageTransmissionDaoImpl;
-import com.RacingDroneWIKI.javaBean.ImageTransmission;
+import com.RacingDroneWIKI.pojo.ImageTransmission;
 
 public class ImageTransmissionDaoProxy implements ImageTransmissionDao {
 

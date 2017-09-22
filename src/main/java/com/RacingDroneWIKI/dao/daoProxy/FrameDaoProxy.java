@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.FrameDao;
 import com.RacingDroneWIKI.dao.daoImpl.FrameDaoImpl;
-import com.RacingDroneWIKI.javaBean.Frame;
+import com.RacingDroneWIKI.pojo.Frame;
 
 public class FrameDaoProxy implements FrameDao {
 

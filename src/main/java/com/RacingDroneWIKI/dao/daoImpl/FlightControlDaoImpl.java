@@ -1,11 +1,5 @@
 package com.RacingDroneWIKI.dao.daoImpl;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,13 +7,10 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.FlightControlDao;
-import com.RacingDroneWIKI.dao.daoProxy.ElectroSpeedRegulatorDaoProxy;
-import com.RacingDroneWIKI.dao.daoProxy.ImageTransmissionDaoProxy;
-import com.RacingDroneWIKI.dao.daoProxy.PowerHubDaoProxy;
-import com.RacingDroneWIKI.javaBean.ElectroSpeedRegulator;
-import com.RacingDroneWIKI.javaBean.FlightControl;
-import com.RacingDroneWIKI.javaBean.ImageTransmission;
-import com.RacingDroneWIKI.javaBean.PowerHub;
+import com.RacingDroneWIKI.pojo.ElectroSpeedRegulator;
+import com.RacingDroneWIKI.pojo.FlightControl;
+import com.RacingDroneWIKI.pojo.ImageTransmission;
+import com.RacingDroneWIKI.pojo.PowerHub;
 
 public class FlightControlDaoImpl implements FlightControlDao {
 	private  java.sql.Connection connection;

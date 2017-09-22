@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.EfficacyChartDao;
-import com.RacingDroneWIKI.javaBean.EfficacyChart;
+import com.RacingDroneWIKI.pojo.EfficacyChart;
 
 public class EfficacyChartDaoImpl implements EfficacyChartDao {
 	private  java.sql.Connection connection;

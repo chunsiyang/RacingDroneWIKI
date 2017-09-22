@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.EfficacyChart;
+import com.RacingDroneWIKI.pojo.EfficacyChart;
 
 /**
  * @author user
