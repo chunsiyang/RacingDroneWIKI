@@ -63,7 +63,7 @@ public class Detail extends javax.servlet.http.HttpServlet {
         }
         if(item.equals("bat"))
         {
-            request.setAttribute("item",new BatteryDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new BatteryDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/bat.jsp").forward(request,response);
         }
     }

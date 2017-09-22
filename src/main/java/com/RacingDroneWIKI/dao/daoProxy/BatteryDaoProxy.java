@@ -6,42 +6,105 @@ import com.RacingDroneWIKI.dao.dao.BatteryDao;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.daoImpl.BatteryDaoImpl;
 import com.RacingDroneWIKI.pojo.Battery;
+import org.apache.ibatis.session.SqlSession;
 
 public class BatteryDaoProxy implements BatteryDao {
 
-	public boolean addBattery(Battery battery) {
-		BatteryDaoImpl antDI=new BatteryDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.addBattery(battery);
-		DatabaseConnection.close();
-		return 	res;
+
+
+	public int addBattery(Battery battery) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.addBattery(battery);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean deleteBattery(Battery battery) {
-		// TODO: implement
-		return false;
+	public int deleteBattery(Battery battery) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.deleteBattery(battery);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean updataBattery(Battery battery) {
-		BatteryDaoImpl antDI=new BatteryDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.updataBattery(battery);
-		DatabaseConnection.close();
-		return 	res;
+	public int updataBattery(Battery battery) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.updataBattery(battery);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
 	public List<Battery> findAll() {
 		List<Battery> res;
-		BatteryDaoImpl ant=new BatteryDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAll();
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.findAll();
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
 	public List<Battery> findByModel(String model) {
 		List<Battery> res;
-		BatteryDaoImpl ant=new BatteryDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModel(model);
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.findByModel(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
+	public Battery findDetail(String model) {
+		Battery res;
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
+			res=batteryDao.findDetail(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
+	}
 }

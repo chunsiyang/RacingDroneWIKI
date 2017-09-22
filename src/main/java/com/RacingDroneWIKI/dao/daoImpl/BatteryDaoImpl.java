@@ -16,7 +16,7 @@ public class BatteryDaoImpl implements BatteryDao {
 		this.connection = connection;
 	}
 
-	public boolean addBattery(Battery battery) {
+	public int addBattery(Battery battery) {
 		String sql = "INSERT INTO `racingdronewiki`.`battery` "
 				+ "(`bat_model`, `bat_img`, `bat_reference_price`, "
 				+ "`bat_anufacturer`, `bat_capacity`, `bat_discharge_rate`,"
@@ -54,15 +54,15 @@ public class BatteryDaoImpl implements BatteryDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
-		return true;
+		return 0;
 	}
 
-	public boolean deleteBattery(Battery battery) {
+	public int deleteBattery(Battery battery) {
 		// TODO: implement
-		return false;
+		return 0;
 	}
 
-	public boolean updataBattery(Battery battery) {
+	public int updataBattery(Battery battery) {
 		String sql="UPDATE `racingdronewiki`.`battery` SET `bat_model`=?, `bat_img`=?, "
 				+ "`bat_reference_price`=?, `bat_anufacturer`=?, `bat_capacity`=?, "
 				+ "`bat_discharge_rate`=?, `bat_instantaneous_discharge_rate`=?,"
@@ -99,7 +99,12 @@ public class BatteryDaoImpl implements BatteryDao {
 		    } catch (SQLException e) {
 		        e.printStackTrace(); 
 		    }
-			return true;
+			return 0;
+	}
+
+	@Override
+	public Battery findDetail(String model) {
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")

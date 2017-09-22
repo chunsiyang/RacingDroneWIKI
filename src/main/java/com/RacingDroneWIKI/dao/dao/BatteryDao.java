@@ -13,19 +13,19 @@ public interface BatteryDao {
 	 * @param battery
 	 * @return
 	 */
-	boolean addBattery(Battery battery);
+	int addBattery(Battery battery);
 
 	/**
 	 * @param battery
 	 * @return
 	 */
-	boolean deleteBattery(Battery battery);
+	int deleteBattery(Battery battery);
 
 	/**
 	 * @param battery
 	 * @return
 	 */
-	boolean updataBattery(Battery battery);
+	int updataBattery(Battery battery);
 
 	/**
 	 * @return
@@ -38,4 +38,5 @@ public interface BatteryDao {
 	 */
 	List<Battery> findByModel(String model);
 
+	Battery findDetail(String model);
 }

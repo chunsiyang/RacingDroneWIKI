@@ -29,8 +29,19 @@ public class AntennaDaoProxy implements AntennaDao {
 	}
 
 	public int deleteAntenna(Antenna ant) {
-		// TODO: implement
-		return 0;
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			AntennaDao antennaDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.AntennaDao.class);
+			res=antennaDao.deleteAntenna(ant);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
 	public int updatAantenna(Antenna ant) {

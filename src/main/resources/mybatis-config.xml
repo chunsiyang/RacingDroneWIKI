@@ -32,5 +32,6 @@
     <mappers>
         <mapper resource="mapper/antennaMapper.xml"/>
         <mapper resource="mapper/extraPicturesMapper.xml"/>
+        <mapper resource="mapper/batteryMapper.xml"/>
     </mappers>
 </configuration>
