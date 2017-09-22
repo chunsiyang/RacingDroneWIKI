@@ -1,4 +1,4 @@
-package com.RacingDroneWIKI.javaBean;
+package com.RacingDroneWIKI.pojo;
 
 import java.util.LinkedList;
 

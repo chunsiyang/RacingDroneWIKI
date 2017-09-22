@@ -1,11 +1,5 @@
 package com.RacingDroneWIKI.dao.daoImpl;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.BatteryDao;
-import com.RacingDroneWIKI.javaBean.Battery;
+import com.RacingDroneWIKI.pojo.Battery;
 
 public class BatteryDaoImpl implements BatteryDao {
 	private  java.sql.Connection connection;
@@ -113,7 +107,7 @@ public class BatteryDaoImpl implements BatteryDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<Battery> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.battery;";
+		String sql="SELECT * FROM battery;";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();
@@ -146,7 +140,7 @@ public class BatteryDaoImpl implements BatteryDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<Battery> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.battery WHERE `bat_model`like '%"+model+"%';";
+		String sql="SELECT * FROM battery WHERE `bat_model`like '%"+model+"%';";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();

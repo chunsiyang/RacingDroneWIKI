@@ -1,11 +1,5 @@
 package com.RacingDroneWIKI.dao.daoImpl;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,9 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.AntennaDao;
-import com.RacingDroneWIKI.dao.dao.ExtraPictures;
-import com.RacingDroneWIKI.dao.daoProxy.ExtraPicturesProxy;
-import com.RacingDroneWIKI.javaBean.Antenna;
+import com.RacingDroneWIKI.pojo.Antenna;
 
 
 public class AntennaDaoImpl implements AntennaDao {
@@ -25,12 +17,12 @@ public class AntennaDaoImpl implements AntennaDao {
 		this.connection = connection;
 	}
 
-	public boolean addAntenna(Antenna ant) {
+	public int addAntenna(Antenna ant) {
 	    String sql = "INSERT INTO `racingdronewiki`.`antenna` "
-	    		+ "(`ant_model`, `ant_img`, `ant_reference_price`, `ant_anufacturer`,"
-	    		+ " `ant_weight`, `ant_length`, `ant_connectors`, `ant_frequency`, "
-	    		+ "`ant_gain`, `ant_axial_ratic`, `ant_polarization`,"
-	    		+ " `ant_caption`) "
+	    		+ "(`model`, `img`, `reference_price`, `anufacturer`,"
+	    		+ " `weight`, `length`, `connectors`, `frequency`, "
+	    		+ "`gain`, `axial_ratic`, `polarization`,"
+	    		+ " `caption`) "
 	    		+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 	    PreparedStatement pstmt;
 	    try {
@@ -53,26 +45,31 @@ public class AntennaDaoImpl implements AntennaDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
-		return true;
+		return 0;
 	}
 
-	public boolean deleteAntenna(Antenna ant) {
+	public int deleteAntenna(Antenna ant) {
 		// TODO: implement
-		return false;
+		return 0;
 	}
 
-	public boolean updatAantenna(Antenna ant) {
+	@Override
+	public Antenna findDetail(String model) {
+		return null;
+	}
+
+	public int updatAantenna(Antenna ant) {
 	    String sql="UPDATE `racingdronewiki`.`antenna` "
-	    		+ "SET `ant_model`=?, "
-	    		+ "`ant_img`=?, `ant_reference_price`=?,"
-	    		+ " `ant_anufacturer`=?, `ant_weight`=?, "
-	    		+ "`ant_length`=?, `ant_connectors`=?, "
-	    		+ "`ant_frequency`=?, `ant_gain`=?, "
-	    		+ "`ant_axial_ratic`=?, "
-	    		+ "`ant_polarization`=?, "
-	    		+ "`ant_extra_pictures`=?, "
-	    		+ "`ant_caption`=? WHERE "
-	    		+ "`ant_model`=?;";
+	    		+ "SET `model`=?, "
+	    		+ "`img`=?, `reference_price`=?,"
+	    		+ " `anufacturer`=?, `weight`=?, "
+	    		+ "`length`=?, `connectors`=?, "
+	    		+ "`frequency`=?, `gain`=?, "
+	    		+ "`axial_ratic`=?, "
+	    		+ "`polarization`=?, "
+	    		+ "`extra_pictures`=?, "
+	    		+ "`caption`=? WHERE "
+	    		+ "`model`=?;";
 	    PreparedStatement pstmt;
 	    try {
 	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
@@ -94,7 +91,7 @@ public class AntennaDaoImpl implements AntennaDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace(); 
 	    }
-		return true;
+		return 0;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -134,7 +131,7 @@ public class AntennaDaoImpl implements AntennaDao {
 		PreparedStatement pstmt;
 		ResultSet resSet;
 		List<Antenna> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.antenna WHERE `ant_model`like '%"+model+"%';";
+		String sql="SELECT * FROM racingdronewiki.antenna WHERE `model`like '%"+model+"%';";
 		try {
 			pstmt = (PreparedStatement) connection.prepareStatement(sql);
 			resSet=pstmt.executeQuery();

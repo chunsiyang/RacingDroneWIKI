@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.dao.dao;
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.Moto;
+import com.RacingDroneWIKI.pojo.Moto;
 
 /**
  * @author user

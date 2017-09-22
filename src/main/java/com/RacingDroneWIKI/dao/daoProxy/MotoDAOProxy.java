@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.MotoDao;
 import com.RacingDroneWIKI.dao.daoImpl.MotoDaoImpl;
-import com.RacingDroneWIKI.javaBean.Moto;
+import com.RacingDroneWIKI.pojo.Moto;
 
 public class MotoDAOProxy implements MotoDao {
 

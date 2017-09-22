@@ -5,7 +5,7 @@ import java.util.*;
 import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.PropDao;
 import com.RacingDroneWIKI.dao.daoImpl.PropDaoImpl;
-import com.RacingDroneWIKI.javaBean.Prop;
+import com.RacingDroneWIKI.pojo.Prop;
 
 public class PropDaoProxy implements PropDao {
 

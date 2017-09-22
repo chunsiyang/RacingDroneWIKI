@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.ElectroSpeedRegulator;
+import com.RacingDroneWIKI.pojo.ElectroSpeedRegulator;
 
 /**
  * @author user

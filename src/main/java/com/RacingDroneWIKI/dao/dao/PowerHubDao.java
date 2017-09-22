@@ -2,7 +2,7 @@ package com.RacingDroneWIKI.dao.dao;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.javaBean.PowerHub;
+import com.RacingDroneWIKI.pojo.PowerHub;
 
 /**
  * @author user

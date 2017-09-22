@@ -1,11 +1,5 @@
 package com.RacingDroneWIKI.dao.daoImpl;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.MotoDao;
-import com.RacingDroneWIKI.dao.daoProxy.EfficacyChartDaoProxy;
-import com.RacingDroneWIKI.javaBean.Moto;
+import com.RacingDroneWIKI.pojo.Moto;
 
 public class MotoDaoImpl implements MotoDao {
 	private java.sql.Connection connection;

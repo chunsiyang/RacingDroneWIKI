@@ -1,4 +1,4 @@
-package com.RacingDroneWIKI.javaBean;
+package com.RacingDroneWIKI.pojo;
 
 public class EfficacyChart {
 	/**

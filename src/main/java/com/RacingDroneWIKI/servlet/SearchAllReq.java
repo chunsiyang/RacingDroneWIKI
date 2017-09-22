@@ -1,12 +1,10 @@
 package com.RacingDroneWIKI.servlet;
 
 import com.RacingDroneWIKI.dao.daoProxy.*;
-import com.RacingDroneWIKI.javaBean.*;
+import com.RacingDroneWIKI.pojo.*;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
 /**

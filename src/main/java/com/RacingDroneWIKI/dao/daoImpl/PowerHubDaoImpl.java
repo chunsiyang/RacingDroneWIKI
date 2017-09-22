@@ -1,11 +1,5 @@
 package com.RacingDroneWIKI.dao.daoImpl;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +7,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.PowerHubDao;
-import com.RacingDroneWIKI.javaBean.PowerHub;
+import com.RacingDroneWIKI.pojo.PowerHub;
 
 public class PowerHubDaoImpl implements PowerHubDao {
 	private  java.sql.Connection connection;
