@@ -24,7 +24,7 @@
     </insert>
     <update id="updatAantenna" parameterType="com.RacingDroneWIKI.pojo.Antenna">
         UPDATE antenna
-        <trim suffixOverrides=",">
+        <trim suffixOverrides="," >
             <set>
                 <if test="imgUrl !=null">
                     img_url=#{imgUrl},

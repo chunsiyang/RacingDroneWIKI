@@ -1,0 +1,66 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+#main{
+    min-height: 90%;
+}
+#infoTable{
+    display: table;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1%;
+}
+h2{
+    margin-top: 1%;
+    text-align: center;
+}
+.infoTableRow{
+    display: table-row;
+}
+.name{
+    display: table-cell;
+    text-align: right;
+    width: 30%;
+}
+.name p{
+    margin: 0px;
+}
+.value{
+    display: table-cell;
+    text-align: left;
+    width: 70%;
+}
+form{
+    padding: 0px;
+    margin: 0px;
+}
+.name p{
+    padding: 2.5px;
+    margin: 5px;
+    height: 30px;
+}
+.inputText{
+    padding: 2px;
+    margin: 5px;
+    height: 30px;
+    width: 70%;
+}
+.inputRadio{
+    width: auto;
+    padding: 2px;
+    margin: 5px;
+    height: 30px;
+    vertical-align: middle;
+}
+.value textarea{
+    width: 70%;
+    height: 200px;
+    padding: 2px;
+    margin: 5px;
+    resize:none;
+}
+#capP{
+    margin-bottom: 175px;
+}
