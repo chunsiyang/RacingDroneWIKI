@@ -18,16 +18,10 @@
         <jsp:param name="searchModel" value="${param.searchModel}"/>
     </jsp:include>
     <section>
-        <form action="/itemInsert/insertEsc.jsp">
-            <input type="submit"class="inputText" formmethod="post" value="添加集成电子调速器">
+        <form action="/itemInsert/insertPh.jsp" method="post">
+            <input type="submit"class="inputText" formmethod="post" value="添加内置分电板">
         </form>
-        <form action="/itemInsert/insertIt.jsp">
-            <input type="submit"class="inputText"formmethod="post" value="添加集成图传">
-        </form>
-        <form action="/itemInsert/insertPh.jsp">
-            <input type="submit"class="inputText" formmethod="post"value="添加集成分电板">
-        </form>
-        <form action="/itemInsert/InsertFC">
+        <form action="/itemInsert/InsertFra">
             <input type="submit"class="inputText" value="完成，录入数据">
         </form>
     </section>

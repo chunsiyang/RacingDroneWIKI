@@ -43,7 +43,7 @@
                 <p>辅助图片：</p>
             </div>
             <div class="value">
-                <form id="itemInfo" method="post" action="putIntoDB" enctype="multipart/form-data">
+                <form id="itemInfo" method="post" action="/itemInsert/InsertBat" >
                     <input type="text" name="model" placeholder="电池型号"class="inputText"><br>
                     <input type="file" name="mainImg"class="inputText"><br>
                     <input type="text" name="referencePrice" class="inputText"placeholder="电池参考价格"><br>
