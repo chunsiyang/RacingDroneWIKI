@@ -206,7 +206,7 @@
                                             <p>顶板厚度：${item.getRoofThickness()}mm</p>
                                         </td>
                                         <td>
-                                            <p>机臂厚度：${item.getArmThikness()}mm</p>
+                                            <p>机臂厚度：${item.getArmThickness()}mm</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -576,7 +576,7 @@
                                             <p>叶片数：${item.getBladeNumber()}</p>
                                         </td>
                                         <td>
-                                            <P>尺寸：${item.getSize()}</P>
+                                            <P>尺寸：${item.size}</P>
                                         </td>
                                         <td>
                                             <p>材料：${item.getMaterial()}</p>

@@ -13,19 +13,19 @@ public interface PropDao {
 	 * @param prop
 	 * @return
 	 */
-	boolean addProp(Prop prop);
+	int addProp(Prop prop);
 
 	/**
 	 * @param prop
 	 * @return
 	 */
-	boolean deleteProp(Prop prop);
+	int deleteProp(Prop prop);
 
 	/**
 	 * @param prop
 	 * @return
 	 */
-	boolean updataProp(Prop prop);
+	int updataProp(Prop prop);
 
 	/**
 	 * @return
@@ -38,4 +38,9 @@ public interface PropDao {
 	 */
 	List<Prop> findByModel(String model);
 
+	/**
+	 * @param model
+	 * @return
+	 */
+	Prop findDetail(String model);
 }

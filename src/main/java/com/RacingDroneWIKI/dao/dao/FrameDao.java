@@ -17,19 +17,19 @@ public interface FrameDao {
 	 * @param fra
 	 * @return
 	 */
-	boolean addFrame(Frame fra);
+	int addFrame(Frame fra);
 
 	/**
 	 * @param fra
 	 * @return
 	 */
-	boolean deleteFrame(Frame fra);
+	int deleteFrame(Frame fra);
 
 	/**
 	 * @param fra
 	 * @return
 	 */
-	boolean updataFrame(Frame fra);
+	int updataFrame(Frame fra);
 
 	/**
 	 * @return
@@ -42,4 +42,9 @@ public interface FrameDao {
 	 */
 	List<Frame> findByModel(String model);
 
+	/**
+	 * @param model
+	 * @return
+	 */
+	Frame findDetail(String model);
 }

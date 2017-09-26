@@ -37,6 +37,6 @@ public class SqlSessionFactoryUtils {
         if(sqlSessionFactory==null){
             getSqlSessionFactory();
         }
-        return sqlSessionFactory.openSession();
+        return sqlSessionFactory.openSession(true);
     }
 }

@@ -13,24 +13,19 @@ public interface EfficacyChartDao {
 	 * @param efct
 	 * @return
 	 */
-	boolean addEfficacyChart(EfficacyChart efct);
+	int addEfficacyChart(EfficacyChart efct);
 
 	/**
 	 * @param efct
 	 * @return
 	 */
-	boolean deleteEfficacyChart(EfficacyChart efct);
+	int deleteEfficacyChart(EfficacyChart efct);
 
 	/**
 	 * @param efct
 	 * @return
 	 */
-	boolean updataMoto(EfficacyChart efct);
-
-	/**
-	 * @return
-	 */
-	List<EfficacyChart> findAll();
+	int updataEfficacyChart(EfficacyChart efct);
 
 	/**
 	 * @param model

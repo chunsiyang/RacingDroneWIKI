@@ -51,7 +51,7 @@
           <input type="text" name="maximumSupportProp" class="inputText" placeholder="机架最大可用螺旋桨"><br>
           <input type="text" name="bottomThickness" class="inputText" placeholder="机架下板厚度，单位：mm"><br>
           <input type="text" name="roofThickness" class="inputText" placeholder="机架顶板厚度，单位：mm"><br>
-          <input type="text" name="armThikness" class="inputText" placeholder="机架机臂厚度，单位：mm"><br>
+          <input type="text" name="armThickness" class="inputText" placeholder="机架机臂厚度，单位：mm"><br>
           <textarea name="caption" placeholder="机架相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
           <input type="submit" value="   提交   " class="inputText"/>

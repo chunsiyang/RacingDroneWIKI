@@ -3,59 +3,105 @@ package com.RacingDroneWIKI.dao.daoProxy;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.CamDao;
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
-import com.RacingDroneWIKI.dao.daoImpl.CamDaoImpl;
 import com.RacingDroneWIKI.pojo.Cam;
+import org.apache.ibatis.session.SqlSession;
 
 public class CamDAOProxy implements CamDao {
 
-	public boolean addCam(Cam cam) {
-		CamDaoImpl antDI=new CamDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.addCam(cam);
-		DatabaseConnection.close();
-		return 	res;
+	public int addCam(Cam cam) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.addCam(cam);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean deleteCam(Cam cam) {
-		// TODO: implement
-		return false;
+	public int deleteCam(Cam cam) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.deleteCam(cam);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean updataCam(Cam cam) {
-		CamDaoImpl antDI=new CamDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.updataCam(cam);
-		DatabaseConnection.close();
-		return 	res;
+	public int updataCam(Cam cam) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.updataCam(cam);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
 	public List<Cam> findAll() {
 		List<Cam> res;
-		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAll();
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.findAll();
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
 	public List<Cam> findByModel(String model) {
 		List<Cam> res;
-		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModel(model);
-		DatabaseConnection.close();
-		return res;
-	}
-	public List<Cam> findAllUseAlone() {
-		List<Cam> res;
-		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAllUseAlone();
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.findByModel(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
-	public List<Cam> findByModelUseAlone(String model) {
-		List<Cam> res;
-		CamDaoImpl ant=new CamDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModelUseAlone(model);
-		DatabaseConnection.close();
+	@Override
+	public Cam findDetail(String model) {
+		Cam res;
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
+			res=camDao.findDetail(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 

@@ -2,61 +2,106 @@ package com.RacingDroneWIKI.dao.daoProxy;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.PowerHubDao;
-import com.RacingDroneWIKI.dao.daoImpl.PowerHubDaoImpl;
 import com.RacingDroneWIKI.pojo.PowerHub;
+import org.apache.ibatis.session.SqlSession;
 
 public class PowerHubDaoProxy implements PowerHubDao {
 
-	public boolean addPowerHub(PowerHub ph) {
-		PowerHubDaoImpl antDI=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.addPowerHub(ph);
-		DatabaseConnection.close();
-		return 	res;
+	public int addPowerHub(PowerHub ph) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.addPowerHub(ph);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean deletPowerHub(PowerHub ph) {
-		// TODO: implement
-		return false;
+	public int deletPowerHub(PowerHub ph) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.deletPowerHub(ph);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean updataPowerHub(PowerHub ph) {
-		PowerHubDaoImpl antDI=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.updataPowerHub(ph);
-		DatabaseConnection.close();
-		return 	res;
+	public int updataPowerHub(PowerHub ph) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.updataPowerHub(ph);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
 	public List<PowerHub> findAll() {
 		List<PowerHub> res;
-		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAll();
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.findAll();
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
 	public List<PowerHub> findByModel(String model) {
 		List<PowerHub> res;
-		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModel(model);
-		DatabaseConnection.close();
-		return res;
-	}
-	public List<PowerHub> findAllUseAlone() {
-		List<PowerHub> res;
-		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAllUseAlone();
-		DatabaseConnection.close();
-		return res;
-	}
-
-	public List<PowerHub> findByModelUseAlone(String model) {
-		List<PowerHub> res;
-		PowerHubDaoImpl ant=new PowerHubDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModelUseAlone(model);
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.findByModel(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
+	@Override
+	public PowerHub findDetail(String model) {
+		PowerHub res;
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
+			res=powerHubDao.findDetail(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
+	}
 }

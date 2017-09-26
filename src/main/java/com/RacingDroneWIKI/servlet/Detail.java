@@ -1,6 +1,7 @@
 package com.RacingDroneWIKI.servlet;
 
 import com.RacingDroneWIKI.dao.daoProxy.*;
+import com.RacingDroneWIKI.pojo.Battery;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,32 +19,32 @@ public class Detail extends javax.servlet.http.HttpServlet {
         String model=request.getParameter("model");
         if(item.equals("moto"))
         {
-            request.setAttribute("item",new MotoDAOProxy().findByModel(model).get(0));
+            request.setAttribute("item",new MotoDAOProxy().findDetail(model));
             request.getRequestDispatcher("/item/moto.jsp").forward(request,response);
         }
         if(item.equals("esc"))
         {
-            request.setAttribute("item",new ElectroSpeedRegulatorDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new ElectroSpeedRegulatorDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/esc.jsp").forward(request,response);
         }
         if(item.equals("fra"))
         {
-            request.setAttribute("item",new FrameDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new FrameDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/fra.jsp").forward(request,response);
         }
         if(item.equals("it"))
         {
-            request.setAttribute("item",new ImageTransmissionDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new ImageTransmissionDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/it.jsp").forward(request,response);
         }
         if(item.equals("cam"))
         {
-            request.setAttribute("item",new CamDAOProxy().findByModel(model).get(0));
+            request.setAttribute("item",new CamDAOProxy().findDetail(model));
             request.getRequestDispatcher("/item/cam.jsp").forward(request,response);
         }
         if(item.equals("fc"))
         {
-            request.setAttribute("item",new FlightControlDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new FlightControlDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/fc.jsp").forward(request,response);
         }
         if(item.equals("ant"))
@@ -53,12 +54,12 @@ public class Detail extends javax.servlet.http.HttpServlet {
         }
         if(item.equals("ph"))
         {
-            request.setAttribute("item",new PowerHubDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new PowerHubDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/ph.jsp").forward(request,response);
         }
         if(item.equals("prop"))
         {
-            request.setAttribute("item",new PropDaoProxy().findByModel(model).get(0));
+            request.setAttribute("item",new PropDaoProxy().findDetail(model));
             request.getRequestDispatcher("/item/prop.jsp").forward(request,response);
         }
         if(item.equals("bat"))

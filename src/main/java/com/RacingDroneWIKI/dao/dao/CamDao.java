@@ -13,19 +13,19 @@ public interface CamDao {
 	 * @param cam
 	 * @return
 	 */
-	boolean addCam(Cam cam);
+	int addCam(Cam cam);
 
 	/**
 	 * @param cam
 	 * @return
 	 */
-	boolean deleteCam(Cam cam);
+	int deleteCam(Cam cam);
 
 	/**
 	 * @param cam
 	 * @return
 	 */
-	boolean updataCam(Cam cam);
+	int updataCam(Cam cam);
 
 	/**
 	 * @return
@@ -34,15 +34,12 @@ public interface CamDao {
 	/**
 	 * @return
 	 */
-	List<Cam> findAllUseAlone();
-	/**
-	 * @param model
-	 * @return
-	 */
 	List<Cam> findByModel(String model);
+
+
 	/**
 	 * @param model
 	 * @return
 	 */
-	List<Cam> findByModelUseAlone(String model);
+	Cam findDetail(String model);
 }

@@ -33,5 +33,14 @@
         <mapper resource="mapper/antennaMapper.xml"/>
         <mapper resource="mapper/extraPicturesMapper.xml"/>
         <mapper resource="mapper/batteryMapper.xml"/>
+        <mapper resource="mapper/imageTransmissionMapper.xml"/>
+        <mapper resource="mapper/flightControlMapper.xml"/>
+        <mapper resource="mapper/frameMapper.xml"/>
+        <mapper resource="mapper/motoMapper.xml"/>
+        <mapper resource="mapper/propMapper.xml"/>
+        <mapper resource="mapper/camMapper.xml"/>
+        <mapper resource="mapper/efficacyChartMapper.xml"/>
+        <mapper resource="mapper/electroSpeedRegulatorMapper.xml"/>
+        <mapper resource="mapper/powerHubMapper.xml"/>
     </mappers>
 </configuration>

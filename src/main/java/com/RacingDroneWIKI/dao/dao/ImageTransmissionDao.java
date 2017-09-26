@@ -17,19 +17,19 @@ public interface ImageTransmissionDao {
 	 * @param im
 	 * @return
 	 */
-	boolean addImageTransmission(ImageTransmission im);
+	int addImageTransmission(ImageTransmission im);
 
 	/**
 	 * @param im
 	 * @return
 	 */
-	boolean deleteImageTransmission(ImageTransmission im);
+	int deleteImageTransmission(ImageTransmission im);
 
 	/**
 	 * @param im
 	 * @return
 	 */
-	boolean updataImageTransmission(ImageTransmission im);
+	int updataImageTransmission(ImageTransmission im);
 
 	/**
 	 * @return
@@ -42,14 +42,9 @@ public interface ImageTransmissionDao {
 	 */
 	List<ImageTransmission> findByModel(String model);
 	/**
-	 * @return
-	 */
-	List<ImageTransmission> findAllUseAlone();
-
-	/**
 	 * @param model
 	 * @return
 	 */
-	List<ImageTransmission> findByModelUseAlone(String model);
+	ImageTransmission findDetail(String model);
 
 }

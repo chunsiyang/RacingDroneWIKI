@@ -2,45 +2,73 @@ package com.RacingDroneWIKI.dao.daoProxy;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.EfficacyChartDao;
-import com.RacingDroneWIKI.dao.daoImpl.EfficacyChartDaoImpl;
 import com.RacingDroneWIKI.pojo.EfficacyChart;
+import org.apache.ibatis.session.SqlSession;
 
 public class EfficacyChartDaoProxy implements EfficacyChartDao {
 
-	public boolean addEfficacyChart(EfficacyChart efct) {
-		EfficacyChartDaoImpl antDI=new EfficacyChartDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.addEfficacyChart(efct);
-		DatabaseConnection.close();
-		return 	res;
+	public int addEfficacyChart(EfficacyChart efct) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			EfficacyChartDao efficacyChartDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.EfficacyChartDao.class);
+			res=efficacyChartDao.addEfficacyChart(efct);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean deleteEfficacyChart(EfficacyChart efct) {
-		// TODO: implement
-		return false;
+	public int deleteEfficacyChart(EfficacyChart efct) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			EfficacyChartDao efficacyChartDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.EfficacyChartDao.class);
+			res=efficacyChartDao.deleteEfficacyChart(efct);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean updataMoto(EfficacyChart efct) {
-		EfficacyChartDaoImpl antDI=new EfficacyChartDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.updataMoto(efct);
-		DatabaseConnection.close();
-		return 	res;
-	}
-
-	public List<EfficacyChart> findAll() {
-		List<EfficacyChart> res;
-		EfficacyChartDaoImpl ant=new EfficacyChartDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAll();
-		DatabaseConnection.close();
+	public int updataEfficacyChart(EfficacyChart efct) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			EfficacyChartDao efficacyChartDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.EfficacyChartDao.class);
+			res=efficacyChartDao.updataEfficacyChart(efct);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
 	public List<EfficacyChart> findByModel(String model) {
 		List<EfficacyChart> res;
-		EfficacyChartDaoImpl ant=new EfficacyChartDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModel(model);
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			EfficacyChartDao efficacyChartDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.EfficacyChartDao.class);
+			res=efficacyChartDao.findByModel(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 

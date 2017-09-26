@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.dao.CamDao" >
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Cam" autoMapping="true">
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+       SELECT * FROM camera WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.Cam">
+        SELECT model,img_url,anufacturer,reference_price,weight,image_sensor,horizontal_resolustion,lens_fov,signal_system,sn_ratio,min_illumination
+        FROM camera WHERE use_alone=1;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Cam">
+         SELECT model,img_url,anufacturer,reference_price,weight,image_sensor,horizontal_resolustion,lens_fov,signal_system,sn_ratio,min_illumination FROM camera
+         WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
+    </select>
+    <insert id="addCam" parameterType="com.RacingDroneWIKI.pojo.Cam">
+        INSERT INTO camera (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `image_sensor`, `horizontal_resolustion`,
+        `lens_fov`, `signal_system`,`integrated_osd`, `integrated_mic`,
+        `weight`, `length`,`width`, `thickness`,
+        `electronic_shutter_speed`, `auto_gain_control`,`back_light_compensation`,
+        `min_illumination`,`wdr`,`dnr`,`day_night`,`input_voltages`,
+        `housing_masterial`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},
+        #{referencePrice},#{imageSensor},#{horizontalResolustion},
+        #{lensFov},#{signalSystem},#{integratedOsd},
+        #{integratedMic},#{weight}, #{length}, #{width},
+        #{thickness},#{electronicShutterSpeed}, #{autoGainControl}, #{backLightCompensation},
+        #{minIllumination},#{wdr},#{dnr},#{dayNight},#{inputVoltages},
+        #{housingMasterial},#{caption});
+    </insert>
+    <update id="updataCam" parameterType="com.RacingDroneWIKI.pojo.Cam">
+        UPDATE camera
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="imageSensor !=null">
+                    image_sensor=#{imageSensor},
+                </if>
+                <if test="horizontalResolustion !=null">
+                    horizontal_resolustion=#{horizontalResolustion},
+                </if>
+                <if test="lensFov !=null">
+                    lens_fov=#{lensFov},
+                </if>
+                <if test="signalSystem !=null">
+                    signal_system=#{signalSystem},
+                </if>
+                <if test="integratedOsd !=null">
+                    integrated_osd=#{integratedOsd},
+                </if>
+                <if test="integratedMic !=null">
+                    integrated_mic=#{integratedMic},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="width !=null">
+                    width=#{width},
+                </if>
+                <if test="thickness !=null">
+                    thickness=#{thickness},
+                </if>
+                <if test="autoGainControl !=null">
+                    auto_gain_control=#{autoGainControl},
+                </if>
+                <if test="backLightCompensation !=null">
+                    back_light_compensation=#{backLightCompensation},
+                </if>
+                <if test="minIllumination">
+                    min_illumination=#{minIllumination},
+                </if>
+                <if test="wdr">
+                    wdr=#{wdr},
+                </if>
+                <if test="dnr">
+                    dnr=#{dnr},
+                </if>
+                <if test="dayNight">
+                    day_night=#{dayNight},
+                </if>
+                <if test="inputVoltages">
+                    input_voltages=#{inputVoltages},
+                </if>
+                <if test="housingMasterial">
+                    housing_masterial=#{housingMasterial},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteCam" parameterType="string">
+        DELETE FROM camera WHERE model=#{model};
+    </delete>
+</mapper>

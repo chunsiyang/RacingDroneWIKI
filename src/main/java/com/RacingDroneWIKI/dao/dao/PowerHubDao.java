@@ -14,19 +14,19 @@ public interface PowerHubDao {
 	 * @param ph
 	 * @return
 	 */
-	boolean addPowerHub(PowerHub ph);
+	int addPowerHub(PowerHub ph);
 
 	/**
 	 * @param ph
 	 * @return
 	 */
-	boolean deletPowerHub(PowerHub ph);
+	int deletPowerHub(PowerHub ph);
 
 	/**
 	 * @param ph
 	 * @return
 	 */
-	boolean updataPowerHub(PowerHub ph);
+	int updataPowerHub(PowerHub ph);
 
 	/**
 	 * @return
@@ -39,13 +39,8 @@ public interface PowerHubDao {
 	 */
 	List<PowerHub> findByModel(String model);
 	/**
-	 * @return
-	 */
-	List<PowerHub> findAllUseAlone();
-
-	/**
 	 * @param model
 	 * @return
 	 */
-	List<PowerHub> findByModelUseAlone(String model);
+	PowerHub findDetail(String model);
 }

@@ -24,19 +24,14 @@ public class SearchByModel extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String model=request.getParameter("searchModel");
-        /*
-        String url=java.net.URLEncoder.encode(model, "utf-8");
-        url=url.replaceAll("%","-");
-        System.out.println(url);
-        */
         List<Moto> motoList=new MotoDAOProxy().findByModel(model);
-        List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorDaoProxy().findByModelUseAlone(model);
+        List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorDaoProxy().findByModel(model);
         List<Frame> frameList =new FrameDaoProxy().findByModel(model);
-        List<ImageTransmission> imageTransmissionList=new ImageTransmissionDaoProxy().findByModelUseAlone(model);
-        List<Cam> camList=new CamDAOProxy().findByModelUseAlone(model);
+        List<ImageTransmission> imageTransmissionList=new ImageTransmissionDaoProxy().findByModel(model);
+        List<Cam> camList=new CamDAOProxy().findByModel(model);
         List<FlightControl> flightControlList=new FlightControlDaoProxy().findByModel(model);
         List<Antenna> antennaList=new AntennaDaoProxy().findByModel(model);
-        List<PowerHub> powerHubList=new PowerHubDaoProxy().findByModelUseAlone(model);
+        List<PowerHub> powerHubList=new PowerHubDaoProxy().findByModel(model);
         List<Prop> propList=new PropDaoProxy().findByModel(model);
         List<Battery> batteryList=new BatteryDaoProxy().findByModel(model);
         request.setAttribute("motoList",motoList);

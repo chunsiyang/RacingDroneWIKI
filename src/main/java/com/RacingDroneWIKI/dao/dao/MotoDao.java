@@ -12,19 +12,19 @@ public interface MotoDao {
 	 * @param moto
 	 * @return
 	 */
-	boolean addMoto(Moto moto);
+	int addMoto(Moto moto);
 
 	/**
 	 * @param moto
 	 * @return
 	 */
-	boolean deleteMoto(Moto moto);
+	int deleteMoto(Moto moto);
 
 	/**
 	 * @param moto
 	 * @return
 	 */
-	boolean updataMoto(Moto moto);
+	int updataMoto(Moto moto);
 
 	/**
 	 * @return
@@ -37,4 +37,9 @@ public interface MotoDao {
 	 */
 	List<Moto> findByModel(String model);
 
+	/**
+	 * @param model
+	 * @return
+	 */
+	Moto findDetail(String model);
 }

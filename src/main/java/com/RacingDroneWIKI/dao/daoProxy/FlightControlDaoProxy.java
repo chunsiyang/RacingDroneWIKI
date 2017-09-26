@@ -2,46 +2,109 @@ package com.RacingDroneWIKI.dao.daoProxy;
 
 import java.util.*;
 
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
 import com.RacingDroneWIKI.dao.dao.FlightControlDao;
-import com.RacingDroneWIKI.dao.daoImpl.FlightControlDaoImpl;
 import com.RacingDroneWIKI.pojo.FlightControl;
+import org.apache.ibatis.session.SqlSession;
 
 public class FlightControlDaoProxy implements FlightControlDao {
 
-	public boolean addFlightControl(FlightControl fc) {
-		FlightControlDaoImpl antDI=new FlightControlDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.addFlightControl(fc);
-		DatabaseConnection.close();
-		return 	res;
+	public int addFlightControl(FlightControl fc) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.addFlightControl(fc);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean deleteFlightControl(FlightControl fc) {
-		// TODO: implement
-		return false;
+	public int deleteFlightControl(FlightControl fc) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.deleteFlightControl(fc);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
-	public boolean updataFlightControl(FlightControl fc) {
-		FlightControlDaoImpl antDI=new FlightControlDaoImpl(DatabaseConnection.getConnection());
-		boolean res=antDI.updataFlightControl(fc);
-		DatabaseConnection.close();
-		return 	res;
+
+	public int updataFlightControl(FlightControl fc) {
+		SqlSession sqlSession=null;
+		int res=0;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.updataFlightControl(fc);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
 	}
 
 	public List<FlightControl> findAll() {
 		List<FlightControl> res;
-		FlightControlDaoImpl ant=new FlightControlDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findAll();
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.findAll();
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
 	public List<FlightControl> findByModel(String model) {
 		List<FlightControl> res;
-		FlightControlDaoImpl ant=new FlightControlDaoImpl(DatabaseConnection.getConnection());
-		res=ant.findByModel(model);
-		DatabaseConnection.close();
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
 		return res;
 	}
 
+	@Override
+	public FlightControl findDetail(String model) {
+		FlightControl res;
+		SqlSession sqlSession=null;
+		try {
+			sqlSession=SqlSessionFactoryUtils.openSqlSession();
+			FlightControlDao flightControlDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.FlightControlDao.class);
+			res=flightControlDao.findDetail(model);
+		}
+		finally {
+			if(sqlSession!=null){
+				sqlSession.close();
+			}
+		}
+		return res;
+	}
 }

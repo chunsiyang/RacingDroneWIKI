@@ -1,13 +1,10 @@
 package com.RacingDroneWIKI.dao.daoProxy;
 
-import java.sql.SQLClientInfoException;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.AntennaDao;
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
-import com.RacingDroneWIKI.dao.daoImpl.AntennaDaoImpl;
+
 import com.RacingDroneWIKI.pojo.Antenna;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 
 public class AntennaDaoProxy implements AntennaDao {

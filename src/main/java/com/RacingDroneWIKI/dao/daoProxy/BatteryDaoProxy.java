@@ -3,8 +3,6 @@ package com.RacingDroneWIKI.dao.daoProxy;
 import java.util.*;
 
 import com.RacingDroneWIKI.dao.dao.BatteryDao;
-import com.RacingDroneWIKI.dao.dao.DatabaseConnection;
-import com.RacingDroneWIKI.dao.daoImpl.BatteryDaoImpl;
 import com.RacingDroneWIKI.pojo.Battery;
 import org.apache.ibatis.session.SqlSession;
 

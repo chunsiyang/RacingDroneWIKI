@@ -13,19 +13,19 @@ public interface FlightControlDao {
 	 * @param fc
 	 * @return
 	 */
-	boolean addFlightControl(FlightControl fc);
+	int addFlightControl(FlightControl fc);
 
 	/**
 	 * @param fc
 	 * @return
 	 */
-	boolean deleteFlightControl(FlightControl fc);
+	int deleteFlightControl(FlightControl fc);
 
 	/**
 	 * @param fc
 	 * @return
 	 */
-	boolean updataFlightControl(FlightControl fc);
+	int updataFlightControl(FlightControl fc);
 
 	/**
 	 * @return
@@ -38,4 +38,9 @@ public interface FlightControlDao {
 	 */
 	List<FlightControl> findByModel(String model);
 
+	/**
+	 * @param model
+	 * @return
+	 */
+	FlightControl findDetail(String model);
 }

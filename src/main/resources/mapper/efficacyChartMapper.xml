@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.dao.EfficacyChartDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.EfficacyChart" autoMapping="true">
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.EfficacyChart">
+        SELECT * FROM efficacy_chart WHERE moto_model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <insert id="addEfficacyChart" parameterType="com.RacingDroneWIKI.pojo.EfficacyChart">
+        INSERT INTO efficacy_chart (`id`, `moto_model`, `prop`,
+        `voltages`, `half_load_currency`, `half_pull`,
+        `half_power`, `half_efficlency`,`temperature`, `full_load_currency`,
+        `full_pull`, `full_power`)
+        VALUES (#{id}, #{motoModel},#{prop},
+        #{voltages},#{halfLoadCurrency},#{halfPull},
+        #{halfPower},#{halfEfficlency},#{temperature},#{fullLoadCurrency},
+        #{fullPull},#{fullPower});
+    </insert>
+    <update id="updataEfficacyChart" parameterType="com.RacingDroneWIKI.pojo.EfficacyChart">
+        UPDATE efficacyChart
+        <trim suffixOverrides="," >
+            <set>
+                <if test="id !=null">
+                    id=#{id},
+                </if>
+                <if test="motoModel !=null">
+                    moto_model=#{motoModel},
+                </if>
+                <if test="prop !=null">
+                    prop=#{prop},
+                </if>
+                <if test="voltages !=null">
+                    voltages=#{voltages},
+                </if>
+                <if test="halfLoadCurrency !=null">
+                    half_load_currency=#{halfLoadCurrency},
+                </if>
+                <if test="halfPull !=null">
+                    half_pull=#{halfPull},
+                </if>
+                <if test="halfPower !=null">
+                    half_power=#{halfPower},
+                </if>
+                <if test="halfEfficlency !=null">
+                    half_efficlency=#{halfEfficlency},
+                </if>
+                <if test="temperature !=null">
+                    temperature=#{temperature},
+                </if>
+                <if test="fullLoadCurrency !=null">
+                    full_load_currency=#{fullLoadCurrency},
+                </if>
+                <if test="fullPull !=null">
+                    `full_pull`=#{fullPull},
+                </if>
+                <if test="fullPower !=null">
+                    full_power=#{fullPower},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteEfficacyChart" parameterType="string">
+        DELETE FROM efficacy_chart WHERE model=#{model};
+    </delete>
+</mapper>

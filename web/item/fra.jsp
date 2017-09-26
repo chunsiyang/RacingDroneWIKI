@@ -46,8 +46,8 @@
     <C:if test="${item.roofThickness!=null}">
         <p>顶板厚度：${item.roofThickness} mm</p>
     </C:if>
-    <C:if test="${item.armThikness!=null}">
-        <p>机臂厚度：${item.armThikness} mm</p>
+    <C:if test="${item.armThickness!=null}">
+        <p>机臂厚度：${item.armThickness} mm</p>
     </C:if>
     <C:if test="${item.integratedPh!=null}">
         <h4>内置分电板：</h4>

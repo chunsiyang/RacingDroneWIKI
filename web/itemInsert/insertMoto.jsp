@@ -39,6 +39,7 @@
         <p>内阻：</p>
         <p id="capP">文字描述：</p>
         <p>辅助图片：</p>
+        <p>力效表：</p>
       </div>
       <div class="value">
         <form id="itemInfo" method="post" action="/itemInsert/InsertMoto" >
@@ -60,7 +61,49 @@
           <input type="text" name="internalRestance" class="inputText"placeholder="电机内阻，单位：Ω"><br>
           <textarea name="caption" class="inputText"placeholder="电机相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
+          <table id="effcha" border="1px">
+            <tr>
+              <th class="ecTableTd">桨叶（寸）</th>
+              <th class="ecTableTd">电压（V）</th>
+              <th class="ecTableTd">油门（%）</th>
+              <th class="ecTableTd">负载电流（A）</th>
+              <th class="ecTableTd">推力（g）</th>
+              <th class="ecTableTd">功率（W）</th>
+              <th class="ecTableTd">力效（g/W）</th>
+              <th class="ecTableTd">温度（℃）</th>
+            </tr>
+          </table>
+          <div id="ec1" ></div>
+
+          <input type="button" class="inputText"onclick="addTr()" value="添加力效信息"><br>
           <input type="submit" value="   提交   "class="inputText">
+          <script type="text/javascript">
+              var a = 0;
+              function addTr() {
+                  a = a + 1;
+                  var str = '<table border="1px">' +
+                      '<tr> ' +
+                      '<td class="ecTableTd" rowspan="2"><input type="text" name="prop' + a + '"></td>' +
+                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="voltages' + a + '"></td> ' +
+                      '<td class="ecTableTd"><p>50%</P></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="halfLoadCurrency' + a + '"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="halfPull' + a + '"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="halfPower' + a + '"></td>' +
+                      ' <td class="ecTableTd"><input type="text" name="halfEfficlency' + a + '"></td>' +
+                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="temperature' + a + '"></td> ' +
+                      '</tr>' +
+                      ' <tr> ' +
+                      '<td class="ecTableTd"><p>100%</p></td> ' +
+                      '<td  class="ecTableTd"><input type="text" name="fullLoadCurrency' + a + '"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="fullPull' + a + '"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="fullPower' + a + '"></td>' +
+                      ' <td class="ecTableTd"><input type="text" name="fullEfficlency' + a + '"></td> ' +
+                      '</tr>' +
+                      '</table><div id="ec'+(a+1)+'"></div>';
+
+                  document.getElementById('ec'+a).innerHTML += str;
+              }
+          </script>
         </form>
       </div>
     </div>
