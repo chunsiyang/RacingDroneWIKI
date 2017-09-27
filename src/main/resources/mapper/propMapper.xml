@@ -11,7 +11,7 @@
         SELECT model,img_url,anufacturer,reference_price,weight,blade_number,`size`,material FROM prop;
     </select>
     <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Prop">
-        SELECT model,img_url,anufacturer,reference_price,weight,blade_number,`size`,material FROM prop;
+        SELECT model,img_url,anufacturer,reference_price,weight,blade_number,`size`,material FROM prop
         WHERE model LIKE CONCAT('%',#{model},'%');
     </select>
     <insert id="addProp" parameterType="com.RacingDroneWIKI.pojo.Prop">
