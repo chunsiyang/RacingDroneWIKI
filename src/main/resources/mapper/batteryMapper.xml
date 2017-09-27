@@ -9,7 +9,7 @@
     </select>
     <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Battery">
         SELECT model,img_url,anufacturer,reference_price,weight,capacity,discharge_rate,voltage FROM battery
-        WHERE model LIKE CONCAT('%',#(model),'%');
+        WHERE model LIKE CONCAT('%',#{model},'%');
     </select>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM battery WHERE model=#{model};

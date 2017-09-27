@@ -79,6 +79,8 @@ public class PowerHubDaoProxy implements PowerHubDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			PowerHubDao powerHubDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.PowerHubDao.class);
 			res=powerHubDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){

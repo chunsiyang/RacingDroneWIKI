@@ -63,6 +63,8 @@ public class EfficacyChartDaoProxy implements EfficacyChartDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			EfficacyChartDao efficacyChartDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.EfficacyChartDao.class);
 			res=efficacyChartDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){

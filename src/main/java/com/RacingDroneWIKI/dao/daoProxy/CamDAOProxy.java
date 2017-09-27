@@ -79,6 +79,8 @@ public class CamDAOProxy implements CamDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			CamDao camDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.CamDao.class);
 			res=camDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){

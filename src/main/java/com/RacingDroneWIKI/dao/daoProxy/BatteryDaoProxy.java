@@ -81,6 +81,8 @@ public class BatteryDaoProxy implements BatteryDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			BatteryDao batteryDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.BatteryDao.class);
 			res=batteryDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){

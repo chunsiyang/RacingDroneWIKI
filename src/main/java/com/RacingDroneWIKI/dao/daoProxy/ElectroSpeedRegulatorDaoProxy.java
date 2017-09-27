@@ -80,6 +80,8 @@ public class ElectroSpeedRegulatorDaoProxy implements ElectroSpeedRegulatorDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			ElectroSpeedRegulatorDao electroSpeedRegulatorDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.ElectroSpeedRegulatorDao.class);
 			res=electroSpeedRegulatorDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){

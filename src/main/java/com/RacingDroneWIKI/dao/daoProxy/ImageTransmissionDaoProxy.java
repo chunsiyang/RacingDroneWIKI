@@ -79,6 +79,8 @@ public class ImageTransmissionDaoProxy implements ImageTransmissionDao {
 			sqlSession=SqlSessionFactoryUtils.openSqlSession();
 			ImageTransmissionDao imageTransmissionDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.dao.ImageTransmissionDao.class);
 			res=imageTransmissionDao.findByModel(model);
+			if(res.isEmpty())
+				return null;
 		}
 		finally {
 			if(sqlSession!=null){
