@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.dao.FrameDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Frame" autoMapping="true">
+        <association property="integratedPh" column="integrated_ph" select="com.RacingDroneWIKI.dao.dao.PowerHubDao.findDetail"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM frame WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.Frame">
+        SELECT model,img_url,anufacturer,reference_price,weight,wheek_base,material,maximum_support_prop,bottom_thickness,roof_thickness,arm_thickness FROM frame;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Frame">
+        SELECT model,img_url,anufacturer,reference_price,weight,wheek_base,material,maximum_support_prop,bottom_thickness,roof_thickness,arm_thickness FROM frame
+        WHERE model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <insert id="addFrame" parameterType="com.RacingDroneWIKI.pojo.Frame">
+        INSERT INTO frame (`model`, `img_url`, `reference_price`,
+        `anufacturer`, wheek_base, `fc_mounting_hole_spacing`,
+        `integrated_ph`, `integrated_led`,`camra_adjusting_angle`, `integrated_led`,
+        `camra_adjusting_angle`, `weight`, `material`,`maximum_support_prop`,
+         `bottom_thickness`,`roof_thickness`, `arm_thickness`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},#{wheelbase},
+        #{referencePrice},#{fcMountingHoleSpacing},#{integratedPh.model},
+        #{integratedLed},#{camraAdjustingAngle},#{integratedLed},
+        #{material}, #{maximumSupportProp},#{weight}, #{bottomThickness},
+        #{roofThickness}, #{armThickness},#{caption});
+    </insert>
+    <update id="updataFrame" parameterType="com.RacingDroneWIKI.pojo.Frame">
+        UPDATE frame
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="wheelbase !=null">
+                    wheelbase=#{wheelbase},
+                </if>
+                <if test="fcMountingHoleSpacing !=null">
+                    fc_mounting_hole_spacing=#{fcMountingHoleSpacing},
+                </if>
+                <if test="integratedPh !=null">
+                    integrated_ph=#{integratedPh.model},
+                </if>
+                <if test="camraAdjustingAngle !=null">
+                    camra_adjusting_angle=#{camraAdjustingAngle},
+                </if>
+                <if test="integratedLed !=null">
+                    integrated_led=#{integratedLed},
+                </if>
+                <if test="material !=null">
+                    material=#{material},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="maximumSupportProp !=null">
+                    maximum_support_prop=#{maximumSupportProp},
+                </if>
+                <if test="bottomThickness !=null">
+                    bottom_thickness=#{bottomThickness},
+                </if>
+                <if test="roofThickness !=null">
+                   roof_thickness=#{roofThickness},
+                </if>
+                <if test="armThickness !=null">
+                    arm_thickness=#{armThickness},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteFrame" parameterType="string">
+        DELETE FROM frame WHERE model=#{model};
+    </delete>
+</mapper>

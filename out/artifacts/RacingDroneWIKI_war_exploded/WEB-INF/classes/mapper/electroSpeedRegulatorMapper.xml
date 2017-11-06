@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.dao.ElectroSpeedRegulatorDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator" autoMapping="true">
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM electro_speed_regulator WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
+        SELECT model,img_url,anufacturer,reference_price,weight,persistent_current,instantaneous_current,firmware,no_of_cells,control_chip
+         FROM electro_speed_regulator WHERE use_alone=1;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
+        SELECT model,img_url,anufacturer,reference_price,weight,persistent_current,instantaneous_current,firmware,no_of_cells,control_chip FROM electro_speed_regulator
+        WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
+    </select>
+    <insert id="addElectroSpeedRegulato" parameterType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
+        INSERT INTO electro_speed_regulator (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `no_of_cells`, `persistent_current`,
+        `instantaneous_current`, `firmware`,`control_chip`, `four_inone`,
+        `pwm_mode`, `weight`, `length`,`width`, `thickness`,
+        `oneshot125`, `oneshot42`,`mutishot`,`dshot`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},
+        #{referencePrice},#{noOfCells},#{persistentCurrent},
+        #{instantaneousCurrent},#{firmware},#{controlChip},#{fourInone},
+        #{pwmMode},#{weight}, #{length}, #{width},
+        #{thickness},#{oneshot125}, #{oneshot42}, #{mutishot},
+        #{dshot},#{caption});
+    </insert>
+    <update id="updataElectroSpeedRegulato" parameterType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
+        UPDATE electro_speed_regulator
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="noOfCells !=null">
+                    no_of_cells=#{noOfCells},
+                </if>
+                <if test="persistentCurrent !=null">
+                    persistent_current=#{persistentCurrent},
+                </if>
+                <if test="instantaneousCurrent !=null">
+                    instantaneous_current=#{instantaneousCurrent},
+                </if>
+                <if test="firmware !=null">
+                    firmware=#{firmware},
+                </if>
+                <if test="controlChip !=null">
+                    control_chip=#{controlChip},
+                </if>
+                <if test="fourInone !=null">
+                    four_inone=#{fourInone},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="width !=null">
+                    width=#{width},
+                </if>
+                <if test="thickness !=null">
+                    thickness=#{thickness},
+                </if>
+                <if test="pwmMode !=null">
+                    pwm_mode=#{pwmMode},
+                </if>
+                <if test="oneshot125 !=null">
+                    oneshot125=#{oneshot125},
+                </if>
+                <if test="oneshot42 !=null">
+                    oneshot42=#{oneshot42},
+                </if>
+                <if test="mutishot">
+                    mutishot=#{mutishot},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteElectroSpeedRegulato" parameterType="string">
+        DELETE FROM electro_speed_regulator WHERE model=#{model};
+    </delete>
+</mapper>
