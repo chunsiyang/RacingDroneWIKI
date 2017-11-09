@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.servlet;
 
-import com.RacingDroneWIKI.dao.daoProxy.*;
 import com.RacingDroneWIKI.pojo.*;
+import com.RacingDroneWIKI.service.*;
 
 import javax.servlet.ServletConfig;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class SearchAllReq extends javax.servlet.http.HttpServlet {
         request.setAttribute("batteryList",null);
         if(url.equals(config.getInitParameter("moto")))
         {
-            List<Moto> list=new MotoDAOProxy().findAll();
+            List<Moto> list=new MotoService().findAll();
             request.setAttribute("motoList",list);
         }
         if(url.equals(config.getInitParameter("esc")))

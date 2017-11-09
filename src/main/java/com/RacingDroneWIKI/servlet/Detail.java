@@ -1,7 +1,6 @@
 package com.RacingDroneWIKI.servlet;
 
-import com.RacingDroneWIKI.dao.daoProxy.*;
-import com.RacingDroneWIKI.pojo.Battery;
+import com.RacingDroneWIKI.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ public class Detail extends javax.servlet.http.HttpServlet {
         String model=request.getParameter("model");
         if(item.equals("moto"))
         {
-            request.setAttribute("item",new MotoDAOProxy().findDetail(model));
+            request.setAttribute("item",new MotoService().findDetail(model));
             request.getRequestDispatcher("/item/moto.jsp").forward(request,response);
         }
         if(item.equals("esc"))

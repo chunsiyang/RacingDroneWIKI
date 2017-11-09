@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.RacingDroneWIKI.dao.dao.MotoDao">
+<mapper namespace="com.RacingDroneWIKI.dao.MotoDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Moto" autoMapping="true">
-        <collection property="efficacyChart" column="model" select="com.RacingDroneWIKI.dao.dao.EfficacyChartDao.findByModel"/>
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+        <collection property="efficacyChart" column="model" select="com.RacingDroneWIKI.dao.EfficacyChartDao.findByModel"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM motor WHERE model=#{model};

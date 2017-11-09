@@ -15,7 +15,7 @@
     </form>
     <nav>
         <button class="item" onclick="javascript:window.location.href='/moto.list';" >
-            <a href="/moto.list" >
+            <a href="/moto" >
             <img src="img/moto.png" class="itemImg"/>
                 <p>电机</p>
             </a>

@@ -1,8 +1,8 @@
 package com.RacingDroneWIKI.servlet.itemInsert;
 
-import com.RacingDroneWIKI.dao.dao.PropDao;
-import com.RacingDroneWIKI.dao.daoProxy.PropDaoProxy;
-import com.RacingDroneWIKI.dao.daoProxy.UpdataUtil;
+import com.RacingDroneWIKI.dao.PropDao;
+import com.RacingDroneWIKI.service.PropDaoProxy;
+import com.RacingDroneWIKI.service.UpdataUtil;
 import com.RacingDroneWIKI.pojo.Item;
 import com.RacingDroneWIKI.pojo.Prop;
 

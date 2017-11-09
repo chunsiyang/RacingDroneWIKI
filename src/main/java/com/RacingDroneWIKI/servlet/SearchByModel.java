@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.servlet;
 
-import com.RacingDroneWIKI.dao.daoProxy.*;
 import com.RacingDroneWIKI.pojo.*;
+import com.RacingDroneWIKI.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ public class SearchByModel extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String model=request.getParameter("searchModel");
-        List<Moto> motoList=new MotoDAOProxy().findByModel(model);
+        List<Moto> motoList=new MotoService().findByModel(model);
         List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorDaoProxy().findByModel(model);
         List<Frame> frameList =new FrameDaoProxy().findByModel(model);
         List<ImageTransmission> imageTransmissionList=new ImageTransmissionDaoProxy().findByModel(model);

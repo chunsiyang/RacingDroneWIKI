@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.RacingDroneWIKI.dao.dao.PropDao">
+<mapper namespace="com.RacingDroneWIKI.dao.PropDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Prop" autoMapping="true">
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.dao.ExtraPictures.getExtPic"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM prop WHERE model=#{model};
