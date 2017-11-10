@@ -4,7 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:aliyunDB.properties"/>
-    <context:component-scan base-package="com.RacingDroneWIKI" />
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="${database.url}" />
@@ -24,7 +23,6 @@
         <property name="dataSource" ref="dataSource" />
         <!--加载mybatis配置文件-->
         <property name="configLocation" value="classpath:mybatis.xml"/>
-
         <!--加载mapper-->
         <!--<property name="mapperLocations" value="classpath:mapper/*.xml" />-->
     </bean>
@@ -32,8 +30,5 @@
         <property name="basePackage" value="com.RacingDroneWIKI.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
-    </bean>
-    <bean id="aaaa" class="com.RacingDroneWIKI.pojo.Aaaa">
-        <property name="name" value="12345567890"/>
     </bean>
 </beans>

@@ -1,7 +1,6 @@
 package com.RacingDroneWIKI.spring;
 
 
-import com.RacingDroneWIKI.pojo.Aaaa;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -14,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 
 @Configuration
-@ImportResource("classpath:spring/spring-config.xml")
+@ImportResource("classpath:spring/spring-mybatis.xml")
 @EnableWebMvc
 @ComponentScan(basePackages = "com.RacingDroneWIKI")
 public class WebConfig extends WebMvcConfigurerAdapter{

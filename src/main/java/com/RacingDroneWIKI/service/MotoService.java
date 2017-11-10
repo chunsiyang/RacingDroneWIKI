@@ -14,52 +14,23 @@ public class MotoService implements MotoDao {
 	@Autowired
 	MotoDao motoDao;
 	public int addMoto(Moto moto) {
-		SqlSession sqlSession=null;
 		int res=0;
-		try {
-			sqlSession=SqlSessionFactoryUtils.openSqlSession();
-			MotoDao motoDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.MotoDao.class);
-			res=motoDao.addMoto(moto);
-		}
-		finally {
-			if(sqlSession!=null){
-				sqlSession.close();
-			}
-		}
+		res=motoDao.addMoto(moto);
 		return res;
 	}
 
 	public int deleteMoto(Moto moto) {
-		SqlSession sqlSession=null;
 		int res=0;
-		try {
-			sqlSession=SqlSessionFactoryUtils.openSqlSession();
-			MotoDao motoDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.MotoDao.class);
-			res=motoDao.deleteMoto(moto);
-		}
-		finally {
-			if(sqlSession!=null){
-				sqlSession.close();
-			}
-		}
+		res=motoDao.deleteMoto(moto);
 		return res;
 	}
 
 	public int updataMoto(Moto moto) {
-		SqlSession sqlSession=null;
 		int res=0;
-		try {
-			sqlSession=SqlSessionFactoryUtils.openSqlSession();
-			MotoDao motoDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.MotoDao.class);
-			res=motoDao.updataMoto(moto);
-		}
-		finally {
-			if(sqlSession!=null){
-				sqlSession.close();
-			}
-		}
+		res=motoDao.updataMoto(moto);
 		return res;
 	}
+
 	public List<Moto> findAll() {
 		List<Moto> res;
 		res=motoDao.findAll();
@@ -70,36 +41,16 @@ public class MotoService implements MotoDao {
 
 	public List<Moto> findByModel(String model) {
 		List<Moto> res;
-		SqlSession sqlSession=null;
-		try {
-			sqlSession=SqlSessionFactoryUtils.openSqlSession();
-			MotoDao motoDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.MotoDao.class);
-			res=motoDao.findByModel(model);
+		res=motoDao.findByModel(model);
 			if(res.isEmpty())
 				return null;
-		}
-		finally {
-			if(sqlSession!=null){
-				sqlSession.close();
-			}
-		}
 		return res;
 	}
 
-	@Override
+
 	public Moto findDetail(String model) {
 		Moto res;
-		SqlSession sqlSession=null;
-		try {
-			sqlSession=SqlSessionFactoryUtils.openSqlSession();
-			MotoDao motoDao=sqlSession.getMapper(com.RacingDroneWIKI.dao.MotoDao.class);
-			res=motoDao.findDetail(model);
-		}
-		finally {
-			if(sqlSession!=null){
-				sqlSession.close();
-			}
-		}
+		res=motoDao.findDetail(model);
 		return res;
 	}
 }

@@ -4,6 +4,8 @@ import com.RacingDroneWIKI.pojo.Item;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +18,14 @@ import java.util.Map;
 /**
  * Created by asus-pc on 2017/9/26.
  */
+@Service
 public class UpdataUtil {
     List<FileItem> list;
+    //public UpdataUtil()
+    {
+
+    }
+    @Autowired
     public UpdataUtil(HttpServletRequest request)
     {
         try {

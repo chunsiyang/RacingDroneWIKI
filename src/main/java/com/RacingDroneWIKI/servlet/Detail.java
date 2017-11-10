@@ -23,47 +23,47 @@ public class Detail extends javax.servlet.http.HttpServlet {
         }
         if(item.equals("esc"))
         {
-            request.setAttribute("item",new ElectroSpeedRegulatorDaoProxy().findDetail(model));
+            request.setAttribute("item",new ElectroSpeedRegulatorService().findDetail(model));
             request.getRequestDispatcher("/item/esc.jsp").forward(request,response);
         }
         if(item.equals("fra"))
         {
-            request.setAttribute("item",new FrameDaoProxy().findDetail(model));
+            request.setAttribute("item",new FrameService().findDetail(model));
             request.getRequestDispatcher("/item/fra.jsp").forward(request,response);
         }
         if(item.equals("it"))
         {
-            request.setAttribute("item",new ImageTransmissionDaoProxy().findDetail(model));
+            request.setAttribute("item",new ImageTransmissionService().findDetail(model));
             request.getRequestDispatcher("/item/it.jsp").forward(request,response);
         }
         if(item.equals("cam"))
         {
-            request.setAttribute("item",new CamDAOProxy().findDetail(model));
+            request.setAttribute("item",new CamService().findDetail(model));
             request.getRequestDispatcher("/item/cam.jsp").forward(request,response);
         }
         if(item.equals("fc"))
         {
-            request.setAttribute("item",new FlightControlDaoProxy().findDetail(model));
+            request.setAttribute("item",new FlightControlService().findDetail(model));
             request.getRequestDispatcher("/item/fc.jsp").forward(request,response);
         }
         if(item.equals("ant"))
         {
-            request.setAttribute("item",new AntennaDaoProxy().findDetail(model));
+            request.setAttribute("item",new AntennaService().findDetail(model));
             request.getRequestDispatcher("/item/ant.jsp").forward(request,response);
         }
         if(item.equals("ph"))
         {
-            request.setAttribute("item",new PowerHubDaoProxy().findDetail(model));
+            request.setAttribute("item",new PowerHubService().findDetail(model));
             request.getRequestDispatcher("/item/ph.jsp").forward(request,response);
         }
         if(item.equals("prop"))
         {
-            request.setAttribute("item",new PropDaoProxy().findDetail(model));
+            request.setAttribute("item",new PropService().findDetail(model));
             request.getRequestDispatcher("/item/prop.jsp").forward(request,response);
         }
         if(item.equals("bat"))
         {
-            request.setAttribute("item",new BatteryDaoProxy().findDetail(model));
+            request.setAttribute("item",new BatteryService().findDetail(model));
             request.getRequestDispatcher("/item/bat.jsp").forward(request,response);
         }
     }

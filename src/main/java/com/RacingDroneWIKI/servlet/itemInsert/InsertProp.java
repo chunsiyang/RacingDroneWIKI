@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.servlet.itemInsert;
 
 import com.RacingDroneWIKI.dao.PropDao;
-import com.RacingDroneWIKI.service.PropDaoProxy;
+import com.RacingDroneWIKI.service.PropService;
 import com.RacingDroneWIKI.service.UpdataUtil;
 import com.RacingDroneWIKI.pojo.Item;
 import com.RacingDroneWIKI.pojo.Prop;
@@ -47,7 +47,7 @@ public class InsertProp extends HttpServlet {
         Item item= updataUtil.updataImg(this,prop.getModel(),"prop/");
         prop.setImgUrl(item.getImgUrl());
         prop.setExtraPictures(item.getExtraPictures());
-        PropDao propDao=new PropDaoProxy();
+        PropDao propDao=new PropService();
         propDao.addProp(prop);
         request.getRequestDispatcher("/itemInsert/InsertSuccessed.jsp").forward(request, response);
     }
