@@ -35,7 +35,7 @@
                 <C:forEach items="${motoList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=moto&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/moto/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -101,7 +101,7 @@
                 <C:forEach items="${electroSpeedRegulatorList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=esc&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情" >
+                            <a href="javascript:location.href='detail/esc/'+encodeURIComponent('${item.getModel()}');+'.'" title="点击查看详情" >
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -166,7 +166,7 @@
                 <C:forEach items="${frameList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=fra&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/frame/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -232,7 +232,7 @@
                 <C:forEach items="${imageTransmissionList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=it&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/it/'+encodeURIComponent('${item.model}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -298,7 +298,7 @@
                 <C:forEach items="${camList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=cam&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/cam/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -363,7 +363,7 @@
                 <C:forEach items="${flightControlList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=fc&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/fc/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -429,7 +429,7 @@
                 <C:forEach items="${antennaList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=ant&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/antenna/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
@@ -495,7 +495,7 @@
                 <C:forEach items="${powerHubList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=ph&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/powerHub/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
@@ -550,7 +550,7 @@
                 <C:forEach items="${propList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=prop&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/prop/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
@@ -605,7 +605,7 @@
                 <C:forEach items="${batteryList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=bat&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail/battery/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">

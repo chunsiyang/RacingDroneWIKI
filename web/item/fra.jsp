@@ -20,7 +20,7 @@
     <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
-    <img id="mainImg" src="img/${item.imgUrl}"/>
+    <img id="mainImg" src="/img/${item.imgUrl}"/>
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
@@ -81,14 +81,14 @@
         <C:if test="${item.integratedPh.pinDefinitionDiagram!=null}">
             <h4>引脚定义图：</h4>
             <div class="expImgDiv">
-                <img class="expImg" src="img/${item.integratedPh.pinDefinitionDiagram}"/>
+                <img class="expImg" src="/img/${item.integratedPh.pinDefinitionDiagram}"/>
             </div>
         </C:if>
         <C:if test="${item.integratedPh.extraPictures!=null}">
             <br>
             <C:forEach items="${item.integratedPh.extraPictures}" var="expic">
                 <div class="expImgDiv">
-                    <img class="expImg" src="img/${expic}"/>
+                    <img class="expImg" src="/img/${expic}"/>
                 </div>
             </C:forEach>
         </C:if>
@@ -99,7 +99,7 @@
             <br>
             <C:forEach items="${item.extraPictures}" var="expic">
                 <div class="expImgDiv">
-                    <img class="expImg" src="img/${expic}"/>
+                    <img class="expImg" src="/img/${expic}"/>
                 </div>
             </C:forEach>
         </C:if>

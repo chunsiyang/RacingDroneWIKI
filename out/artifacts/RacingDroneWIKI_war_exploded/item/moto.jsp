@@ -10,8 +10,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="../headNav.css">
-    <link type="text/css" rel="stylesheet" href="../item/item.css">
+    <link type="text/css" rel="stylesheet" href="/headNav.css">
+    <link type="text/css" rel="stylesheet" href="/item/item.css">
     <style>
 
         #effcha tr:nth-child(odd) {
@@ -36,7 +36,7 @@
     <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
-    <img id="mainImg" src="img/${item.imgUrl}"/>
+    <img id="mainImg" src="/img/${item.imgUrl}"/>
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
@@ -62,8 +62,8 @@
     <C:if test="${item.idleCurrent!=null}">
         <p>空载电流：${item.idleCurrent} A</p>
     </C:if>
-    <C:if test="${item.internalRestance!=null}">
-        <P>内阻：${item.internalRestance} Ω</P>
+    <C:if test="${item.internalReslstance!=null}">
+        <P>内阻：${item.internalReslstance} Ω</P>
     </C:if>
     <C:if test="${item.noOfCells!=null}">
         <p>支持锂电池节数：${item.noOfCells} S</p>
@@ -116,7 +116,7 @@
             <br>
             <C:forEach items="${item.extraPictures}" var="expic">
                 <div class="expImgDiv">
-                    <img class="expImg" src="img/${expic}"/>
+                    <img class="expImg" src="/img/${expic}"/>
                 </div>
             </C:forEach>
         </C:if>

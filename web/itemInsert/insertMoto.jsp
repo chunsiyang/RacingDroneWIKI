@@ -58,7 +58,7 @@
           <input type="text" name="kv" class="inputText"placeholder="电机KV值，单位：kv"><br>
           <input type="text" name="propeller" class="inputText"placeholder="电机支持螺旋桨，单位：寸"><br>
           <input type="text" name="statorDiameter" class="inputText"placeholder="电机定子直径，单位：mm"><br>
-          <input type="text" name="internalRestance" class="inputText"placeholder="电机内阻，单位：Ω"><br>
+          <input type="text" name="internalReslstance" class="inputText"placeholder="电机内阻，单位：Ω"><br>
           <textarea name="caption" class="inputText"placeholder="电机相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
           <table id="effcha" border="1px">

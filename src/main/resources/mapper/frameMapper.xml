@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.RacingDroneWIKI.dao.FrameDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Frame" autoMapping="true">
+        <result property="model" column="model"/>
         <association property="integratedPh" column="integrated_ph" select="com.RacingDroneWIKI.dao.PowerHubDao.findDetail"/>
         <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
     </resultMap>

@@ -20,7 +20,7 @@
     <jsp:param name="searchModel" value="${param.searchModel}"/>
 </jsp:include>
 <section id="main">
-    <img id="mainImg" src="img/${item.imgUrl}"/>
+    <img id="mainImg" src="/img/${item.imgUrl}"/>
     <h2>${item.model}</h2>
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
@@ -237,7 +237,7 @@
             <br>
             <C:forEach items="${item.extraPictures}" var="expic">
                 <div class="expImgDiv">
-                    <img class="expImg" src="img/${expic}"/>
+                    <img class="expImg" src="/img/${expic}"/>
                 </div>
             </C:forEach>
         </C:if>
@@ -246,7 +246,7 @@
                 <br>
                 <C:forEach items="${item.powerHub.extraPictures}" var="expic">
                     <div class="expImgDiv">
-                        <img class="expImg" src="img/${expic}"/>
+                        <img class="expImg" src="/img/${expic}"/>
                     </div>
                 </C:forEach>
             </C:if>
@@ -256,7 +256,7 @@
                 <br>
                 <C:forEach items="${item.esc.extraPictures}" var="expic">
                     <div class="expImgDiv">
-                        <img class="expImg" src="img/${expic}"/>
+                        <img class="expImg" src="/img/${expic}"/>
                     </div>
                 </C:forEach>
             </C:if>
@@ -266,7 +266,7 @@
                 <br>
                 <C:forEach items="${item.imageTransmission.extraPictures}" var="expic">
                     <div class="expImgDiv">
-                        <img class="expImg" src="img/${expic}"/>
+                        <img class="expImg" src="/img/${expic}"/>
                     </div>
                 </C:forEach>
             </C:if>

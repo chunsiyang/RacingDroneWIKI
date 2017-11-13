@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.RacingDroneWIKI.dao.FlightControlDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.FlightControl" autoMapping="true">
+        <result property="model" column="model"/>
         <association property="esc" column="inter_esc" select="com.RacingDroneWIKI.dao.ElectroSpeedRegulatorDao.findDetail"/>
         <association property="powerHub" column="inter_power_hub" select="com.RacingDroneWIKI.dao.PowerHubDao.findDetail"/>
         <association property="imageTransmission" column="inter_image_transmission" select="com.RacingDroneWIKI.dao.ImageTransmissionDao.findDetail"/>

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.RacingDroneWIKI.dao.MotoDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Moto" autoMapping="true">
+        <result property="model" column="model"/>
         <collection property="efficacyChart" column="model" select="com.RacingDroneWIKI.dao.EfficacyChartDao.findByModel"/>
         <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
     </resultMap>
@@ -20,12 +21,12 @@
         `anufacturer`, `stator_length`, `shaft_diameter`,
         `idle_current`, `diameter`,`no_of_cells`, `max_thrust`,
         `kv`, `weight`, `length`,`propeller`, `stator_diameter`,
-        `internal_restance`,`caption`)
+        `internal_reslstance`,`caption`)
         VALUES (#{model}, #{imgUrl},#{anufacturer},
         #{referencePrice},#{statorLength},#{shaftDiameter},
         #{idleCurrent},#{diameter},#{noOfCells},#{maxThrust},
         #{kv},#{weight}, #{length}, #{propeller},
-        #{statorDiameter},#{internalRestance},#{caption});
+        #{statorDiameter},#{internalReslstance},#{caption});
     </insert>
     <update id="updataMoto" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
         UPDATE flightControl
@@ -70,8 +71,8 @@
                 <if test="statorDiameter !=null">
                     stator_diameter=#{statorDiameter},
                 </if>
-                <if test="internalRestance !=null">
-                    internal_restance=#{internalRestance},
+                <if test="internalReslstance !=null">
+                    internal_restance=#{internalReslstance},
                 </if>
                 <if test="caption !=null">
                     caption=#{caption},
