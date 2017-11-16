@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.FlightControlDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.FlightControl" autoMapping="true">
+        <result property="model" column="model"/>
+        <association property="esc" column="inter_esc" select="com.RacingDroneWIKI.dao.ElectroSpeedRegulatorDao.findDetail"/>
+        <association property="powerHub" column="inter_power_hub" select="com.RacingDroneWIKI.dao.PowerHubDao.findDetail"/>
+        <association property="imageTransmission" column="inter_image_transmission" select="com.RacingDroneWIKI.dao.ImageTransmissionDao.findDetail"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM flight_control WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.FlightControl">
+        SELECT model,img_url,anufacturer,reference_price,weight,mounting_hole_spacing,mcu,mpu,max_pid_loop_frequancy,max_gyro_updata FROM flight_control;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.FlightControl">
+        SELECT model,img_url,anufacturer,reference_price,weight,mounting_hole_spacing,mcu,mpu,max_pid_loop_frequancy,max_gyro_updata FROM flight_control
+        WHERE model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <insert id="addFlightControl" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
+            INSERT INTO flight_control (`model`, `img_url`, `reference_price`,
+            `anufacturer`, `mounting_hole_spacing`, `mcu`,
+            `mpu`, `sdcard`,`boot_button`, `osd`,
+            `buzzer`, `weight`, `length`,`width`, `thickness`,
+            `max_pid_loop_frequancy`, `max_gyro_updata`,`inter_esc`,
+            `inter_power_hub`,`inter_image_transmission`,`pin_definition_diagram`,`caption`)
+             VALUES (#{model}, #{imgUrl},#{anufacturer},
+             #{referencePrice},#{mounting_hole_spacing},#{mcu},
+             #{mpu},#{sdcard},#{boot_button},#{osd},
+             #{buzzer},#{weight}, #{length}, #{width},
+             #{thickness},#{max_pid_loop_frequancy}, #{max_gyro_updata}, #{inter_esc.model},
+             #{inter_power_hub.model},#{inter_image_transmission.model},#{pin_definition_diagram},#{caption});
+    </insert>
+    <update id="updataFlightControl" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
+        UPDATE flight_control
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="mountingHoleSpacing !=null">
+                    mounting_hole_spacing=#{mountingHoleSpacing},
+                </if>
+                <if test="mcu !=null">
+                    mcu=#{mcu},
+                </if>
+                <if test="mpu !=null">
+                    mpu=#{mpu},
+                </if>
+                <if test="bootButton !=null">
+                    boot_button=#{bootButton},
+                </if>
+                <if test="osd !=null">
+                    osd=#{osd},
+                </if>
+                <if test="buzzer !=null">
+                    buzzer=#{buzzer},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="width !=null">
+                    width=#{width},
+                </if>
+                <if test="thickness !=null">
+                    thickness=#{thickness},
+                </if>
+                <if test="maxPidLoopFrequancy !=null">
+                    max_pid_loop_frequancy=#{maxPidLoopFrequancy},
+                </if>
+                <if test="maxGyroUpdata !=null">
+                    max_gyro_updata=#{maxGyroUpdata},
+                </if>
+                <if test="esc !=null">
+                    inter_esc=#{inter_esc.model},
+                </if>
+                <if test="powerHub">
+                    inter_power_hub=#{inter_powerHub.model},
+                </if>
+                <if test="imageTransmission">
+                    inter_image_transmission=#{inter_imageTransmission.model},
+                </if>
+                <if test="pinDefinitionDiagram">
+                    pin_definition_diagram=#{pinDefinitionDiagram},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteFlightControl" parameterType="string">
+        DELETE FROM flight_control WHERE model=#{model};
+    </delete>
+</mapper>

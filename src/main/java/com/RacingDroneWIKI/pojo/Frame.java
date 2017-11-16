@@ -46,7 +46,7 @@ public class Frame extends Item {
 	/**
 	 * 机臂厚度
 	 */
-	private float armThikness;
+	private float armThickness;
 
 	public int getWheekbase() {
 		return wheekbase;
@@ -128,18 +128,18 @@ public class Frame extends Item {
 		this.roofThickness = roofThickness;
 	}
 
-	public float getArmThikness() {
-		return armThikness;
+	public float getArmThickness() {
+		return armThickness;
 	}
 
-	public void setArmThikness(float armThikness) {
-		this.armThikness = armThikness;
+	public void setArmThickness(float armThickness) {
+		this.armThickness = armThickness;
 	}
 
 	public Frame(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
 			String caption, int wheekbase, float weight, float fcMountingHoleSpacing, PowerHub integratedPh,
 			boolean integratedLed, String camraAdjustingAngle, String material, int maximumSupportProp,
-			float bottomThickness, float roofThickness, float armThikness) {
+			float bottomThickness, float roofThickness, float armThickness) {
 		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
 		this.wheekbase = wheekbase;
 		this.weight = weight;
@@ -151,7 +151,7 @@ public class Frame extends Item {
 		this.maximumSupportProp = maximumSupportProp;
 		this.bottomThickness = bottomThickness;
 		this.roofThickness = roofThickness;
-		this.armThikness = armThikness;
+		this.armThickness = armThickness;
 	}
 
 	public Frame() {

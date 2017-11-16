@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.BatteryDao" >
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Battery" autoMapping="true">
+        <result property="model" column="model"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.Battery">
+        SELECT model,img_url,anufacturer,reference_price,weight,capacity,discharge_rate,voltage FROM battery;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Battery">
+        SELECT model,img_url,anufacturer,reference_price,weight,capacity,discharge_rate,voltage FROM battery
+        WHERE model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM battery WHERE model=#{model};
+    </select>
+    <insert id="addBattery" parameterType="com.RacingDroneWIKI.pojo.Battery">
+        INSERT INTO battery (`model`, `img_url`, `reference_price`,
+				`anufacturer`, `capacity`, `discharge_rate`,
+				`instantaneous_discharge_rate`, `max_charging_rate`,
+				`voltage`, `recommended_charging_current`,
+				`maximum_charge_current`, `weight`, `length`,
+				`width`, `thickness`, `connector`, `wire_number`,
+				`wire_length`, `caption`)
+          VALUES (#{model}, #{imgUrl}, #{referencePrice}, #{anufacturer},
+          #{capacity},#{dischargeRate},#{instantaneousDischargeRate},
+          #{maxChargingRate},#{voltage},#{recommendedChargingCurrent},
+          #{maximumChargeCurrent},#{weight}, #{length}, #{width},
+          #{thickness},#{connector}, #{wire_number}, #{wire_length}, #{caption});
+    </insert>
+    <update id="updataBattery" parameterType="com.RacingDroneWIKI.pojo.Battery">
+        UPDATE battery
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="capacity !=null">
+                    capacity=#{capacity},
+                </if>
+                <if test="dischargeRate !=null">
+                    dischargeRate=#{discharge_rate},
+                </if>
+                <if test="instantaneousDischargeRate !=null">
+                    instantaneousDischargeRate=#{instantaneous_discharge_rate},
+                </if>
+                <if test="maxChargingRate !=null">
+                    maxChargingRate=#{max_charging_rate},
+                </if>
+                <if test="voltage !=null">
+                    voltage=#{voltage},
+                </if>
+                <if test="recommendedChargingCurrent !=null">
+                    recommendedChargingCurrent=#{recommended_charging_current},
+                </if>
+                <if test="maximumChargeCurrent !=null">
+                    maximumChargeCurrent=#{maximum_charge_current},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="weight !=null">
+                    `weight`=#{weight},
+                </if>
+                <if test="thickness !=null">
+                    `thickness`=#{thickness},
+                </if>
+                <if test="connectors !=null">
+                    connectors=#{connectors},
+                </if>
+                <if test="wire_Nmber !=null">
+                    wireNumber=#{wire_number},
+                </if>
+                <if test="wireLength !=null">
+                    wireLength=#{wire_length},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteBattery" parameterType="string">
+        DELETE FROM battery WHERE model=#{model};
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

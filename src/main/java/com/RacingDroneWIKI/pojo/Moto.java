@@ -50,7 +50,7 @@ public class Moto extends Item {
 	/**
 	 * 内阻
 	 */
-	private int internalRestance;
+	private int internalReslstance;
 	/**
 	 * 力效表
 	 */
@@ -61,9 +61,9 @@ public class Moto extends Item {
 	}
 
 	public Moto(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
-			String caption, float statorLength, float shaftDiameter, float idleCurrent, float weight, float diameter,
-			float length, String noOfCells, int maxThrust, int kv, String propeller, float statorDiameter,
-			int internalRestance, List<EfficacyChart> efficacyChart) {
+				String caption, float statorLength, float shaftDiameter, float idleCurrent, float weight, float diameter,
+				float length, String noOfCells, int maxThrust, int kv, String propeller, float statorDiameter,
+				int internalReslstance, List<EfficacyChart> efficacyChart) {
 		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
 		this.statorLength = statorLength;
 		this.shaftDiameter = shaftDiameter;
@@ -76,7 +76,7 @@ public class Moto extends Item {
 		this.kv = kv;
 		this.propeller = propeller;
 		this.statorDiameter = statorDiameter;
-		this.internalRestance = internalRestance;
+		this.internalReslstance = internalReslstance;
 		this.efficacyChart = efficacyChart;
 	}
 
@@ -164,12 +164,12 @@ public class Moto extends Item {
 		this.propeller = propeller;
 	}
 
-	public int getInternalRestance() {
-		return internalRestance;
+	public int getInternalReslstance() {
+		return internalReslstance;
 	}
 
-	public void setInternalRestance(int internalRestance) {
-		this.internalRestance = internalRestance;
+	public void setInternalReslstance(int internalReslstance) {
+		this.internalReslstance = internalReslstance;
 	}
 
 	public List<EfficacyChart> getEfficacyChart() {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.PowerHubDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.PowerHub" autoMapping="true">
+        <result property="model" column="model"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM power_hub WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.PowerHub">
+        SELECT model,img_url,anufacturer,reference_price,weight,max_current,mounting_hole_spacing
+         FROM power_hub WHERE use_alone=1;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.PowerHub">
+        SELECT model,img_url,anufacturer,reference_price,weight,max_current,mounting_hole_spacing FROM power_hub
+        WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
+    </select>
+    <insert id="addPowerHub" parameterType="com.RacingDroneWIKI.pojo.PowerHub">
+        INSERT INTO power_hub (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `mounting_hole_spacing`, `bec5v`,
+        `bec9v`, `bec12v`,`max_current`, `pin_definition_diagram`,
+        `weight`, `length`,`width`, `thickness`,,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},
+        #{referencePrice},#{mountingHoleSpacing},#{bec5v},
+        #{bec9v},#{bec12v},#{maxCurrent},#{pinDefinitionDiagram},
+        #{weight}, #{length}, #{width},#{caption});
+    </insert>
+    <update id="updataPowerHub" parameterType="com.RacingDroneWIKI.pojo.PowerHub">
+    UPDATE power_hub
+    <trim suffixOverrides="," >
+        <set>
+            <if test="imgUrl !=null">
+                img_url=#{imgUrl},
+            </if>
+            <if test="referencePrice !=null">
+                reference_price=#{referencePrice},
+            </if>
+            <if test="anufacturer !=null">
+                anufacturer=#{anufacturer},
+            </if>
+            <if test="mountingHoleSpacing !=null">
+                mounting_hole_spacing=#{mountingHoleSpacing},
+            </if>
+            <if test="bec5v !=null">
+                bec5v=#{bec5v},
+            </if>
+            <if test="bec9v !=null">
+                bec9v=#{bec9v},
+            </if>
+            <if test="bec12v !=null">
+                bec12v=#{bec12v},
+            </if>
+            <if test="maxCurrent !=null">
+                max_current=#{maxCurrent},
+            </if>
+            <if test="pinDefinitionDiagram !=null">
+                pin_definition_diagram=#{pinDefinitionDiagram},
+            </if>
+            <if test="weight !=null">
+                weight=#{weight},
+            </if>
+            <if test="length !=null">
+                `length`=#{length},
+            </if>
+            <if test="width !=null">
+                width=#{width},
+            </if>
+            <if test="thickness !=null">
+                thickness=#{thickness},
+            </if>
+            <if test="caption !=null">
+                caption=#{caption},
+            </if>
+        </set>
+    </trim>
+    WHERE model=#{model};
+    </update>
+    <delete id="deletPowerHub" parameterType="string">
+        DELETE FROM power_hub WHERE model=#{model};
+    </delete>
+</mapper>

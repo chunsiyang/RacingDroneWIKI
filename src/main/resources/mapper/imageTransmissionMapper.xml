@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.ImageTransmissionDao" >
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.ImageTransmission" autoMapping="true">
+        <result property="model" column="model"/>
+        <association property="cam" column="inter_cam" select="com.RacingDroneWIKI.dao.CamDao.findDetail"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM image_transmission WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.ImageTransmission">
+        SELECT model,img_url,anufacturer,reference_price,weight,frequency_quantity,output_power,antenna_connectors,input_voltage,output_voltage
+        FROM image_transmission WHERE use_alone=1;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.ImageTransmission">
+        SELECT model,img_url,anufacturer,reference_price,weight,frequency_quantity,output_power,antenna_connectors,input_voltage,output_voltage FROM image_transmission
+        WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
+    </select>
+    <insert id="addImageTransmission" parameterType="com.RacingDroneWIKI.pojo.ImageTransmission">
+        INSERT INTO image_transmission (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `inter_cam`, `frequency_quantity`,
+        `sbus`, `audio_support`,`integrated_mic`, `power_adjustable`,
+        `weight`, `length`,`width`, `thickness`,
+        `output_power`, `input_voltage`,`output_voltage`,
+        `antenna_connectors`,`video_band_width`,`audio_carrier_frequency`,`video_input_level`,`audio_input_impedance`,
+        `pin_definition_diagram`,`frequency_table`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},
+        #{referencePrice},#{cam.model},#{frequencyQuantity},
+        #{sbus},#{audioSupport},#{integratedMic},
+        #{powerAdjustable},#{weight}, #{length}, #{width},
+        #{thickness},#{outputPower}, #{inputVoltage}, #{outputVoltage},
+        #{antennaConnectors},#{videoBandWidth},#{audioCarrierFrequency},
+        #{videoInputLevel},#{audioInputLevel}, #{audioInputImpedance},
+        #{pinDefinitionDiagram},#{frequencyTable},#{caption});
+    </insert>
+    <update id="updataImageTransmission" parameterType="com.RacingDroneWIKI.pojo.ImageTransmission">
+        UPDATE image_transmission
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="cam !=null">
+                    inter_cam=#{cam.model},
+                </if>
+                <if test="frequencyQuantity !=null">
+                    frequency_quantity=#{frequencyQuantity},
+                </if>
+                <if test="sbus !=null">
+                    sbus=#{sbus},
+                </if>
+                <if test="audioSupport !=null">
+                    audio_support=#{audioSupport},
+                </if>
+                <if test="integratedMic !=null">
+                    integrated_mic=#{integratedMic},
+                </if>
+                <if test="powerAdjustable !=null">
+                    power_adjustable=#{powerAdjustable},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="width !=null">
+                    width=#{width},
+                </if>
+                <if test="thickness !=null">
+                    thickness=#{thickness},
+                </if>
+                <if test="outputPower !=null">
+                    output_power=#{outputPower},
+                </if>
+                <if test="inputVoltage !=null">
+                    input_voltage=#{inputVoltage},
+                </if>
+                <if test="outputVoltage !=null">
+                    output_voltage=#{outputVoltage},
+                </if>
+                <if test="antennaConnectors">
+                    antenna_connectors=#{antennaConnectors},
+                </if>
+                <if test="videoBandWidth">
+                    video_band_width=#{videoBandWidth},
+                </if>
+                <if test="audioCarrierFrequency">
+                    audio_carrier_frequency=#{audioCarrierFrequency},
+                </if>
+                <if test="videoInputLevel">
+                    video_input_level=#{videoInputLevel},
+                </if>
+                <if test="audioInputLevel">
+                    audio_input_level=#{audioInputLevel},
+                </if>
+                <if test="audioInputImpedance">
+                    audio_input_impedance=#{audioInputImpedance},
+                </if>
+                <if test="pinDefinitionDiagram">
+                    pin_definition_diagram=#{pinDefinitionDiagram},
+                </if>
+                <if test="frequencyTable">
+                    frequency_table=#{frequencyTable},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteImageTransmission" parameterType="string">
+        DELETE FROM image_transmission WHERE model=#{model};
+    </delete>
+</mapper>

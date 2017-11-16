@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.MotoDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Moto" autoMapping="true">
+        <result property="model" column="model"/>
+        <collection property="efficacyChart" column="model" select="com.RacingDroneWIKI.dao.EfficacyChartDao.findByModel"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM motor WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.Moto">
+        SELECT model,img_url,anufacturer,reference_price,weight,stator_length,stator_diameter,kv,no_of_cells,propeller,max_thrust FROM motor;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Moto">
+        SELECT model,img_url,anufacturer,reference_price,weight,stator_length,stator_diameter,kv,no_of_cells,propeller,max_thrust FROM motor
+        WHERE model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <insert id="addMoto" parameterType="com.RacingDroneWIKI.pojo.Moto">
+        INSERT INTO motor (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `stator_length`, `shaft_diameter`,
+        `idle_current`, `diameter`,`no_of_cells`, `max_thrust`,
+        `kv`, `weight`, `length`,`propeller`, `stator_diameter`,
+        `internal_reslstance`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{anufacturer},
+        #{referencePrice},#{statorLength},#{shaftDiameter},
+        #{idleCurrent},#{diameter},#{noOfCells},#{maxThrust},
+        #{kv},#{weight}, #{length}, #{propeller},
+        #{statorDiameter},#{internalReslstance},#{caption});
+    </insert>
+    <update id="updataMoto" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
+        UPDATE flightControl
+        <trim suffixOverrides="," >
+            <set>
+                <if test="imgUrl !=null">
+                    img_url=#{imgUrl},
+                </if>
+                <if test="referencePrice !=null">
+                    reference_price=#{referencePrice},
+                </if>
+                <if test="anufacturer !=null">
+                    anufacturer=#{anufacturer},
+                </if>
+                <if test="statorLength !=null">
+                    stator_length=#{statorLength},
+                </if>
+                <if test="shaftDiameter !=null">
+                    shaft_diameter=#{shaftDiameter},
+                </if>
+                <if test="idleCurrent !=null">
+                    idle_current=#{idleCurrent},
+                </if>
+                <if test="diameter !=null">
+                    diameter=#{diameter},
+                </if>
+                <if test="noOfCells !=null">
+                    no_of_cells=#{noOfCells},
+                </if>
+                <if test="maxThrust !=null">
+                    max_thrust=#{maxThrust},
+                </if>
+                <if test="weight !=null">
+                    weight=#{weight},
+                </if>
+                <if test="length !=null">
+                    `length`=#{length},
+                </if>
+                <if test="propeller !=null">
+                    propeller=#{propeller},
+                </if>
+                <if test="statorDiameter !=null">
+                    stator_diameter=#{statorDiameter},
+                </if>
+                <if test="internalReslstance !=null">
+                    internal_restance=#{internalReslstance},
+                </if>
+                <if test="caption !=null">
+                    caption=#{caption},
+                </if>
+            </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteMoto" parameterType="string">
+        DELETE FROM motor WHERE model=#{model};
+    </delete>
+</mapper>

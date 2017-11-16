@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.RacingDroneWIKI.dao.PropDao">
+    <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Prop" autoMapping="true">
+        <result property="model" column="model"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+    </resultMap>
+    <select id="findDetail" parameterType="string" resultMap="detail">
+        SELECT * FROM prop WHERE model=#{model};
+    </select>
+    <select id="findAll" resultType="com.RacingDroneWIKI.pojo.Prop">
+        SELECT model,img_url,anufacturer,reference_price,weight,blade_number,`size`,material FROM prop;
+    </select>
+    <select id="findByModel" parameterType="string" resultType="com.RacingDroneWIKI.pojo.Prop">
+        SELECT model,img_url,anufacturer,reference_price,weight,blade_number,`size`,material FROM prop
+        WHERE model LIKE CONCAT('%',#{model},'%');
+    </select>
+    <insert id="addProp" parameterType="com.RacingDroneWIKI.pojo.Prop">
+        INSERT INTO prop (`model`, `img_url`, `reference_price`,
+        `anufacturer`, `blade_number`, `size`,
+        `weight`, `mounting_hole_spacing`,`material`,`caption`)
+        VALUES (#{model}, #{imgUrl},#{referencePrice},
+        #{anufacturer},#{bladeNumber},#{size},
+        #{weight},#{mountingHoleSpacing},#{material},#{caption});
+    </insert>
+    <update id="updataProp" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
+        UPDATE prop
+        <trim suffixOverrides="," >
+          <set>
+            <if test="imgUrl !=null">
+                img_url=#{imgUrl},
+            </if>
+            <if test="referencePrice !=null">
+                reference_price=#{referencePrice},
+            </if>
+            <if test="anufacturer !=null">
+                anufacturer=#{anufacturer},
+            </if>
+            <if test="bladeNumber !=null">
+                blade_number=#{bladeNumber},
+            </if>
+            <if test="size !=null">
+                size=#{size},
+            </if>
+            <if test="weight !=null">
+                weight=#{weight},
+            </if>
+            <if test="mountingHoleSpacing !=null">
+                mounting_hole_spacing=#{mountingHoleSpacing},
+            </if>
+            <if test="material !=null">
+                material=#{material},
+            </if>
+            <if test="caption !=null">
+                caption=#{caption},
+            </if>
+          </set>
+        </trim>
+        WHERE model=#{model};
+    </update>
+    <delete id="deleteProp" parameterType="string">
+        DELETE FROM prop WHERE model=#{model};
+    </delete>
+</mapper>

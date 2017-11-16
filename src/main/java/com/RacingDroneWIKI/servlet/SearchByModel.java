@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.servlet;
 
-import com.RacingDroneWIKI.dao.daoProxy.*;
 import com.RacingDroneWIKI.pojo.*;
+import com.RacingDroneWIKI.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,21 +24,16 @@ public class SearchByModel extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String model=request.getParameter("searchModel");
-        /*
-        String url=java.net.URLEncoder.encode(model, "utf-8");
-        url=url.replaceAll("%","-");
-        System.out.println(url);
-        */
-        List<Moto> motoList=new MotoDAOProxy().findByModel(model);
-        List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorDaoProxy().findByModelUseAlone(model);
-        List<Frame> frameList =new FrameDaoProxy().findByModel(model);
-        List<ImageTransmission> imageTransmissionList=new ImageTransmissionDaoProxy().findByModelUseAlone(model);
-        List<Cam> camList=new CamDAOProxy().findByModelUseAlone(model);
-        List<FlightControl> flightControlList=new FlightControlDaoProxy().findByModel(model);
-        List<Antenna> antennaList=new AntennaDaoProxy().findByModel(model);
-        List<PowerHub> powerHubList=new PowerHubDaoProxy().findByModelUseAlone(model);
-        List<Prop> propList=new PropDaoProxy().findByModel(model);
-        List<Battery> batteryList=new BatteryDaoProxy().findByModel(model);
+        List<Moto> motoList=new MotoService().findByModel(model);
+        List<ElectroSpeedRegulator> electroSpeedRegulatorList=new ElectroSpeedRegulatorService().findByModel(model);
+        List<Frame> frameList =new FrameService().findByModel(model);
+        List<ImageTransmission> imageTransmissionList=new ImageTransmissionService().findByModel(model);
+        List<Cam> camList=new CamService().findByModel(model);
+        List<FlightControl> flightControlList=new FlightControlService().findByModel(model);
+        List<Antenna> antennaList=new AntennaService().findByModel(model);
+        List<PowerHub> powerHubList=new PowerHubService().findByModel(model);
+        List<Prop> propList=new PropService().findByModel(model);
+        List<Battery> batteryList=new BatteryService().findByModel(model);
         request.setAttribute("motoList",motoList);
         request.setAttribute("electroSpeedRegulatorList",electroSpeedRegulatorList);
         request.setAttribute("frameList",frameList);
