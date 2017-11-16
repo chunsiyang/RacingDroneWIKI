@@ -36,7 +36,7 @@
                 <p>辅助图片：</p>
             </div>
             <div class="value">
-                <form id="itemInfo" method="post" action="/itemInsert/InsertAnt" >
+                <form id="itemInfo" method="post" action="/itemInsert/InsertAnt"  enctype="multipart/form-data">
                     <input type="text" name="model"class="inputText" placeholder="天线型号"><br>
                     <input type="file" name="mainImg"class="inputText"><br>
                     <input type="text" name="referencePrice" class="inputText" placeholder="天线参考价格"><br>

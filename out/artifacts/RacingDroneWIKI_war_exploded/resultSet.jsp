@@ -29,7 +29,7 @@
     </C:if>
     <!--无刷电机-->
     <section>
-        <C:if test="${motoList!=null}">
+        <C:if test="${motoList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>无刷电机</h2></th>
                 <C:forEach items="${motoList}" var="item">
@@ -95,7 +95,7 @@
     </section>
     <!--电子调速器-->
     <section>
-        <C:if test="${electroSpeedRegulatorList!=null}">
+        <C:if test="${electroSpeedRegulatorList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>电子调速器</h2></th>
                 <C:forEach items="${electroSpeedRegulatorList}" var="item">
@@ -160,7 +160,7 @@
     </section>
     <!--机架-->
     <section>
-        <C:if test="${frameList!=null}">
+        <C:if test="${frameList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>机架</h2></th>
                 <C:forEach items="${frameList}" var="item">
@@ -226,7 +226,7 @@
     </section>
     <!--图传-->
     <section>
-        <C:if test="${imageTransmissionList!=null}">
+        <C:if test="${imageTransmissionList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>图传</h2></th>
                 <C:forEach items="${imageTransmissionList}" var="item">
@@ -292,7 +292,7 @@
     </section>
     <!--摄像头-->
     <section>
-        <C:if test="${camList!=null}">
+        <C:if test="${camList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>摄像头</h2></th>
                 <C:forEach items="${camList}" var="item">
@@ -357,7 +357,7 @@
     </section>
     <!--飞控-->
     <section>
-        <C:if test="${flightControlList!=null}">
+        <C:if test="${flightControlList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>飞控</h2></th>
                 <C:forEach items="${flightControlList}" var="item">
@@ -423,7 +423,7 @@
     </section>
     <!--天线-->
     <section>
-        <C:if test="${antennaList!=null}">
+        <C:if test="${antennaList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>天线</h2></th>
                 <C:forEach items="${antennaList}" var="item">
@@ -489,7 +489,7 @@
     </section>
     <!--分电板-->
     <section>
-        <C:if test="${powerHubList!=null}">
+        <C:if test="${powerHubList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>分电板</h2></th>
                 <C:forEach items="${powerHubList}" var="item">
@@ -544,7 +544,7 @@
     </section>
     <!--桨叶-->
     <section>
-        <C:if test="${propList!=null}">
+        <C:if test="${propList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>桨叶</h2></th>
                 <C:forEach items="${propList}" var="item">
@@ -599,7 +599,7 @@
     </section>
     <!--电池-->
     <section>
-        <C:if test="${batteryList!=null}">
+        <C:if test="${batteryList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
                 <th><h2>电池</h2></th>
                 <C:forEach items="${batteryList}" var="item">

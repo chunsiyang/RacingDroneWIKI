@@ -12,6 +12,7 @@ public class Antenna extends Item {
 	 */
 	private float length;
 	/**
+
 	 * 天线插头
 	 */
 	private String connectors;
@@ -37,16 +38,28 @@ public class Antenna extends Item {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
+	/*public void setWeight(float weight) {
 		this.weight = weight;
+	}*/
+
+	public void setWeight(String weight)
+	{
+		if (!weight.equals(""))
+			this.weight=Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
+	/*public void setLength(float length) {
 		this.length = length;
+	}*/
+
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+			this.length=Float.parseFloat(length);
 	}
 
 	public String getConnectors() {
@@ -69,16 +82,28 @@ public class Antenna extends Item {
 		return gain;
 	}
 
-	public void setGain(float gain) {
+	/*public void setGain(float gain) {
 		this.gain = gain;
+	}*/
+
+	public void setGain(String gain)
+	{
+		if (!gain.equals(""))
+			this.gain=Float.parseFloat(gain);
 	}
 
 	public float getAxialRatic() {
 		return axialRatic;
 	}
 
-	public void setAxialRatic(float axialRatic) {
+	/*public void setAxialRatic(float axialRatic) {
 		this.axialRatic = axialRatic;
+	}*/
+
+	public void setAxialRatic(String axialRatic)
+	{
+		if (!axialRatic.equals(""))
+			this.axialRatic=Float.parseFloat(axialRatic);
 	}
 
 	public String getPolarization() {

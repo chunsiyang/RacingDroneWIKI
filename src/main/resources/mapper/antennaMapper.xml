@@ -21,7 +21,7 @@
           `axial_ratic`, `polarization`, `caption`)
           VALUES (#{model}, #{imgUrl}, #{referencePrice}, #{anufacturer},
            #{weight}, #{length}, #{connectors}, #{frequency},
-           #{gain}, #{axial_ratic}, #{polarization}, #{caption});
+           #{gain}, #{axialRatic}, #{polarization}, #{caption});
     </insert>
     <update id="updatAantenna" parameterType="com.RacingDroneWIKI.pojo.Antenna">
         UPDATE antenna
