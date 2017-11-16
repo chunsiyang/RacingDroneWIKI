@@ -19,22 +19,19 @@ public class InsertEsc extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        ElectroSpeedRegulator electroSpeedRegulator=null;
-        HttpSession session=request.getSession();
-        electroSpeedRegulator=new ElectroSpeedRegulator();
-        if(session.getAttribute("flightControl")!=null)
-        {
-            if(session.getAttribute("electroSpeedRegulator")==null)
-            {
-                session.setAttribute("electroSpeedRegulator",electroSpeedRegulator);
-                request.getRequestDispatcher("/itemInsert/FcIntergrat.jsp").forward(request,response);
+        ElectroSpeedRegulator electroSpeedRegulator = null;
+        HttpSession session = request.getSession();
+        electroSpeedRegulator = new ElectroSpeedRegulator();
+        if (session.getAttribute("flightControl") != null) {
+            if (session.getAttribute("electroSpeedRegulator") == null) {
+                session.setAttribute("electroSpeedRegulator", electroSpeedRegulator);
+                request.getRequestDispatcher("/itemInsert/FcIntergrat.jsp").forward(request, response);
             }
-        }
-        else {
+        } else {
              /*
                 数据录入
              */
-            request.getRequestDispatcher("/itemInsert/InsertSuccessed.jsp").forward(request,response);
+            request.getRequestDispatcher("/itemInsert/InsertSuccessed.jsp").forward(request, response);
         }
 
 

@@ -1,56 +1,69 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
 }
-section{
+
+section {
     width: 100%;
     text-align: center;
 }
-table{
+
+table {
     text-align: center;
     margin: auto;
 }
-h2{
+
+h2 {
     text-align: left;
     clear: right;
 }
-h4{
+
+h4 {
     display: inline;
 }
-.mainImg{
+
+.mainImg {
     width: 150px;
     height: 150px;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.listItem:hover{
+
+.listItem:hover {
     background-color: lightgray;
 }
-.list{
+
+.list {
     border-collapse: collapse;
     width: 80%;
     background-color: gainsboro;
 }
-.list th{
-    background-color:lightgray ;
+
+.list th {
+    background-color: lightgray;
 }
-.listItem{
+
+.listItem {
     border-collapse: collapse;
-    border-width:0px;
-    border-style:hidden;
+    border-width: 0px;
+    border-style: hidden;
     width: 100%;
     background-color: gainsboro;
-    table-layout : fixed
+    table-layout: fixed
 }
-.tdImg{
+
+.tdImg {
     width: 160px;
     height: 160px;
 
 }
-body div{
+
+body div {
     min-height: 90%
 }
-#noInfo{
+
+#noInfo {
     text-align: center;
 }

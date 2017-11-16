@@ -6,36 +6,35 @@ import com.RacingDroneWIKI.pojo.EfficacyChart;
 
 /**
  * @author user
- *
  */
 public interface EfficacyChartDao {
-	/**
-	 * @param efct
-	 * @return
-	 */
-	boolean addEfficacyChart(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    boolean addEfficacyChart(EfficacyChart efct);
 
-	/**
-	 * @param efct
-	 * @return
-	 */
-	boolean deleteEfficacyChart(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    boolean deleteEfficacyChart(EfficacyChart efct);
 
-	/**
-	 * @param efct
-	 * @return
-	 */
-	boolean updataMoto(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    boolean updataMoto(EfficacyChart efct);
 
-	/**
-	 * @return
-	 */
-	List<EfficacyChart> findAll();
+    /**
+     * @return
+     */
+    List<EfficacyChart> findAll();
 
-	/**
-	 * @param model
-	 * @return
-	 */
-	List<EfficacyChart> findByModel(String model);
+    /**
+     * @param model
+     * @return
+     */
+    List<EfficacyChart> findByModel(String model);
 
 }

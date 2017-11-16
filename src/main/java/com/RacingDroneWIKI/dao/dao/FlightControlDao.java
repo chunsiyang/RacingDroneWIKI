@@ -6,36 +6,35 @@ import com.RacingDroneWIKI.pojo.FlightControl;
 
 /**
  * @author user
- *
  */
 public interface FlightControlDao {
-	/**
-	 * @param fc
-	 * @return
-	 */
-	boolean addFlightControl(FlightControl fc);
+    /**
+     * @param fc
+     * @return
+     */
+    boolean addFlightControl(FlightControl fc);
 
-	/**
-	 * @param fc
-	 * @return
-	 */
-	boolean deleteFlightControl(FlightControl fc);
+    /**
+     * @param fc
+     * @return
+     */
+    boolean deleteFlightControl(FlightControl fc);
 
-	/**
-	 * @param fc
-	 * @return
-	 */
-	boolean updataFlightControl(FlightControl fc);
+    /**
+     * @param fc
+     * @return
+     */
+    boolean updataFlightControl(FlightControl fc);
 
-	/**
-	 * @return
-	 */
-	List<FlightControl> findAll();
+    /**
+     * @return
+     */
+    List<FlightControl> findAll();
 
-	/**
-	 * @param model
-	 * @return
-	 */
-	List<FlightControl> findByModel(String model);
+    /**
+     * @param model
+     * @return
+     */
+    List<FlightControl> findByModel(String model);
 
 }

@@ -21,6 +21,6 @@
         <h4>录入成功，感谢您为竞速无人机在线资料库做出的贡献！</h4>
     </section>
 </div>
-<%@include file="../foot.html"%>
+<%@include file="../foot.html" %>
 </body>
 </html>

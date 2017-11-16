@@ -16,54 +16,54 @@
             <P>首页</P>
         </a>
     </button>
-    <nav >
+    <nav>
         <button class="item" onclick="javascript:window.location.href='/moto.list';">
-            <a href="/moto.list" >
+            <a href="/moto.list">
                 <p>电机</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/esc.list';">
-            <a href="/esc.list" >
+            <a href="/esc.list">
                 <p>电调</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/fra.list';">
-            <a href="/fra.list" >
+            <a href="/fra.list">
                 <p>机架</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/it.list';">
-            <a href="/it.list" >
+            <a href="/it.list">
                 <p>图传</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/cam.list';">
-            <a href="/cam.list" >
+            <a href="/cam.list">
                 <p>摄像头</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/fc.list';">
-            <a href="/fc.list" >
+            <a href="/fc.list">
                 <p>飞控</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/ant.list';">
-            <a href="/ant.list" >
+            <a href="/ant.list">
                 <p>天线</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/ph.list';">
-            <a href="/ph.list" >
+            <a href="/ph.list">
                 <p>分电板</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/prop.list';">
-            <a href="/prop.list" >
+            <a href="/prop.list">
                 <p>桨叶</p>
             </a>
         </button>
         <button class="item" onclick="javascript:window.location.href='/bat.list';">
-            <a href="/bat.list" >
+            <a href="/bat.list">
                 <p>电池</p>
             </a>
         </button>

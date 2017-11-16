@@ -19,19 +19,19 @@
     </jsp:include>
     <section>
         <form action="/itemInsert/insertEsc.jsp">
-            <input type="submit"class="inputText" formmethod="post" value="添加集成电子调速器">
+            <input type="submit" class="inputText" formmethod="post" value="添加集成电子调速器">
         </form>
         <form action="">
-            <input type="submit"class="inputText"formmethod="post" value="添加集成图传">
+            <input type="submit" class="inputText" formmethod="post" value="添加集成图传">
         </form>
         <form action="">
-            <input type="submit"class="inputText" formmethod="post"value="添加集成分电板">
+            <input type="submit" class="inputText" formmethod="post" value="添加集成分电板">
         </form>
         <form action="/itemInsert/InsertFC">
-            <input type="submit"class="inputText" value="完成，录入数据">
+            <input type="submit" class="inputText" value="完成，录入数据">
         </form>
     </section>
 </div>
-<%@include file="../foot.html"%>
+<%@include file="../foot.html" %>
 </body>
 </html>

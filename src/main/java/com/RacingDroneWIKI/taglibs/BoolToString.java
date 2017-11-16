@@ -25,13 +25,11 @@ public class BoolToString extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         super.doTag();
-        JspContext context=getJspContext();
-        JspWriter out=context.getOut();
-        if(bool.equals("true"))
-        {
+        JspContext context = getJspContext();
+        JspWriter out = context.getOut();
+        if (bool.equals("true")) {
             out.print("支持");
-        }
-        else {
+        } else {
             out.print("不支持");
         }
     }

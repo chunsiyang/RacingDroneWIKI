@@ -6,36 +6,35 @@ import com.RacingDroneWIKI.pojo.Prop;
 
 /**
  * @author user
- *
  */
 public interface PropDao {
-	/**
-	 * @param prop
-	 * @return
-	 */
-	boolean addProp(Prop prop);
+    /**
+     * @param prop
+     * @return
+     */
+    boolean addProp(Prop prop);
 
-	/**
-	 * @param prop
-	 * @return
-	 */
-	boolean deleteProp(Prop prop);
+    /**
+     * @param prop
+     * @return
+     */
+    boolean deleteProp(Prop prop);
 
-	/**
-	 * @param prop
-	 * @return
-	 */
-	boolean updataProp(Prop prop);
+    /**
+     * @param prop
+     * @return
+     */
+    boolean updataProp(Prop prop);
 
-	/**
-	 * @return
-	 */
-	List<Prop> findAll();
+    /**
+     * @return
+     */
+    List<Prop> findAll();
 
-	/**
-	 * @param model
-	 * @return
-	 */
-	List<Prop> findByModel(String model);
+    /**
+     * @param model
+     * @return
+     */
+    List<Prop> findByModel(String model);
 
 }

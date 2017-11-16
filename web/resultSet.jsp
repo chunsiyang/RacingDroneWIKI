@@ -35,14 +35,16 @@
                 <C:forEach items="${motoList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=moto&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=moto&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -101,14 +103,16 @@
                 <C:forEach items="${electroSpeedRegulatorList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=esc&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情" >
+                            <a href="javascript:location.href='detail?item=esc&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -166,14 +170,16 @@
                 <C:forEach items="${frameList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=fra&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=fra&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -232,14 +238,16 @@
                 <C:forEach items="${imageTransmissionList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=it&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=it&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -298,14 +306,16 @@
                 <C:forEach items="${camList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=cam&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=cam&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -363,14 +373,16 @@
                 <C:forEach items="${flightControlList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=fc&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=fc&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -429,14 +441,16 @@
                 <C:forEach items="${antennaList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=ant&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=ant&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -495,14 +509,16 @@
                 <C:forEach items="${powerHubList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=ph&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=ph&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -550,14 +566,16 @@
                 <C:forEach items="${propList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=prop&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=prop&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -605,14 +623,16 @@
                 <C:forEach items="${batteryList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail?item=bat&model='+encodeURIComponent('${item.getModel()}');" title="点击查看详情">
+                            <a href="javascript:location.href='detail?item=bat&model='+encodeURIComponent('${item.getModel()}');"
+                               title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
                                             <img src="img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
-                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
+                                            <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}"
+                                                                              title="${item.model}"/></h4>
                                         </td>
                                     </tr>
                                     <tr>
@@ -653,6 +673,6 @@
         </C:if>
     </section>
 </div>
-<%@include file="foot.html"%>
+<%@include file="foot.html" %>
 </body>
 </html>

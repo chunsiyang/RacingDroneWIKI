@@ -11,168 +11,166 @@ import com.RacingDroneWIKI.pojo.Frame;
 import com.RacingDroneWIKI.pojo.PowerHub;
 
 public class FrameDaoImpl implements FrameDao {
-	private  java.sql.Connection connection;
-	public FrameDaoImpl(Connection connection) {
-		super();
-		this.connection = connection;
-	}
+    private java.sql.Connection connection;
 
-	public boolean addFrame(Frame fra) {
-		String sql="INSERT INTO `racingdronewiki`.`frame` "
-				+ "(`fra_model`, `fra_img`, `fra_reference_price`,"
-				+ " `fra_anufacturer`, `fra_wheelbase`, `fra_weight`, "
-				+ "`fra_fc_mounting_hole_spacing`, `fra_integrated_ph`,"
-				+ " `fra_integrated_led`, `fra_camra_adjusting_angle`, "
-				+ "`fra_material`, `fra_maximum_support_prop`,"
-				+ " `fra_bottom_thickness`, `fra_roof_thickness`, "
-				+ "`fra_arm_thickness`,"
-				+ " `fra_caption`) VALUES (?, ?, ?, ?, ?, ?,"
-				+ " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-		 PreparedStatement pstmt;
-		    try {
-		        pstmt = (PreparedStatement) connection.prepareStatement(sql);
-		        pstmt.setString(1, fra.getModel());
-		        pstmt.setString(2, fra.getImgUrl()); 
-		        pstmt.setInt(3, fra.getReferencePrice());
-		        pstmt.setString(4, fra.getAnufacturer());
-		        pstmt.setInt(5, fra.getWheekbase());
-		        pstmt.setFloat(6, fra.getWeight());
-		        pstmt.setFloat(7, fra.getFcMountingHoleSpacing());
-		        pstmt.setString(8, fra.getIntegratedPh().getModel());
-		        pstmt.setBoolean(9, fra.isIntegratedLed());
-		        pstmt.setString(10, fra.getCamraAdjustingAngle());
-		        pstmt.setString(11, fra.getMaterial());
-		        pstmt.setInt(12, fra.getMaximumSupportProp());
-		        pstmt.setFloat(13, fra.getBottomThickness());
-		        pstmt.setFloat(14,fra.getRoofThickness());
-		        pstmt.setFloat(15, fra.getArmThikness());
-		        pstmt.setString(16, fra.getCaption());
-		        pstmt.executeUpdate();
-		        pstmt.close();
-				new ExtraPicturesImpl(connection).addExtPic(fra.getModel(),fra.getExtraPictures());
-		    } catch (SQLException e) {
-		        e.printStackTrace(); 
-		    }
-			return true;
-	}
+    public FrameDaoImpl(Connection connection) {
+        super();
+        this.connection = connection;
+    }
 
-	public boolean deleteFrame(Frame fra) {
-		// TODO: implement
-		return false;
-	}
+    public boolean addFrame(Frame fra) {
+        String sql = "INSERT INTO `racingdronewiki`.`frame` "
+                + "(`fra_model`, `fra_img`, `fra_reference_price`,"
+                + " `fra_anufacturer`, `fra_wheelbase`, `fra_weight`, "
+                + "`fra_fc_mounting_hole_spacing`, `fra_integrated_ph`,"
+                + " `fra_integrated_led`, `fra_camra_adjusting_angle`, "
+                + "`fra_material`, `fra_maximum_support_prop`,"
+                + " `fra_bottom_thickness`, `fra_roof_thickness`, "
+                + "`fra_arm_thickness`,"
+                + " `fra_caption`) VALUES (?, ?, ?, ?, ?, ?,"
+                + " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement pstmt;
+        try {
+            pstmt = (PreparedStatement) connection.prepareStatement(sql);
+            pstmt.setString(1, fra.getModel());
+            pstmt.setString(2, fra.getImgUrl());
+            pstmt.setInt(3, fra.getReferencePrice());
+            pstmt.setString(4, fra.getAnufacturer());
+            pstmt.setInt(5, fra.getWheekbase());
+            pstmt.setFloat(6, fra.getWeight());
+            pstmt.setFloat(7, fra.getFcMountingHoleSpacing());
+            pstmt.setString(8, fra.getIntegratedPh().getModel());
+            pstmt.setBoolean(9, fra.isIntegratedLed());
+            pstmt.setString(10, fra.getCamraAdjustingAngle());
+            pstmt.setString(11, fra.getMaterial());
+            pstmt.setInt(12, fra.getMaximumSupportProp());
+            pstmt.setFloat(13, fra.getBottomThickness());
+            pstmt.setFloat(14, fra.getRoofThickness());
+            pstmt.setFloat(15, fra.getArmThikness());
+            pstmt.setString(16, fra.getCaption());
+            pstmt.executeUpdate();
+            pstmt.close();
+            new ExtraPicturesImpl(connection).addExtPic(fra.getModel(), fra.getExtraPictures());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
-	public boolean updataFrame(Frame fra) {
-		String sql="UPDATE `racingdronewiki`.`frame` SET `fra_model`=?, "
-				+ "`fra_img`=?, `fra_reference_price`=?, `fra_anufacturer`=?, "
-				+ "`fra_wheelbase`=?, `fra_weight`=?, `fra_fc_mounting_hole_spacing`=?,"
-				+ " `fra_integrated_ph`=?, `fra_integrated_led`=?, "
-				+ "`fra_camra_adjusting_angle`=?, `fra_material`=?,"
-				+ " `fra_maximum_support_prop`=?, `fra_bottom_thickness`=?, "
-				+ "`fra_roof_thickness`=?,`fra_extra_pictures`=?,"
-				+ " `fra_caption`=? WHERE `fra_model`=?;";
-		PreparedStatement pstmt;
-	    try {
-	        pstmt = (PreparedStatement) connection.prepareStatement(sql);
-	        pstmt.setString(1, fra.getModel());
-	        pstmt.setString(2, fra.getImgUrl()); 
-	        pstmt.setInt(3, fra.getReferencePrice());
-	        pstmt.setString(4, fra.getAnufacturer());
-	        pstmt.setInt(5, fra.getWheekbase());
-	        pstmt.setFloat(6, fra.getWeight());
-	        pstmt.setFloat(7, fra.getFcMountingHoleSpacing());
-	        pstmt.setString(8, fra.getIntegratedPh().getModel());
-	        pstmt.setBoolean(9, fra.isIntegratedLed());
-	        pstmt.setString(10, fra.getCamraAdjustingAngle());
-	        pstmt.setString(11, fra.getMaterial());
-	        pstmt.setInt(12, fra.getMaximumSupportProp());
-	        pstmt.setFloat(13, fra.getBottomThickness());
-	        pstmt.setFloat(14,fra.getRoofThickness());
-	        pstmt.setFloat(15, fra.getArmThikness());
-	        pstmt.setString(16, fra.getCaption());
-	        pstmt.setString(17, fra.getModel());
-	        pstmt.executeUpdate();
-	        pstmt.close();
-		} catch (SQLException e) {
-	        e.printStackTrace(); 
-	    }
-		return true;
-	}
+    public boolean deleteFrame(Frame fra) {
+        // TODO: implement
+        return false;
+    }
 
-	@SuppressWarnings("unchecked")
-	public List<Frame> findAll() {
-		PreparedStatement pstmt;
-		ResultSet resSet;
-		List<Frame> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.frame;";
-		try {
-			pstmt = (PreparedStatement) connection.prepareStatement(sql);
-			resSet=pstmt.executeQuery();
-			while(resSet.next())
-			{
-				Frame fra=new Frame(resSet.getString(1), resSet.getString(2), 
-						resSet.getInt(3), resSet.getString(4), 
-						null,
-						resSet.getString(16),resSet.getInt(5),
-						resSet.getFloat(6), resSet.getFloat(7), null, 
-						resSet.getBoolean(9), resSet.getString(10),
-						resSet.getString(11), resSet.getInt(12),
-						resSet.getFloat(13), resSet.getFloat(14),
-						resSet.getFloat(15));
-				if(resSet.getString(8)==null)
-					fra.setIntegratedPh(null);
-				else
-				{
-					PowerHub ph=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
-					fra.setIntegratedPh(ph);
-				}
-				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
-				fra.setExtraPictures(expImg);
-				result.add(fra);
-			} 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(!result.iterator().hasNext())
-			return null;
-		return result;
-	}
+    public boolean updataFrame(Frame fra) {
+        String sql = "UPDATE `racingdronewiki`.`frame` SET `fra_model`=?, "
+                + "`fra_img`=?, `fra_reference_price`=?, `fra_anufacturer`=?, "
+                + "`fra_wheelbase`=?, `fra_weight`=?, `fra_fc_mounting_hole_spacing`=?,"
+                + " `fra_integrated_ph`=?, `fra_integrated_led`=?, "
+                + "`fra_camra_adjusting_angle`=?, `fra_material`=?,"
+                + " `fra_maximum_support_prop`=?, `fra_bottom_thickness`=?, "
+                + "`fra_roof_thickness`=?,`fra_extra_pictures`=?,"
+                + " `fra_caption`=? WHERE `fra_model`=?;";
+        PreparedStatement pstmt;
+        try {
+            pstmt = (PreparedStatement) connection.prepareStatement(sql);
+            pstmt.setString(1, fra.getModel());
+            pstmt.setString(2, fra.getImgUrl());
+            pstmt.setInt(3, fra.getReferencePrice());
+            pstmt.setString(4, fra.getAnufacturer());
+            pstmt.setInt(5, fra.getWheekbase());
+            pstmt.setFloat(6, fra.getWeight());
+            pstmt.setFloat(7, fra.getFcMountingHoleSpacing());
+            pstmt.setString(8, fra.getIntegratedPh().getModel());
+            pstmt.setBoolean(9, fra.isIntegratedLed());
+            pstmt.setString(10, fra.getCamraAdjustingAngle());
+            pstmt.setString(11, fra.getMaterial());
+            pstmt.setInt(12, fra.getMaximumSupportProp());
+            pstmt.setFloat(13, fra.getBottomThickness());
+            pstmt.setFloat(14, fra.getRoofThickness());
+            pstmt.setFloat(15, fra.getArmThikness());
+            pstmt.setString(16, fra.getCaption());
+            pstmt.setString(17, fra.getModel());
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
-	@SuppressWarnings("unchecked")
-	public List<Frame> findByModel(String model) {
-		PreparedStatement pstmt;
-		ResultSet resSet;
-		List<Frame> result=new LinkedList<>();
-		String sql="SELECT * FROM racingdronewiki.frame WHERE `fra_model`like '%"+model+"%';";
-		try {
-			pstmt = (PreparedStatement) connection.prepareStatement(sql);
-			resSet=pstmt.executeQuery();
-			while(resSet.next())
-			{
-				Frame fra=new Frame(resSet.getString(1), resSet.getString(2), 
-						resSet.getInt(3), resSet.getString(4), 
-						null,
-						resSet.getString(16),resSet.getInt(5),
-						resSet.getFloat(6), resSet.getFloat(7), null, 
-						resSet.getBoolean(9), resSet.getString(10),
-						resSet.getString(11), resSet.getInt(12),
-						resSet.getFloat(13), resSet.getFloat(14),
-						resSet.getFloat(15));
-				if(resSet.getString(8)==null)
-					fra.setIntegratedPh(null);
-				else{
-					PowerHub pb=new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
-					fra.setIntegratedPh(pb);
-				}
-				LinkedList<String > expImg= new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
-				fra.setExtraPictures(expImg);
-				result.add(fra);
-			} 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		if(!result.iterator().hasNext())
-			return null;
-		return result;
-	}
+    @SuppressWarnings("unchecked")
+    public List<Frame> findAll() {
+        PreparedStatement pstmt;
+        ResultSet resSet;
+        List<Frame> result = new LinkedList<>();
+        String sql = "SELECT * FROM racingdronewiki.frame;";
+        try {
+            pstmt = (PreparedStatement) connection.prepareStatement(sql);
+            resSet = pstmt.executeQuery();
+            while (resSet.next()) {
+                Frame fra = new Frame(resSet.getString(1), resSet.getString(2),
+                        resSet.getInt(3), resSet.getString(4),
+                        null,
+                        resSet.getString(16), resSet.getInt(5),
+                        resSet.getFloat(6), resSet.getFloat(7), null,
+                        resSet.getBoolean(9), resSet.getString(10),
+                        resSet.getString(11), resSet.getInt(12),
+                        resSet.getFloat(13), resSet.getFloat(14),
+                        resSet.getFloat(15));
+                if (resSet.getString(8) == null)
+                    fra.setIntegratedPh(null);
+                else {
+                    PowerHub ph = new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
+                    fra.setIntegratedPh(ph);
+                }
+                LinkedList<String> expImg = new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
+                fra.setExtraPictures(expImg);
+                result.add(fra);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (!result.iterator().hasNext())
+            return null;
+        return result;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Frame> findByModel(String model) {
+        PreparedStatement pstmt;
+        ResultSet resSet;
+        List<Frame> result = new LinkedList<>();
+        String sql = "SELECT * FROM racingdronewiki.frame WHERE `fra_model`like '%" + model + "%';";
+        try {
+            pstmt = (PreparedStatement) connection.prepareStatement(sql);
+            resSet = pstmt.executeQuery();
+            while (resSet.next()) {
+                Frame fra = new Frame(resSet.getString(1), resSet.getString(2),
+                        resSet.getInt(3), resSet.getString(4),
+                        null,
+                        resSet.getString(16), resSet.getInt(5),
+                        resSet.getFloat(6), resSet.getFloat(7), null,
+                        resSet.getBoolean(9), resSet.getString(10),
+                        resSet.getString(11), resSet.getInt(12),
+                        resSet.getFloat(13), resSet.getFloat(14),
+                        resSet.getFloat(15));
+                if (resSet.getString(8) == null)
+                    fra.setIntegratedPh(null);
+                else {
+                    PowerHub pb = new PowerHubDaoImpl(connection).findByModel(resSet.getString(8)).get(0);
+                    fra.setIntegratedPh(pb);
+                }
+                LinkedList<String> expImg = new ExtraPicturesImpl(connection).getExtPic(fra.getModel());
+                fra.setExtraPictures(expImg);
+                result.add(fra);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (!result.iterator().hasNext())
+            return null;
+        return result;
+    }
 
 }

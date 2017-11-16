@@ -1,27 +1,33 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
 }
-#main{
+
+#main {
     min-height: 90%;
 }
-section nav{
+
+section nav {
     font-size: 0px;
 }
-section{
+
+section {
     text-align: center;
     width: 80%;
     margin: auto;
 }
-.inputItem{
+
+.inputItem {
     width: 80px;
     height: 40px;
-    margin:5px;
+    margin: 5px;
 }
-.inputItem:hover{
+
+.inputItem:hover {
     background-color: lightgray;
 }
-.inputItem a{
+
+.inputItem a {
     text-decoration: none;
     color: black;
 }

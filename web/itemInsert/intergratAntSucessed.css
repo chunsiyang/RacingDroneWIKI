@@ -1,16 +1,19 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
 }
-#main{
+
+#main {
     min-height: 90%;
 }
-section{
+
+section {
     margin-top: 50px;
     width: 100%;
     text-align: center;
 }
-section input{
+
+section input {
     height: 50px;
     width: 200px;
 }
