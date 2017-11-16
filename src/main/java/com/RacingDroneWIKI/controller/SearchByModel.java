@@ -1,4 +1,4 @@
-package com.RacingDroneWIKI.controlller;
+package com.RacingDroneWIKI.controller;
 
 import com.RacingDroneWIKI.pojo.*;
 import com.RacingDroneWIKI.service.*;
@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

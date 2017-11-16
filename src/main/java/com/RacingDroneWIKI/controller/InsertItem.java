@@ -1,8 +1,7 @@
-package com.RacingDroneWIKI.controlller;
+package com.RacingDroneWIKI.controller;
 
 import com.RacingDroneWIKI.pojo.Antenna;
 import com.RacingDroneWIKI.service.AntennaService;
-import com.RacingDroneWIKI.service.UpdataUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

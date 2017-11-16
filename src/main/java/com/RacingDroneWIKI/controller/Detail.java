@@ -1,4 +1,4 @@
-package com.RacingDroneWIKI.controlller;
+package com.RacingDroneWIKI.controller;
 
 import com.RacingDroneWIKI.dao.*;
 import com.RacingDroneWIKI.service.*;

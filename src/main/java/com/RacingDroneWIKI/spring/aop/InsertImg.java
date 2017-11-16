@@ -21,7 +21,7 @@ import java.io.IOException;
 public class InsertImg {
     @Autowired
     UpdataUtil updataUtil;
-    @Pointcut("execution(* com.RacingDroneWIKI.controlller.InsertItem.*(..))&& args(item,request,mainImg,files)")
+    @Pointcut("execution(* com.RacingDroneWIKI.controller.InsertItem.*(..))&& args(item,request,mainImg,files)")
     public void itemImg(Item item, HttpServletRequest request, MultipartFile mainImg,MultipartFile[] files){}
 
     @Before("itemImg(item, request, mainImg,files)")
