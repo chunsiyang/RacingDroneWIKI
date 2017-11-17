@@ -42,7 +42,7 @@
         <p>力效表：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertMoto" >
+        <form id="itemInfo" method="post" action="/itemInsert/InsertMoto"  enctype="multipart/form-data">
           <input type="text" name="model" placeholder="电机型号"class="inputText"><br>
           <input type="file" name="mainImg"class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText"placeholder="电机参考价格"><br>
@@ -83,21 +83,21 @@
                   a = a + 1;
                   var str = '<table border="1px">' +
                       '<tr> ' +
-                      '<td class="ecTableTd" rowspan="2"><input type="text" name="prop' + a + '"></td>' +
-                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="voltages' + a + '"></td> ' +
+                      '<td class="ecTableTd" rowspan="2"><input type="text" name="efficacyChart[' + (a-1) +'].prop"></td>' +
+                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="efficacyChart[' + (a-1) +'].voltages"></td> ' +
                       '<td class="ecTableTd"><p>50%</P></td> ' +
-                      '<td class="ecTableTd"><input type="text" name="halfLoadCurrency' + a + '"></td> ' +
-                      '<td class="ecTableTd"><input type="text" name="halfPull' + a + '"></td> ' +
-                      '<td class="ecTableTd"><input type="text" name="halfPower' + a + '"></td>' +
-                      ' <td class="ecTableTd"><input type="text" name="halfEfficlency' + a + '"></td>' +
-                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="temperature' + a + '"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].halfLoadCurrency"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].halfPull"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].halfPower"></td>' +
+                      ' <td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].halfEfficlency"></td>' +
+                      ' <td class="ecTableTd" rowspan="2"><input type="text" name="temperature' + (a-1) + '"></td> ' +
                       '</tr>' +
                       ' <tr> ' +
                       '<td class="ecTableTd"><p>100%</p></td> ' +
-                      '<td  class="ecTableTd"><input type="text" name="fullLoadCurrency' + a + '"></td> ' +
-                      '<td class="ecTableTd"><input type="text" name="fullPull' + a + '"></td> ' +
-                      '<td class="ecTableTd"><input type="text" name="fullPower' + a + '"></td>' +
-                      ' <td class="ecTableTd"><input type="text" name="fullEfficlency' + a + '"></td> ' +
+                      '<td  class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].fullLoadCurrency"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].fullPull"></td> ' +
+                      '<td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].fullPower"></td>' +
+                      ' <td class="ecTableTd"><input type="text" name="efficacyChart[' + (a-1) +'].fullEfficlency"></td> ' +
                       '</tr>' +
                       '</table><div id="ec'+(a+1)+'"></div>';
 

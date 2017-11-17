@@ -1,6 +1,5 @@
 package com.RacingDroneWIKI.spring.aop;
 
-import com.RacingDroneWIKI.pojo.Antenna;
 import com.RacingDroneWIKI.pojo.Item;
 import com.RacingDroneWIKI.service.UpdataUtil;
 import org.aspectj.lang.annotation.Aspect;
@@ -27,7 +26,6 @@ public class InsertImg {
     @Before("itemImg(item, request, mainImg,files)")
     public void upLoadItemImg(Item item, HttpServletRequest request, MultipartFile mainImg, MultipartFile[] files)throws IOException
     {
-        System.err.println("进入切面");
         System.err.println(item.getModel());
         updataUtil.insertImg(item,request,mainImg);
         updataUtil.insertImgMutl(item,request,files);

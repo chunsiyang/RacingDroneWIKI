@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EfficacyChartDaoProxy implements EfficacyChartDao {
+public class EfficacyChartService implements EfficacyChartDao {
 	@Autowired
 	EfficacyChartDao efficacyChartDao;
 	public int addEfficacyChart(EfficacyChart efct) {
