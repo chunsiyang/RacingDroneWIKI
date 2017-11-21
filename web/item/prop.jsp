@@ -33,7 +33,7 @@
     <C:if test="${item.mountingHoleSpacing!=0}">
         <p>安装孔距：${item.mountingHoleSpacing} mm</p>
     </C:if>
-    <C:if test="${item.material!=null}">
+    <C:if test="${item.material!=null&&item.material!=''}">
         <p>材料：${item.material}</p>
     </C:if>
     <br>

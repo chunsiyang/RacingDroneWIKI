@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="../headNav.css"/>
-    <link type="text/css" rel="stylesheet" href="dataInput.css"/>
+    <link type="text/css" rel="stylesheet" href="input.css"/>
     <title>竞速无人机资料库</title>
 </head>
 <body>

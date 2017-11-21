@@ -48,8 +48,9 @@ public class Item {
 		return referencePrice;
 	}
 
-	public void setReferencePrice(int referencePrice) {
-		this.referencePrice = referencePrice;
+	public void setReferencePrice(String referencePrice) {
+		if(!referencePrice.equals(""))
+		this.referencePrice = Integer.parseInt(referencePrice);
 	}
 
 	public String getAnufacturer() {

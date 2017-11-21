@@ -25,12 +25,12 @@
             `buzzer`, `weight`, `length`,`width`, `thickness`,
             `max_pid_loop_frequancy`, `max_gyro_updata`,`inter_esc`,
             `inter_power_hub`,`inter_image_transmission`,`pin_definition_diagram`,`caption`)
-             VALUES (#{model}, #{imgUrl},#{anufacturer},
-             #{referencePrice},#{mounting_hole_spacing},#{mcu},
-             #{mpu},#{sdcard},#{boot_button},#{osd},
+             VALUES (#{model}, #{imgUrl},#{referencePrice},
+             #{anufacturer},#{mountingHoleSpacing},#{mcu},
+             #{mpu},#{sdcard},#{bootButton},#{osd},
              #{buzzer},#{weight}, #{length}, #{width},
-             #{thickness},#{max_pid_loop_frequancy}, #{max_gyro_updata}, #{inter_esc.model},
-             #{inter_power_hub.model},#{inter_image_transmission.model},#{pin_definition_diagram},#{caption});
+             #{thickness},#{maxPidLoopFrequancy}, #{maxGyroUpdata}, #{esc.model},
+             #{powerHub.model},#{imageTransmission.model},#{pinDefintionDiagram},#{caption});
     </insert>
     <update id="updataFlightControl" parameterType="com.RacingDroneWIKI.pojo.FlightControl">
         UPDATE flight_control

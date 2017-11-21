@@ -49,7 +49,7 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertCam">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertCam" enctype="multipart/form-data">
           <input type="text" name="model" placeholder="摄像头型号"class="inputText"><br>
           <input type="file" name="mainImg"class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText"placeholder="摄像头参考价格"><br>

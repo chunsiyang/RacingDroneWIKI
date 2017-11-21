@@ -46,34 +46,34 @@
     <C:if test="${item.powerAdjustable}">
         <p>功率可调：<bTs:BoolToString bool="${item.powerAdjustable}"/></p>
     </C:if>
-    <C:if test="${item.frequencyQuantity!=null}">
+    <C:if test="${item.frequencyQuantity!=null||item.frequencyQuantity!=''}">
         <p>频道数：${item.frequencyQuantity} CH</p>
     </C:if>
-    <C:if test="${item.outputPower!=null}">
+    <C:if test="${item.outputPower!=null||item.outputPower!=''}">
         <p>输出功率：${item.outputPower} mW</p>
     </C:if>
-    <C:if test="${item.inputVoltage!=null}">
+    <C:if test="${item.inputVoltage!=null||item.inputVoltage!=''}">
         <p>输入电压：${item.inputVoltage} V</p>
     </C:if>
-    <C:if test="${item.outputVoltage!=null}">
+    <C:if test="${item.outputVoltage!=null||item.outputVoltage!=''}">
         <p>输出电压：${item.outputVoltage} V</p>
     </C:if>
-    <C:if test="${item.antennaConnectors!=null}">
+    <C:if test="${item.antennaConnectors!=null||item.antennaConnectors!=''}">
         <p>天线接头：${item.antennaConnectors}</p>
     </C:if>
-    <C:if test="${item.videoBandWidth!=null}">
+    <C:if test="${item.videoBandWidth!=null||item.videoBandWidth!=''}">
         <p>视频带宽：${item.videoBandWidth} MHz</p>
     </C:if>
-    <C:if test="${item.audioCarrierFrequency!=null}">
+    <C:if test="${item.audioCarrierFrequency!=null||item.audioCarrierFrequency!=''}">
         <P>音频带宽：${item.audioCarrierFrequency} MHz</P>
     </C:if>
-    <C:if test="${item.videoInputLevel!=null}">
+    <C:if test="${item.videoInputLevel!=null||item.videoInputLevel!=''}">
         <p>视频输入电平：${item.videoInputLevel} Vp-p</p>
     </C:if>
-    <C:if test="${item.audioInputLevel!=null}">
+    <C:if test="${item.audioInputLevel!=null||item.audioInputLevel!=''}">
         <p>音频输入水平：${item.audioInputLevel} Vp-p</p>
     </C:if>
-    <C:if test="${item.audioInputImpedance!=null}">
+    <C:if test="${item.audioInputImpedance!=null||item.audioInputImpedance!=''}">
         <p>音频输入阻抗：${item.audioInputImpedance} Ohm</p>
     </C:if>
     <C:if test="${item.cam!=null}">
@@ -90,10 +90,10 @@
         <C:if test="${item.cam.thickness!=0}">
             <p>厚度：${item.cam.thickness} mm</p>
         </C:if>
-        <C:if test="${item.cam.inputVoltages!=null}">
+        <C:if test="${item.cam.inputVoltages!=null||item.cam.inputVoltages!=''}">
             <p>输入电压：${item.cam.inputVoltages} V</p>
         </C:if>
-        <C:if test="${item.cam.horizontalResolustion!=null}">
+        <C:if test="${item.cam.horizontalResolustion!=null||item.cam.horizontalResolustion!=''}">
             <p>水平分辨率：${item.cam.horizontalResolustion} TVL</p>
         </C:if>
         <C:if test="${item.cam.integratedOsd}">
@@ -108,34 +108,34 @@
         <C:if test="${item.cam.backLightCompensation}">
             <p>背光补偿：<bTs:BoolToString bool="${item.cam.backLightCompensation}"/></p>
         </C:if>
-        <C:if test="${item.cam.imageSensor}">
+        <C:if test="${item.cam.imageSensor!=null||item.cam.imageSensor!=''}">
             <p>图像传感器：${item.cam.imageSensor}</p>
         </C:if>
-        <C:if test="${item.cam.lensFov!=null}">
+        <C:if test="${item.cam.lensFov!=null||item.cam.lensFov!=''}">
             <p>镜头视场：${item.cam.lensFov} °</p>
         </C:if>
-        <C:if test="${item.cam.signalSystem!=null}">
+        <C:if test="${item.cam.signalSystem!=null||item.cam.signalSystem!=''}">
             <p>信号制式：${item.cam.signalSystem}</p>
         </C:if>
-        <C:if test="${item.cam.snRatio!=null}">
+        <C:if test="${item.cam.snRatio!=null||item.cam.snRatio!=''}">
             <p>信噪比：${item.cam.snRatio} dB</p>
         </C:if>
-        <C:if test="${item.cam.electronicShutterSpeed!=null}">
+        <C:if test="${item.cam.electronicShutterSpeed!=null||item.cam.electronicShutterSpeed!=''}">
             <p>电子快门速度：${item.cam.electronicShutterSpeed}</p>
         </C:if>
-        <C:if test="${item.cam.minIllumination!=null}">
+        <C:if test="${item.cam.minIllumination!=null||item.cam.minIllumination!=''}">
             <p>最低照度：${item.cam.minIllumination} Lux/F</p>
         </C:if>
-        <C:if test="${item.cam.wdr!=null}">
+        <C:if test="${item.cam.wdr!=null||item.cam.wdr!=''}">
             <p>宽动态：${item.cam.wdr}</p>
         </C:if>
-        <C:if test="${item.cam.dnr!=null}">
+        <C:if test="${item.cam.dnr!=null||item.cam.dnr!=''}">
             <p>数字降噪：${item.cam.dnr}</p>
         </C:if>
-        <C:if test="${item.cam.dayNight!=null}">
+        <C:if test="${item.cam.dayNight!=null||item.cam.dayNight!=''}">
             <p>日夜切换：${item.cam.dayNight}</p>
         </C:if>
-        <C:if test="${item.cam.housingMasterial!=null}">
+        <C:if test="${item.cam.housingMasterial!=null||item.cam.housingMasterial!=''}">
             <p>外壳材料：${item.cam.housingMasterial}</p>
         </C:if>
     </C:if>

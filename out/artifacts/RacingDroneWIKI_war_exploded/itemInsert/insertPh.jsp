@@ -39,13 +39,13 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertPh">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertPh" enctype="multipart/form-data">
           <input type="text" name="model" class="inputText" placeholder="分电板型号"><br>
           <input type="file" name="mainImg" class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText" placeholder="分电板参考价格"><br>
           <input type="text" name="anufacturer" class="inputText" placeholder="分电板制造商、品牌"><br>
           <input type="text" name="weight" class="inputText" placeholder="分电板净重，单位：g"><br>
-          <input type="text" name="thickness" class="inputText" placeholder="分电板安装孔间距，单位：mm"><br>
+          <input type="text" name="mountingHoleSpacing" class="inputText" placeholder="分电板安装孔间距，单位：mm"><br>
           <input type="text" name="length" class="inputText" placeholder="分电板长度，单位：mm"><br>
           <input type="text" name="width" class="inputText" placeholder="分电板宽度，单位：mm"><br>
           <input type="text" name="thickness" class="inputText" placeholder="分电板厚度，单位：mm"><br>
@@ -56,7 +56,7 @@
           <input type="radio" name="bec12v" class="inputRadio" value="yes">支持
           <input type="radio" name="bec12v" class="inputRadio" value="no">不支持<br>
           <input type="text" name="maxCurrent" class="inputText" placeholder="最大电流,单位：V"><br>
-          <input type="file" name="pinDefinitionDiagram"class="inputText"><br>
+          <input type="file" name="pinDefinitionDiagramUrl"class="inputText"><br>
           <textarea name="caption" placeholder="桨叶相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
           <input type="submit" value="   提交   " class="inputText"/>

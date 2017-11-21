@@ -104,32 +104,39 @@ public class ImageTransmission extends Item implements Integratable{
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight)
+	{
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+		this.length =Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width)
+	{
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness) {
+		if (!thickness.equals(""))
+		this.thickness =Float.parseFloat(thickness);
 	}
 
 	public Cam getCam() {
@@ -144,8 +151,9 @@ public class ImageTransmission extends Item implements Integratable{
 		return frequencyQuantity;
 	}
 
-	public void setFrequencyQuantity(int frequencyQuantity) {
-		this.frequencyQuantity = frequencyQuantity;
+	public void setFrequencyQuantity(String frequencyQuantity) {
+		if (!frequencyQuantity.equals(""))
+		this.frequencyQuantity = Integer.parseInt(frequencyQuantity);
 	}
 
 	public boolean isSbus() {

@@ -19,12 +19,12 @@
     <insert id="addFrame" parameterType="com.RacingDroneWIKI.pojo.Frame">
         INSERT INTO frame (`model`, `img_url`, `reference_price`,
         `anufacturer`, wheek_base, `fc_mounting_hole_spacing`,
-        `integrated_ph`, `integrated_led`,`camra_adjusting_angle`, `integrated_led`,
-        `camra_adjusting_angle`, `weight`, `material`,`maximum_support_prop`,
+        `integrated_ph`, `integrated_led`,
+        `camra_adjusting_angle`,`material`,`maximum_support_prop`,`weight`,
          `bottom_thickness`,`roof_thickness`, `arm_thickness`,`caption`)
-        VALUES (#{model}, #{imgUrl},#{anufacturer},#{wheelbase},
-        #{referencePrice},#{fcMountingHoleSpacing},#{integratedPh.model},
-        #{integratedLed},#{camraAdjustingAngle},#{integratedLed},
+        VALUES (#{model}, #{imgUrl},#{referencePrice},#{anufacturer},
+        #{wheekBase},#{fcMountingHoleSpacing},#{integratedPh.model},
+        #{integratedLed},#{camraAdjustingAngle},
         #{material}, #{maximumSupportProp},#{weight}, #{bottomThickness},
         #{roofThickness}, #{armThickness},#{caption});
     </insert>

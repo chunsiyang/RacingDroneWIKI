@@ -6,7 +6,7 @@ public class Frame extends Item {
 	/**
 	 * 轴距
 	 */
-	private int wheekbase;
+	private int wheekBase;
 	/**
 	 * 重量
 	 */
@@ -48,28 +48,34 @@ public class Frame extends Item {
 	 */
 	private float armThickness;
 
-	public int getWheekbase() {
-		return wheekbase;
+	public int getWheekBase() {
+		return wheekBase;
 	}
 
-	public void setWheekbase(int wheekbase) {
-		this.wheekbase = wheekbase;
+	public void setWheekBase(String wheekBase)
+	{
+		if (!wheekBase.equals(""))
+			this.wheekBase = Integer.parseInt(wheekBase);
 	}
 
 	public float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight)
+	{
+		if (!weight.equals(""))
+			this.weight = Float.parseFloat(weight);
 	}
 
 	public float getFcMountingHoleSpacing() {
 		return fcMountingHoleSpacing;
 	}
 
-	public void setFcMountingHoleSpacing(float fcMountingHoleSpacing) {
-		this.fcMountingHoleSpacing = fcMountingHoleSpacing;
+	public void setFcMountingHoleSpacing(String fcMountingHoleSpacing)
+	{
+		if (!fcMountingHoleSpacing.equals(""))
+			this.fcMountingHoleSpacing = Float.parseFloat(fcMountingHoleSpacing);
 	}
 
 	public PowerHub getIntegratedPh() {
@@ -108,40 +114,47 @@ public class Frame extends Item {
 		return maximumSupportProp;
 	}
 
-	public void setMaximumSupportProp(int maximumSupportProp) {
-		this.maximumSupportProp = maximumSupportProp;
+	public void setMaximumSupportProp(String maximumSupportProp) {
+		if (!maximumSupportProp.equals(""))
+			this.maximumSupportProp = Integer.parseInt(maximumSupportProp);
 	}
 
 	public float getBottomThickness() {
 		return bottomThickness;
 	}
 
-	public void setBottomThickness(float bottomThickness) {
-		this.bottomThickness = bottomThickness;
+	public void setBottomThickness(String bottomThickness)
+	{
+		if (!bottomThickness.equals(""))
+			this.bottomThickness = Float.parseFloat(bottomThickness);
 	}
 
 	public float getRoofThickness() {
 		return roofThickness;
 	}
 
-	public void setRoofThickness(float roofThickness) {
-		this.roofThickness = roofThickness;
+	public void setRoofThickness(String roofThickness)
+	{
+		if (!roofThickness.equals(""))
+			this.roofThickness = Float.parseFloat(roofThickness);
 	}
 
 	public float getArmThickness() {
 		return armThickness;
 	}
 
-	public void setArmThickness(float armThickness) {
-		this.armThickness = armThickness;
+	public void setArmThickness(String armThickness)
+	{
+		if (!armThickness.equals(""))
+			this.armThickness = Float.parseFloat(armThickness);
 	}
 
 	public Frame(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
-			String caption, int wheekbase, float weight, float fcMountingHoleSpacing, PowerHub integratedPh,
-			boolean integratedLed, String camraAdjustingAngle, String material, int maximumSupportProp,
-			float bottomThickness, float roofThickness, float armThickness) {
+				 String caption, int wheekBase, float weight, float fcMountingHoleSpacing, PowerHub integratedPh,
+				 boolean integratedLed, String camraAdjustingAngle, String material, int maximumSupportProp,
+				 float bottomThickness, float roofThickness, float armThickness) {
 		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-		this.wheekbase = wheekbase;
+		this.wheekBase = wheekBase;
 		this.weight = weight;
 		this.fcMountingHoleSpacing = fcMountingHoleSpacing;
 		this.integratedPh = integratedPh;

@@ -18,21 +18,22 @@
         WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
     </select>
     <insert id="addImageTransmission" parameterType="com.RacingDroneWIKI.pojo.ImageTransmission">
-        INSERT INTO image_transmission (`model`, `img_url`, `reference_price`,
-        `anufacturer`, `inter_cam`, `frequency_quantity`,
+        INSERT INTO image_transmission (`model`, `img_url`,
+        `anufacturer`,`reference_price`, `inter_cam`, `frequency_quantity`,
         `sbus`, `audio_support`,`integrated_mic`, `power_adjustable`,
-        `weight`, `length`,`width`, `thickness`,
-        `output_power`, `input_voltage`,`output_voltage`,
-        `antenna_connectors`,`video_band_width`,`audio_carrier_frequency`,`video_input_level`,`audio_input_impedance`,
-        `pin_definition_diagram`,`frequency_table`,`caption`)
+        `weight`, `length`,`width`, `thickness`,`output_voltage`,
+        `output_power`, `input_voltage`,
+        `antenna_connectors`,`video_band_width`,`audio_carrier_frequency`,
+        `video_input_level`,`audio_input_level`,`audio_input_impedance`,
+        `pin_definition_diagram`,`frequency_table`,`caption`,`use_alone`)
         VALUES (#{model}, #{imgUrl},#{anufacturer},
         #{referencePrice},#{cam.model},#{frequencyQuantity},
         #{sbus},#{audioSupport},#{integratedMic},
         #{powerAdjustable},#{weight}, #{length}, #{width},
-        #{thickness},#{outputPower}, #{inputVoltage}, #{outputVoltage},
+        #{thickness},#{outputVoltage},#{outputPower}, #{inputVoltage},
         #{antennaConnectors},#{videoBandWidth},#{audioCarrierFrequency},
         #{videoInputLevel},#{audioInputLevel}, #{audioInputImpedance},
-        #{pinDefinitionDiagram},#{frequencyTable},#{caption});
+        #{pinDefinitionDiagram},#{frequencyTable},#{caption},#{useAlone});
     </insert>
     <update id="updataImageTransmission" parameterType="com.RacingDroneWIKI.pojo.ImageTransmission">
         UPDATE image_transmission

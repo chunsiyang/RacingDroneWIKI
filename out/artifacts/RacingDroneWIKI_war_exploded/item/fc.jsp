@@ -34,7 +34,7 @@
     <C:if test="${item.thickness!=0}">
         <p>厚度：${item.thickness} mm</p>
     </C:if>
-    <C:if test="${item.mountingHoleSpacing!=null}">
+    <C:if test="${item.mountingHoleSpacing!=null&&item.mountingHoleSpacing!=''}">
         <p>安装孔间距：${item.mountingHoleSpacing} mm</p>
     </C:if>
     <C:if test="${item.sdcard}">
@@ -49,10 +49,10 @@
     <C:if test="${item.buzzer}">
         <p>内置蜂鸣器：<bTs:BoolToString bool="${item.buzzer}"/></p>
     </C:if>
-    <C:if test="${item.mcu!=null}">
+    <C:if test="${item.mcu!=null&&item.mcu!=''}">
         <p>mcu：${item.mcu}</p>
     </C:if>
-    <C:if test="${item.mpu!=null}">
+    <C:if test="${item.mpu!=null&&item.mpu!=''}">
         <p>mpu：${item.mpu}</p>
     </C:if>
     <C:if test="${item.maxPidLoopFrequancy!=0}">
@@ -107,37 +107,37 @@
         <C:if test="${item.esc.thickness!=0}">
             <p>厚度：${item.esc.thickness} mm</p>
         </C:if>
-        <C:if test="${item.esc.noOfCells!=null}">
+        <C:if test="${item.esc.noOfCells!=null&&item.esc.noOfCells!=''}">
             <p>支持锂电池电芯片数：${item.esc.noOfCells} S</p>
         </C:if>
-        <C:if test="${item.esc.persistentCurrent!=null}">
+        <C:if test="${item.esc.persistentCurrent!=null&&item.esc.persistentCurrent!=''}">
             <p>持续工作电流：${item.esc.persistentCurrent} A</p>
         </C:if>
-        <C:if test="${item.esc.instantaneousCurrent!=null}">
+        <C:if test="${item.esc.instantaneousCurrent!=null&&item.esc.instantaneousCurrent!=''}">
             <p>瞬时工作电流：${item.esc.instantaneousCurrent} A</p>
         </C:if>
-        <C:if test="${item.esc.firmware!=null}">
+        <C:if test="${item.esc.firmware!=null&&item.esc.firmware!=''}">
             <p>固件：${item.esc.firmware}</p>
         </C:if>
-        <C:if test="${item.esc.controlChip!=null}">
+        <C:if test="${item.esc.controlChip!=null&&item.esc.controlChip!=''}">
             <p>主控制芯片：${item.esc.controlChip}</p>
         </C:if>
-        <C:if test="${item.esc.fourInone!=null}">
+        <C:if test="${item.esc.fourInone!=null&&item.esc.fourInone!=''}">
             <p>四合一集成电调：<bTs:BoolToString bool="${item.esc.fourInone}"/></p>
         </C:if>
-        <C:if test="${item.esc.pwmMode!=null}">
+        <C:if test="${item.esc.pwmMode!=null&&item.esc.pwmMode!=''}">
             <p>PWM输入模式：<bTs:BoolToString bool="${item.esc.pwmMode}"/></p>
         </C:if>
-        <C:if test="${item.esc.oneshot125!=null}">
+        <C:if test="${item.esc.oneshot125!=null&&item.esc.oneshot125!=''}">
             <p>oneshot125输入模式：<bTs:BoolToString bool="${item.esc.oneshot125}"/></p>
         </C:if>
-        <C:if test="${item.esc.oneshot42!=null}">
+        <C:if test="${item.esc.oneshot42!=null&&item.esc.oneshot42!=''}">
             <p>oneshot42输入模式：<bTs:BoolToString bool="${item.esc.oneshot42}"/></p>
         </C:if>
-        <C:if test="${item.esc.mutishot!=null}">
+        <C:if test="${item.esc.mutishot!=null&&item.esc.mutishot!=''}">
             <p>mutishot输入模式：<bTs:BoolToString bool="${item.esc.mutishot}"/></p>
         </C:if>
-        <C:if test="${item.esc.dshot!=null}">
+        <C:if test="${item.esc.dshot!=null&&item.esc.dshot!=''}">
             <p>dshot输入模式：<bTs:BoolToString bool="${item.esc.dshot}"/></p>
         </C:if>
     </C:if>
@@ -156,46 +156,46 @@
         <C:if test="${item.imageTransmission.thickness!=0}">
             <p>厚度：${item.imageTransmission.thickness} mm</p>
         </C:if>
-        <C:if test="${item.imageTransmission.sbus!=null}">
+        <C:if test="${item.imageTransmission.sbus!=null&&item.imageTransmission.sbus!=''}">
             <p>SBUS支持：<bTs:BoolToString bool="${item.imageTransmission.sbus}"/></p>
         </C:if>
-        <C:if test="${item.imageTransmission.audioSupport!=null}">
+        <C:if test="${item.imageTransmission.audioSupport!=null&&item.imageTransmission.audioSupport!=''}">
             <p>音频支持：<bTs:BoolToString bool="${item.imageTransmission.audioSupport}"/></p>
         </C:if>
-        <C:if test="${item.imageTransmission.integratedMic!=null}">
+        <C:if test="${item.imageTransmission.integratedMic!=null&&item.imageTransmission.integratedMic!=''}">
             <p>内置收音器：<bTs:BoolToString bool="${item.imageTransmission.integratedMic}"/></p>
         </C:if>
-        <C:if test="${item.imageTransmission.powerAdjustable!=null}">
+        <C:if test="${item.imageTransmission.powerAdjustable!=null&&item.imageTransmission.powerAdjustable!=''}">
             <p>功率可调：<bTs:BoolToString bool="${item.imageTransmission.powerAdjustable}"/></p>
         </C:if>
-        <C:if test="${item.imageTransmission.frequencyQuantity!=null}">
+        <C:if test="${item.imageTransmission.frequencyQuantity!=null&&item.imageTransmission.frequencyQuantity!=''}">
             <p>频道数：${item.imageTransmission.frequencyQuantity}</p>
         </C:if>
-        <C:if test="${item.imageTransmission.outputPower!=null}">
+        <C:if test="${item.imageTransmission.outputPower!=null&&item.imageTransmission.outputPower!=''}">
             <p>输出功率：${item.imageTransmission.outputPower} mW</p>
         </C:if>
-        <C:if test="${item.imageTransmission.inputVoltage!=null}">
+        <C:if test="${item.imageTransmission.inputVoltage!=null&&item.imageTransmission.inputVoltage!=''}">
             <p>输入电压：${item.imageTransmission.inputVoltage} V</p>
         </C:if>
-        <C:if test="${item.imageTransmission.outputVoltage!=null}">
+        <C:if test="${item.imageTransmission.outputVoltage!=null&&item.imageTransmission.outputVoltage!=''}">
             <p>输出电压：${item.imageTransmission.outputVoltage} V</p>
         </C:if>
-        <C:if test="${item.imageTransmission.antennaConnectors!=null}">
+        <C:if test="${item.imageTransmission.antennaConnectors!=null&&item.imageTransmission.antennaConnectors!=''}">
             <p>天线接头：${item.imageTransmission.antennaConnectors}</p>
         </C:if>
-        <C:if test="${item.imageTransmission.videoBandWidth!=null}">
+        <C:if test="${item.imageTransmission.videoBandWidth!=null&&item.imageTransmission.videoBandWidth!=''}">
             <p>视频带宽：${item.imageTransmission.videoBandWidth} MHz</p>
         </C:if>
-        <C:if test="${item.imageTransmission.audioCarrierFrequency!=null}">
+        <C:if test="${item.imageTransmission.audioCarrierFrequency!=null&&item.imageTransmission.audioCarrierFrequency!=''}">
             <P>音频带宽：${item.imageTransmission.audioCarrierFrequency} MHz</P>
         </C:if>
-        <C:if test="${item.imageTransmission.videoInputLevel!=null}">
+        <C:if test="${item.imageTransmission.videoInputLevel!=null&&item.imageTransmission.videoInputLevel!=''}">
             <p>视频输入电平：${item.imageTransmission.videoInputLevel} Vp-p</p>
         </C:if>
-        <C:if test="${item.imageTransmission.audioInputLevel!=null}">
+        <C:if test="${item.imageTransmission.audioInputLevel!=null&&item.imageTransmission.audioInputLevel!=''}">
             <p>音频输入水平：${item.imageTransmission.audioInputLevel} Vp-p</p>
         </C:if>
-        <C:if test="${item.imageTransmission.audioInputImpedance!=null}">
+        <C:if test="${item.imageTransmission.audioInputImpedance!=null&&item.imageTransmission.audioInputImpedance!=''}">
             <p>音频输入阻抗：${item.imageTransmission.audioInputImpedance} Ohm</p>
         </C:if>
     </C:if>
@@ -204,10 +204,10 @@
         <C:if test="${item.pinDefintionDiagram!=null}">
             <h4>飞控针脚定义图：</h4>
             <div class="expImgDiv">
-                <img class="expImg" src="img/${item.pinDefinitionDiagram}"/>
+                <img class="expImg" src="img/${item.pinDefintionDiagram}"/>
             </div>
         </C:if>
-        <C:if test="${item.powerHub!=null}">
+        <C:if test="${item.powerHub!=null||item.powerHub!=''}">
             <C:if test="${item.powerHub.pinDefinitionDiagram!=null}">
                 <h4>分电板针脚定义图：</h4>
                 <div class="expImgDiv">

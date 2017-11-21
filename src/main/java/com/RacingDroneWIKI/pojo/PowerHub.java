@@ -60,40 +60,49 @@ public class PowerHub extends Item implements Integratable{
 		return mountingHoleSpacing;
 	}
 
-	public void setMountingHoleSpacing(float mountingHoleSpacing) {
-		this.mountingHoleSpacing = mountingHoleSpacing;
+	public void setMountingHoleSpacing(String mountingHoleSpacing)
+	{
+		if (!mountingHoleSpacing.equals(""))
+			this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
 	}
 
 	public float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight) {
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width)
+	{
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness)
+	{
+		if (!thickness.equals(""))
+		this.thickness =Float.parseFloat(thickness);
 	}
 
 	public boolean isBec5v() {
@@ -124,8 +133,10 @@ public class PowerHub extends Item implements Integratable{
 		return maxCurrent;
 	}
 
-	public void setMaxCurrent(int maxCurrent) {
-		this.maxCurrent = maxCurrent;
+	public void setMaxCurrent(String maxCurrent)
+	{
+		if (!maxCurrent.equals(""))
+		this.maxCurrent = Integer.parseInt(maxCurrent);
 	}
 
 	public String getPinDefinitionDiagram() {

@@ -43,7 +43,7 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertFC">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertFC" enctype="multipart/form-data">
           <input type="text" name="model" class="inputText" placeholder="飞控型号"><br>
           <input type="file" name="mainImg" class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText" placeholder="飞控参考价格"><br>
@@ -65,7 +65,7 @@
           <input type="radio" name="buzzer" class="inputRadio"value="no">不支持<br>
           <input type="text" name="maxPidLoopFrequancy" class="inputText" placeholder="飞控最大PID刷新率，单位：Khz"><br>
           <input type="text" name="maxGyroUpdata" class="inputText" placeholder="飞控最大陀螺仪刷新率，单位：Khz"><br>
-          <input type="file" name="pinDefintionDiagram" class="inputText"><br>
+          <input type="file" name="pinDefinitionDiagramUrl" class="inputText"><br>
           <textarea name="caption" placeholder="飞控相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
           <input type="submit" value="   提交   " class="inputText"/>

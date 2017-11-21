@@ -17,17 +17,17 @@
         WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
     </select>
     <insert id="addElectroSpeedRegulato" parameterType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
-        INSERT INTO electro_speed_regulator (`model`, `img_url`, `reference_price`,
-        `anufacturer`, `no_of_cells`, `persistent_current`,
-        `instantaneous_current`, `firmware`,`control_chip`, `four_inone`,
-        `pwm_mode`, `weight`, `length`,`width`, `thickness`,
-        `oneshot125`, `oneshot42`,`mutishot`,`dshot`,`caption`)
+        INSERT INTO electro_speed_regulator (`model`, `img_url`,
+        `anufacturer`, `reference_price`,`no_of_cells`, `persistent_current`,
+        `instantaneous_current`, `firmware`,`control_chip`, `4in1`,
+        `pwm`, `weight`, `length`,`width`, `thickness`,
+        `oneshot125`, `oneshot42`,`mutishot`,`dshot`,`caption`,`use_alone`)
         VALUES (#{model}, #{imgUrl},#{anufacturer},
         #{referencePrice},#{noOfCells},#{persistentCurrent},
         #{instantaneousCurrent},#{firmware},#{controlChip},#{fourInone},
         #{pwmMode},#{weight}, #{length}, #{width},
         #{thickness},#{oneshot125}, #{oneshot42}, #{mutishot},
-        #{dshot},#{caption});
+        #{dshot},#{caption},#{useAlone});
     </insert>
     <update id="updataElectroSpeedRegulato" parameterType="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator">
         UPDATE electro_speed_regulator

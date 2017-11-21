@@ -16,7 +16,7 @@ public class Cam extends Item implements Integratable{
 	 */
 	private float length;
 	/**
-	 * 宽度 
+	 * 宽度
 	 */
 	private float width;
 	/**
@@ -100,32 +100,38 @@ public class Cam extends Item implements Integratable{
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight)
+	{
+		if (!weight.equals(""))
+			this.weight =Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width) {
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness) {
+		if (!thickness.equals(""))
+		this.thickness =Float.parseFloat(thickness);
 	}
 
 	public String getImageSensor() {
@@ -140,16 +146,18 @@ public class Cam extends Item implements Integratable{
 		return horizontalResolustion;
 	}
 
-	public void setHorizontalResolustion(int horizontalResolustion) {
-		this.horizontalResolustion = horizontalResolustion;
+	public void setHorizontalResolustion(String horizontalResolustion) {
+		if (!horizontalResolustion.equals(""))
+		this.horizontalResolustion = Integer.parseInt(horizontalResolustion);
 	}
 
 	public int getLensFov() {
 		return lensFov;
 	}
 
-	public void setLensFov(int lensFov) {
-		this.lensFov = lensFov;
+	public void setLensFov(String lensFov) {
+		if (!lensFov.equals(""))
+		this.lensFov = Integer.parseInt(lensFov);
 	}
 
 	public String getSignalSystem() {

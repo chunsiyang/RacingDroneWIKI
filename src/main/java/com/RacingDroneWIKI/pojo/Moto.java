@@ -84,52 +84,60 @@ public class Moto extends Item {
 		return statorDiameter;
 	}
 
-	public void setStatorDiameter(float statorDiameter) {
-		this.statorDiameter = statorDiameter;
+	public void setStatorDiameter(String statorDiameter)
+	{
+		if (!statorDiameter.equals(""))
+		this.statorDiameter =Float.parseFloat(statorDiameter);
 	}
 
-	public void setStatorLength(float statorLength) {
-		this.statorLength = statorLength;
+	public void setStatorLength(String statorLength) {
+		if (!statorLength.equals(""))
+		this.statorLength = Float.parseFloat(statorLength);
 	}
 
 	public float getShaftDiameter() {
 		return shaftDiameter;
 	}
 
-	public void setShaftDiameter(float shaftDiameter) {
-		this.shaftDiameter = shaftDiameter;
+	public void setShaftDiameter(String shaftDiameter) {
+		if (!shaftDiameter.equals(""))
+		this.shaftDiameter = Float.parseFloat(shaftDiameter);
 	}
 
 	public float getIdleCurrent() {
 		return idleCurrent;
 	}
 
-	public void setIdleCurrent(float idleCurrent) {
-		this.idleCurrent = idleCurrent;
+	public void setIdleCurrent(String idleCurrent) {
+		if (!idleCurrent.equals(""))
+		this.idleCurrent = Float.parseFloat(idleCurrent);
 	}
 
 	public float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight) {
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getDiameter() {
 		return diameter;
 	}
 
-	public void setDiameter(float diameter) {
-		this.diameter = diameter;
+	public void setDiameter(String diameter) {
+		if (!diameter.equals(""))
+		this.diameter = Float.parseFloat(diameter);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length) {
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public String getNoOfCells() {
@@ -144,16 +152,18 @@ public class Moto extends Item {
 		return maxThrust;
 	}
 
-	public void setMaxThrust(int maxThrust) {
-		this.maxThrust = maxThrust;
+	public void setMaxThrust(String maxThrust) {
+		if (!maxThrust.equals(""))
+		this.maxThrust = Integer.parseInt(maxThrust);
 	}
 
 	public int getKv() {
 		return kv;
 	}
 
-	public void setKv(int kv) {
-		this.kv = kv;
+	public void setKv(String kv) {
+		if (!kv.equals(""))
+		this.kv = Integer.parseInt(kv);
 	}
 
 	public String getPropeller() {
@@ -168,8 +178,9 @@ public class Moto extends Item {
 		return internalReslstance;
 	}
 
-	public void setInternalReslstance(int internalReslstance) {
-		this.internalReslstance = internalReslstance;
+	public void setInternalReslstance(String internalReslstance) {
+		if (!internalReslstance.equals(""))
+		this.internalReslstance = Integer.parseInt(internalReslstance);
 	}
 
 	public List<EfficacyChart> getEfficacyChart() {

@@ -76,40 +76,47 @@ public class FlightControl extends Item {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight) {
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length) {
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width) {
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness)
+	{
+		if (!thickness.equals(""))
+		this.thickness = Float.parseFloat(thickness);
 	}
 
 	public float getMountingHoleSpacing() {
 		return mountingHoleSpacing;
 	}
 
-	public void setMountingHoleSpacing(float mountingHoleSpacing) {
-		this.mountingHoleSpacing = mountingHoleSpacing;
+	public void setMountingHoleSpacing(String mountingHoleSpacing)
+	{
+		if (!mountingHoleSpacing.equals(""))
+		this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
 	}
 
 	public String getMcu() {
@@ -164,16 +171,19 @@ public class FlightControl extends Item {
 		return maxPidLoopFrequancy;
 	}
 
-	public void setMaxPidLoopFrequancy(int maxPidLoopFrequancy) {
-		this.maxPidLoopFrequancy = maxPidLoopFrequancy;
+	public void setMaxPidLoopFrequancy(String maxPidLoopFrequancy)
+	{
+		if (!maxPidLoopFrequancy.equals(""))
+		this.maxPidLoopFrequancy = Integer.parseInt(maxPidLoopFrequancy);
 	}
 
 	public int getMaxGyroUpdata() {
 		return maxGyroUpdata;
 	}
 
-	public void setMaxGyroUpdata(int maxGyroUpdata) {
-		this.maxGyroUpdata = maxGyroUpdata;
+	public void setMaxGyroUpdata(String maxGyroUpdata) {
+		if (!maxGyroUpdata.equals(""))
+		this.maxGyroUpdata =Integer.parseInt(maxGyroUpdata);
 	}
 
 	public ElectroSpeedRegulator getEsc() {

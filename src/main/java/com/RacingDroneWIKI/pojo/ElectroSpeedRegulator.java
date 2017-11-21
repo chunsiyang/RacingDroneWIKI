@@ -88,16 +88,20 @@ public class ElectroSpeedRegulator extends Item implements Integratable{
 		return persistentCurrent;
 	}
 
-	public void setPersistentCurrent(int persistentCurrent) {
-		this.persistentCurrent = persistentCurrent;
+	public void setPersistentCurrent(String persistentCurrent)
+	{
+		if (!persistentCurrent.equals(""))
+		this.persistentCurrent = Integer.parseInt(persistentCurrent);
 	}
 
 	public int getInstantaneousCurrent() {
 		return instantaneousCurrent;
 	}
 
-	public void setInstantaneousCurrent(int instantaneousCurrent) {
-		this.instantaneousCurrent = instantaneousCurrent;
+	public void setInstantaneousCurrent(String instantaneousCurrent)
+	{
+		if (!instantaneousCurrent.equals(""))
+		this.instantaneousCurrent = Integer.parseInt(instantaneousCurrent);
 	}
 
 	public String getFirmware() {
@@ -120,32 +124,38 @@ public class ElectroSpeedRegulator extends Item implements Integratable{
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight) {
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width)
+	{
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness) {
+		if (!thickness.equals(""))
+		this.thickness = Float.parseFloat(thickness);
 	}
 
 	public boolean isFourInone() {

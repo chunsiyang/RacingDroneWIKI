@@ -20,11 +20,11 @@
         INSERT INTO power_hub (`model`, `img_url`, `reference_price`,
         `anufacturer`, `mounting_hole_spacing`, `bec5v`,
         `bec9v`, `bec12v`,`max_current`, `pin_definition_diagram`,
-        `weight`, `length`,`width`, `thickness`,,`caption`)
-        VALUES (#{model}, #{imgUrl},#{anufacturer},
-        #{referencePrice},#{mountingHoleSpacing},#{bec5v},
+        `weight`, `length`,`width`, `thickness`,`caption`,`use_alone`)
+        VALUES (#{model}, #{imgUrl},
+        #{referencePrice},#{anufacturer},#{mountingHoleSpacing},#{bec5v},
         #{bec9v},#{bec12v},#{maxCurrent},#{pinDefinitionDiagram},
-        #{weight}, #{length}, #{width},#{caption});
+        #{weight}, #{length}, #{width},#{thickness},#{caption},#{useAlone});
     </insert>
     <update id="updataPowerHub" parameterType="com.RacingDroneWIKI.pojo.PowerHub">
     UPDATE power_hub

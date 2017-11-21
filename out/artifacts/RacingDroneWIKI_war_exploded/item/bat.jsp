@@ -33,10 +33,10 @@
     <C:if test="${item.thickness!=0}">
         <p>厚度：${item.thickness} mm</p>
     </C:if>
-    <C:if test="${item.connector!=null}">
+    <C:if test="${item.connector!=null&&item.connector!=''}">
         <p>插头类型：${item.connector}</p>
     </C:if>
-    <C:if test="${item.wireNumber!=null}">
+    <C:if test="${item.wireNumber!=null&&item.wireNumber!=''}">
         <p>电源线号：${item.wireNumber}</p>
     </C:if>
     <C:if test="${item.wireLength!=0}">

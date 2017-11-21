@@ -34,19 +34,19 @@
     <C:if test="${item.thickness!=0}">
         <p>厚度：${item.thickness} mm</p>
     </C:if>
-    <C:if test="${item.noOfCells!=null}">
+    <C:if test="${item.noOfCells!=null&&item.noOfCells!=''}">
         <p>支持锂电池电芯片数：${item.noOfCells} S</p>
     </C:if>
-    <C:if test="${item.persistentCurrent!=null}">
+    <C:if test="${item.persistentCurrent!=null&&item.persistentCurrent!=''}">
         <p>持续工作电流：${item.persistentCurrent} A</p>
     </C:if>
-    <C:if test="${item.instantaneousCurrent!=null}">
+    <C:if test="${item.instantaneousCurrent!=null&&item.instantaneousCurrent!=''}">
         <p>瞬时工作电流：${item.instantaneousCurrent} A</p>
     </C:if>
-    <C:if test="${item.firmware!=null}">
+    <C:if test="${item.firmware!=null||item.firmware!=''}">
         <p>固件：${item.firmware}</p>
     </C:if>
-    <C:if test="${item.controlChip!=null}">
+    <C:if test="${item.controlChip!=null||item.controlChip!=''}">
         <p>主控制芯片：${item.controlChip}</p>
     </C:if>
     <C:if test="${item.fourInone}">

@@ -28,8 +28,9 @@ public class Prop extends Item {
 		return bladeNumber;
 	}
 
-	public void setBladeNumber(int bladeNumber) {
-		this.bladeNumber = bladeNumber;
+	public void setBladeNumber(String bladeNumber) {
+		if (!bladeNumber.equals(""))
+			this.bladeNumber = Integer.parseInt(bladeNumber);
 	}
 
 	public String getSize() {
@@ -44,16 +45,18 @@ public class Prop extends Item {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight) {
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getMountingHoleSpacing() {
 		return mountingHoleSpacing;
 	}
 
-	public void setMountingHoleSpacing(float mountingHoleSpacing) {
-		this.mountingHoleSpacing = mountingHoleSpacing;
+	public void setMountingHoleSpacing(String mountingHoleSpacing) {
+		if (!mountingHoleSpacing.equals(""))
+		this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
 	}
 
 	public String getMaterial() {

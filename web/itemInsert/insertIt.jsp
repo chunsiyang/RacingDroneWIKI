@@ -49,7 +49,7 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertIt">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertIt" enctype="multipart/form-data">
           <input type="text" name="model" placeholder="图传型号"class="inputText"><br>
           <input type="file" name="mainImg"class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText"placeholder="图传参考价格"><br>
@@ -76,8 +76,8 @@
           <input type="text" name="videoInputLevel" class="inputText"placeholder="图传视频输入电平，单位：Vp-p"><br>
           <input type="text" name="audioInputLevel" class="inputText"placeholder="图传音频输入电平，单位：Vp-p"><br>
           <input type="text" name="audioInputImpedance" class="inputText"placeholder="图传音频输入阻抗，单位：Ohm"><br>
-          <input type="file" name="pinDefinitionDiagram" multiple class="inputText"/><br/>
-          <input type="file" name="frequencyTable" multiple class="inputText"/><br/>
+          <input type="file" name="pinDefinitionDiagramUrl" multiple class="inputText"/><br/>
+          <input type="file" name="frequencyTableUrl" multiple class="inputText"/><br/>
           <textarea name="caption" class="inputText"placeholder="图传相关文字描述、配置、备注等信息"></textarea>
           <input type="file" name="files" multiple class="inputText"/><br/>
           <input type="submit" value="   提交   "class="inputText">

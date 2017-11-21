@@ -21,7 +21,7 @@
         <form action="/itemInsert/insertPh.jsp" method="post">
             <input type="submit"class="inputText" formmethod="post" value="添加内置分电板">
         </form>
-        <form action="/itemInsert/InsertFra">
+        <form action="/itemInsert/InsertFra" >
             <input type="submit"class="inputText" value="完成，录入数据">
         </form>
     </section>

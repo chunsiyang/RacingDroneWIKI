@@ -17,8 +17,8 @@
          WHERE model LIKE CONCAT('%',#{model},'%') AND use_alone=1;
     </select>
     <insert id="addCam" parameterType="com.RacingDroneWIKI.pojo.Cam">
-        INSERT INTO camera (`model`, `img_url`, `reference_price`,
-        `anufacturer`, `image_sensor`, `horizontal_resolustion`,
+        INSERT INTO camera (`model`, `img_url`,
+        `anufacturer`,`reference_price`,`image_sensor`, `horizontal_resolustion`,
         `lens_fov`, `signal_system`,`integrated_osd`, `integrated_mic`,
         `weight`, `length`,`width`, `thickness`,
         `electronic_shutter_speed`, `auto_gain_control`,`back_light_compensation`,

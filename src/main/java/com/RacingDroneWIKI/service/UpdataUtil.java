@@ -1,13 +1,13 @@
 package com.RacingDroneWIKI.service;
 
 import com.RacingDroneWIKI.pojo.Item;
-
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.LinkedList;
 
 /**
@@ -16,6 +16,9 @@ import java.util.LinkedList;
 @Service
 public class UpdataUtil {
 
+    public static final String  PINDEFINTIONDIAGRAM="pin";//引脚定义图
+    public static final String  FREQUENCYTABLE="_fre";//频率表
+    //主图片上传
     public String insertImg(Item item, HttpServletRequest request, MultipartFile img)throws IOException
     {
         if (!img.isEmpty())
@@ -37,7 +40,7 @@ public class UpdataUtil {
         }
         return null;
     }
-
+    //辅助图片上传
     public LinkedList<String> insertImgMutl(Item item, HttpServletRequest request, MultipartFile[] img)throws IOException
     {
         //文件夹地址
@@ -63,7 +66,29 @@ public class UpdataUtil {
         item.setExtraPictures(list);
         return list;
     }
+    //特种图片上传
+    public String insertSpecialImg(Item item,HttpServletRequest request, MultipartFile img,String type)throws IOException
+    {
+        //文件夹地址
+        String filepath=getPath(request);
+        //存储路径
+        String path=request.getSession().getServletContext().getRealPath("/img/"+filepath);
+        //原始文件名
+        String filename=img.getOriginalFilename();
+        //utf-8重编码型号名
+        String name=this.utf8Decode(item.getModel());
+        //合成完整文件名
+        if (!img.isEmpty()){
+            filename=name+type+filename.substring(filename.lastIndexOf("."));
+            File file = new File(path, filename);
+            img.transferTo(file);
+            return filepath+filename;
+        }
+        return null;
 
+    }
+
+    //UTF-8转码辅助函数
     private static String utf8Decode(String img) {
         String url = new String();
         try {
@@ -75,6 +100,7 @@ public class UpdataUtil {
         }
         return url;
     }
+    //路径辅助函数
     private static String getPath(HttpServletRequest request){
         String uri=request.getRequestURI().toString();
         if(uri.equals("/itemInsert/InsertAnt"))
@@ -99,4 +125,5 @@ public class UpdataUtil {
             return "bat/";
         return null;
     }
+
 }

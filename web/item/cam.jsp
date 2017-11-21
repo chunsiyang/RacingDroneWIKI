@@ -34,10 +34,10 @@
     <C:if test="${item.thickness!=0}">
         <p>厚度：${item.thickness} mm</p>
     </C:if>
-    <C:if test="${item.inputVoltages!=null}">
+    <C:if test="${item.inputVoltages!=null&&item.inputVoltages!=''}">
         <p>输入电压：${item.inputVoltages} V</p>
     </C:if>
-    <C:if test="${item.horizontalResolustion!=null}">
+    <C:if test="${item.horizontalResolustion!=null&&item.horizontalResolustion!=''}">
         <p>水平分辨率：${item.horizontalResolustion} TVL</p>
     </C:if>
     <C:if test="${item.integratedOsd}">
@@ -52,34 +52,34 @@
     <C:if test="${item.backLightCompensation}">
         <p>背光补偿：<bTs:BoolToString bool="${item.backLightCompensation}"/></p>
     </C:if>
-    <C:if test="${item.imageSensor}">
+    <C:if test="${item.imageSensor!=null&&item.imageSensor!=''}">
         <p>图像传感器：${item.imageSensor}</p>
     </C:if>
-    <C:if test="${item.lensFov!=null}">
+    <C:if test="${item.lensFov!=null&&item.lensFov!=''}">
         <p>镜头视场：${item.lensFov}</p>
     </C:if>
-    <C:if test="${item.signalSystem!=null}">
+    <C:if test="${item.signalSystem!=null&&item.signalSystem!=''}">
         <p>信号制式：${item.signalSystem}</p>
     </C:if>
-    <C:if test="${item.snRatio!=null}">
+    <C:if test="${item.snRatio!=null&&item.snRatio!=''}">
         <p>信噪比：${item.snRatio} dB</p>
     </C:if>
-    <C:if test="${item.electronicShutterSpeed!=null}">
+    <C:if test="${item.electronicShutterSpeed!=null&&item.electronicShutterSpeed!=''}">
         <p>电子快门速度：${item.electronicShutterSpeed}</p>
     </C:if>
-    <C:if test="${item.minIllumination!=null}">
+    <C:if test="${item.minIllumination!=null&&item.minIllumination!=''}">
         <p>最低照度：${item.minIllumination} Lux/F</p>
     </C:if>
-    <C:if test="${item.wdr!=null}">
+    <C:if test="${item.wdr!=null&&item.wdr!=''}">
         <p>宽动态：${item.wdr}</p>
     </C:if>
-    <C:if test="${item.dnr!=null}">
+    <C:if test="${item.dnr!=null&&item.dnr!=''}">
         <p>数字降噪：${item.dnr}</p>
     </C:if>
-    <C:if test="${item.dayNight!=null}">
+    <C:if test="${item.dayNight!=null&&item.dayNight!=''}">
         <p>日夜切换：${item.dayNight}</p>
     </C:if>
-    <C:if test="${item.housingMasterial!=null}">
+    <C:if test="${item.housingMasterial!=null&&item.housingMasterial!=''}">
         <p>外壳材料：${item.housingMasterial}</p>
     </C:if>
     <div id="other">

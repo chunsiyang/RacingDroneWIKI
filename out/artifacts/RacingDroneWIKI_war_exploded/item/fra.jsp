@@ -25,28 +25,28 @@
     <p>品牌：${item.anufacturer}</p>
     <p>参考价格：${item.referencePrice}</p>
     <p>重量：${item.weight}g</p>
-    <C:if test="${item.wheekbase!=null}">
-        <p>轴距：${item.wheekbase} mm</p>
+    <C:if test="${item.wheekBase!=null}">
+        <p>轴距：${item.wheekBase} mm</p>
     </C:if>
-    <C:if test="${item.fcMountingHoleSpacing!=null}">
+    <C:if test="${item.fcMountingHoleSpacing!=null&&item.fcMountingHoleSpacing!=''}">
         <p>飞控安装孔距：${item.fcMountingHoleSpacing} mm</p>
     </C:if>
-    <C:if test="${item.camraAdjustingAngle!=null}">
+    <C:if test="${item.camraAdjustingAngle!=null&&item.camraAdjustingAngle!=''}">
         <p>摄像头可调角度：${item.camraAdjustingAngle} °</p>
     </C:if>
-    <C:if test="${item.material!=null}">
+    <C:if test="${item.material!=null&&item.material!=''}">
         <p>主要材料：${item.material}</p>
     </C:if>
-    <C:if test="${item.maximumSupportProp!=null}">
+    <C:if test="${item.maximumSupportProp!=null&&item.maximumSupportProp!=''}">
         <p>最大可用螺旋桨：${item.maximumSupportProp} 寸</p>
     </C:if>
-    <C:if test="${item.bottomThickness!=null}">
+    <C:if test="${item.bottomThickness!=null&&item.bottomThickness!=''}">
         <p>下板厚度：${item.bottomThickness} mm</p>
     </C:if>
-    <C:if test="${item.roofThickness!=null}">
+    <C:if test="${item.roofThickness!=null&&item.roofThickness!=''}">
         <p>顶板厚度：${item.roofThickness} mm</p>
     </C:if>
-    <C:if test="${item.armThickness!=null}">
+    <C:if test="${item.armThickness!=null&&item.armThickness!=''}">
         <p>机臂厚度：${item.armThickness} mm</p>
     </C:if>
     <C:if test="${item.integratedPh!=null}">

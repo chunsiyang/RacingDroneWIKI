@@ -7,7 +7,7 @@
 </head>
 <body>
 <section id="main" >
-    <a id="dataInput" href="itemInsert/dataInput.jsp">数据录入</a>
+    <a id="dataInput" href="itemInsert/dataInput">数据录入</a>
     <h1>竞速无人机资料库</h1>
     <form id="searchBar" method="get" action="/search">
         <input id="search" type="text" name="searchModel" placeholder="  输入设备型号搜索...">

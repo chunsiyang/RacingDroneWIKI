@@ -27,7 +27,7 @@
           #{capacity},#{dischargeRate},#{instantaneousDischargeRate},
           #{maxChargingRate},#{voltage},#{recommendedChargingCurrent},
           #{maximumChargeCurrent},#{weight}, #{length}, #{width},
-          #{thickness},#{connector}, #{wire_number}, #{wire_length}, #{caption});
+          #{thickness},#{connector}, #{wireNumber}, #{wireLength}, #{caption});
     </insert>
     <update id="updataBattery" parameterType="com.RacingDroneWIKI.pojo.Battery">
         UPDATE battery

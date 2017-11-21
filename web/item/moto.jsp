@@ -59,19 +59,19 @@
     <C:if test="${item.idleCurrent!=0}">
         <p>长度：${item.idleCurrent} mm</p>
     </C:if>
-    <C:if test="${item.idleCurrent!=null}">
+    <C:if test="${item.idleCurrent!=null&&item.idleCurrent!=''}">
         <p>空载电流：${item.idleCurrent} A</p>
     </C:if>
-    <C:if test="${item.internalReslstance!=null}">
+    <C:if test="${item.internalReslstance!=null&&item.internalReslstance!=''}">
         <P>内阻：${item.internalReslstance} Ω</P>
     </C:if>
-    <C:if test="${item.noOfCells!=null}">
+    <C:if test="${item.noOfCells!=null&&item.noOfCells!=''}">
         <p>支持锂电池节数：${item.noOfCells} S</p>
     </C:if>
     <C:if test="${item.maxThrust!=0}">
         <p>最大推力：${item.maxThrust} g</p>
     </C:if>
-    <C:if test="${item.propeller!=null}">
+    <C:if test="${item.propeller!=null&&item.propeller!=''}">
         <p>可装桨叶尺寸：${item.propeller} 寸</p>
     </C:if>
     <br>

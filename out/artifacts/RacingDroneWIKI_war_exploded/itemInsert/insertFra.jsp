@@ -38,13 +38,13 @@
         <p>辅助图片：</p>
       </div>
       <div class="value">
-        <form id="itemInfo" method="post" action="/itemInsert/InsertFra">
+        <form id="itemInfo" method="post" action="/itemInsert/InsertFra" enctype="multipart/form-data">
           <input type="text" name="model" class="inputText" placeholder="机架型号"><br>
           <input type="file" name="mainImg" class="inputText"><br>
           <input type="text" name="referencePrice" class="inputText" placeholder="机架参考价格"><br>
           <input type="text" name="anufacturer" class="inputText" placeholder="机架制造商、品牌"><br>
           <input type="text" name="weight" class="inputText" placeholder="机架净重，单位：g"><br>
-          <input type="text" name="wheekbase" class="inputText" placeholder="机架轴距，单位：mm"><br>
+          <input type="text" name="wheekBase" class="inputText" placeholder="机架轴距，单位：mm"><br>
           <input type="text" name="fcMountingHoleSpacing" class="inputText" placeholder="机架飞控安装孔距，单位：mm"><br>
           <input type="text" name="camraAdjustingAngle" class="inputText" placeholder="机架摄像头可调角度，单位：度"><br>
           <input type="text" name="material" class="inputText" placeholder="机架主要材料"><br>

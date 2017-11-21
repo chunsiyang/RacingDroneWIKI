@@ -1,5 +1,6 @@
 package com.RacingDroneWIKI.pojo;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.LinkedList;
 
 public class Battery extends Item {
@@ -64,88 +65,108 @@ public class Battery extends Item {
 		return capacity;
 	}
 
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
+	public void setCapacity(String capacity)
+	{
+		if (!capacity.equals(""))
+			this.capacity = Integer.parseInt(capacity);
 	}
 
 	public int getDischargeRate() {
 		return dischargeRate;
 	}
 
-	public void setDischargeRate(int dischargeRate) {
-		this.dischargeRate = dischargeRate;
+	public void setDischargeRate(String dischargeRate)
+	{
+		if (!dischargeRate.equals(""))
+			this.dischargeRate = Integer.parseInt(dischargeRate);
 	}
 
 	public int getInstantaneousDischargeRate() {
 		return instantaneousDischargeRate;
 	}
 
-	public void setInstantaneousDischargeRate(int instantaneousDischargeRate) {
-		this.instantaneousDischargeRate = instantaneousDischargeRate;
+	public void setInstantaneousDischargeRate(String instantaneousDischargeRate) {
+		if (!instantaneousDischargeRate.equals(""))
+			this.instantaneousDischargeRate = Integer.parseInt(instantaneousDischargeRate);
 	}
 
 	public int getMaxChargingRate() {
 		return maxChargingRate;
 	}
 
-	public void setMaxChargingRate(int maxChargingRate) {
-		this.maxChargingRate = maxChargingRate;
+	public void setMaxChargingRate(String maxChargingRate)
+	{
+		if (!maxChargingRate.equals(""))
+			this.maxChargingRate = Integer.parseInt(maxChargingRate);
 	}
 
 	public float getVoltage() {
 		return voltage;
 	}
 
-	public void setVoltage(int voltage) {
-		this.voltage = voltage;
+	public void setVoltage(String voltage)
+	{
+		if (!voltage.equals(""))
+			this.voltage = Float.parseFloat(voltage);
 	}
 
 	public float getRecommendedChargingCurrent() {
 		return recommendedChargingCurrent;
 	}
 
-	public void setRecommendedChargingCurrent(float recommendedChargingCurrent) {
-		this.recommendedChargingCurrent = recommendedChargingCurrent;
+	public void setRecommendedChargingCurrent(String recommendedChargingCurrent) {
+		if (!recommendedChargingCurrent.equals(""))
+			this.recommendedChargingCurrent = Float.parseFloat(recommendedChargingCurrent);
 	}
 
 	public float getMaximumChargeCurrent() {
 		return maximumChargeCurrent;
 	}
 
-	public void setMaximumChargeCurrent(float maximumChargeCurrent) {
-		this.maximumChargeCurrent = maximumChargeCurrent;
+	public void setMaximumChargeCurrent(String maximumChargeCurrent)
+	{
+		if (!maximumChargeCurrent.equals(""))
+			this.maximumChargeCurrent = Float.parseFloat(maximumChargeCurrent);
 	}
 
 	public float getWeight() {
 		return weight;
 	}
 
-	public void setWeight(float weight) {
-		this.weight = weight;
+	public void setWeight(String weight)
+	{
+		if (!weight.equals(""))
+		this.weight = Float.parseFloat(weight);
 	}
 
 	public float getLength() {
 		return length;
 	}
 
-	public void setLength(float length) {
-		this.length = length;
+	public void setLength(String length)
+	{
+		if (!length.equals(""))
+		this.length = Float.parseFloat(length);
 	}
 
 	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(float width) {
-		this.width = width;
+	public void setWidth(String width)
+	{
+		if (!width.equals(""))
+		this.width = Float.parseFloat(width);
 	}
 
 	public float getThickness() {
 		return thickness;
 	}
 
-	public void setThickness(float thickness) {
-		this.thickness = thickness;
+	public void setThickness(String thickness)
+	{
+		if (!thickness.equals(""))
+		this.thickness = Float.parseFloat(thickness);
 	}
 
 	public String getConnector() {
