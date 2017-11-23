@@ -1,84 +1,157 @@
 package com.RacingDroneWIKI.pojo;
 
-import java.util.*;
+import java.util.LinkedList;
 
+/**
+ * The type Prop.桨叶
+ * @author ChunsiYang
+ * @version SSM 3.0
+ */
 public class Prop extends Item {
-	/**
-	 * 叶片数
-	 */
-	private int bladeNumber;
-	/**
-	 * 尺寸
-	 */
-	private String size;
-	/**
-	 * 重量
-	 */
-	private float weight;
-	/**
-	 * 安装孔距
-	 */
-	private float mountingHoleSpacing;
-	/**
-	 * 材料
-	 */
-	private String material;
+    /**
+     * 叶片数
+     */
+    private int bladeNumber;
+    /**
+     * 尺寸
+     */
+    private String size;
+    /**
+     * 重量
+     */
+    private float weight;
+    /**
+     * 安装孔距
+     */
+    private float mountingHoleSpacing;
+    /**
+     * 材料
+     */
+    private String material;
 
-	public int getBladeNumber() {
-		return bladeNumber;
-	}
+    /**
+     * Instantiates a new Prop.
+     *
+     * @param model               the model
+     * @param imgUrl              the img url
+     * @param referencePrice      the reference price
+     * @param anufacturer         the anufacturer
+     * @param extraPictures       the extra pictures
+     * @param caption             the caption
+     * @param bladeNumber         the blade number
+     * @param size                the size
+     * @param weight              the weight
+     * @param mountingHoleSpacing the mounting hole spacing
+     * @param material            the material
+     */
+    public Prop(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
+                String caption, int bladeNumber, String size, float weight, float mountingHoleSpacing, String material) {
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        this.bladeNumber = bladeNumber;
+        this.size = size;
+        this.weight = weight;
+        this.mountingHoleSpacing = mountingHoleSpacing;
+        this.material = material;
+    }
 
-	public void setBladeNumber(String bladeNumber) {
-		if (!bladeNumber.equals(""))
-			this.bladeNumber = Integer.parseInt(bladeNumber);
-	}
+    /**
+     * Instantiates a new Prop.
+     */
+    public Prop() {
+        super();
+    }
 
-	public String getSize() {
-		return size;
-	}
+    /**
+     * Gets blade number.
+     *
+     * @return the blade number
+     */
+    public int getBladeNumber() {
+        return bladeNumber;
+    }
 
-	public void setSize(String size) {
-		this.size = size;
-	}
+    /**
+     * Sets blade number.
+     *
+     * @param bladeNumber the blade number
+     */
+    public void setBladeNumber(String bladeNumber) {
+        if (!bladeNumber.equals(""))
+            this.bladeNumber = Integer.parseInt(bladeNumber);
+    }
 
-	public float getWeight() {
-		return weight;
-	}
+    /**
+     * Gets size.
+     *
+     * @return the size
+     */
+    public String getSize() {
+        return size;
+    }
 
-	public void setWeight(String weight) {
-		if (!weight.equals(""))
-		this.weight = Float.parseFloat(weight);
-	}
+    /**
+     * Sets size.
+     *
+     * @param size the size
+     */
+    public void setSize(String size) {
+        this.size = size;
+    }
 
-	public float getMountingHoleSpacing() {
-		return mountingHoleSpacing;
-	}
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
+    public float getWeight() {
+        return weight;
+    }
 
-	public void setMountingHoleSpacing(String mountingHoleSpacing) {
-		if (!mountingHoleSpacing.equals(""))
-		this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
-	}
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
+    public void setWeight(String weight) {
+        if (!weight.equals(""))
+            this.weight = Float.parseFloat(weight);
+    }
 
-	public String getMaterial() {
-		return material;
-	}
+    /**
+     * Gets mounting hole spacing.
+     *
+     * @return the mounting hole spacing
+     */
+    public float getMountingHoleSpacing() {
+        return mountingHoleSpacing;
+    }
 
-	public void setMaterial(String material) {
-		this.material = material;
-	}
+    /**
+     * Sets mounting hole spacing.
+     *
+     * @param mountingHoleSpacing the mounting hole spacing
+     */
+    public void setMountingHoleSpacing(String mountingHoleSpacing) {
+        if (!mountingHoleSpacing.equals(""))
+            this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
+    }
 
-	public Prop(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
-			String caption, int bladeNumber, String size, float weight, float mountingHoleSpacing, String material) {
-		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-		this.bladeNumber = bladeNumber;
-		this.size = size;
-		this.weight = weight;
-		this.mountingHoleSpacing = mountingHoleSpacing;
-		this.material = material;
-	}
+    /**
+     * Gets material.
+     *
+     * @return the material
+     */
+    public String getMaterial() {
+        return material;
+    }
 
-	public Prop() {
-		super();
-	}
+    /**
+     * Sets material.
+     *
+     * @param material the material
+     */
+    public void setMaterial(String material) {
+        this.material = material;
+    }
 
 }

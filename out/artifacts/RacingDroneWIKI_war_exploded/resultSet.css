@@ -54,3 +54,8 @@ body div{
 #noInfo{
     text-align: center;
 }
+#pagination a p ,#pagination option,#pagination select{
+    display: inline;
+    margin: 20px;
+    font-size: 20px;
+}

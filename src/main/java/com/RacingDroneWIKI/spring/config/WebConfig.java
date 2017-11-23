@@ -12,32 +12,47 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.io.IOException;
 
-/**
- * Created by user on 2017/11/6.
- */
 
+/**
+ * The type Web config.
+ * SpringMVC 核心配置
+ *
+ * @author ChunsiYang
+ * @version SSM 3.0
+ */
 @Configuration
 @ImportResource("classpath:spring/spring-mybatis.xml")
 @EnableWebMvc
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan(basePackages = "com.RacingDroneWIKI")
-public class WebConfig extends WebMvcConfigurerAdapter{
+public class WebConfig extends WebMvcConfigurerAdapter {
 
+    /**
+     * View resolver view resolver.
+     *
+     * @return the view resolver
+     */
     @Bean
-    public ViewResolver viewResolver(){
-        InternalResourceViewResolver internalResourceViewResolver =new InternalResourceViewResolver();
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
         internalResourceViewResolver.setPrefix("/");
         internalResourceViewResolver.setSuffix(".jsp");
         internalResourceViewResolver.setExposeContextBeansAsAttributes(true);
         return internalResourceViewResolver;
     }
 
+    /**
+     * Multipart resolver multipart resolver.
+     *
+     * @return the multipart resolver
+     * @throws IOException the io exception
+     */
     @Bean
     public MultipartResolver multipartResolver() throws IOException {
         return new StandardServletMultipartResolver();
     }
 
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 }

@@ -1,6 +1,6 @@
 package com.RacingDroneWIKI.controller;
 
-import com.RacingDroneWIKI.dao.*;
+import com.RacingDroneWIKI.dao.PowerHubDao;
 import com.RacingDroneWIKI.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,91 +9,173 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by user on 2017/11/13.
+ * 响应详情查询的Controller
+ * 针对用户发出的详情查询请求进行数据库查询并做出响应
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
-
 @Controller
 @RequestMapping(value = "/detail")
 public class Detail {
     @Autowired
-    MotoService motoService;
+    private MotoService motoService;
+    @Autowired
+    private ElectroSpeedRegulatorService electroSpeedRegulatorService;
+    @Autowired
+    private FrameService frameService;
+    @Autowired
+    private ImageTransmissionService imageTransmissionService;
+    @Autowired
+    private CamService camService;
+    @Autowired
+    private FlightControlService flightControlService;
+    @Autowired
+    private AntennaService antennaService;
+    @Autowired
+    private PowerHubDao powerHubDao;
+    @Autowired
+    private PropService propService;
+    @Autowired
+    private BatteryService batteryService;
+
+    /**
+     * Moto detail string.
+     * 响应获取电机详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI  string
+     */
     @RequestMapping(value = "/moto/{modelId}")
-    public String motoDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",motoService.findDetail(modelId));
+    public String motoDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", motoService.findDetail(modelId));
         return "item/moto";
     }
-    @Autowired
-    ElectroSpeedRegulatorService electroSpeedRegulatorService;
+
+    /**
+     * Electro speed regulator detail string.
+     * 响应获取电子调速器详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI  string
+     */
     @RequestMapping(value = "/esc/{modelId}")
-    public String electroSpeedRegulatorDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",electroSpeedRegulatorService.findDetail(modelId));
+    public String electroSpeedRegulatorDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", electroSpeedRegulatorService.findDetail(modelId));
         return "item/esc";
     }
-    @Autowired
-    FrameService frameService;
+
+    /**
+     * Frame detail string.
+     * 响应获取机架详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/frame/{modelId}")
-    public String frameDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",frameService.findDetail(modelId));
+    public String frameDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", frameService.findDetail(modelId));
         return "item/fra";
     }
-    @Autowired
-    ImageTransmissionService imageTransmissionService;
+
+    /**
+     * Image transmission detail string.
+     * 响应获取图传详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/it/{modelId}")
-    public String imageTransmissionDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",imageTransmissionService.findDetail(modelId));
+    public String imageTransmissionDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", imageTransmissionService.findDetail(modelId));
         System.err.println(modelId);
         return "item/it";
     }
-    @Autowired
-    CamService camService;
+
+    /**
+     * Cam detail string.
+     * 响应获取摄像头详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/cam/{modelId}")
-    public String camDetail(@PathVariable("modelId") String modelId, Model model)
-    {
+    public String camDetail(@PathVariable("modelId") String modelId, Model model) {
         model.addAttribute("item", camService.findDetail(modelId));
         return "item/cam";
     }
-    @Autowired
-    FlightControlService flightControlService;
+
+    /**
+     * Flight control detail string.
+     * 响应获取飞控详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/fc/{modelId}")
-    public String flightControlDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",flightControlService.findDetail(modelId));
+    public String flightControlDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", flightControlService.findDetail(modelId));
         return "item/fc";
     }
-    @Autowired
-    AntennaService antennaService;
+
+    /**
+     * Antenna detail string.
+     * 响应获取天线详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/antenna/{modelId}")
-    public String antennaDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",antennaService.findDetail(modelId));
+    public String antennaDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", antennaService.findDetail(modelId));
         return "item/ant";
     }
-    @Autowired
-    PowerHubDao powerHubDao;
+
+    /**
+     * Power hub detail string.
+     * 响应获取分电板详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/powerHub/{modelId}")
-    public String powerHubDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",powerHubDao.findDetail(modelId));
+    public String powerHubDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", powerHubDao.findDetail(modelId));
         return "item/ph";
     }
-    @Autowired
-    PropService propService;
+
+    /**
+     * Prop detail string.
+     * 响应获取桨叶详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/prop/{modelId}")
-    public String propDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",propService.findDetail(modelId));
+    public String propDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", propService.findDetail(modelId));
         return "item/prop";
     }
-    @Autowired
-    BatteryService batteryService;
+
+    /**
+     * Battery detail string.
+     * 响应获取电池详情的请求
+     *
+     * @param modelId the request model id
+     * @param model   the springMVC model
+     * @return the URI string
+     */
     @RequestMapping(value = "/battery/{modelId}")
-    public String batteryDetail(@PathVariable("modelId") String modelId, Model model)
-    {
-        model.addAttribute("item",batteryService.findDetail(modelId));
+    public String batteryDetail(@PathVariable("modelId") String modelId, Model model) {
+        model.addAttribute("item", batteryService.findDetail(modelId));
         return "item/bat";
     }
 }

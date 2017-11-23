@@ -6,33 +6,35 @@ import com.RacingDroneWIKI.pojo.EfficacyChart;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author user
+ * 力效表DAO(Data Access Object) 数据访问对象
  *
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Repository
 public interface EfficacyChartDao {
-	/**
-	 * @param efct
-	 * @return
-	 */
-	int addEfficacyChart(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    int addEfficacyChart(EfficacyChart efct);
 
-	/**
-	 * @param efct
-	 * @return
-	 */
-	int deleteEfficacyChart(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    int deleteEfficacyChart(EfficacyChart efct);
 
-	/**
-	 * @param efct
-	 * @return
-	 */
-	int updataEfficacyChart(EfficacyChart efct);
+    /**
+     * @param efct
+     * @return
+     */
+    int updataEfficacyChart(EfficacyChart efct);
 
-	/**
-	 * @param model
-	 * @return
-	 */
-	List<EfficacyChart> findByModel(String model);
+    /**
+     * @param model
+     * @return
+     */
+    List<EfficacyChart> findByModel(String model);
 
 }

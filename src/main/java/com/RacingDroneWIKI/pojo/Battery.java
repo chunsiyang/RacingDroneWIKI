@@ -1,222 +1,384 @@
 package com.RacingDroneWIKI.pojo;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.LinkedList;
 
+/**
+ * The type Battery.电池
+ * @author ChunsiYang
+ * @version SSM 3.0
+ */
 public class Battery extends Item {
-	/**
-	 * 容量
-	 */
-	private int capacity;
-	/**
-	 * 放电倍率
-	 */
-	private int dischargeRate;
-	/**
-	 * 瞬时放电倍率
-	 */
-	private int instantaneousDischargeRate;
-	/**
-	 * 最大充电倍率
-	 */
-	private int maxChargingRate;
-	/**
-	 * 电压
-	 */
-	private float voltage;
-	/**
-	 * 推荐充电电流
-	 */
-	private float recommendedChargingCurrent;
-	/**
-	 * 最大充电电流
-	 */
-	private float maximumChargeCurrent;
-	/**
-	 * 重量
-	 */
-	private float weight;
-	/**
-	 * 长度
-	 */
-	private float length;
-	/**
-	 * 宽度
-	 */
-	private float width;
-	/**
-	 * 厚度
-	 */
-	private float thickness;
-	/**
-	 * 插头类型
-	 */
-	private String connector;
-	/**
-	 * 电源线号
-	 */
-	private int wireNumber;
-	/**
-	 * 电源线长度
-	 */
-	private int wireLength;
+    /**
+     * 容量
+     */
+    private int capacity;
+    /**
+     * 放电倍率
+     */
+    private int dischargeRate;
+    /**
+     * 瞬时放电倍率
+     */
+    private int instantaneousDischargeRate;
+    /**
+     * 最大充电倍率
+     */
+    private int maxChargingRate;
+    /**
+     * 电压
+     */
+    private float voltage;
+    /**
+     * 推荐充电电流
+     */
+    private float recommendedChargingCurrent;
+    /**
+     * 最大充电电流
+     */
+    private float maximumChargeCurrent;
+    /**
+     * 重量
+     */
+    private float weight;
+    /**
+     * 长度
+     */
+    private float length;
+    /**
+     * 宽度
+     */
+    private float width;
+    /**
+     * 厚度
+     */
+    private float thickness;
+    /**
+     * 插头类型
+     */
+    private String connector;
+    /**
+     * 电源线号
+     */
+    private int wireNumber;
+    /**
+     * 电源线长度
+     */
+    private int wireLength;
 
-	public int getCapacity() {
-		return capacity;
-	}
+    /**
+     * Instantiates a new Battery.
+     */
+    public Battery() {
+        super();
+    }
 
-	public void setCapacity(String capacity)
-	{
-		if (!capacity.equals(""))
-			this.capacity = Integer.parseInt(capacity);
-	}
+    /**
+     * Instantiates a new Battery.
+     *
+     * @param model                      the model
+     * @param imgUrl                     the img url
+     * @param referencePrice             the reference price
+     * @param anufacturer                the anufacturer
+     * @param extraPictures              the extra pictures
+     * @param caption                    the caption
+     * @param capacity                   the capacity
+     * @param dischargeRate              the discharge rate
+     * @param instantaneousDischargeRate the instantaneous discharge rate
+     * @param maxChargingRate            the max charging rate
+     * @param voltage                    the voltage
+     * @param recommendedChargingCurrent the recommended charging current
+     * @param maximumChargeCurrent       the maximum charge current
+     * @param weight                     the weight
+     * @param length                     the length
+     * @param width                      the width
+     * @param thickness                  the thickness
+     * @param connector                  the connector
+     * @param wireNumber                 the wire number
+     * @param wireLength                 the wire length
+     */
+    public Battery(String model, String imgUrl, int referencePrice, String anufacturer,
+                   LinkedList<String> extraPictures, String caption, int capacity, int dischargeRate,
+                   int instantaneousDischargeRate, int maxChargingRate, float voltage, float recommendedChargingCurrent,
+                   float maximumChargeCurrent, float weight, float length, float width, float thickness, String connector,
+                   int wireNumber, int wireLength) {
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        this.capacity = capacity;
+        this.dischargeRate = dischargeRate;
+        this.instantaneousDischargeRate = instantaneousDischargeRate;
+        this.maxChargingRate = maxChargingRate;
+        this.voltage = voltage;
+        this.recommendedChargingCurrent = recommendedChargingCurrent;
+        this.maximumChargeCurrent = maximumChargeCurrent;
+        this.weight = weight;
+        this.length = length;
+        this.width = width;
+        this.thickness = thickness;
+        this.connector = connector;
+        this.wireNumber = wireNumber;
+        this.wireLength = wireLength;
+    }
 
-	public int getDischargeRate() {
-		return dischargeRate;
-	}
+    /**
+     * Gets capacity.
+     *
+     * @return the capacity
+     */
+    public int getCapacity() {
+        return capacity;
+    }
 
-	public void setDischargeRate(String dischargeRate)
-	{
-		if (!dischargeRate.equals(""))
-			this.dischargeRate = Integer.parseInt(dischargeRate);
-	}
+    /**
+     * Sets capacity.
+     *
+     * @param capacity the capacity
+     */
+    public void setCapacity(String capacity) {
+        if (!capacity.equals(""))
+            this.capacity = Integer.parseInt(capacity);
+    }
 
-	public int getInstantaneousDischargeRate() {
-		return instantaneousDischargeRate;
-	}
+    /**
+     * Gets discharge rate.
+     *
+     * @return the discharge rate
+     */
+    public int getDischargeRate() {
+        return dischargeRate;
+    }
 
-	public void setInstantaneousDischargeRate(String instantaneousDischargeRate) {
-		if (!instantaneousDischargeRate.equals(""))
-			this.instantaneousDischargeRate = Integer.parseInt(instantaneousDischargeRate);
-	}
+    /**
+     * Sets discharge rate.
+     *
+     * @param dischargeRate the discharge rate
+     */
+    public void setDischargeRate(String dischargeRate) {
+        if (!dischargeRate.equals(""))
+            this.dischargeRate = Integer.parseInt(dischargeRate);
+    }
 
-	public int getMaxChargingRate() {
-		return maxChargingRate;
-	}
+    /**
+     * Gets instantaneous discharge rate.
+     *
+     * @return the instantaneous discharge rate
+     */
+    public int getInstantaneousDischargeRate() {
+        return instantaneousDischargeRate;
+    }
 
-	public void setMaxChargingRate(String maxChargingRate)
-	{
-		if (!maxChargingRate.equals(""))
-			this.maxChargingRate = Integer.parseInt(maxChargingRate);
-	}
+    /**
+     * Sets instantaneous discharge rate.
+     *
+     * @param instantaneousDischargeRate the instantaneous discharge rate
+     */
+    public void setInstantaneousDischargeRate(String instantaneousDischargeRate) {
+        if (!instantaneousDischargeRate.equals(""))
+            this.instantaneousDischargeRate = Integer.parseInt(instantaneousDischargeRate);
+    }
 
-	public float getVoltage() {
-		return voltage;
-	}
+    /**
+     * Gets max charging rate.
+     *
+     * @return the max charging rate
+     */
+    public int getMaxChargingRate() {
+        return maxChargingRate;
+    }
 
-	public void setVoltage(String voltage)
-	{
-		if (!voltage.equals(""))
-			this.voltage = Float.parseFloat(voltage);
-	}
+    /**
+     * Sets max charging rate.
+     *
+     * @param maxChargingRate the max charging rate
+     */
+    public void setMaxChargingRate(String maxChargingRate) {
+        if (!maxChargingRate.equals(""))
+            this.maxChargingRate = Integer.parseInt(maxChargingRate);
+    }
 
-	public float getRecommendedChargingCurrent() {
-		return recommendedChargingCurrent;
-	}
+    /**
+     * Gets voltage.
+     *
+     * @return the voltage
+     */
+    public float getVoltage() {
+        return voltage;
+    }
 
-	public void setRecommendedChargingCurrent(String recommendedChargingCurrent) {
-		if (!recommendedChargingCurrent.equals(""))
-			this.recommendedChargingCurrent = Float.parseFloat(recommendedChargingCurrent);
-	}
+    /**
+     * Sets voltage.
+     *
+     * @param voltage the voltage
+     */
+    public void setVoltage(String voltage) {
+        if (!voltage.equals(""))
+            this.voltage = Float.parseFloat(voltage);
+    }
 
-	public float getMaximumChargeCurrent() {
-		return maximumChargeCurrent;
-	}
+    /**
+     * Gets recommended charging current.
+     *
+     * @return the recommended charging current
+     */
+    public float getRecommendedChargingCurrent() {
+        return recommendedChargingCurrent;
+    }
 
-	public void setMaximumChargeCurrent(String maximumChargeCurrent)
-	{
-		if (!maximumChargeCurrent.equals(""))
-			this.maximumChargeCurrent = Float.parseFloat(maximumChargeCurrent);
-	}
+    /**
+     * Sets recommended charging current.
+     *
+     * @param recommendedChargingCurrent the recommended charging current
+     */
+    public void setRecommendedChargingCurrent(String recommendedChargingCurrent) {
+        if (!recommendedChargingCurrent.equals(""))
+            this.recommendedChargingCurrent = Float.parseFloat(recommendedChargingCurrent);
+    }
 
-	public float getWeight() {
-		return weight;
-	}
+    /**
+     * Gets maximum charge current.
+     *
+     * @return the maximum charge current
+     */
+    public float getMaximumChargeCurrent() {
+        return maximumChargeCurrent;
+    }
 
-	public void setWeight(String weight)
-	{
-		if (!weight.equals(""))
-		this.weight = Float.parseFloat(weight);
-	}
+    /**
+     * Sets maximum charge current.
+     *
+     * @param maximumChargeCurrent the maximum charge current
+     */
+    public void setMaximumChargeCurrent(String maximumChargeCurrent) {
+        if (!maximumChargeCurrent.equals(""))
+            this.maximumChargeCurrent = Float.parseFloat(maximumChargeCurrent);
+    }
 
-	public float getLength() {
-		return length;
-	}
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
+    public float getWeight() {
+        return weight;
+    }
 
-	public void setLength(String length)
-	{
-		if (!length.equals(""))
-		this.length = Float.parseFloat(length);
-	}
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
+    public void setWeight(String weight) {
+        if (!weight.equals(""))
+            this.weight = Float.parseFloat(weight);
+    }
 
-	public float getWidth() {
-		return width;
-	}
+    /**
+     * Gets length.
+     *
+     * @return the length
+     */
+    public float getLength() {
+        return length;
+    }
 
-	public void setWidth(String width)
-	{
-		if (!width.equals(""))
-		this.width = Float.parseFloat(width);
-	}
+    /**
+     * Sets length.
+     *
+     * @param length the length
+     */
+    public void setLength(String length) {
+        if (!length.equals(""))
+            this.length = Float.parseFloat(length);
+    }
 
-	public float getThickness() {
-		return thickness;
-	}
+    /**
+     * Gets width.
+     *
+     * @return the width
+     */
+    public float getWidth() {
+        return width;
+    }
 
-	public void setThickness(String thickness)
-	{
-		if (!thickness.equals(""))
-		this.thickness = Float.parseFloat(thickness);
-	}
+    /**
+     * Sets width.
+     *
+     * @param width the width
+     */
+    public void setWidth(String width) {
+        if (!width.equals(""))
+            this.width = Float.parseFloat(width);
+    }
 
-	public String getConnector() {
-		return connector;
-	}
+    /**
+     * Gets thickness.
+     *
+     * @return the thickness
+     */
+    public float getThickness() {
+        return thickness;
+    }
 
-	public Battery() {
-		super();
-	}
+    /**
+     * Sets thickness.
+     *
+     * @param thickness the thickness
+     */
+    public void setThickness(String thickness) {
+        if (!thickness.equals(""))
+            this.thickness = Float.parseFloat(thickness);
+    }
 
-	public Battery(String model, String imgUrl, int referencePrice, String anufacturer,
-			LinkedList<String> extraPictures, String caption, int capacity, int dischargeRate,
-			int instantaneousDischargeRate, int maxChargingRate, float voltage, float recommendedChargingCurrent,
-			float maximumChargeCurrent, float weight, float length, float width, float thickness, String connector,
-			int wireNumber, int wireLength) {
-		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-		this.capacity = capacity;
-		this.dischargeRate = dischargeRate;
-		this.instantaneousDischargeRate = instantaneousDischargeRate;
-		this.maxChargingRate = maxChargingRate;
-		this.voltage = voltage;
-		this.recommendedChargingCurrent = recommendedChargingCurrent;
-		this.maximumChargeCurrent = maximumChargeCurrent;
-		this.weight = weight;
-		this.length = length;
-		this.width = width;
-		this.thickness = thickness;
-		this.connector = connector;
-		this.wireNumber = wireNumber;
-		this.wireLength = wireLength;
-	}
+    /**
+     * Gets connector.
+     *
+     * @return the connector
+     */
+    public String getConnector() {
+        return connector;
+    }
 
-	public void setConnector(String connector) {
-		this.connector = connector;
-	}
+    /**
+     * Sets connector.
+     *
+     * @param connector the connector
+     */
+    public void setConnector(String connector) {
+        this.connector = connector;
+    }
 
-	public int getWireNumber() {
-		return wireNumber;
-	}
+    /**
+     * Gets wire number.
+     *
+     * @return the wire number
+     */
+    public int getWireNumber() {
+        return wireNumber;
+    }
 
-	public void setWireNumber(int wireNumber) {
-		this.wireNumber = wireNumber;
-	}
+    /**
+     * Sets wire number.
+     *
+     * @param wireNumber the wire number
+     */
+    public void setWireNumber(int wireNumber) {
+        this.wireNumber = wireNumber;
+    }
 
-	public int getWireLength() {
-		return wireLength;
-	}
+    /**
+     * Gets wire length.
+     *
+     * @return the wire length
+     */
+    public int getWireLength() {
+        return wireLength;
+    }
 
-	public void setWireLength(int wireLength) {
-		this.wireLength = wireLength;
-	}
+    /**
+     * Sets wire length.
+     *
+     * @param wireLength the wire length
+     */
+    public void setWireLength(int wireLength) {
+        this.wireLength = wireLength;
+    }
 
 }

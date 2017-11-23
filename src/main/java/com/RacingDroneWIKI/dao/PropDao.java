@@ -6,8 +6,9 @@ import com.RacingDroneWIKI.pojo.Prop;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author user
- *
+ * 桨叶DAO(Data Access Object) 数据访问对象
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Repository
 public interface PropDao {

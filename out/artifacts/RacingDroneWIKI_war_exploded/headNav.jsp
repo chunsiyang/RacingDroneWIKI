@@ -17,58 +17,58 @@
         </a>
     </button>
     <nav >
-        <button class="item" onclick="javascript:window.location.href='/moto';">
-            <a href="/moto" >
+        <button class="item" onclick="javascript:window.location.href='/moto_1';">
+            <a href="/moto_1" >
                 <p>电机</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/electroSpeedRegulator';">
-            <a href="/electroSpeedRegulator" >
+        <button class="item" onclick="javascript:window.location.href='/electroSpeedRegulator_1';">
+            <a href="/electroSpeedRegulator_1" >
                 <p>电调</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/frame';">
-            <a href="/frame" >
+        <button class="item" onclick="javascript:window.location.href='/frame_1';">
+            <a href="/frame_1" >
                 <p>机架</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/imageTransmission';">
-            <a href="/imageTransmission" >
+        <button class="item" onclick="javascript:window.location.href='/imageTransmission_1';">
+            <a href="/imageTransmission_1" >
                 <p>图传</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/cam';">
-            <a href="/cam" >
+        <button class="item" onclick="javascript:window.location.href='/cam_1';">
+            <a href="/cam_1" >
                 <p>摄像头</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/flightControl';">
-            <a href="/flightControl" >
+        <button class="item" onclick="javascript:window.location.href='/flightControl_1';">
+            <a href="/flightControl_1" >
                 <p>飞控</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/antenna';">
-            <a href="/antenna" >
+        <button class="item" onclick="javascript:window.location.href='/antenna_1';">
+            <a href="/antenna_1" >
                 <p>天线</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/powerHub';">
-            <a href="/powerHub" >
+        <button class="item" onclick="javascript:window.location.href='/powerHub_1';">
+            <a href="/powerHub_1" >
                 <p>分电板</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/prop';">
-            <a href="/prop" >
+        <button class="item" onclick="javascript:window.location.href='/prop_1';">
+            <a href="/prop_1" >
                 <p>桨叶</p>
             </a>
         </button>
-        <button class="item" onclick="javascript:window.location.href='/battery';">
-            <a href="/battery" >
+        <button class="item" onclick="javascript:window.location.href='/battery_1';">
+            <a href="/battery_1" >
                 <p>电池</p>
             </a>
         </button>
     </nav>
-    <form id="searchBar" method="get" action="/search">
+    <form id="searchBar" method="get" action="/search_1">
         <input id="search" type="text" name="searchModel" placeholder="  输入设备型号搜索..." value="${param.searchModel}">
         <input id="searchButton" type="submit" value="搜索">
     </form>

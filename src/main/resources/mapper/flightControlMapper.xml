@@ -6,7 +6,7 @@
         <association property="esc" column="inter_esc" select="com.RacingDroneWIKI.dao.ElectroSpeedRegulatorDao.findDetail"/>
         <association property="powerHub" column="inter_power_hub" select="com.RacingDroneWIKI.dao.PowerHubDao.findDetail"/>
         <association property="imageTransmission" column="inter_image_transmission" select="com.RacingDroneWIKI.dao.ImageTransmissionDao.findDetail"/>
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPicturesDao.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM flight_control WHERE model=#{model};

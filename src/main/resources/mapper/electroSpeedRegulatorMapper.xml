@@ -3,7 +3,7 @@
 <mapper namespace="com.RacingDroneWIKI.dao.ElectroSpeedRegulatorDao">
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.ElectroSpeedRegulator" autoMapping="true">
         <result property="model" column="model"/>
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPicturesDao.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM electro_speed_regulator WHERE model=#{model};

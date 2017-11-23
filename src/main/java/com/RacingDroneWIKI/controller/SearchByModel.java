@@ -1,7 +1,7 @@
 package com.RacingDroneWIKI.controller;
 
 import com.RacingDroneWIKI.pojo.*;
-import com.RacingDroneWIKI.service.*;
+import com.RacingDroneWIKI.service.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +14,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by user on 2017/11/13.
+ * 响应用户搜索请求的Controller
+ * 对所有类型的设备进行搜素并展示给用户
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Controller
 public class SearchByModel {
-    final int PAGENUMBER = 10;
+    private final int PAGENUMBER = 10;
     @Autowired
-    Search search;
+    private Search search;
 
+    /**
+     * 响应用户搜索请求
+     * Search string.
+     *
+     * @param searchModel the search model 用户搜索的模型ID
+     * @param model       the SpringMVC model
+     * @param page        the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/search_{page}")
     public String search(@RequestParam("searchModel") String searchModel, Model model, @PathVariable(value = "page") int page) {
         List<Moto> motoList = new LinkedList<>();

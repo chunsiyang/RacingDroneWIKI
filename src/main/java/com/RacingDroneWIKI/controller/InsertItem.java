@@ -16,8 +16,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by user on 2017/11/15.
+ * 响应数据录入请求的Controller
+ * 对用户的数据录入请求进行整理并启用服务添加至数据库
  *
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Controller
 @RequestMapping(value = "/itemInsert/")
@@ -43,12 +46,30 @@ public class InsertItem {
     @Autowired
     private ImageTransmissionService imageTransmissionService;
 
+    /**
+     * 数据录入模型选择界面
+     * Data input string.
+     *
+     * @param session the HTTP session
+     * @return the URI string
+     */
     @RequestMapping("dataInput")
     public String dataInput(HttpSession session) {
         session.invalidate();
         return "itemInsert/dataInput";
     }
 
+    /**
+     * 响应天线录入请求
+     * Insert ant string.
+     *
+     * @param antenna the antenna SpringMVC绑定的前台天线数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 主图片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertAnt", method = RequestMethod.POST)
     public String insertAnt(Antenna antenna, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
@@ -57,6 +78,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应电池录入请求
+     * Insert bat string.
+     *
+     * @param battery the battery SpringMVC绑定的前台电池数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 主图片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertBat", method = RequestMethod.POST)
     public String insertBat(Battery battery, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
@@ -65,6 +97,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应桨叶录入请求
+     * Insert prop string.
+     *
+     * @param prop    the prop SpringMVC绑定的前台桨叶数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 主图片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertProp", method = RequestMethod.POST)
     public String insertProp(Prop prop, HttpServletRequest request,
                              @RequestParam("mainImg") MultipartFile mainImg,
@@ -73,6 +116,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应摄像头录入请求
+     * Insert cam string.
+     *
+     * @param cam     the cam SpringMVC绑定的前台摄像头数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 诸如片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertCam", method = RequestMethod.POST)
     public String insertCam(Cam cam, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
@@ -90,6 +144,18 @@ public class InsertItem {
         }
     }
 
+    /**
+     * 响应分电板录入请求
+     * Insert ph string.
+     *
+     * @param powerHub the power hub SpringMVC绑定的前台分电板数据
+     * @param request  the HTTP servlet request
+     * @param mainImg  the main img 主图片
+     * @param files    the files 辅助图片
+     * @param pinDef   the pin def 引脚定义图
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertPh", method = RequestMethod.POST)
     public String insertPH(PowerHub powerHub, HttpServletRequest request,
                            @RequestParam("mainImg") MultipartFile mainImg,
@@ -113,6 +179,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应电子调速器录入请求
+     * Insert esc string.
+     *
+     * @param electroSpeedRegulator the electro speed regulator SpringMVC绑定的前台电子调速器数据
+     * @param request               the HTTP servlet request
+     * @param mainImg               the main img 主图片
+     * @param files                 the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertEsc", method = RequestMethod.POST)
     public String insertEsc(ElectroSpeedRegulator electroSpeedRegulator, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
@@ -129,6 +206,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应电机录入请求
+     * Insert moto string.
+     *
+     * @param moto    the moto SpringMVC绑定的前台电机数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 主图片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertMoto", method = RequestMethod.POST)
     public String insertMoto(Moto moto, HttpServletRequest request,
                              @RequestParam("mainImg") MultipartFile mainImg,
@@ -137,6 +225,17 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应机架中集成部件录入请求
+     * Insert fra string.
+     *
+     * @param frame   the frame SpringMVC绑定的前台机架数据
+     * @param request the HTTP servlet request
+     * @param mainImg the main img 主图片
+     * @param files   the files 辅助图片
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertFra", method = RequestMethod.POST)
     public String insertFra(Frame frame, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
@@ -146,6 +245,13 @@ public class InsertItem {
         return "itemInsert/FraIntergrat";
     }
 
+    /**
+     * 响应机架录入请求
+     * Insert fra string.
+     *
+     * @param session the HTTP servlet session
+     * @return the URI string
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertFra", method = RequestMethod.GET)
     public String insertFra(HttpSession session) {
@@ -155,6 +261,18 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应飞控中集成部件录入请求
+     * Inset fc string.
+     *
+     * @param flightControl the flight control SpringMVC绑定的前台飞控数据
+     * @param request       the HTTP servlet request
+     * @param mainImg       the main img 主图片
+     * @param files         the files 辅助图片
+     * @param pinDef        the pin def 引脚定义图
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertFC", method = RequestMethod.POST)
     public String insetFc(FlightControl flightControl, HttpServletRequest request,
                           @RequestParam("mainImg") MultipartFile mainImg,
@@ -165,6 +283,13 @@ public class InsertItem {
         return "itemInsert/FcIntergrat";
     }
 
+    /**
+     * 响应飞控录入秦桂青
+     * Insert fc string.
+     *
+     * @param session the HTTP servlet session
+     * @return the URI string
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertFC", method = RequestMethod.GET)
     public String insertFc(HttpSession session) {
@@ -174,6 +299,19 @@ public class InsertItem {
         return "itemInsert/InsertSuccessed";
     }
 
+    /**
+     * 响应图传中集成部件的录入请求
+     * Inset it string.
+     *
+     * @param imageTransmission the image transmission SpringMVC绑定的前台图传数据
+     * @param request           the HTTP servlet request
+     * @param mainImg           the main img 主图片
+     * @param files             the files 辅助图片
+     * @param pinDef            the pin def 引脚定义图
+     * @param fre               the fre 频率表
+     * @return the URI string
+     * @throws IOException the io exception
+     */
     @RequestMapping(value = "InsertIt", method = RequestMethod.POST)
     public String insetIt(ImageTransmission imageTransmission, HttpServletRequest request,
                           @RequestParam("mainImg") MultipartFile mainImg,
@@ -193,6 +331,13 @@ public class InsertItem {
         }
     }
 
+    /**
+     * 响应图传路途请求
+     * Insert it string.
+     *
+     * @param session the HTTP servlet session
+     * @return the URI string
+     */
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertIt", method = RequestMethod.GET)
     public String insertIt(HttpSession session) {

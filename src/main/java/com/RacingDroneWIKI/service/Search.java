@@ -6,32 +6,81 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
- * Created by user on 2017/11/14.
+ * The type Search.模糊查找服务
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Service
 public class Search {
+    /**
+     * The Moto service.
+     */
     @Autowired
-    MotoService  motoService;
+    private MotoService  motoService;
+    /**
+     * The Electro speed regulator service.
+     */
     @Autowired
-    ElectroSpeedRegulatorService electroSpeedRegulatorService;
+    private ElectroSpeedRegulatorService electroSpeedRegulatorService;
+    /**
+     * The Frame service.
+     */
     @Autowired
-    FrameService frameService;
+    private FrameService frameService;
+    /**
+     * The Image transmission service.
+     */
     @Autowired
-    ImageTransmissionService imageTransmissionService;
+    private ImageTransmissionService imageTransmissionService;
+    /**
+     * The Cam service.
+     */
     @Autowired
-    CamService camService;
+    private CamService camService;
+    /**
+     * The Flight control service.
+     */
     @Autowired
-    FlightControlService flightControlService;
+    private FlightControlService flightControlService;
+    /**
+     * The Antenna service.
+     */
     @Autowired
-    AntennaService antennaService;
+    private AntennaService antennaService;
+    /**
+     * The Power hub service.
+     */
     @Autowired
-    PowerHubService powerHubService;
+    private PowerHubService powerHubService;
+    /**
+     * The Prop service.
+     */
     @Autowired
-    PropService propService;
+    private PropService propService;
+    /**
+     * The Battery service.
+     */
     @Autowired
-    BatteryService batteryService;
+    private BatteryService batteryService;
 
+    /**
+     * Search model int.
+     *
+     * @param model                     the model
+     * @param motoList                  the moto list
+     * @param electroSpeedRegulatorList the electro speed regulator list
+     * @param frameList                 the frame list
+     * @param imageTransmissionList     the image transmission list
+     * @param camList                   the cam list
+     * @param flightControlList         the flight control list
+     * @param antennaList               the antenna list
+     * @param powerHubList              the power hub list
+     * @param propList                  the prop list
+     * @param batteryList               the battery list
+     * @return the int
+     */
     public int searchModel(String model,List<Moto> motoList, List<ElectroSpeedRegulator> electroSpeedRegulatorList,
                            List<Frame> frameList , List<ImageTransmission> imageTransmissionList,
                            List<Cam> camList, List<FlightControl> flightControlList,

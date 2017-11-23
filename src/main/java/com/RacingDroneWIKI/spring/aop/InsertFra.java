@@ -11,15 +11,29 @@ import org.springframework.stereotype.Component;
 import java.lang.ref.PhantomReference;
 
 /**
- * Created by user on 2017/11/20.
+ * The type Insert fra.
+ * Spring AOP 切面
+ * 在进行机架数据录入前使用Spring AOP对飞控中可能存在的集成部件进行录入
+ *
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Component
 @Aspect
 public class InsertFra {
+    /**
+     * The Power hub service.
+     */
     @Autowired
-    PowerHubService powerHubService;
+    private PowerHubService powerHubService;
+
+    /**
+     * Inset fra.在机架数据录入前对飞控对像中可能存在的集成部件（分电板）进行信息录入
+     *
+     * @param frame the frame 待录入的机架对象
+     */
     @Before("execution(* com.RacingDroneWIKI.service.FrameService.addFrame(..))&& args(frame)")
-    public void insetPh(Frame frame)
+    public void insetFra(Frame frame)
     {
         if (frame.getIntegratedPh()!=null)
         {

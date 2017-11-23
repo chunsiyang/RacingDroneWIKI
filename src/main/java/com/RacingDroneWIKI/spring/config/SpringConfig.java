@@ -9,7 +9,12 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
- * Created by user on 2017/11/6.
+ * The type Spring config.
+ * Spring SpringMVC 整合
+ * dispathServlet配置
+ *
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 public class SpringConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
@@ -19,7 +24,7 @@ public class SpringConfig extends AbstractAnnotationConfigDispatcherServletIniti
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new  Class[]{WebConfig.class};
+        return new Class[]{WebConfig.class};
     }
 
     @Override
@@ -30,7 +35,7 @@ public class SpringConfig extends AbstractAnnotationConfigDispatcherServletIniti
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
-        CharacterEncodingFilter characterEncodingFilter=new CharacterEncodingFilter();
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
         characterEncodingFilter.setForceEncoding(true);
         servletContext.addFilter("name", characterEncodingFilter)

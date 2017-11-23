@@ -6,8 +6,9 @@ import com.RacingDroneWIKI.pojo.Battery;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author user
- *
+ * 电池DAO(Data Access Object) 数据访问对象
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Repository
 public interface BatteryDao {

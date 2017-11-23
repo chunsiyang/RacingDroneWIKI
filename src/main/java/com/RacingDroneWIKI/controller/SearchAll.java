@@ -7,40 +7,50 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 /**
- * Created by user on 2017/11/7.
+ * 响应按类型查询的Controller
+ * 针对用户选择的设备类型进行分类查询并进行结果展示
+ * @author ChunsiYang
+ * @version SSM 3.0
  */
 @Controller
 public class SearchAll {
-    final int PAGENUMBER = 10;
-    int pages;
-    int first;
-    int last;
+    private final int PAGENUMBER = 10;
+    private int pages;
+    private int first;
+    private int last;
     @Autowired
-    MotoService motoService;
+    private MotoService motoService;
     @Autowired
-    ElectroSpeedRegulatorService electroSpeedRegulatorServiicer;
+    private ElectroSpeedRegulatorService electroSpeedRegulatorServiicer;
     @Autowired
-    FrameService frameService;
+    private FrameService frameService;
     @Autowired
-    ImageTransmissionService imageTransmissionService;
+    private ImageTransmissionService imageTransmissionService;
     @Autowired
-    CamService camService;
+    private CamService camService;
     @Autowired
-    FlightControlService flightControlService;
+    private FlightControlService flightControlService;
     @Autowired
-    AntennaService antennaService;
+    private AntennaService antennaService;
     @Autowired
-    PowerHubService powerHubService;
+    private PowerHubService powerHubService;
     @Autowired
-    PropService propService;
+    private PropService propService;
     @Autowired
-    BatteryService batteryService;
+    private BatteryService batteryService;
 
+    /**
+     * 响应获取并展示电机列表的请求
+     * Moto list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/moto_{page}")
     public String motoList(Model model, @PathVariable(value = "page") int page) {
         List<Moto> list = motoService.findAll();
@@ -55,6 +65,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示电子调速器列表的请求
+     * Electro speed regulator list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/electroSpeedRegulator_{page}")
     public String electroSpeedRegulatorList(Model model, @PathVariable(value = "page") int page) {
         List<ElectroSpeedRegulator> list = electroSpeedRegulatorServiicer.findAll();
@@ -69,6 +87,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示机架列表的请求
+     * Frame list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/frame_{page}")
     public String frameList(Model model, @PathVariable(value = "page") int page) {
         List<Frame> list = frameService.findAll();
@@ -83,6 +109,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示图传列表的请求
+     * Image transmission list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/imageTransmission_{page}")
     public String imageTransmissionList(Model model, @PathVariable(value = "page") int page) {
         List<ImageTransmission> list = imageTransmissionService.findAll();
@@ -97,6 +131,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示摄像头列表的请求
+     * Cam list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/cam_{page}")
     public String camList(Model model, @PathVariable(value = "page") int page) {
         List<Cam> list = camService.findAll();
@@ -111,6 +153,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示飞控列表的请求
+     * Flight control list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/flightControl_{page}")
     public String flightControlList(Model model, @PathVariable(value = "page") int page) {
         List<FlightControl> list = flightControlService.findAll();
@@ -125,6 +175,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示天线列表的请求
+     * Antenna list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/antenna_{page}")
     public String antennaList(Model model, @PathVariable(value = "page") int page) {
         List<Antenna> list = antennaService.findAll();
@@ -139,6 +197,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 相应获取并展示分电板列表的请求
+     * Power hub list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/powerHub_{page}")
     public String powerHubList(Model model, @PathVariable(value = "page") int page) {
         List<PowerHub> list = powerHubService.findAll();
@@ -153,6 +219,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示桨叶列表的请求
+     * Prop list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/prop_{page}")
     public String propList(Model model, @PathVariable(value = "page") int page) {
         List<Prop> list = propService.findAll();
@@ -167,6 +241,14 @@ public class SearchAll {
         return "resultSet";
     }
 
+    /**
+     * 响应获取并展示电池列表的请i去
+     * Battery list string.
+     *
+     * @param model the SpringMVC model
+     * @param page  the page 当前页号
+     * @return the URI string
+     */
     @RequestMapping(value = "/battery_{page}")
     public String batteryList(Model model, @PathVariable(value = "page") int page) {
         List<Battery> list = batteryService.findAll();

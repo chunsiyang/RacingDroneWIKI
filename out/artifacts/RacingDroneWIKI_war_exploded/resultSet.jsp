@@ -20,11 +20,11 @@
     </jsp:include>
     <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="changKW" uri="http://RacingDroneWIKI.com" %>
-    <C:if test="${motoList==null&&electroSpeedRegulatorList==null&&
-                frameList==null&&imageTransmissionList==null&&
-                camList==null&&flightControlList==null&&
-                antennaList==null&&powerHubList==null&&
-                propList==null&&batteryList==null}">
+    <C:if test="${motoList.size()==0&&electroSpeedRegulatorList.size()==0&&
+                frameList.size()==0&&imageTransmissionList.size()==0&&
+                camList.size()==0&&flightControlList.size()==0&&
+                antennaList.size()==0&&powerHubList.size()==0&&
+                propList.size()==0&&batteryList.size()==0}">
         <p id="noInfo">暂无搜索结果</p>
     </C:if>
     <!--无刷电机-->
@@ -189,7 +189,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p>轴距：${item.getWheekbase()}mm</p>
+                                            <p>轴距：${item.getWheekBase()}mm</p>
                                         </td>
                                         <td>
                                             <P>主要材料：${item.getMaterial()}</P>
@@ -648,11 +648,40 @@
                         </td>
                     </tr>
                 </C:forEach>
-
             </table>
         </C:if>
+    </section>
+    <section id="pagination">
+        <a href="${uri}1${searchModel}" class="pageBut" >
+            <p>首页</p>
+        </a>
+        <C:if test="${page>1}">
+            <a href="${uri}${page-1}${searchModel}" class="pageBut" >
+                <p>上一页</p>
+            </a>
+        </C:if>
+        <C:if test="${page<pages}">
+            <a href="${uri}${page+1}${searchModel}" class="pageBut" >
+                <p>下一页</p>
+            </a>
+        </C:if>
+        <a href="${uri}${pages}${searchModel}" class="pageBut" >
+            <p>尾页</p>
+        </a>
+        <select name="jumpMenu" id="jumpMenu"
+                onchange="jumpMenu('parent',this,0)">
+            <C:forEach  varStatus="status" begin="1" end="${pages}" var="num">
+                <option value="${uri}${num}${searchModel}"<C:if test="${page==num}">selected="selected"</C:if>>第${num}页</option>
+            </C:forEach>
+        </select>
     </section>
 </div>
 <%@include file="foot.html"%>
 </body>
 </html>
+<script type="text/javascript">
+    function jumpMenu(targ,selObj,restore){
+        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+        if (restore) selObj.selectedIndex=0;
+    }
+</script>

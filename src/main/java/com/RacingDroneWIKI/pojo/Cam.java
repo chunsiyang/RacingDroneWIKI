@@ -1,301 +1,548 @@
 package com.RacingDroneWIKI.pojo;
 
-import java.util.*;
+import java.util.LinkedList;
 
-public class Cam extends Item implements Integratable{
-	/**
-	 * 是否可单独使用
-	 */
-	private boolean useAlone;
-	/**
-	 * 重量
-	 */
-	private float weight;
-	/**
-	 * 长度
-	 */
-	private float length;
-	/**
-	 * 宽度
-	 */
-	private float width;
-	/**
-	 * 厚度
-	 */
-	private float thickness;
-	/**
-	 * 图像传感器
-	 */
-	private String imageSensor;
-	/**
-	 * 水平分辨率
-	 */
-	private int horizontalResolustion;
-	/**
-	 * 镜头视场
-	 */
-	private int lensFov;
-	/**
-	 * 信号制式
-	 */
-	private String signalSystem;
-	/**
-	 * 结成OSD
-	 */
-	private boolean integratedOsd;
-	/**
-	 * 集成MIC
-	 */
-	private boolean integratedMic;
-	/**
-	 * 信噪比
-	 */
-	private String snRatio;
-	/**
-	 * 电子快门速度
-	 */
-	private String electronicShutterSpeed;
-	/**
-	 * 自动增益
-	 */
-	private boolean autoGainControl;
-	/**
-	 * 背光补偿
-	 */
-	private boolean backLightCompensation;
-	/**
-	 * 最低照度
-	 */
-	private String minIllumination;
-	/**
-	 * 宽动态
-	 */
-	private String wdr;
-	/**
-	 * 数字降噪
-	 */
-	private String dnr;
-	/**
-	 * 日夜切换
-	 */
-	private String dayNight;
-	/**
-	 * 输入电压
-	 */
-	private String inputVoltages;
-	/**
-	 * 外壳材料
-	 */
-	private String housingMasterial;
+/**
+ * The type Cam.摄像头
+ * @author ChunsiYang
+ * @version SSM 3.0
+ */
+public class Cam extends Item implements Integratable {
+    /**
+     * 是否可单独使用
+     */
+    private boolean useAlone;
+    /**
+     * 重量
+     */
+    private float weight;
+    /**
+     * 长度
+     */
+    private float length;
+    /**
+     * 宽度
+     */
+    private float width;
+    /**
+     * 厚度
+     */
+    private float thickness;
+    /**
+     * 图像传感器
+     */
+    private String imageSensor;
+    /**
+     * 水平分辨率
+     */
+    private int horizontalResolustion;
+    /**
+     * 镜头视场
+     */
+    private int lensFov;
+    /**
+     * 信号制式
+     */
+    private String signalSystem;
+    /**
+     * 结成OSD
+     */
+    private boolean integratedOsd;
+    /**
+     * 集成MIC
+     */
+    private boolean integratedMic;
+    /**
+     * 信噪比
+     */
+    private String snRatio;
+    /**
+     * 电子快门速度
+     */
+    private String electronicShutterSpeed;
+    /**
+     * 自动增益
+     */
+    private boolean autoGainControl;
+    /**
+     * 背光补偿
+     */
+    private boolean backLightCompensation;
+    /**
+     * 最低照度
+     */
+    private String minIllumination;
+    /**
+     * 宽动态
+     */
+    private String wdr;
+    /**
+     * 数字降噪
+     */
+    private String dnr;
+    /**
+     * 日夜切换
+     */
+    private String dayNight;
+    /**
+     * 输入电压
+     */
+    private String inputVoltages;
+    /**
+     * 外壳材料
+     */
+    private String housingMasterial;
 
-	public boolean isUseAlone() {
-		return useAlone;
-	}
+    /**
+     * Instantiates a new Cam.
+     *
+     * @param model                  the model
+     * @param imgUrl                 the img url
+     * @param referencePrice         the reference price
+     * @param anufacturer            the anufacturer
+     * @param extraPictures          the extra pictures
+     * @param caption                the caption
+     * @param useAlone               the use alone
+     * @param weight                 the weight
+     * @param length                 the length
+     * @param width                  the width
+     * @param thickness              the thickness
+     * @param imageSensor            the image sensor
+     * @param horizontalResolustion  the horizontal resolustion
+     * @param lensFov                the lens fov
+     * @param signalSystem           the signal system
+     * @param integratedOsd          the integrated osd
+     * @param integratedMic          the integrated mic
+     * @param snRatio                the sn ratio
+     * @param electronicShutterSpeed the electronic shutter speed
+     * @param autoGainControl        the auto gain control
+     * @param backLightCompensation  the back light compensation
+     * @param minIllumination        the min illumination
+     * @param wdr                    the wdr
+     * @param dnr                    the dnr
+     * @param dayNight               the day night
+     * @param inputVoltages          the input voltages
+     * @param housingMasterial       the housing masterial
+     */
+    public Cam(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
+               String caption, boolean useAlone, float weight, float length, float width, float thickness,
+               String imageSensor, int horizontalResolustion, int lensFov, String signalSystem, boolean integratedOsd,
+               boolean integratedMic, String snRatio, String electronicShutterSpeed, boolean autoGainControl,
+               boolean backLightCompensation, String minIllumination, String wdr, String dnr, String dayNight,
+               String inputVoltages, String housingMasterial) {
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        this.useAlone = useAlone;
+        this.weight = weight;
+        this.length = length;
+        this.width = width;
+        this.thickness = thickness;
+        this.imageSensor = imageSensor;
+        this.horizontalResolustion = horizontalResolustion;
+        this.lensFov = lensFov;
+        this.signalSystem = signalSystem;
+        this.integratedOsd = integratedOsd;
+        this.integratedMic = integratedMic;
+        this.snRatio = snRatio;
+        this.electronicShutterSpeed = electronicShutterSpeed;
+        this.autoGainControl = autoGainControl;
+        this.backLightCompensation = backLightCompensation;
+        this.minIllumination = minIllumination;
+        this.wdr = wdr;
+        this.dnr = dnr;
+        this.dayNight = dayNight;
+        this.inputVoltages = inputVoltages;
+        this.housingMasterial = housingMasterial;
+    }
 
-	public void setUseAlone(boolean useAlone) {
-		this.useAlone = useAlone;
-	}
+    /**
+     * Instantiates a new Cam.
+     */
+    public Cam() {
+        super();
+    }
 
-	public float getWeight() {
-		return weight;
-	}
+    /**
+     * Is use alone boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isUseAlone() {
+        return useAlone;
+    }
 
-	public void setWeight(String weight)
-	{
-		if (!weight.equals(""))
-			this.weight =Float.parseFloat(weight);
-	}
+    /**
+     * Sets use alone.
+     *
+     * @param useAlone the use alone
+     */
+    public void setUseAlone(boolean useAlone) {
+        this.useAlone = useAlone;
+    }
 
-	public float getLength() {
-		return length;
-	}
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
+    public float getWeight() {
+        return weight;
+    }
 
-	public void setLength(String length)
-	{
-		if (!length.equals(""))
-		this.length = Float.parseFloat(length);
-	}
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
+    public void setWeight(String weight) {
+        if (!weight.equals(""))
+            this.weight = Float.parseFloat(weight);
+    }
 
-	public float getWidth() {
-		return width;
-	}
+    /**
+     * Gets length.
+     *
+     * @return the length
+     */
+    public float getLength() {
+        return length;
+    }
 
-	public void setWidth(String width) {
-		if (!width.equals(""))
-		this.width = Float.parseFloat(width);
-	}
+    /**
+     * Sets length.
+     *
+     * @param length the length
+     */
+    public void setLength(String length) {
+        if (!length.equals(""))
+            this.length = Float.parseFloat(length);
+    }
 
-	public float getThickness() {
-		return thickness;
-	}
+    /**
+     * Gets width.
+     *
+     * @return the width
+     */
+    public float getWidth() {
+        return width;
+    }
 
-	public void setThickness(String thickness) {
-		if (!thickness.equals(""))
-		this.thickness =Float.parseFloat(thickness);
-	}
+    /**
+     * Sets width.
+     *
+     * @param width the width
+     */
+    public void setWidth(String width) {
+        if (!width.equals(""))
+            this.width = Float.parseFloat(width);
+    }
 
-	public String getImageSensor() {
-		return imageSensor;
-	}
+    /**
+     * Gets thickness.
+     *
+     * @return the thickness
+     */
+    public float getThickness() {
+        return thickness;
+    }
 
-	public void setImageSensor(String imageSensor) {
-		this.imageSensor = imageSensor;
-	}
+    /**
+     * Sets thickness.
+     *
+     * @param thickness the thickness
+     */
+    public void setThickness(String thickness) {
+        if (!thickness.equals(""))
+            this.thickness = Float.parseFloat(thickness);
+    }
 
-	public int getHorizontalResolustion() {
-		return horizontalResolustion;
-	}
+    /**
+     * Gets image sensor.
+     *
+     * @return the image sensor
+     */
+    public String getImageSensor() {
+        return imageSensor;
+    }
 
-	public void setHorizontalResolustion(String horizontalResolustion) {
-		if (!horizontalResolustion.equals(""))
-		this.horizontalResolustion = Integer.parseInt(horizontalResolustion);
-	}
+    /**
+     * Sets image sensor.
+     *
+     * @param imageSensor the image sensor
+     */
+    public void setImageSensor(String imageSensor) {
+        this.imageSensor = imageSensor;
+    }
 
-	public int getLensFov() {
-		return lensFov;
-	}
+    /**
+     * Gets horizontal resolustion.
+     *
+     * @return the horizontal resolustion
+     */
+    public int getHorizontalResolustion() {
+        return horizontalResolustion;
+    }
 
-	public void setLensFov(String lensFov) {
-		if (!lensFov.equals(""))
-		this.lensFov = Integer.parseInt(lensFov);
-	}
+    /**
+     * Sets horizontal resolustion.
+     *
+     * @param horizontalResolustion the horizontal resolustion
+     */
+    public void setHorizontalResolustion(String horizontalResolustion) {
+        if (!horizontalResolustion.equals(""))
+            this.horizontalResolustion = Integer.parseInt(horizontalResolustion);
+    }
 
-	public String getSignalSystem() {
-		return signalSystem;
-	}
+    /**
+     * Gets lens fov.
+     *
+     * @return the lens fov
+     */
+    public int getLensFov() {
+        return lensFov;
+    }
 
-	public void setSignalSystem(String signalSystem) {
-		this.signalSystem = signalSystem;
-	}
+    /**
+     * Sets lens fov.
+     *
+     * @param lensFov the lens fov
+     */
+    public void setLensFov(String lensFov) {
+        if (!lensFov.equals(""))
+            this.lensFov = Integer.parseInt(lensFov);
+    }
 
-	public boolean isIntegratedOsd() {
-		return integratedOsd;
-	}
+    /**
+     * Gets signal system.
+     *
+     * @return the signal system
+     */
+    public String getSignalSystem() {
+        return signalSystem;
+    }
 
-	public void setIntegratedOsd(boolean integratedOsd) {
-		this.integratedOsd = integratedOsd;
-	}
+    /**
+     * Sets signal system.
+     *
+     * @param signalSystem the signal system
+     */
+    public void setSignalSystem(String signalSystem) {
+        this.signalSystem = signalSystem;
+    }
 
-	public boolean isIntegratedMic() {
-		return integratedMic;
-	}
+    /**
+     * Is integrated osd boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isIntegratedOsd() {
+        return integratedOsd;
+    }
 
-	public void setIntegratedMic(boolean integratedMic) {
-		this.integratedMic = integratedMic;
-	}
+    /**
+     * Sets integrated osd.
+     *
+     * @param integratedOsd the integrated osd
+     */
+    public void setIntegratedOsd(boolean integratedOsd) {
+        this.integratedOsd = integratedOsd;
+    }
 
-	public String getSnRatio() {
-		return snRatio;
-	}
+    /**
+     * Is integrated mic boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isIntegratedMic() {
+        return integratedMic;
+    }
 
-	public void setSnRatio(String snRatio) {
-		this.snRatio = snRatio;
-	}
+    /**
+     * Sets integrated mic.
+     *
+     * @param integratedMic the integrated mic
+     */
+    public void setIntegratedMic(boolean integratedMic) {
+        this.integratedMic = integratedMic;
+    }
 
-	public String getElectronicShutterSpeed() {
-		return electronicShutterSpeed;
-	}
+    /**
+     * Gets sn ratio.
+     *
+     * @return the sn ratio
+     */
+    public String getSnRatio() {
+        return snRatio;
+    }
 
-	public void setElectronicShutterSpeed(String electronicShutterSpeed) {
-		this.electronicShutterSpeed = electronicShutterSpeed;
-	}
+    /**
+     * Sets sn ratio.
+     *
+     * @param snRatio the sn ratio
+     */
+    public void setSnRatio(String snRatio) {
+        this.snRatio = snRatio;
+    }
 
-	public boolean isAutoGainControl() {
-		return autoGainControl;
-	}
+    /**
+     * Gets electronic shutter speed.
+     *
+     * @return the electronic shutter speed
+     */
+    public String getElectronicShutterSpeed() {
+        return electronicShutterSpeed;
+    }
 
-	public void setAutoGainControl(boolean autoGainControl) {
-		this.autoGainControl = autoGainControl;
-	}
+    /**
+     * Sets electronic shutter speed.
+     *
+     * @param electronicShutterSpeed the electronic shutter speed
+     */
+    public void setElectronicShutterSpeed(String electronicShutterSpeed) {
+        this.electronicShutterSpeed = electronicShutterSpeed;
+    }
 
-	public boolean isBackLightCompensation() {
-		return backLightCompensation;
-	}
+    /**
+     * Is auto gain control boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isAutoGainControl() {
+        return autoGainControl;
+    }
 
-	public void setBackLightCompensation(boolean backLightCompensation) {
-		this.backLightCompensation = backLightCompensation;
-	}
+    /**
+     * Sets auto gain control.
+     *
+     * @param autoGainControl the auto gain control
+     */
+    public void setAutoGainControl(boolean autoGainControl) {
+        this.autoGainControl = autoGainControl;
+    }
 
-	public String getMinIllumination() {
-		return minIllumination;
-	}
+    /**
+     * Is back light compensation boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isBackLightCompensation() {
+        return backLightCompensation;
+    }
 
-	public void setMinIllumination(String minIllumination) {
-		this.minIllumination = minIllumination;
-	}
+    /**
+     * Sets back light compensation.
+     *
+     * @param backLightCompensation the back light compensation
+     */
+    public void setBackLightCompensation(boolean backLightCompensation) {
+        this.backLightCompensation = backLightCompensation;
+    }
 
-	public String getWdr() {
-		return wdr;
-	}
+    /**
+     * Gets min illumination.
+     *
+     * @return the min illumination
+     */
+    public String getMinIllumination() {
+        return minIllumination;
+    }
 
-	public void setWdr(String wdr) {
-		this.wdr = wdr;
-	}
+    /**
+     * Sets min illumination.
+     *
+     * @param minIllumination the min illumination
+     */
+    public void setMinIllumination(String minIllumination) {
+        this.minIllumination = minIllumination;
+    }
 
-	public String getDnr() {
-		return dnr;
-	}
+    /**
+     * Gets wdr.
+     *
+     * @return the wdr
+     */
+    public String getWdr() {
+        return wdr;
+    }
 
-	public void setDnr(String dnr) {
-		this.dnr = dnr;
-	}
+    /**
+     * Sets wdr.
+     *
+     * @param wdr the wdr
+     */
+    public void setWdr(String wdr) {
+        this.wdr = wdr;
+    }
 
-	public String getDayNight() {
-		return dayNight;
-	}
+    /**
+     * Gets dnr.
+     *
+     * @return the dnr
+     */
+    public String getDnr() {
+        return dnr;
+    }
 
-	public void setDayNight(String dayNight) {
-		this.dayNight = dayNight;
-	}
+    /**
+     * Sets dnr.
+     *
+     * @param dnr the dnr
+     */
+    public void setDnr(String dnr) {
+        this.dnr = dnr;
+    }
 
-	public String getInputVoltages() {
-		return inputVoltages;
-	}
+    /**
+     * Gets day night.
+     *
+     * @return the day night
+     */
+    public String getDayNight() {
+        return dayNight;
+    }
 
-	public void setInputVoltages(String inputVoltages) {
-		this.inputVoltages = inputVoltages;
-	}
+    /**
+     * Sets day night.
+     *
+     * @param dayNight the day night
+     */
+    public void setDayNight(String dayNight) {
+        this.dayNight = dayNight;
+    }
 
-	public String getHousingMasterial() {
-		return housingMasterial;
-	}
+    /**
+     * Gets input voltages.
+     *
+     * @return the input voltages
+     */
+    public String getInputVoltages() {
+        return inputVoltages;
+    }
 
-	public void setHousingMasterial(String housingMasterial) {
-		this.housingMasterial = housingMasterial;
-	}
+    /**
+     * Sets input voltages.
+     *
+     * @param inputVoltages the input voltages
+     */
+    public void setInputVoltages(String inputVoltages) {
+        this.inputVoltages = inputVoltages;
+    }
 
-	public Cam(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
-			String caption, boolean useAlone, float weight, float length, float width, float thickness,
-			String imageSensor, int horizontalResolustion, int lensFov, String signalSystem, boolean integratedOsd,
-			boolean integratedMic, String snRatio, String electronicShutterSpeed, boolean autoGainControl,
-			boolean backLightCompensation, String minIllumination, String wdr, String dnr, String dayNight,
-			String inputVoltages, String housingMasterial) {
-		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-		this.useAlone = useAlone;
-		this.weight = weight;
-		this.length = length;
-		this.width = width;
-		this.thickness = thickness;
-		this.imageSensor = imageSensor;
-		this.horizontalResolustion = horizontalResolustion;
-		this.lensFov = lensFov;
-		this.signalSystem = signalSystem;
-		this.integratedOsd = integratedOsd;
-		this.integratedMic = integratedMic;
-		this.snRatio = snRatio;
-		this.electronicShutterSpeed = electronicShutterSpeed;
-		this.autoGainControl = autoGainControl;
-		this.backLightCompensation = backLightCompensation;
-		this.minIllumination = minIllumination;
-		this.wdr = wdr;
-		this.dnr = dnr;
-		this.dayNight = dayNight;
-		this.inputVoltages = inputVoltages;
-		this.housingMasterial = housingMasterial;
-	}
+    /**
+     * Gets housing masterial.
+     *
+     * @return the housing masterial
+     */
+    public String getHousingMasterial() {
+        return housingMasterial;
+    }
 
-	public Cam() {
-		super();
-	}
+    /**
+     * Sets housing masterial.
+     *
+     * @param housingMasterial the housing masterial
+     */
+    public void setHousingMasterial(String housingMasterial) {
+        this.housingMasterial = housingMasterial;
+    }
 
 }

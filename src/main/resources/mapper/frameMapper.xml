@@ -4,7 +4,7 @@
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.Frame" autoMapping="true">
         <result property="model" column="model"/>
         <association property="integratedPh" column="integrated_ph" select="com.RacingDroneWIKI.dao.PowerHubDao.findDetail"/>
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPicturesDao.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM frame WHERE model=#{model};

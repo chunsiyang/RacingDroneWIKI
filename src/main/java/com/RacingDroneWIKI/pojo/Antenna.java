@@ -2,134 +2,221 @@ package com.RacingDroneWIKI.pojo;
 
 import java.util.LinkedList;
 
+/**
+ * The type Antenna. 天线
+ * @author ChunsiYang
+ * @version SSM 3.0
+ */
 public class Antenna extends Item {
-	/**
-	 * 重量
-	 */
-	private float weight;
-	/**
-	 * 长度
-	 */
-	private float length;
-	/**
+    /**
+     * 重量
+     */
+    private float weight;
+    /**
+     * 长度
+     */
+    private float length;
+    /**
+     * 天线插头
+     */
+    private String connectors;
+    /**
+     * 天线频率
+     */
+    private String frequency;
+    /**
+     * 增益
+     */
+    private float gain;
+    /**
+     * 轴比
+     */
+    private float axialRatic;
+    /**
+     * 极化方式
+     */
+    private String polarization;
 
-	 * 天线插头
-	 */
-	private String connectors;
-	/**
-	 * 天线频率
-	 */
-	private String frequency;
-	/**
-	 * 增益
-	 */
-	private float gain;
-	/**
-	 * 轴比
-	 */
-	private float axialRatic;
-	/**
-	 * 极化方式
-	 */
-	private String polarization;
 
-	
-	public float getWeight() {
-		return weight;
-	}
+    /**
+     * Instantiates a new Antenna.
+     */
+    public Antenna() {
+        super();
+        // TODO 自动生成的构造函数存根
+    }
 
-	/*public void setWeight(float weight) {
-		this.weight = weight;
-	}*/
 
-	public void setWeight(String weight)
-	{
-		if (!weight.equals(""))
-			this.weight=Float.parseFloat(weight);
-	}
+    /**
+     * Instantiates a new Antenna.
+     *
+     * @param model          the model
+     * @param imgUrl         the img url
+     * @param referencePrice the reference price
+     * @param anufacturer    the anufacturer
+     * @param extraPictures  the extra pictures
+     * @param caption        the caption
+     * @param weight         the weight
+     * @param length         the length
+     * @param connectors     the connectors
+     * @param frequency      the frequency
+     * @param gain           the gain
+     * @param axialRatic     the axial ratic
+     * @param polarization   the polarization
+     */
+    public Antenna(String model, String imgUrl, int referencePrice, String anufacturer,
+                   LinkedList<String> extraPictures, String caption, float weight, float length, String connectors,
+                   String frequency, float gain, float axialRatic, String polarization) {
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        this.weight = weight;
+        this.length = length;
+        this.connectors = connectors;
+        this.frequency = frequency;
+        this.gain = gain;
+        this.axialRatic = axialRatic;
+        this.polarization = polarization;
+    }
 
-	public float getLength() {
-		return length;
-	}
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
+    public float getWeight() {
+        return weight;
+    }
 
 	/*public void setLength(float length) {
-		this.length = length;
+        this.length = length;
 	}*/
 
-	public void setLength(String length)
-	{
-		if (!length.equals(""))
-			this.length=Float.parseFloat(length);
-	}
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
+    public void setWeight(String weight) {
+        if (!weight.equals(""))
+            this.weight = Float.parseFloat(weight);
+    }
 
-	public String getConnectors() {
-		return connectors;
-	}
+    /**
+     * Gets length.
+     *
+     * @return the length
+     */
+    public float getLength() {
+        return length;
+    }
 
-	public void setConnectors(String connectors) {
-		this.connectors = connectors;
-	}
+    /**
+     * Sets length.
+     *
+     * @param length the length
+     */
+    public void setLength(String length) {
+        if (!length.equals(""))
+            this.length = Float.parseFloat(length);
+    }
 
-	public String getFrequency() {
-		return frequency;
-	}
+    /**
+     * Gets connectors.
+     *
+     * @return the connectors
+     */
+    public String getConnectors() {
+        return connectors;
+    }
 
-	public void setFrequency(String frequency) {
-		this.frequency = frequency;
-	}
+    /**
+     * Sets connectors.
+     *
+     * @param connectors the connectors
+     */
+    public void setConnectors(String connectors) {
+        this.connectors = connectors;
+    }
 
-	public float getGain() {
-		return gain;
-	}
+    /**
+     * Gets frequency.
+     *
+     * @return the frequency
+     */
+    public String getFrequency() {
+        return frequency;
+    }
 
 	/*public void setGain(float gain) {
 		this.gain = gain;
 	}*/
 
-	public void setGain(String gain)
-	{
-		if (!gain.equals(""))
-			this.gain=Float.parseFloat(gain);
-	}
+    /**
+     * Sets frequency.
+     *
+     * @param frequency the frequency
+     */
+    public void setFrequency(String frequency) {
+        this.frequency = frequency;
+    }
 
-	public float getAxialRatic() {
-		return axialRatic;
-	}
+    /**
+     * Gets gain.
+     *
+     * @return the gain
+     */
+    public float getGain() {
+        return gain;
+    }
 
 	/*public void setAxialRatic(float axialRatic) {
 		this.axialRatic = axialRatic;
 	}*/
 
-	public void setAxialRatic(String axialRatic)
-	{
-		if (!axialRatic.equals(""))
-			this.axialRatic=Float.parseFloat(axialRatic);
-	}
+    /**
+     * Sets gain.
+     *
+     * @param gain the gain
+     */
+    public void setGain(String gain) {
+        if (!gain.equals(""))
+            this.gain = Float.parseFloat(gain);
+    }
 
-	public String getPolarization() {
-		return polarization;
-	}
+    /**
+     * Gets axial ratic.
+     *
+     * @return the axial ratic
+     */
+    public float getAxialRatic() {
+        return axialRatic;
+    }
 
-	public void setPolarization(String polarization) {
-		this.polarization = polarization;
-	}
+    /**
+     * Sets axial ratic.
+     *
+     * @param axialRatic the axial ratic
+     */
+    public void setAxialRatic(String axialRatic) {
+        if (!axialRatic.equals(""))
+            this.axialRatic = Float.parseFloat(axialRatic);
+    }
 
-	public Antenna() {
-		super();
-		// TODO 自动生成的构造函数存根
-	}
+    /**
+     * Gets polarization.
+     *
+     * @return the polarization
+     */
+    public String getPolarization() {
+        return polarization;
+    }
 
-	public Antenna(String model, String imgUrl, int referencePrice, String anufacturer,
-			LinkedList<String> extraPictures, String caption, float weight, float length, String connectors,
-			String frequency, float gain, float axialRatic, String polarization) {
-		super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-		this.weight = weight;
-		this.length = length;
-		this.connectors = connectors;
-		this.frequency = frequency;
-		this.gain = gain;
-		this.axialRatic = axialRatic;
-		this.polarization = polarization;
-	}
+    /**
+     * Sets polarization.
+     *
+     * @param polarization the polarization
+     */
+    public void setPolarization(String polarization) {
+        this.polarization = polarization;
+    }
 
 }
