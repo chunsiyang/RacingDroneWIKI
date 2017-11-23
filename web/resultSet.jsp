@@ -14,7 +14,7 @@
     <title>竞速无人机资料库</title>
 </head>
 <body>
-<div id="body">
+<div>
     <jsp:include page="headNav.jsp">
         <jsp:param name="searchModel" value="${param.searchModel}"/>
     </jsp:include>
