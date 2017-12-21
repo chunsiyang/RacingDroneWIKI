@@ -33,10 +33,6 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      */
     private String controlChip;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -104,14 +100,13 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
                                  int instantaneousCurrent, String firmware, String controlChip, float weight, float length, float width,
                                  float thickness, boolean fourInone, boolean pwmMode, boolean oneshot125, boolean oneshot42,
                                  boolean mutishot, boolean dshot) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.useAlone = useAlone;
         this.noOfCells = noOfCells;
         this.persistentCurrent = persistentCurrent;
         this.instantaneousCurrent = instantaneousCurrent;
         this.firmware = firmware;
         this.controlChip = controlChip;
-        this.weight = weight;
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -238,25 +233,6 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      */
     public void setControlChip(String controlChip) {
         this.controlChip = controlChip;
-    }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
     }
 
     /**

@@ -37,10 +37,6 @@ public class Battery extends Item {
      */
     private float maximumChargeCurrent;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -101,7 +97,7 @@ public class Battery extends Item {
                    int instantaneousDischargeRate, int maxChargingRate, float voltage, float recommendedChargingCurrent,
                    float maximumChargeCurrent, float weight, float length, float width, float thickness, String connector,
                    int wireNumber, int wireLength) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.capacity = capacity;
         this.dischargeRate = dischargeRate;
         this.instantaneousDischargeRate = instantaneousDischargeRate;
@@ -109,7 +105,6 @@ public class Battery extends Item {
         this.voltage = voltage;
         this.recommendedChargingCurrent = recommendedChargingCurrent;
         this.maximumChargeCurrent = maximumChargeCurrent;
-        this.weight = weight;
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -249,25 +244,6 @@ public class Battery extends Item {
     public void setMaximumChargeCurrent(String maximumChargeCurrent) {
         if (!maximumChargeCurrent.equals(""))
             this.maximumChargeCurrent = Float.parseFloat(maximumChargeCurrent);
-    }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
     }
 
     /**

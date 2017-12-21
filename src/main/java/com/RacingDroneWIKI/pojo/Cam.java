@@ -13,10 +13,6 @@ public class Cam extends Item implements Integratable {
      */
     private boolean useAlone;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -130,9 +126,8 @@ public class Cam extends Item implements Integratable {
                boolean integratedMic, String snRatio, String electronicShutterSpeed, boolean autoGainControl,
                boolean backLightCompensation, String minIllumination, String wdr, String dnr, String dayNight,
                String inputVoltages, String housingMasterial) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.useAlone = useAlone;
-        this.weight = weight;
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -179,24 +174,6 @@ public class Cam extends Item implements Integratable {
         this.useAlone = useAlone;
     }
 
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
 
     /**
      * Gets length.

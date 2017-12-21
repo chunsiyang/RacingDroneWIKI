@@ -17,10 +17,6 @@ public class PowerHub extends Item implements Integratable {
      */
     private float mountingHoleSpacing;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -78,10 +74,9 @@ public class PowerHub extends Item implements Integratable {
                     LinkedList<String> extraPictures, String caption, boolean useAlone, float mountingHoleSpacing, float weight,
                     float length, float width, float thickness, boolean bec5v, boolean bec9v, boolean bec12v, int maxCurrent,
                     String pinDefinitionDiagram) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.useAlone = useAlone;
         this.mountingHoleSpacing = mountingHoleSpacing;
-        this.weight = weight;
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -135,26 +130,6 @@ public class PowerHub extends Item implements Integratable {
         if (!mountingHoleSpacing.equals(""))
             this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
     }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
-
     /**
      * Gets length.
      *

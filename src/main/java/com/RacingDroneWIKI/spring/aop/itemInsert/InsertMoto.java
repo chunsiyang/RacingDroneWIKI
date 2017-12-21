@@ -1,4 +1,4 @@
-package com.RacingDroneWIKI.spring.aop;
+package com.RacingDroneWIKI.spring.aop.itemInsert;
 
 import com.RacingDroneWIKI.pojo.EfficacyChart;
 import com.RacingDroneWIKI.pojo.Moto;

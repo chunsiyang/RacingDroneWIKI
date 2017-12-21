@@ -9,10 +9,6 @@ import java.util.LinkedList;
  */
 public class Antenna extends Item {
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -67,8 +63,7 @@ public class Antenna extends Item {
     public Antenna(String model, String imgUrl, int referencePrice, String anufacturer,
                    LinkedList<String> extraPictures, String caption, float weight, float length, String connectors,
                    String frequency, float gain, float axialRatic, String polarization) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-        this.weight = weight;
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.length = length;
         this.connectors = connectors;
         this.frequency = frequency;
@@ -76,30 +71,6 @@ public class Antenna extends Item {
         this.axialRatic = axialRatic;
         this.polarization = polarization;
     }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-	/*public void setLength(float length) {
-        this.length = length;
-	}*/
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
-
     /**
      * Gets length.
      *

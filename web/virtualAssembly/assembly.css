@@ -1,0 +1,136 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+section{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding-top: 10px;
+    background-color: silver;
+}
+#assemblyTable{
+    display: table;
+    width: 100%;
+}
+.tableRow{
+    display: table-row;
+}
+.left ,.right{
+    display: table-cell;
+    width: 50%;
+}
+.droneInfo{
+    width: 100%;
+    text-align: left;
+}
+.droneInfo h4{
+    text-align: left;
+    padding-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.droneInfo p{
+    padding-left: 40px;
+}
+.droneInfo textarea{
+    height: 120px;
+    width: 95%;
+    resize:none;
+}
+.droneInfo textarea p{
+    color: red;
+}
+.device{
+    height: 150px;
+    width: auto;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.device p{
+    text-align: left;
+    padding: 5px;
+    margin:0px;
+}
+.device a{
+    text-decoration: none;
+    width: 100%;
+    height: auto;
+}
+.deviceInfo{
+    text-align: center;
+    height:120px;
+}
+.device a p {
+    padding: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+.class{
+     border-radius: 5px;
+     margin: 10px;
+     padding: 10px;
+}
+.device table{
+    width: 100%;
+}
+.device table td,.device table p {
+    text-align: center;
+}
+.deviceInfoBut{
+    cursor: pointer;
+}
+
+.device img{
+    margin: auto;
+    height: 110px;
+    width: 110px;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+}
+.device .imgTd{
+    width: 120px;
+}
+.class h4{
+    text-align: left;
+    margin:15px;
+}
+#dynamic .device{
+    background-color: palevioletred;
+}
+#dynamic .deviceInfo:hover ,#dynamic,#dynamic .deviceInfoBut:hover{
+    background-color: thistle;
+}
+#dynamic .device img{
+    border-color: thistle;
+}
+#imageSys .device{
+    background-color: burlywood;
+}
+#imageSys .deviceInfo:hover ,#imageSys,#imageSys .deviceInfoBut:hover{
+    background-color:  navajowhite;
+}
+#imageSys .device img{
+    border-color: navajowhite;
+}
+#controller .device{
+    background-color: deepskyblue;
+}
+#controller .deviceInfo:hover ,#controller,#controller .deviceInfoBut:hover{
+    background-color: lightskyblue;
+}
+#controller .device img{
+    border-color: lightskyblue;
+}
+#frame .device{
+    background-color: gray;
+}
+#frame .deviceInfo:hover ,#frame,#frame .deviceInfoBut:hover{
+    background-color: darkgray;
+}
+#frame .device img{
+     border-color: darkgray;
+ }

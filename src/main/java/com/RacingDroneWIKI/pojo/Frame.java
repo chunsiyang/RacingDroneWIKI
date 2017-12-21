@@ -13,10 +13,6 @@ public class Frame extends Item {
      */
     private int wheekBase;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 飞控安装孔距
      */
     private float fcMountingHoleSpacing;
@@ -78,9 +74,8 @@ public class Frame extends Item {
                  String caption, int wheekBase, float weight, float fcMountingHoleSpacing, PowerHub integratedPh,
                  boolean integratedLed, String camraAdjustingAngle, String material, int maximumSupportProp,
                  float bottomThickness, float roofThickness, float armThickness) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.wheekBase = wheekBase;
-        this.weight = weight;
         this.fcMountingHoleSpacing = fcMountingHoleSpacing;
         this.integratedPh = integratedPh;
         this.integratedLed = integratedLed;
@@ -117,26 +112,6 @@ public class Frame extends Item {
         if (!wheekBase.equals(""))
             this.wheekBase = Integer.parseInt(wheekBase);
     }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
-
     /**
      * Gets fc mounting hole spacing.
      *

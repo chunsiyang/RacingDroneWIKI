@@ -12,13 +12,15 @@ html,body{
     font-family: sans-serif;
     font-weight: 900;
 }
-#dataInput{
+
+#virtualAssembly,#dataInput{
     text-decoration: none;
     color: wheat;
     float: right;
     margin: 10px;
     clear: left;
 }
+
 #main{
     background-color: deepskyblue;
     background-size: cover;

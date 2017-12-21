@@ -21,8 +21,13 @@ public class Item {
      */
     private int referencePrice;
     /**
+     * 重量
+     */
+    private float weight;
+    /**
      * 制造商
      */
+
     private String anufacturer;
     /**
      * 额外图片
@@ -44,7 +49,7 @@ public class Item {
      * @param caption        the caption
      */
     public Item(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
-                String caption) {
+                String caption,float weight) {
         super();
         this.model = model;
         this.imgUrl = imgUrl;
@@ -52,15 +57,19 @@ public class Item {
         this.anufacturer = anufacturer;
         this.extraPictures = extraPictures;
         this.caption = caption;
+        this.weight=weight;
     }
 
     /**
      * Instantiates a new Item.
      */
-    public Item() {
-        super();
+    public Item() {}
+    public float getWeight() {
+        return weight;
     }
-
+    public void setWeight(String weight) {
+        this.weight =weight.equals("")?0:Float.parseFloat(weight);
+    }
     /**
      * Gets model.
      *

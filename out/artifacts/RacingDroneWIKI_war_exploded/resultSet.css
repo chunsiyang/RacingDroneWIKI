@@ -27,6 +27,17 @@ a{
 .listItem:hover{
     background-color: lightgray;
 }
+.assemblyAdd{
+    width: 50px;
+}
+.assemblyAdd:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+.assemblyAdd a{
+    text-decoration: none;
+    color: black;
+}
 .list{
     border-collapse: collapse;
     width: 80%;
@@ -58,4 +69,36 @@ body div{
     display: inline;
     margin: 20px;
     font-size: 20px;
+}
+
+#assemblySearchBar {
+    font-size: 0px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+#assemblySearch{
+    background-color: lightgray;
+    width: 50%;
+    height: 48px;
+    border: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+#assemblySearchButton:hover ,.item:hover{
+    background-color: lightskyblue;
+    border-color: lightskyblue;
+    color: white;
+}
+#assemblySearchButton{
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+    padding: 0px;
+    background-color: cornflowerblue;
+    color: white;
+    border:none;
+    -webkit-appearance: none;
+
 }

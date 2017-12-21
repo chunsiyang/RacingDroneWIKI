@@ -17,10 +17,6 @@ public class Prop extends Item {
      */
     private String size;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 安装孔距
      */
     private float mountingHoleSpacing;
@@ -46,10 +42,9 @@ public class Prop extends Item {
      */
     public Prop(String model, String imgUrl, int referencePrice, String anufacturer, LinkedList<String> extraPictures,
                 String caption, int bladeNumber, String size, float weight, float mountingHoleSpacing, String material) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.bladeNumber = bladeNumber;
         this.size = size;
-        this.weight = weight;
         this.mountingHoleSpacing = mountingHoleSpacing;
         this.material = material;
     }
@@ -97,26 +92,6 @@ public class Prop extends Item {
     public void setSize(String size) {
         this.size = size;
     }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
-
     /**
      * Gets mounting hole spacing.
      *

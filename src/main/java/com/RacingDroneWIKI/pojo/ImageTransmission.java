@@ -13,10 +13,6 @@ public class ImageTransmission extends Item implements Integratable {
      */
     private boolean useAlone;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -135,9 +131,8 @@ public class ImageTransmission extends Item implements Integratable {
                              boolean powerAdjustable, String outputPower, String inputVoltage, String outputVoltage,
                              String antennaConnectors, String videoBandWidth, String audioCarrierFrequency, String videoInputLevel,
                              String audioInputLevel, String audioInputImpedance, String pinDefinitionDiagram, String frequencyTable) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.useAlone = useAlone;
-        this.weight = weight;
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -183,25 +178,6 @@ public class ImageTransmission extends Item implements Integratable {
      */
     public void setUseAlone(boolean useAlone) {
         this.useAlone = useAlone;
-    }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
     }
 
     /**

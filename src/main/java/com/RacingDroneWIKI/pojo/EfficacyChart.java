@@ -170,7 +170,7 @@ public class EfficacyChart {
      *
      * @param voltages the voltages
      */
-    public void setVoltages(int voltages) {
+    public void setVoltages(float voltages) {
         this.voltages = voltages;
     }
 

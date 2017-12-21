@@ -4,7 +4,7 @@
     <resultMap id="detail" type="com.RacingDroneWIKI.pojo.ImageTransmission" autoMapping="true">
         <result property="model" column="model"/>
         <association property="cam" column="inter_cam" select="com.RacingDroneWIKI.dao.CamDao.findDetail"/>
-        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPictures.getExtPic"/>
+        <collection property="extraPictures" column="model" select="com.RacingDroneWIKI.dao.ExtraPicturesDao.getExtPic"/>
     </resultMap>
     <select id="findDetail" parameterType="string" resultMap="detail">
         SELECT * FROM image_transmission WHERE model=#{model};

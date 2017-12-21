@@ -8,6 +8,7 @@
 <body>
 <section id="main" >
     <a id="dataInput" href="itemInsert/dataInput">数据录入</a>
+    <a id="virtualAssembly" href="virtualAssembly">虚拟装机</a>
     <h1>竞速无人机资料库</h1>
     <form id="searchBar" method="get" action="/search_1">
         <input id="search" type="text" name="searchModel" placeholder="  输入设备型号搜索...">

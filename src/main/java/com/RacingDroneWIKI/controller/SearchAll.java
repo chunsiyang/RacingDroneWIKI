@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -52,7 +53,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/moto_{page}")
-    public String motoList(Model model, @PathVariable(value = "page") int page) {
+    public String motoList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Moto> list = motoService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -74,7 +76,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/electroSpeedRegulator_{page}")
-    public String electroSpeedRegulatorList(Model model, @PathVariable(value = "page") int page) {
+    public String electroSpeedRegulatorList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<ElectroSpeedRegulator> list = electroSpeedRegulatorServiicer.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -96,7 +99,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/frame_{page}")
-    public String frameList(Model model, @PathVariable(value = "page") int page) {
+    public String frameList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Frame> list = frameService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -118,7 +122,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/imageTransmission_{page}")
-    public String imageTransmissionList(Model model, @PathVariable(value = "page") int page) {
+    public String imageTransmissionList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<ImageTransmission> list = imageTransmissionService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -140,7 +145,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/cam_{page}")
-    public String camList(Model model, @PathVariable(value = "page") int page) {
+    public String camList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Cam> list = camService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -162,7 +168,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/flightControl_{page}")
-    public String flightControlList(Model model, @PathVariable(value = "page") int page) {
+    public String flightControlList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<FlightControl> list = flightControlService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -184,7 +191,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/antenna_{page}")
-    public String antennaList(Model model, @PathVariable(value = "page") int page) {
+    public String antennaList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Antenna> list = antennaService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -206,7 +214,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/powerHub_{page}")
-    public String powerHubList(Model model, @PathVariable(value = "page") int page) {
+    public String powerHubList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<PowerHub> list = powerHubService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -228,7 +237,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/prop_{page}")
-    public String propList(Model model, @PathVariable(value = "page") int page) {
+    public String propList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Prop> list = propService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
@@ -250,7 +260,8 @@ public class SearchAll {
      * @return the URI string
      */
     @RequestMapping(value = "/battery_{page}")
-    public String batteryList(Model model, @PathVariable(value = "page") int page) {
+    public String batteryList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+        request.getSession().invalidate();
         List<Battery> list = batteryService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;

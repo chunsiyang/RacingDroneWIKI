@@ -9,10 +9,6 @@ import java.util.LinkedList;
  */
 public class FlightControl extends Item {
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 长度
      */
     private float length;
@@ -109,8 +105,7 @@ public class FlightControl extends Item {
                          float mountingHoleSpacing, String mcu, String mpu, boolean sdcard, boolean bootButton, boolean osd,
                          boolean buzzer, int maxPidLoopFrequancy, int maxGyroUpdata, ElectroSpeedRegulator esc, PowerHub powerHub,
                          ImageTransmission imageTransmission, String pinDefintionDiagram) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
-        this.weight = weight;
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.length = length;
         this.width = width;
         this.thickness = thickness;
@@ -135,26 +130,6 @@ public class FlightControl extends Item {
     public FlightControl() {
         super();
     }
-
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
-
     /**
      * Gets length.
      *

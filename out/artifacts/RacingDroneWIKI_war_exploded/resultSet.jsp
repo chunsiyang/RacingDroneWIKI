@@ -9,8 +9,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="headNav.css">
-    <link type="text/css" rel="stylesheet" href="resultSet.css">
+    <link type="text/css" rel="stylesheet" href="/headNav.css">
+    <link type="text/css" rel="stylesheet" href="/resultSet.css">
+    <script type="text/javascript" src="/javaScript/Post.js"></script>
     <title>竞速无人机资料库</title>
 </head>
 <body>
@@ -27,19 +28,27 @@
                 propList.size()==0&&batteryList.size()==0}">
         <p id="noInfo">暂无搜索结果</p>
     </C:if>
+
+    <!-- 模拟装机搜索框-->
+    <C:if test="${sessionScope.drone!=null}">
+        <form id="assemblySearchBar" method="get" action="${uri}1${searchModel}">
+            <input id="assemblySearch" type="text" name="searchModel" placeholder="  输入设备型号搜索..." value="${param.searchModel}">
+            <input id="assemblySearchButton" type="submit" value="搜索">
+        </form>
+    </C:if>
     <!--无刷电机-->
     <section>
         <C:if test="${motoList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>无刷电机</h2></th>
+                <th colspan="2"><h2>无刷电机</h2></th>
                 <C:forEach items="${motoList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/moto/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/moto/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -82,9 +91,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{moto :'${item.model}'});">
+                                    <div>
+                                        <p>添加</p>
+                                    </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -97,15 +113,15 @@
     <section>
         <C:if test="${electroSpeedRegulatorList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>电子调速器</h2></th>
+                <th colspan="2"><h2>电子调速器</h2></th>
                 <C:forEach items="${electroSpeedRegulatorList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/esc/'+encodeURIComponent('${item.getModel()}');+'.'" title="点击查看详情" >
+                            <a href="javascript:location.href='/detail/esc/'+encodeURIComponent('${item.getModel()}');+'.'" title="点击查看详情" >
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -148,9 +164,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{electroSpeedRegulator :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -162,15 +185,15 @@
     <section>
         <C:if test="${frameList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>机架</h2></th>
+                <th colspan="2"><h2>机架</h2></th>
                 <C:forEach items="${frameList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/frame/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/frame/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -213,9 +236,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{frame :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -228,15 +258,15 @@
     <section>
         <C:if test="${imageTransmissionList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>图传</h2></th>
+                <th colspan="2"><h2>图传</h2></th>
                 <C:forEach items="${imageTransmissionList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/it/'+encodeURIComponent('${item.model}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/it/'+encodeURIComponent('${item.model}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -279,9 +309,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{imageTransmission :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -294,15 +331,15 @@
     <section>
         <C:if test="${camList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>摄像头</h2></th>
+                <th colspan="2"><h2>摄像头</h2></th>
                 <C:forEach items="${camList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/cam/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/cam/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -344,9 +381,16 @@
                                 </table>
                             </a>
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{cam :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -359,15 +403,15 @@
     <section>
         <C:if test="${flightControlList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>飞控</h2></th>
+                <th colspan="2"><h2>飞控</h2></th>
                 <C:forEach items="${flightControlList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/fc/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/fc/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -410,9 +454,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{flightControl :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -425,15 +476,15 @@
     <section>
         <C:if test="${antennaList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>天线</h2></th>
+                <th colspan="2"><h2>天线</h2></th>
                 <C:forEach items="${antennaList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/antenna/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/antenna/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="4" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -476,9 +527,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{antenna :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -491,15 +549,15 @@
     <section>
         <C:if test="${powerHubList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>分电板</h2></th>
+                <th colspan="2"><h2>分电板</h2></th>
                 <C:forEach items="${powerHubList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/powerHub/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/powerHub/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -531,9 +589,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{powerHub :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -546,15 +611,15 @@
     <section>
         <C:if test="${propList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>桨叶</h2></th>
+                <th colspan="2"><h2>桨叶</h2></th>
                 <C:forEach items="${propList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/prop/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/prop/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -586,9 +651,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{prop :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>
@@ -601,15 +673,15 @@
     <section>
         <C:if test="${batteryList.size()>0}">
             <table BORDER="1" cellspacing="0" class="list">
-                <th><h2>电池</h2></th>
+                <th colspan="2"><h2>电池</h2></th>
                 <C:forEach items="${batteryList}" var="item">
                     <tr>
                         <td>
-                            <a href="javascript:location.href='detail/battery/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
+                            <a href="javascript:location.href='/detail/battery/'+encodeURIComponent('${item.getModel()}.');" title="点击查看详情">
                                 <table BORDER="1" cellspacing="0" class="listItem">
                                     <tr>
                                         <td rowspan="3" class="tdImg">
-                                            <img src="img/${item.getImgUrl()}" class="mainImg"/>
+                                            <img src="/img/${item.getImgUrl()}" class="mainImg"/>
                                         </td>
                                         <td colspan="3">
                                             <h4><changKW:KeywordDiscoloration keyWord="${param.searchModel}" title="${item.model}"/></h4>
@@ -641,9 +713,16 @@
                             </a>
 
                         </td>
+                        <C:if test="${sessionScope.drone!=null}">
+                            <td class="assemblyAdd" onclick="post('/virtualAssembly',{battery :'${item.model}'});">
+                                <div>
+                                    <p>添加</p>
+                                </div>
+                            </td>
+                        </C:if>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <br>
                         </td>
                     </tr>

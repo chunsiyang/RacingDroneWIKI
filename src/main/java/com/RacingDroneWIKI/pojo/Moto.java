@@ -22,10 +22,6 @@ public class Moto extends Item {
      */
     private float idleCurrent;
     /**
-     * 重量
-     */
-    private float weight;
-    /**
      * 直径
      */
     private float diameter;
@@ -89,11 +85,10 @@ public class Moto extends Item {
                 String caption, float statorLength, float shaftDiameter, float idleCurrent, float weight, float diameter,
                 float length, String noOfCells, int maxThrust, int kv, String propeller, float statorDiameter,
                 int internalReslstance, List<EfficacyChart> efficacyChart) {
-        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption);
+        super(model, imgUrl, referencePrice, anufacturer, extraPictures, caption,weight);
         this.statorLength = statorLength;
         this.shaftDiameter = shaftDiameter;
         this.idleCurrent = idleCurrent;
-        this.weight = weight;
         this.diameter = diameter;
         this.length = length;
         this.noOfCells = noOfCells;
@@ -188,24 +183,6 @@ public class Moto extends Item {
             this.idleCurrent = Float.parseFloat(idleCurrent);
     }
 
-    /**
-     * Gets weight.
-     *
-     * @return the weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * Sets weight.
-     *
-     * @param weight the weight
-     */
-    public void setWeight(String weight) {
-        if (!weight.equals(""))
-            this.weight = Float.parseFloat(weight);
-    }
 
     /**
      * Gets diameter.
