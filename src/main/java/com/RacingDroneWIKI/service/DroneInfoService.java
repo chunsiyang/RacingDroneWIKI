@@ -2,6 +2,7 @@ package com.RacingDroneWIKI.service;
 
 import com.RacingDroneWIKI.pojo.Drone;
 import com.RacingDroneWIKI.pojo.EfficacyChart;
+import com.RacingDroneWIKI.pojo.Frame;
 import com.RacingDroneWIKI.pojo.Item;
 import jdk.nashorn.internal.runtime.arrays.IteratorAction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class DroneInfoService {
         updataThrustWeightRatio(drone);
         droneAssemblyInfoService.updataAssemblyInfo(drone);
     }
+    private float getMaterialWeight(int wheekBase){
+        if (wheekBase<100)
+            return 10;
+        if (wheekBase<130)
+            return 20;
+        return 30;
+    }
 
     private float getPrice(Item item) {
         return item != null ? item.getReferencePrice() : 0;
@@ -50,6 +58,7 @@ public class DroneInfoService {
         if (drone.getElectroSpeedRegulator() != null)
             weight += drone.getElectroSpeedRegulator().isFourInone() ? getWeight(drone.getElectroSpeedRegulator())
                     : getWeight(drone.getElectroSpeedRegulator()) * 4;
+        weight+=getMaterialWeight(drone.getFrame().getWheekBase());
         drone.setTotalWeight(weight);
     }
 
