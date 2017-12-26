@@ -2,6 +2,6 @@ com.RacingDroneWIKI.controller
 com.RacingDroneWIKI.dao
 com.RacingDroneWIKI.pojo
 com.RacingDroneWIKI.service
-com.RacingDroneWIKI.spring.aop
+com.RacingDroneWIKI.spring.aop.itemInsert
 com.RacingDroneWIKI.spring.config
 com.RacingDroneWIKI.taglibs

@@ -34,7 +34,11 @@ public class DroneInfoService {
         updataThrustWeightRatio(drone);
         droneAssemblyInfoService.updataAssemblyInfo(drone);
     }
-    private float getMaterialWeight(int wheekBase){
+    private float getMaterialWeight(Frame frame){
+        if (frame==null){
+            return 0;
+        }
+        int wheekBase=frame.getWheekBase();
         if (wheekBase<100)
             return 10;
         if (wheekBase<130)
@@ -58,7 +62,7 @@ public class DroneInfoService {
         if (drone.getElectroSpeedRegulator() != null)
             weight += drone.getElectroSpeedRegulator().isFourInone() ? getWeight(drone.getElectroSpeedRegulator())
                     : getWeight(drone.getElectroSpeedRegulator()) * 4;
-        weight+=getMaterialWeight(drone.getFrame().getWheekBase());
+        weight+=getMaterialWeight(drone.getFrame());
         drone.setTotalWeight(weight);
     }
 
