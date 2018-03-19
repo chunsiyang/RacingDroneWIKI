@@ -1,7 +1,5 @@
 package com.RacingDroneWIKI.taglibs;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import javax.servlet.jsp.JspContext;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -42,7 +40,7 @@ public class BoolToString extends SimpleTagSupport {
         super.doTag();
         JspContext context=getJspContext();
         JspWriter out=context.getOut();
-        if(bool.equals("true"))
+        if("true".equals(bool))
         {
             out.print("支持");
         }

@@ -26,6 +26,7 @@ public class UpdataUtil {
      * The constant FREQUENCYTABLE. 频率表  供外部使用的图片类型常量
      */
     public static final String  FREQUENCYTABLE="_fre";//频率表
+    private static final String IMG = "/img/";
 
     /**
      * Insert img string. 上传主图片
@@ -44,13 +45,13 @@ public class UpdataUtil {
             //文件夹地址
             String filepath=getPath(request);
             //存储路径
-            String path=request.getSession().getServletContext().getRealPath("/img/"+filepath);
+            String path=request.getSession().getServletContext().getRealPath(IMG +filepath);
             //原始文件名
             String filename=img.getOriginalFilename();
             //utf-8重编码型号名
-            String name=this.utf8Decode(item.getModel());
+            String name= utf8Decode(item.getModel());
             //合成完整文件名
-            filename=name+filename.substring(filename.lastIndexOf("."));
+            filename=name+filename.substring(filename.lastIndexOf('.'));
             File file = new File(path, filename);
             img.transferTo(file);
             item.setImgUrl(filepath+filename);
@@ -74,7 +75,7 @@ public class UpdataUtil {
         //文件夹地址
         String filepath=getPath(request);
         //存储路径
-        String path=request.getSession().getServletContext().getRealPath("/img/"+filepath);
+        String path=request.getSession().getServletContext().getRealPath(IMG +filepath);
         //返回值
         LinkedList<String> list=new LinkedList();
         for (int i = 0; i < img.length; i++) {
@@ -83,9 +84,9 @@ public class UpdataUtil {
                 //原始文件名
                 String filename=img[i].getOriginalFilename();
                 //utf-8重编码型号名
-                String name=this.utf8Decode(item.getModel());
+                String name= utf8Decode(item.getModel());
                 //合成完整文件名
-                filename=name+"_ep"+i+filename.substring(filename.lastIndexOf("."));
+                filename=name+"_ep"+i+filename.substring(filename.lastIndexOf('.'));
                 File file = new File(path, filename);
                 img[i].transferTo(file);
                 list.add(filepath+filename);
@@ -111,14 +112,14 @@ public class UpdataUtil {
         //文件夹地址
         String filepath=getPath(request);
         //存储路径
-        String path=request.getSession().getServletContext().getRealPath("/img/"+filepath);
+        String path=request.getSession().getServletContext().getRealPath(IMG +filepath);
         //原始文件名
         String filename=img.getOriginalFilename();
         //utf-8重编码型号名
-        String name=this.utf8Decode(item.getModel());
+        String name= utf8Decode(item.getModel());
         //合成完整文件名
         if (!img.isEmpty()){
-            filename=name+type+filename.substring(filename.lastIndexOf("."));
+            filename=name+type+filename.substring(filename.lastIndexOf('.'));
             File file = new File(path, filename);
             img.transferTo(file);
             return filepath+filename;
@@ -142,26 +143,36 @@ public class UpdataUtil {
     //路径辅助函数
     private static String getPath(HttpServletRequest request){
         String uri=request.getRequestURI().toString();
-        if(uri.equals("/itemInsert/InsertAnt"))
+        if("/itemInsert/InsertAnt".equals(uri)) {
             return "ant/";
-        if(uri.equals("/itemInsert/InsertMoto"))
+        }
+        if("/itemInsert/InsertMoto".equals(uri)) {
             return "moto/";
-        if(uri.equals("/itemInsert/Esc"))
+        }
+        if("/itemInsert/Esc".equals(uri)) {
             return "esc/";
-        if(uri.equals("/itemInsert/InsertFra"))
+        }
+        if("/itemInsert/InsertFra".equals(uri)) {
             return "fra/";
-        if(uri.equals("/itemInsert/InsertFc"))
+        }
+        if("/itemInsert/InsertFc".equals(uri)) {
             return "fc/";
-        if(uri.equals("/itemInsert/InsertCam"))
+        }
+        if("/itemInsert/InsertCam".equals(uri)) {
             return "cam/";
-        if(uri.equals("/itemInsert/InsertPh"))
+        }
+        if("/itemInsert/InsertPh".equals(uri)) {
             return "ph/";
-        if(uri.equals("/itemInsert/InsertIt"))
+        }
+        if("/itemInsert/InsertIt".equals(uri)) {
             return "it/";
-        if(uri.equals("/itemInsert/InsertProp"))
+        }
+        if("/itemInsert/InsertProp".equals(uri)) {
             return "prop/";
-        if(uri.equals("/itemInsert/InsertBat"))
+        }
+        if("/itemInsert/InsertBat".equals(uri)) {
             return "bat/";
+        }
         return null;
     }
 

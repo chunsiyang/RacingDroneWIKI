@@ -122,8 +122,9 @@ public class Moto extends Item {
      * @param statorLength the stator length
      */
     public void setStatorLength(String statorLength) {
-        if (!statorLength.equals(""))
+        if (!"".equals(statorLength)) {
             this.statorLength = Float.parseFloat(statorLength);
+        }
     }
 
     /**
@@ -141,8 +142,9 @@ public class Moto extends Item {
      * @param statorDiameter the stator diameter
      */
     public void setStatorDiameter(String statorDiameter) {
-        if (!statorDiameter.equals(""))
+        if (!"".equals(statorDiameter)) {
             this.statorDiameter = Float.parseFloat(statorDiameter);
+        }
     }
 
     /**
@@ -160,8 +162,9 @@ public class Moto extends Item {
      * @param shaftDiameter the shaft diameter
      */
     public void setShaftDiameter(String shaftDiameter) {
-        if (!shaftDiameter.equals(""))
+        if (!"".equals(shaftDiameter)) {
             this.shaftDiameter = Float.parseFloat(shaftDiameter);
+        }
     }
 
     /**
@@ -179,8 +182,9 @@ public class Moto extends Item {
      * @param idleCurrent the idle current
      */
     public void setIdleCurrent(String idleCurrent) {
-        if (!idleCurrent.equals(""))
+        if (!"".equals(idleCurrent)) {
             this.idleCurrent = Float.parseFloat(idleCurrent);
+        }
     }
 
 
@@ -199,8 +203,9 @@ public class Moto extends Item {
      * @param diameter the diameter
      */
     public void setDiameter(String diameter) {
-        if (!diameter.equals(""))
+        if (!"".equals(diameter)) {
             this.diameter = Float.parseFloat(diameter);
+        }
     }
 
     /**
@@ -218,8 +223,9 @@ public class Moto extends Item {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!"".equals(length)) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -255,8 +261,9 @@ public class Moto extends Item {
      * @param maxThrust the max thrust
      */
     public void setMaxThrust(String maxThrust) {
-        if (!maxThrust.equals(""))
+        if (!"".equals(maxThrust)) {
             this.maxThrust = Integer.parseInt(maxThrust);
+        }
     }
 
     /**
@@ -274,8 +281,9 @@ public class Moto extends Item {
      * @param kv the kv
      */
     public void setKv(String kv) {
-        if (!kv.equals(""))
+        if (!"".equals(kv)) {
             this.kv = Integer.parseInt(kv);
+        }
     }
 
     /**
@@ -311,8 +319,9 @@ public class Moto extends Item {
      * @param internalReslstance the internal reslstance
      */
     public void setInternalReslstance(String internalReslstance) {
-        if (!internalReslstance.equals(""))
+        if (!"".equals(internalReslstance)) {
             this.internalReslstance = Integer.parseInt(internalReslstance);
+        }
     }
 
     /**

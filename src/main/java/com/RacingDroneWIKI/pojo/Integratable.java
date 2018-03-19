@@ -7,7 +7,7 @@ package com.RacingDroneWIKI.pojo;
  */
 public interface Integratable {
     /**
-     * The constant useAlone.
+     * The constant USE_AlONE.
      */
-    boolean useAlone = true;
+    boolean USE_AlONE = true;
 }

@@ -39,10 +39,12 @@ public class DroneInfoService {
             return 0;
         }
         int wheekBase=frame.getWheekBase();
-        if (wheekBase<100)
+        if (wheekBase<100) {
             return 10;
-        if (wheekBase<130)
+        }
+        if (wheekBase<130) {
             return 20;
+        }
         return 30;
     }
 
@@ -59,9 +61,10 @@ public class DroneInfoService {
         weight = getWeight(drone.getAntenna()) + getWeight(drone.getCam()) + getWeight(drone.getImageTransmission()) +
                 getWeight(drone.getFlightControl()) + getWeight(drone.getPowerHub()) + getWeight(drone.getMoto()) * 4 +
                 getWeight(drone.getProp()) + getWeight(drone.getBattery()) + getWeight(drone.getFrame());
-        if (drone.getElectroSpeedRegulator() != null)
+        if (drone.getElectroSpeedRegulator() != null) {
             weight += drone.getElectroSpeedRegulator().isFourInone() ? getWeight(drone.getElectroSpeedRegulator())
                     : getWeight(drone.getElectroSpeedRegulator()) * 4;
+        }
         weight+=getMaterialWeight(drone.getFrame());
         drone.setTotalWeight(weight);
     }
@@ -71,9 +74,10 @@ public class DroneInfoService {
         price = getPrice(drone.getAntenna()) + getPrice(drone.getCam()) + getPrice(drone.getImageTransmission()) +
                 getPrice(drone.getFlightControl()) + getPrice(drone.getPowerHub()) + getPrice(drone.getMoto()) * 4 +
                 getPrice(drone.getProp()) + getPrice(drone.getBattery()) + getPrice(drone.getFrame());
-        if (drone.getElectroSpeedRegulator() != null)
+        if (drone.getElectroSpeedRegulator() != null) {
             price += drone.getElectroSpeedRegulator().isFourInone() ? getPrice(drone.getElectroSpeedRegulator())
                     : getPrice(drone.getElectroSpeedRegulator()) * 4;
+        }
         drone.setTotalPrice(price);
     }
 
@@ -84,25 +88,27 @@ public class DroneInfoService {
      * @return the match efficacy chart
      */
     public EfficacyChart getMatchEfficacyChart(Drone drone) {
-        if (drone.getMoto() == null || drone.getProp() == null || drone.getBattery() == null)
+        if (drone.getMoto() == null || drone.getProp() == null || drone.getBattery() == null) {
             return null;
+        }
         List<EfficacyChart> efficacyChartList = drone.getMoto().getEfficacyChart();
         Iterator<EfficacyChart> efficacyChartIterator = efficacyChartList.iterator();
         EfficacyChart matchEfficacyChart = null;
         while (efficacyChartIterator.hasNext()) {
             EfficacyChart efficacyChart = efficacyChartIterator.next();
             //如果有符合的桨型信息
-            if (efficacyChart.getProp().equals(drone.getProp().getSize())) {
-                if (efficacyChart.getVoltages() == drone.getBattery().getVoltage()) {
-                    matchEfficacyChart = efficacyChart;
-                    break;
-                }
+            if (efficacyChart.getProp().equals(drone.getProp().getSize())
+                    &&efficacyChart.getVoltages() == drone.getBattery().getVoltage()) {
+                matchEfficacyChart = efficacyChart;
+                break;
+
             }
             //没有符合的桨型使用桨尺寸匹配
-            else if (efficacyChart.getProp().charAt(0) == drone.getProp().getSize().charAt(0)) {
-                if (efficacyChart.getVoltages() == drone.getBattery().getVoltage()) {
-                    matchEfficacyChart = efficacyChart;
-                }
+            else if (efficacyChart.getProp().charAt(0) == drone.getProp().getSize().charAt(0)
+                    &&efficacyChart.getVoltages() == drone.getBattery().getVoltage()) {
+
+                matchEfficacyChart = efficacyChart;
+
             }
         }
         return matchEfficacyChart;
@@ -119,8 +125,9 @@ public class DroneInfoService {
 
     private void updataThrustWeightRatio(Drone drone) {
         float thrustWeightRatio = 0;
-        if (drone.getMaximumThrust() == 0)
+        if (drone.getMaximumThrust() == 0) {
             return;
+        }
         if (drone.getTotalWeight() != 0 && drone.getMaximumThrust() != 0) {
             thrustWeightRatio = drone.getMaximumThrust() / drone.getTotalWeight();
         }

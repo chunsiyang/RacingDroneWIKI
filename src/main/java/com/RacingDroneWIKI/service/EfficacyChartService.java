@@ -22,29 +22,34 @@ public class EfficacyChartService implements EfficacyChartDao {
     @Autowired
     private EfficacyChartDao efficacyChartDao;
 
+    @Override
     public int addEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.addEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public int deleteEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.deleteEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public int updataEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.updataEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public List<EfficacyChart> findByModel(String model) {
         List<EfficacyChart> res;
         res = efficacyChartDao.findByModel(model);
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 

@@ -190,8 +190,9 @@ public class Cam extends Item implements Integratable {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!"".equals(length)) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -209,8 +210,9 @@ public class Cam extends Item implements Integratable {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals(""))
+        if (!"".equals(width)) {
             this.width = Float.parseFloat(width);
+        }
     }
 
     /**
@@ -228,8 +230,9 @@ public class Cam extends Item implements Integratable {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals(""))
+        if (!"".equals(thickness)) {
             this.thickness = Float.parseFloat(thickness);
+        }
     }
 
     /**
@@ -265,8 +268,9 @@ public class Cam extends Item implements Integratable {
      * @param horizontalResolustion the horizontal resolustion
      */
     public void setHorizontalResolustion(String horizontalResolustion) {
-        if (!horizontalResolustion.equals(""))
+        if (!"".equals(horizontalResolustion)) {
             this.horizontalResolustion = Integer.parseInt(horizontalResolustion);
+        }
     }
 
     /**
@@ -284,8 +288,9 @@ public class Cam extends Item implements Integratable {
      * @param lensFov the lens fov
      */
     public void setLensFov(String lensFov) {
-        if (!lensFov.equals(""))
+        if (!"".equals(lensFov)) {
             this.lensFov = Integer.parseInt(lensFov);
+        }
     }
 
     /**

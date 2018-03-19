@@ -19,6 +19,8 @@ import java.util.List;
  */
 @Controller
 public class SearchAll {
+    private static final String PAGES = "pages";
+    private static final String RESULT_SET = "resultSet";
     private final int PAGENUMBER = 10;
     private int pages;
     private int first;
@@ -61,10 +63,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/moto_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("motoList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -84,10 +86,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/electroSpeedRegulator_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("electroSpeedRegulatorList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -107,10 +109,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/frame_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("frameList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -130,10 +132,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/imageTransmission_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("imageTransmissionList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -153,10 +155,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/cam_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("camList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -176,10 +178,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/flightControl_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("flightControlList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -190,19 +192,19 @@ public class SearchAll {
      * @param page  the page 当前页号
      * @return the URI string
      */
-    @RequestMapping(value = "/antenna_{page}")
-    public String antennaList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
-        request.getSession().invalidate();
-        List<Antenna> list = antennaService.findAll();
+        @RequestMapping(value = "/antenna_{page}")
+        public String antennaList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
+            request.getSession().invalidate();
+            List<Antenna> list = antennaService.findAll();
         pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/antenna_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("antennaList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -222,10 +224,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/powerHub_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("powerHubList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -245,10 +247,10 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/prop_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("propList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 
     /**
@@ -268,9 +270,9 @@ public class SearchAll {
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/battery_");
-        model.addAttribute("pages", pages);
+        model.addAttribute(PAGES, pages);
         model.addAttribute("page", page);
         model.addAttribute("batteryList", list);
-        return "resultSet";
+        return RESULT_SET;
     }
 }
