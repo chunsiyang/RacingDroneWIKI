@@ -25,11 +25,11 @@ import java.io.IOException;
 @Controller
 @RequestMapping(value = "/itemInsert/")
 public class InsertItem {
-    public static final String ITEM_INSERT_INSERT_SUCCESSED = "itemInsert/InsertSuccessed";
-    public static final String IMAGE_TRANSMISSION = "imageTransmission";
-    public static final String FRAME = "frame";
-    public static final String FLIGHT_CONTROL = "flightControl";
-    public static final String ITEM_INSERT_FC_INTERGRAT = "itemInsert/FcIntergrat";
+    private static final String ITEM_INSERT_INSERT_SUCCESSED = "itemInsert/InsertSuccessed";
+    private static final String IMAGE_TRANSMISSION = "imageTransmission";
+    private static final String FRAME = "frame";
+    private static final String FLIGHT_CONTROL = "flightControl";
+    private static final String ITEM_INSERT_FC_INTERGRAT = "itemInsert/FcIntergrat";
     @Autowired
     private AntennaService antennaService;
     @Autowired
