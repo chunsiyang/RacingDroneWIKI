@@ -42,6 +42,7 @@ public class InsertFra {
             powerHub.setModel(frame.getModel());
             frame.setIntegratedPh(powerHub);
             powerHubService.addPowerHub(powerHub);
+
         }
     }
 }
