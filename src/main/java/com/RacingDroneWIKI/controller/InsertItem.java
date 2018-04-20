@@ -284,7 +284,7 @@ public class InsertItem {
     }
 
     /**
-     * 响应飞控录入秦桂青
+     * 响应飞控录入请求
      * Insert fc string.
      *
      * @param session the HTTP servlet session
