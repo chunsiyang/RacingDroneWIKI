@@ -4,14 +4,10 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.context.WebApplicationContext;
 
 /** 
 * InsertImg Tester. 
@@ -21,31 +17,19 @@ import org.springframework.web.context.WebApplicationContext;
 * @version 1.0 
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {com.RacingDroneWIKI.text.spring.config.RootConfig.class})
-@WebAppConfiguration
+@ContextConfiguration(classes = {com.RacingDroneWIKI.spring.config.RootConfig.class})
 @Transactional
 public class InsertImgTest {
     private static MockMvc mockMvc;
-    @Autowired
-    private WebApplicationContext wac;
 @Before
 public void before() throws Exception {
-    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 } 
 
 @After
 public void after() throws Exception { 
 } 
 
-/** 
-* 
-* Method: itemImg(Item item, HttpServletRequest request, MultipartFile mainImg, MultipartFile[] files) 
-* 
-*/ 
-@Test
-public void testItemImg() throws Exception { 
-//TODO: Test goes here... 
-} 
+
 
 /** 
 * 

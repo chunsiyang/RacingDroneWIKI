@@ -1,8 +1,8 @@
 package com.RacingDroneWIKI.text.controller;
 
 import com.RacingDroneWIKI.pojo.*;
-import com.RacingDroneWIKI.text.spring.config.RootConfig;
-import com.RacingDroneWIKI.text.spring.config.WebConfig;
+import com.RacingDroneWIKI.spring.config.RootConfig;
+import com.RacingDroneWIKI.spring.config.WebConfig;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

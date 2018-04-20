@@ -1,6 +1,7 @@
 package com.RacingDroneWIKI.text.service;
 
 import com.RacingDroneWIKI.pojo.Antenna;
+import com.RacingDroneWIKI.service.AntennaService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,7 @@ import java.util.List;
  * @since 4, 19, 2018
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {com.RacingDroneWIKI.text.spring.config.RootConfig.class})
+@ContextConfiguration(classes = {com.RacingDroneWIKI.spring.config.RootConfig.class})
 @Transactional
 public class AntennaServiceTest {
     @Autowired

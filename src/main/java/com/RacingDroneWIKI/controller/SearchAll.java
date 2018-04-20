@@ -19,10 +19,10 @@ import java.util.List;
  */
 @Controller
 public class SearchAll {
-    private static final String PAGES = "pages";
+    private static final String PAGES = "page";
     private static final String RESULT_SET = "resultSet";
     private final int PAGENUMBER = 10;
-    private int pages;
+    private int page;
     private int first;
     private int last;
     @Autowired
@@ -58,12 +58,12 @@ public class SearchAll {
     public String motoList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<Moto> list = motoService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/moto_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("motoList", list);
         return RESULT_SET;
@@ -81,12 +81,12 @@ public class SearchAll {
     public String electroSpeedRegulatorList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<ElectroSpeedRegulator> list = electroSpeedRegulatorServiicer.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/electroSpeedRegulator_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("electroSpeedRegulatorList", list);
         return RESULT_SET;
@@ -104,12 +104,12 @@ public class SearchAll {
     public String frameList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<Frame> list = frameService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/frame_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("frameList", list);
         return RESULT_SET;
@@ -127,12 +127,12 @@ public class SearchAll {
     public String imageTransmissionList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<ImageTransmission> list = imageTransmissionService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/imageTransmission_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("imageTransmissionList", list);
         return RESULT_SET;
@@ -150,12 +150,12 @@ public class SearchAll {
     public String camList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<Cam> list = camService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/cam_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("camList", list);
         return RESULT_SET;
@@ -173,12 +173,12 @@ public class SearchAll {
     public String flightControlList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<FlightControl> list = flightControlService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/flightControl_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("flightControlList", list);
         return RESULT_SET;
@@ -196,12 +196,12 @@ public class SearchAll {
         public String antennaList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
             request.getSession().invalidate();
             List<Antenna> list = antennaService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/antenna_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("antennaList", list);
         return RESULT_SET;
@@ -219,12 +219,12 @@ public class SearchAll {
     public String powerHubList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<PowerHub> list = powerHubService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/powerHub_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("powerHubList", list);
         return RESULT_SET;
@@ -242,12 +242,12 @@ public class SearchAll {
     public String propList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<Prop> list = propService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/prop_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("propList", list);
         return RESULT_SET;
@@ -265,12 +265,12 @@ public class SearchAll {
     public String batteryList(Model model, @PathVariable(value = "page") int page,HttpServletRequest request) {
         request.getSession().invalidate();
         List<Battery> list = batteryService.findAll();
-        pages = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
+        this.page = list.size() % PAGENUMBER != 0 ? list.size() / PAGENUMBER + 1 : list.size() / PAGENUMBER;
         first = (page - 1) * PAGENUMBER;
         last = list.size() > (first + PAGENUMBER) ? first + PAGENUMBER : list.size();
         list = list.subList(first, last);
         model.addAttribute("uri", "/battery_");
-        model.addAttribute(PAGES, pages);
+        model.addAttribute(PAGES, this.page);
         model.addAttribute("page", page);
         model.addAttribute("batteryList", list);
         return RESULT_SET;

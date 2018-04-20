@@ -1,5 +1,7 @@
 package com.RacingDroneWIKI.text.controller;
 
+import com.RacingDroneWIKI.spring.config.RootConfig;
+import com.RacingDroneWIKI.spring.config.WebConfig;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,6 +20,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 /**
  * InsertItem Tester.
  *
@@ -26,14 +31,15 @@ import org.springframework.web.context.WebApplicationContext;
  * @since <pre> 4, 20, 2018</pre>
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {com.RacingDroneWIKI.text.spring.config.RootConfig.class})
+@ContextConfiguration(classes = {RootConfig.class, WebConfig.class})
 @WebAppConfiguration
 @Transactional
 public class InsertItemTest {
     private static MockMvc mockMvc;
+    private final String REQUERST_MAP = "/itemInsert/";
     @Autowired
     private WebApplicationContext wac;
-    private final String REQUERST_MAP = "/itemInsert/";
+
     @Before
     public void before() throws Exception {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
@@ -50,7 +56,7 @@ public class InsertItemTest {
     public void testDataInput() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(REQUERST_MAP + "dataInput"))
                 .andDo(MockMvcResultHandlers.print())
-                .andExpect(MockMvcResultMatchers.forwardedUrl("itemInsert/dataInput"))
+                .andExpect(MockMvcResultMatchers.forwardedUrl("/itemInsert/dataInput.jsp"))
                 .andReturn();
         Assert.assertTrue(result.getRequest().getSession().isNew());
     }

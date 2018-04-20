@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,10 +77,11 @@ public class InsertItem {
      * @throws IOException the io exception
      */
     @RequestMapping(value = "InsertAnt", method = RequestMethod.POST)
-    public String insertAnt(Antenna antenna, HttpServletRequest request,
+    public String insertAnt(Model model, Antenna antenna, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
-        antennaService.addAntenna(antenna);
+        //antennaService.addAntenna(antenna);
+        model.addAttribute("files",files);
         return ITEM_INSERT_INSERT_SUCCESSED;
     }
 

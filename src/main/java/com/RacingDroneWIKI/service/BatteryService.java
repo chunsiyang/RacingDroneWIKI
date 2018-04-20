@@ -4,11 +4,8 @@ import java.util.*;
 
 import com.RacingDroneWIKI.dao.BatteryDao;
 import com.RacingDroneWIKI.pojo.Battery;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.xml.ws.Action;
 
 /**
  * The type Battery service.电池数据库相关服务
