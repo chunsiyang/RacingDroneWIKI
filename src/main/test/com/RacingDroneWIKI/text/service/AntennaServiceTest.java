@@ -2,6 +2,7 @@ package com.RacingDroneWIKI.text.service;
 
 import com.RacingDroneWIKI.pojo.Antenna;
 import com.RacingDroneWIKI.service.AntennaService;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +45,8 @@ public class AntennaServiceTest {
         antenna.setModel("spring test");
         int res = antennaService.addAntenna(antenna);
         org.junit.Assert.assertEquals(1,res);
+        Logger log = Logger.getLogger(AntennaServiceTest.class);
+        log.debug("12344132123");
 
     }
 
