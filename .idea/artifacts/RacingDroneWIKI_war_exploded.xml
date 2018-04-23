@@ -8,8 +8,6 @@
           <element id="module-output" name="RacingDroneWIKI" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="org.thymeleaf:thymeleaf:Release" />
-          <element id="library" level="project" name="org.thymeleaf:thymeleaf-spring4:Release" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.42" />
