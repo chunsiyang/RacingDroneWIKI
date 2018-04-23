@@ -24,41 +24,49 @@ public class ElectroSpeedRegulatorService implements ElectroSpeedRegulatorDao {
     @Autowired
     private ElectroSpeedRegulatorDao electroSpeedRegulatorDao;
 
+    @Override
     public int addElectroSpeedRegulato(ElectroSpeedRegulator esc) {
         int res = 0;
         res = electroSpeedRegulatorDao.addElectroSpeedRegulato(esc);
         return res;
     }
 
+    @Override
     public int deleteElectroSpeedRegulato(ElectroSpeedRegulator esc) {
         int res = 0;
         res = electroSpeedRegulatorDao.deleteElectroSpeedRegulato(esc);
         return res;
     }
 
+    @Override
     public int updataElectroSpeedRegulato(ElectroSpeedRegulator esc) {
         int res = 0;
         res = electroSpeedRegulatorDao.updataElectroSpeedRegulato(esc);
         return res;
     }
 
+    @Override
     public List<ElectroSpeedRegulator> findAll() {
         List<ElectroSpeedRegulator> res;
         SqlSession sqlSession = null;
         res = electroSpeedRegulatorDao.findAll();
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 
+    @Override
     public List<ElectroSpeedRegulator> findByModel(String model) {
         List<ElectroSpeedRegulator> res;
         res = electroSpeedRegulatorDao.findByModel(model);
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 
+    @Override
     public ElectroSpeedRegulator findDetail(String model) {
         ElectroSpeedRegulator res;
         res = electroSpeedRegulatorDao.findDetail(model);

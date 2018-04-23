@@ -176,8 +176,9 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      * @param persistentCurrent the persistent current
      */
     public void setPersistentCurrent(String persistentCurrent) {
-        if (!persistentCurrent.equals(""))
+        if (!persistentCurrent.equals("")) {
             this.persistentCurrent = Integer.parseInt(persistentCurrent);
+        }
     }
 
     /**
@@ -195,8 +196,9 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      * @param instantaneousCurrent the instantaneous current
      */
     public void setInstantaneousCurrent(String instantaneousCurrent) {
-        if (!instantaneousCurrent.equals(""))
+        if (!instantaneousCurrent.equals("")) {
             this.instantaneousCurrent = Integer.parseInt(instantaneousCurrent);
+        }
     }
 
     /**
@@ -250,8 +252,9 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!length.equals("")) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -269,8 +272,9 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals(""))
+        if (!width.equals("")) {
             this.width = Float.parseFloat(width);
+        }
     }
 
     /**
@@ -288,8 +292,9 @@ public class ElectroSpeedRegulator extends Item implements Integratable {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals(""))
+        if (!thickness.equals("")) {
             this.thickness = Float.parseFloat(thickness);
+        }
     }
 
     /**

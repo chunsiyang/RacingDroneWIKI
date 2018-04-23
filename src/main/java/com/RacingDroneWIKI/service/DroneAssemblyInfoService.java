@@ -39,8 +39,9 @@ public class DroneAssemblyInfoService {
     private void escCurrent(Drone drone) {
         String key = "escCurrent", value;
         EfficacyChart efficacyChart = droneInfoService.getMatchEfficacyChart(drone);
-        if (efficacyChart == null || drone.getElectroSpeedRegulator() == null)
+        if (efficacyChart == null || drone.getElectroSpeedRegulator() == null) {
             return;
+        }
         if (efficacyChart.getFullLoadCurrency() > drone.getElectroSpeedRegulator().getInstantaneousCurrent()) {
             value = "\"" + drone.getElectroSpeedRegulator().getModel() + "\"瞬时耐流能力为" +
                     drone.getElectroSpeedRegulator().getInstantaneousCurrent() + "A,小于\""
@@ -53,12 +54,14 @@ public class DroneAssemblyInfoService {
     private void batteryCurrent(Drone drone) {
         String key = "batteryCurrent", value;
         EfficacyChart efficacyChart = droneInfoService.getMatchEfficacyChart(drone);
-        if (efficacyChart == null || drone.getBattery() == null)
+        if (efficacyChart == null || drone.getBattery() == null) {
             return;
+        }
         Battery battery = drone.getBattery();
         //电池信息不全
-        if (battery.getCapacity() == 0 || battery.getDischargeRate() == 0)
+        if (battery.getCapacity() == 0 || battery.getDischargeRate() == 0) {
             return;
+        }
         float disChargeRate;
         disChargeRate = battery.getInstantaneousDischargeRate() != 0 ?
                 battery.getInstantaneousDischargeRate() : battery.getDischargeRate();

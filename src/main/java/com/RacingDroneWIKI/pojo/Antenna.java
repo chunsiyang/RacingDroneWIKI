@@ -86,8 +86,9 @@ public class Antenna extends Item {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!length.equals("")) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -149,8 +150,9 @@ public class Antenna extends Item {
      * @param gain the gain
      */
     public void setGain(String gain) {
-        if (!gain.equals(""))
+        if (!gain.equals("")) {
             this.gain = Float.parseFloat(gain);
+        }
     }
 
     /**
@@ -168,8 +170,9 @@ public class Antenna extends Item {
      * @param axialRatic the axial ratic
      */
     public void setAxialRatic(String axialRatic) {
-        if (!axialRatic.equals(""))
+        if (!axialRatic.equals("")) {
             this.axialRatic = Float.parseFloat(axialRatic);
+        }
     }
 
     /**

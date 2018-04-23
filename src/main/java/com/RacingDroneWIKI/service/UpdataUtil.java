@@ -48,7 +48,7 @@ public class UpdataUtil {
             //原始文件名
             String filename=img.getOriginalFilename();
             //utf-8重编码型号名
-            String name=this.utf8Decode(item.getModel());
+            String name= utf8Decode(item.getModel());
             //合成完整文件名
             filename=name+filename.substring(filename.lastIndexOf("."));
             File file = new File(path, filename);
@@ -83,7 +83,7 @@ public class UpdataUtil {
                 //原始文件名
                 String filename=img[i].getOriginalFilename();
                 //utf-8重编码型号名
-                String name=this.utf8Decode(item.getModel());
+                String name= utf8Decode(item.getModel());
                 //合成完整文件名
                 filename=name+"_ep"+i+filename.substring(filename.lastIndexOf("."));
                 File file = new File(path, filename);
@@ -115,7 +115,7 @@ public class UpdataUtil {
         //原始文件名
         String filename=img.getOriginalFilename();
         //utf-8重编码型号名
-        String name=this.utf8Decode(item.getModel());
+        String name= utf8Decode(item.getModel());
         //合成完整文件名
         if (!img.isEmpty()){
             filename=name+type+filename.substring(filename.lastIndexOf("."));
@@ -142,26 +142,36 @@ public class UpdataUtil {
     //路径辅助函数
     private static String getPath(HttpServletRequest request){
         String uri=request.getRequestURI().toString();
-        if(uri.equals("/itemInsert/InsertAnt"))
+        if(uri.equals("/itemInsert/InsertAnt")) {
             return "ant/";
-        if(uri.equals("/itemInsert/InsertMoto"))
+        }
+        if(uri.equals("/itemInsert/InsertMoto")) {
             return "moto/";
-        if(uri.equals("/itemInsert/Esc"))
+        }
+        if(uri.equals("/itemInsert/Esc")) {
             return "esc/";
-        if(uri.equals("/itemInsert/InsertFra"))
+        }
+        if(uri.equals("/itemInsert/InsertFra")) {
             return "fra/";
-        if(uri.equals("/itemInsert/InsertFc"))
+        }
+        if(uri.equals("/itemInsert/InsertFc")) {
             return "fc/";
-        if(uri.equals("/itemInsert/InsertCam"))
+        }
+        if(uri.equals("/itemInsert/InsertCam")) {
             return "cam/";
-        if(uri.equals("/itemInsert/InsertPh"))
+        }
+        if(uri.equals("/itemInsert/InsertPh")) {
             return "ph/";
-        if(uri.equals("/itemInsert/InsertIt"))
+        }
+        if(uri.equals("/itemInsert/InsertIt")) {
             return "it/";
-        if(uri.equals("/itemInsert/InsertProp"))
+        }
+        if(uri.equals("/itemInsert/InsertProp")) {
             return "prop/";
-        if(uri.equals("/itemInsert/InsertBat"))
+        }
+        if(uri.equals("/itemInsert/InsertBat")) {
             return "bat/";
+        }
         return null;
     }
 

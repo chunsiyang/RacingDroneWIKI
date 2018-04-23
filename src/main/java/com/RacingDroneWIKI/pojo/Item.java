@@ -121,8 +121,9 @@ public class Item {
      * @param referencePrice the reference price
      */
     public void setReferencePrice(String referencePrice) {
-        if (!referencePrice.equals(""))
+        if (!referencePrice.equals("")) {
             this.referencePrice = Integer.parseInt(referencePrice);
+        }
     }
 
     /**

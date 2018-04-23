@@ -127,8 +127,9 @@ public class PowerHub extends Item implements Integratable {
      * @param mountingHoleSpacing the mounting hole spacing
      */
     public void setMountingHoleSpacing(String mountingHoleSpacing) {
-        if (!mountingHoleSpacing.equals(""))
+        if (!mountingHoleSpacing.equals("")) {
             this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
+        }
     }
     /**
      * Gets length.
@@ -145,8 +146,9 @@ public class PowerHub extends Item implements Integratable {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!length.equals("")) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -164,8 +166,9 @@ public class PowerHub extends Item implements Integratable {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals(""))
+        if (!width.equals("")) {
             this.width = Float.parseFloat(width);
+        }
     }
 
     /**
@@ -183,8 +186,9 @@ public class PowerHub extends Item implements Integratable {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals(""))
+        if (!thickness.equals("")) {
             this.thickness = Float.parseFloat(thickness);
+        }
     }
 
     /**
@@ -256,8 +260,9 @@ public class PowerHub extends Item implements Integratable {
      * @param maxCurrent the max current
      */
     public void setMaxCurrent(String maxCurrent) {
-        if (!maxCurrent.equals(""))
+        if (!maxCurrent.equals("")) {
             this.maxCurrent = Integer.parseInt(maxCurrent);
+        }
     }
 
     /**
