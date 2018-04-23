@@ -3,7 +3,9 @@ package com.RacingDroneWIKI.text.service;
 import com.RacingDroneWIKI.pojo.Antenna;
 import com.RacingDroneWIKI.service.AntennaService;
 import org.apache.log4j.Logger;
+import org.apache.tools.ant.taskdefs.Ant;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,11 +27,14 @@ import java.util.List;
 @ContextConfiguration(classes = {com.RacingDroneWIKI.spring.config.RootConfig.class})
 @Transactional
 public class AntennaServiceTest {
+    private Antenna testAnt=new Antenna();
     @Autowired
     AntennaService antennaService;
 
     @Before
     public void before() throws Exception {
+        testAnt.setModel("123");
+        testAnt.setCaption("using for test");
     }
 
     @After
@@ -55,7 +60,9 @@ public class AntennaServiceTest {
      */
     @Test
     public void testDeleteAntenna() throws Exception {
-//TODO: Test goes here... 
+        antennaService.deleteAntenna(
+                antennaService.findDetail(testAnt.getModel()));
+        Assert.assertNull(antennaService.findDetail(testAnt.getModel()));
     }
 
     /**
@@ -63,7 +70,13 @@ public class AntennaServiceTest {
      */
     @Test
     public void testUpdatAantenna() throws Exception {
-//TODO: Test goes here... 
+        antennaService.addAntenna(testAnt);
+        Antenna antenna=antennaService.findDetail(testAnt.getModel());
+        antenna.setCaption("123123");
+        antennaService.updatAantenna(antenna);
+        Assert.assertEquals(antennaService.findDetail(
+                testAnt.getModel()).getCaption(),
+                "123123");
     }
 
     /**
@@ -71,7 +84,9 @@ public class AntennaServiceTest {
      */
     @Test
     public void testFindDetail() throws Exception {
-//TODO: Test goes here... 
+        antennaService.addAntenna(testAnt);
+        Antenna antenna=antennaService.findDetail(testAnt.getModel());
+        Assert.assertTrue(antenna.getCaption().equals(testAnt.getCaption()));
     }
 
     /**
@@ -79,7 +94,6 @@ public class AntennaServiceTest {
      */
     @Test
     public void testFindAll() throws Exception {
-        //TODO: Test goes here...
         List<Antenna> res = antennaService.findAll();
         org.junit.Assert.assertNotNull(res);
     }
@@ -89,7 +103,8 @@ public class AntennaServiceTest {
      */
     @Test
     public void testFindByModel() throws Exception {
-//TODO: Test goes here... 
+        List<Antenna> res = antennaService.findAll();
+        Assert.assertNotNull(res);
     }
 
 
