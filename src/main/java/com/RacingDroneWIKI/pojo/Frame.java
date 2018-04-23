@@ -109,9 +109,8 @@ public class Frame extends Item {
      * @param wheekBase the wheek base
      */
     public void setWheekBase(String wheekBase) {
-        if (!wheekBase.equals("")) {
+        if (!wheekBase.equals(""))
             this.wheekBase = Integer.parseInt(wheekBase);
-        }
     }
     /**
      * Gets fc mounting hole spacing.
@@ -128,9 +127,8 @@ public class Frame extends Item {
      * @param fcMountingHoleSpacing the fc mounting hole spacing
      */
     public void setFcMountingHoleSpacing(String fcMountingHoleSpacing) {
-        if (!fcMountingHoleSpacing.equals("")) {
+        if (!fcMountingHoleSpacing.equals(""))
             this.fcMountingHoleSpacing = Float.parseFloat(fcMountingHoleSpacing);
-        }
     }
 
     /**
@@ -220,9 +218,8 @@ public class Frame extends Item {
      * @param maximumSupportProp the maximum support prop
      */
     public void setMaximumSupportProp(String maximumSupportProp) {
-        if (!maximumSupportProp.equals("")) {
+        if (!maximumSupportProp.equals(""))
             this.maximumSupportProp = Integer.parseInt(maximumSupportProp);
-        }
     }
 
     /**
@@ -240,9 +237,8 @@ public class Frame extends Item {
      * @param bottomThickness the bottom thickness
      */
     public void setBottomThickness(String bottomThickness) {
-        if (!bottomThickness.equals("")) {
+        if (!bottomThickness.equals(""))
             this.bottomThickness = Float.parseFloat(bottomThickness);
-        }
     }
 
     /**
@@ -260,9 +256,8 @@ public class Frame extends Item {
      * @param roofThickness the roof thickness
      */
     public void setRoofThickness(String roofThickness) {
-        if (!roofThickness.equals("")) {
+        if (!roofThickness.equals(""))
             this.roofThickness = Float.parseFloat(roofThickness);
-        }
     }
 
     /**
@@ -280,9 +275,8 @@ public class Frame extends Item {
      * @param armThickness the arm thickness
      */
     public void setArmThickness(String armThickness) {
-        if (!armThickness.equals("")) {
+        if (!armThickness.equals(""))
             this.armThickness = Float.parseFloat(armThickness);
-        }
     }
 
 }

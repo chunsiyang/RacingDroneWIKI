@@ -88,36 +88,26 @@ public class Search {
                            List<Prop> propList, List<Battery> batteryList)
 
     {
-        if (motoService.findByModel(model)!=null) {
+        if (motoService.findByModel(model)!=null)
             motoList.addAll(motoService.findByModel(model));
-        }
-        if (electroSpeedRegulatorService.findByModel(model)!=null) {
+        if (electroSpeedRegulatorService.findByModel(model)!=null)
             electroSpeedRegulatorList.addAll(electroSpeedRegulatorService.findByModel(model));
-        }
-        if (frameService.findByModel(model)!=null) {
+        if (frameService.findByModel(model)!=null)
             frameList.addAll(frameService.findByModel(model));
-        }
-        if (imageTransmissionService.findByModel(model)!=null) {
+        if (imageTransmissionService.findByModel(model)!=null)
             imageTransmissionList.addAll(imageTransmissionService.findByModel(model));
-        }
-        if (camService.findByModel(model)!=null) {
+        if (camService.findByModel(model)!=null)
             camList.addAll(camService.findByModel(model));
-        }
-        if (flightControlService.findByModel(model)!=null) {
+        if (flightControlService.findByModel(model)!=null)
             flightControlList.addAll(flightControlService.findByModel(model));
-        }
-        if (antennaService.findByModel(model)!=null) {
+        if (antennaService.findByModel(model)!=null)
             antennaList.addAll(antennaService.findByModel(model));
-        }
-        if (powerHubService.findByModel(model)!=null) {
+        if (powerHubService.findByModel(model)!=null)
             powerHubList.addAll(powerHubService.findByModel(model));
-        }
-        if (propService.findByModel(model)!=null) {
+        if (propService.findByModel(model)!=null)
             propList.addAll(propService.findByModel(model));
-        }
-        if (batteryService.findByModel(model)!=null) {
+        if (batteryService.findByModel(model)!=null)
             batteryList.addAll(batteryService.findByModel(model));
-        }
         return 0;
     }
 }

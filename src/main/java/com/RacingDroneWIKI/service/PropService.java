@@ -22,44 +22,37 @@ public class PropService implements PropDao {
     @Autowired
     private PropDao propDao;
 
-    @Override
     public int addProp(Prop prop) {
         int res = 0;
         res = propDao.addProp(prop);
         return res;
     }
 
-    @Override
     public int deleteProp(Prop prop) {
         int res = 0;
         res = propDao.deleteProp(prop);
         return res;
     }
 
-    @Override
     public int updataProp(Prop prop) {
         int res = 0;
         res = propDao.updataProp(prop);
         return res;
     }
 
-    @Override
     public List<Prop> findAll() {
         List<Prop> res;
         res = propDao.findAll();
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 
-    @Override
     public List<Prop> findByModel(String model) {
         List<Prop> res;
         res = propDao.findByModel(model);
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 

@@ -24,48 +24,40 @@ public class BatteryService implements BatteryDao {
     @Autowired
     private BatteryDao batteryDao;
 
-    @Override
     public int addBattery(Battery battery) {
         int res = 0;
         res = batteryDao.addBattery(battery);
         return res;
     }
 
-    @Override
     public int deleteBattery(Battery battery) {
         int res = 0;
         res = batteryDao.deleteBattery(battery);
         return res;
     }
 
-    @Override
     public int updataBattery(Battery battery) {
         int res = 0;
         res = batteryDao.updataBattery(battery);
         return res;
     }
 
-    @Override
     public List<Battery> findAll() {
         List<Battery> res;
         res = batteryDao.findAll();
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 
-    @Override
     public List<Battery> findByModel(String model) {
         List<Battery> res;
         res = batteryDao.findByModel(model);
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 
-    @Override
     public Battery findDetail(String model) {
         Battery res;
         res = batteryDao.findDetail(model);

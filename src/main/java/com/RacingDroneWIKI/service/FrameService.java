@@ -22,14 +22,12 @@ public class FrameService implements FrameDao {
     @Autowired
     private FrameDao frameDao;
 
-    @Override
     public int addFrame(Frame fra) {
         int res = 0;
         res = frameDao.addFrame(fra);
         return res;
     }
 
-    @Override
     public int deleteFrame(Frame fra) {
         int res = 0;
         res = frameDao.deleteFrame(fra);
@@ -37,34 +35,28 @@ public class FrameService implements FrameDao {
         return res;
     }
 
-    @Override
     public int updataFrame(Frame fra) {
         int res = 0;
         res = frameDao.updataFrame(fra);
         return res;
     }
 
-    @Override
     public List<Frame> findAll() {
         List<Frame> res;
         res = frameDao.findAll();
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 
-    @Override
     public List<Frame> findByModel(String model) {
         List<Frame> res;
         res = frameDao.findByModel(model);
-        if (res.isEmpty()) {
+        if (res.isEmpty())
             return null;
-        }
         return res;
     }
 
-    @Override
     public Frame findDetail(String model) {
         Frame res;
         res = frameDao.findDetail(model);

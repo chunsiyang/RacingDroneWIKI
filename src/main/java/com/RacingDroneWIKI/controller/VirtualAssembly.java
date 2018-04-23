@@ -58,43 +58,37 @@ public class VirtualAssembly {
     @RequestMapping(value = "")
     public String mainPage(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        if (session.getAttribute("drone") == null) {
+        if (session.getAttribute("drone") == null)
             session.setAttribute("drone", new Drone());
-        }
         Drone drone = (Drone) session.getAttribute("drone");
         if (request.getParameter("moto") != null) {
-            if (request.getParameter("moto").equals("null")) {
+            if (request.getParameter("moto").equals("null"))
                 drone.setMoto(null);
-            } else {
+            else
                 drone.setMoto(motoService.findDetail(request.getParameter("moto")));
-            }
         }
         if (request.getParameter("electroSpeedRegulator") != null) {
-            if (request.getParameter("electroSpeedRegulator").equals("null")) {
+            if (request.getParameter("electroSpeedRegulator").equals("null"))
                 drone.setElectroSpeedRegulator(null);
-            } else {
+            else
                 drone.setElectroSpeedRegulator(electroSpeedRegulatorService.findDetail(request.getParameter("electroSpeedRegulator")));
-            }
         }
         if (request.getParameter("prop") != null) {
-            if (request.getParameter("prop").equals("null")) {
+            if (request.getParameter("prop").equals("null"))
                 drone.setProp(null);
-            } else {
+            else
                 drone.setProp(propService.findDetail(request.getParameter("prop")));
-            }
         }
         if (request.getParameter("battery") != null) {
-            if (request.getParameter("battery").equals("null")) {
+            if (request.getParameter("battery").equals("null"))
                 drone.setBattery(null);
-            } else {
+            else
                 drone.setBattery(batteryService.findDetail(request.getParameter("battery")));
-            }
         }
         if (request.getParameter("imageTransmission") != null) {
             if (request.getParameter("imageTransmission").equals("null")) {
-                if (drone.getCam() != null && drone.getImageTransmission().getCam() != null && drone.getImageTransmission().getCam().getModel().equals(drone.getCam().getModel())) {
+                if (drone.getCam() != null && drone.getImageTransmission().getCam() != null && drone.getImageTransmission().getCam().getModel().equals(drone.getCam().getModel()))
                     drone.setCam(null);
-                }
                 drone.setImageTransmission(null);
             } else {
                 drone.setImageTransmission(imageTransmissionService.findDetail(request.getParameter("imageTransmission")));
@@ -107,24 +101,21 @@ public class VirtualAssembly {
             }
         }
         if (request.getParameter("cam") != null) {
-            if (request.getParameter("cam").equals("null")) {
+            if (request.getParameter("cam").equals("null"))
                 drone.setCam(null);
-            } else {
+            else
                 drone.setCam(camService.findDetail(request.getParameter("cam")));
-            }
         }
         if (request.getParameter("antenna") != null) {
-            if (request.getParameter("antenna").equals("null")) {
+            if (request.getParameter("antenna").equals("null"))
                 drone.setAntenna(null);
-            } else {
+            else
                 drone.setAntenna(antennaService.findDetail(request.getParameter("antenna")));
-            }
         }
         if (request.getParameter("frame") != null) {
             if (request.getParameter("frame").equals("null")) {
-                if (drone.getPowerHub() != null && drone.getFrame().getIntegratedPh() != null && drone.getFrame().getIntegratedPh().getModel().equals(drone.getPowerHub().getModel())) {
+                if (drone.getPowerHub() != null && drone.getFrame().getIntegratedPh() != null && drone.getFrame().getIntegratedPh().getModel().equals(drone.getPowerHub().getModel()))
                     drone.setPowerHub(null);
-                }
                 drone.setFrame(null);
             } else {
                 drone.setFrame(frameService.findDetail(request.getParameter("frame")));
@@ -138,15 +129,12 @@ public class VirtualAssembly {
         }
         if (request.getParameter("flightControl") != null) {
             if (request.getParameter("flightControl").equals("null")) {
-                if (drone.getElectroSpeedRegulator() != null && drone.getFlightControl().getEsc() != null && drone.getFlightControl().getEsc().getModel().equals(drone.getElectroSpeedRegulator().getModel())) {
+                if (drone.getElectroSpeedRegulator() != null && drone.getFlightControl().getEsc() != null && drone.getFlightControl().getEsc().getModel().equals(drone.getElectroSpeedRegulator().getModel()))
                     drone.setElectroSpeedRegulator(null);
-                }
-                if (drone.getPowerHub() != null && drone.getFlightControl().getPowerHub() != null && drone.getFlightControl().getPowerHub().getModel().equals(drone.getPowerHub().getModel())) {
+                if (drone.getPowerHub() != null && drone.getFlightControl().getPowerHub() != null && drone.getFlightControl().getPowerHub().getModel().equals(drone.getPowerHub().getModel()))
                     drone.setPowerHub(null);
-                }
-                if (drone.getImageTransmission() != null && drone.getFlightControl().getImageTransmission() != null && drone.getFlightControl().getImageTransmission().getModel().equals(drone.getImageTransmission().getModel())) {
+                if (drone.getImageTransmission() != null && drone.getFlightControl().getImageTransmission() != null && drone.getFlightControl().getImageTransmission().getModel().equals(drone.getImageTransmission().getModel()))
                     drone.setImageTransmission(null);
-                }
                 drone.setFlightControl(null);
             } else {
                 drone.setFlightControl(flightControlService.findDetail(request.getParameter("flightControl")));
@@ -171,11 +159,10 @@ public class VirtualAssembly {
             }
         }
         if (request.getParameter("powerHub") != null) {
-            if (request.getParameter("powerHub").equals("null")) {
+            if (request.getParameter("powerHub").equals("null"))
                 drone.setPowerHub(null);
-            } else {
+            else
                 drone.setPowerHub(powerHubService.findDetail(request.getParameter("powerHub")));
-            }
         }
         droneInfoService.updata(drone);
         session.setAttribute("drone", drone);

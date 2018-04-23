@@ -128,9 +128,8 @@ public class Battery extends Item {
      * @param capacity the capacity
      */
     public void setCapacity(String capacity) {
-        if (!capacity.equals("")) {
+        if (!capacity.equals(""))
             this.capacity = Integer.parseInt(capacity);
-        }
     }
 
     /**
@@ -148,9 +147,8 @@ public class Battery extends Item {
      * @param dischargeRate the discharge rate
      */
     public void setDischargeRate(String dischargeRate) {
-        if (!dischargeRate.equals("")) {
+        if (!dischargeRate.equals(""))
             this.dischargeRate = Integer.parseInt(dischargeRate);
-        }
     }
 
     /**
@@ -168,9 +166,8 @@ public class Battery extends Item {
      * @param instantaneousDischargeRate the instantaneous discharge rate
      */
     public void setInstantaneousDischargeRate(String instantaneousDischargeRate) {
-        if (!instantaneousDischargeRate.equals("")) {
+        if (!instantaneousDischargeRate.equals(""))
             this.instantaneousDischargeRate = Integer.parseInt(instantaneousDischargeRate);
-        }
     }
 
     /**
@@ -188,9 +185,8 @@ public class Battery extends Item {
      * @param maxChargingRate the max charging rate
      */
     public void setMaxChargingRate(String maxChargingRate) {
-        if (!maxChargingRate.equals("")) {
+        if (!maxChargingRate.equals(""))
             this.maxChargingRate = Integer.parseInt(maxChargingRate);
-        }
     }
 
     /**
@@ -208,9 +204,8 @@ public class Battery extends Item {
      * @param voltage the voltage
      */
     public void setVoltage(String voltage) {
-        if (!voltage.equals("")) {
+        if (!voltage.equals(""))
             this.voltage = Float.parseFloat(voltage);
-        }
     }
 
     /**
@@ -228,9 +223,8 @@ public class Battery extends Item {
      * @param recommendedChargingCurrent the recommended charging current
      */
     public void setRecommendedChargingCurrent(String recommendedChargingCurrent) {
-        if (!recommendedChargingCurrent.equals("")) {
+        if (!recommendedChargingCurrent.equals(""))
             this.recommendedChargingCurrent = Float.parseFloat(recommendedChargingCurrent);
-        }
     }
 
     /**
@@ -248,9 +242,8 @@ public class Battery extends Item {
      * @param maximumChargeCurrent the maximum charge current
      */
     public void setMaximumChargeCurrent(String maximumChargeCurrent) {
-        if (!maximumChargeCurrent.equals("")) {
+        if (!maximumChargeCurrent.equals(""))
             this.maximumChargeCurrent = Float.parseFloat(maximumChargeCurrent);
-        }
     }
 
     /**
@@ -268,9 +261,8 @@ public class Battery extends Item {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals("")) {
+        if (!length.equals(""))
             this.length = Float.parseFloat(length);
-        }
     }
 
     /**
@@ -288,9 +280,8 @@ public class Battery extends Item {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals("")) {
+        if (!width.equals(""))
             this.width = Float.parseFloat(width);
-        }
     }
 
     /**
@@ -308,9 +299,8 @@ public class Battery extends Item {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals("")) {
+        if (!thickness.equals(""))
             this.thickness = Float.parseFloat(thickness);
-        }
     }
 
     /**

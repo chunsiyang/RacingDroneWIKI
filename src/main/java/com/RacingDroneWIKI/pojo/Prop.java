@@ -71,9 +71,8 @@ public class Prop extends Item {
      * @param bladeNumber the blade number
      */
     public void setBladeNumber(String bladeNumber) {
-        if (!bladeNumber.equals("")) {
+        if (!bladeNumber.equals(""))
             this.bladeNumber = Integer.parseInt(bladeNumber);
-        }
     }
 
     /**
@@ -108,9 +107,8 @@ public class Prop extends Item {
      * @param mountingHoleSpacing the mounting hole spacing
      */
     public void setMountingHoleSpacing(String mountingHoleSpacing) {
-        if (!mountingHoleSpacing.equals("")) {
+        if (!mountingHoleSpacing.equals(""))
             this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
-        }
     }
 
     /**
