@@ -11,24 +11,6 @@
         <project.build.sourceEncouding>UTF-8</project.build.sourceEncouding>
     </properties>
     <dependencies>
-        <!---测试-->
-        <dependency>
-            <groupId> junit </groupId>
-            <artifactId> junit </artifactId>
-            <version> RELEASE </version>
-            <scope> test </scope>
-        </dependency>
-        <dependency>
-            <groupId> org.springframework </groupId>
-            <artifactId> spring-test </artifactId>
-            <version> RELEASE </version>
-            <scope> test </scope>
-        </ dependency>
-        <dependency>
-            <groupId> jstl </groupId>
-            <artifactId> jstl </artifactId>
-            <version> 1.2 </version>
-        </ dependency>
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -46,10 +28,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -131,6 +112,11 @@
             <artifactId>spring-test</artifactId>
             <version>4.1.7.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+        </dependency>
         <!-- 4)Spring aop -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -145,17 +131,17 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
-            <version>RELEASE</version>
+            <version>1.8.13</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>RELEASE</version>
+            <version>1.8.13</version>
         </dependency>
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>RELEASE</version>
+            <version>3.2.6</version>
         </dependency>
     </dependencies>
     <build>

@@ -145,8 +145,9 @@ public class FlightControl extends Item {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!"".equals(length)) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -164,8 +165,9 @@ public class FlightControl extends Item {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals(""))
+        if (!"".equals(width)) {
             this.width = Float.parseFloat(width);
+        }
     }
 
     /**
@@ -183,8 +185,9 @@ public class FlightControl extends Item {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals(""))
+        if (!"".equals(thickness)) {
             this.thickness = Float.parseFloat(thickness);
+        }
     }
 
     /**
@@ -202,8 +205,9 @@ public class FlightControl extends Item {
      * @param mountingHoleSpacing the mounting hole spacing
      */
     public void setMountingHoleSpacing(String mountingHoleSpacing) {
-        if (!mountingHoleSpacing.equals(""))
+        if (!"".equals(mountingHoleSpacing)) {
             this.mountingHoleSpacing = Float.parseFloat(mountingHoleSpacing);
+        }
     }
 
     /**
@@ -329,8 +333,9 @@ public class FlightControl extends Item {
      * @param maxPidLoopFrequancy the max pid loop frequancy
      */
     public void setMaxPidLoopFrequancy(String maxPidLoopFrequancy) {
-        if (!maxPidLoopFrequancy.equals(""))
+        if (!"".equals(maxPidLoopFrequancy)) {
             this.maxPidLoopFrequancy = Integer.parseInt(maxPidLoopFrequancy);
+        }
     }
 
     /**
@@ -348,8 +353,9 @@ public class FlightControl extends Item {
      * @param maxGyroUpdata the max gyro updata
      */
     public void setMaxGyroUpdata(String maxGyroUpdata) {
-        if (!maxGyroUpdata.equals(""))
+        if (!"".equals(maxGyroUpdata)) {
             this.maxGyroUpdata = Integer.parseInt(maxGyroUpdata);
+        }
     }
 
     /**

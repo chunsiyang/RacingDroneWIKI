@@ -53,7 +53,7 @@ public class SearchByModel {
         int first;
         int last;
         int size;
-        if (!searchModel.equals("")) {
+        if (!"".equals(searchModel)) {
             search.searchModel(searchModel, motoList, electroSpeedRegulatorList, frameList,
                     imageTransmissionList, camList, flightControlList, antennaList,
                     powerHubList, propList, batteryList);

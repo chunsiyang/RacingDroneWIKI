@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +26,11 @@ import java.io.IOException;
 @Controller
 @RequestMapping(value = "/itemInsert/")
 public class InsertItem {
+    private static final String ITEM_INSERT_INSERT_SUCCESSED = "itemInsert/InsertSuccessed";
+    private static final String IMAGE_TRANSMISSION = "imageTransmission";
+    private static final String FRAME = "frame";
+    private static final String FLIGHT_CONTROL = "flightControl";
+    private static final String ITEM_INSERT_FC_INTERGRAT = "itemInsert/FcIntergrat";
     @Autowired
     private AntennaService antennaService;
     @Autowired
@@ -71,11 +77,12 @@ public class InsertItem {
      * @throws IOException the io exception
      */
     @RequestMapping(value = "InsertAnt", method = RequestMethod.POST)
-    public String insertAnt(Antenna antenna, HttpServletRequest request,
+    public String insertAnt(Model model, Antenna antenna, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
-        antennaService.addAntenna(antenna);
-        return "itemInsert/InsertSuccessed";
+        //antennaService.addAntenna(antenna);
+        model.addAttribute("files",files);
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -94,7 +101,7 @@ public class InsertItem {
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
         batteryService.addBattery(battery);
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -113,7 +120,7 @@ public class InsertItem {
                              @RequestParam("mainImg") MultipartFile mainImg,
                              @RequestParam("files") MultipartFile[] files) throws IOException {
         propService.addProp(prop);
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -132,15 +139,15 @@ public class InsertItem {
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
         HttpSession session = request.getSession();
-        ImageTransmission imageTransmission = (ImageTransmission) session.getAttribute("imageTransmission");
+        ImageTransmission imageTransmission = (ImageTransmission) session.getAttribute(IMAGE_TRANSMISSION);
         if ((imageTransmission != null)) {
             imageTransmission.setCam(cam);
-            session.setAttribute("imageTransmission", imageTransmission);
+            session.setAttribute(IMAGE_TRANSMISSION, imageTransmission);
             return "itemInsert/ItIntergrat";
         } else {
             cam.setUseAlone(true);
             camService.addCam(cam);
-            return "itemInsert/InsertSuccessed";
+            return ITEM_INSERT_INSERT_SUCCESSED;
         }
     }
 
@@ -162,21 +169,21 @@ public class InsertItem {
                            @RequestParam("files") MultipartFile[] files,
                            @RequestParam("pinDefinitionDiagramUrl") MultipartFile pinDef) throws IOException {
         HttpSession session = request.getSession();
-        Frame frame = (Frame) session.getAttribute("frame");
-        FlightControl flightControl = (FlightControl) session.getAttribute("flightControl");
+        Frame frame = (Frame) session.getAttribute(FRAME);
+        FlightControl flightControl = (FlightControl) session.getAttribute(FLIGHT_CONTROL);
         if ((frame != null)) {
             frame.setIntegratedPh(powerHub);
-            session.setAttribute("frame", frame);
+            session.setAttribute(FRAME, frame);
             return "itemInsert/FraIntergrat";
         }
         if ((flightControl != null)) {
             flightControl.setPowerHub(powerHub);
-            session.setAttribute("flightControl", flightControl);
-            return "itemInsert/FcIntergrat";
+            session.setAttribute(FLIGHT_CONTROL, flightControl);
+            return ITEM_INSERT_FC_INTERGRAT;
         }
         powerHub.setUseAlone(true);
         powerHubService.addPowerHub(powerHub);
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -195,15 +202,15 @@ public class InsertItem {
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
         HttpSession session = request.getSession();
-        FlightControl flightControl = (FlightControl) session.getAttribute("flightControl");
+        FlightControl flightControl = (FlightControl) session.getAttribute(FLIGHT_CONTROL);
         if ((flightControl != null)) {
             flightControl.setEsc(electroSpeedRegulator);
-            session.setAttribute("flightControl", flightControl);
-            return "itemInsert/FcIntergrat";
+            session.setAttribute(FLIGHT_CONTROL, flightControl);
+            return ITEM_INSERT_FC_INTERGRAT;
         }
         electroSpeedRegulator.setUseAlone(true);
         electroSpeedRegulatorService.addElectroSpeedRegulato(electroSpeedRegulator);
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -222,7 +229,7 @@ public class InsertItem {
                              @RequestParam("mainImg") MultipartFile mainImg,
                              @RequestParam("files") MultipartFile[] files) throws IOException {
         motoService.addMoto(moto);
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -241,7 +248,7 @@ public class InsertItem {
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
         HttpSession session = request.getSession();
-        session.setAttribute("frame", frame);
+        session.setAttribute(FRAME, frame);
         return "itemInsert/FraIntergrat";
     }
 
@@ -255,10 +262,10 @@ public class InsertItem {
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertFra", method = RequestMethod.GET)
     public String insertFra(HttpSession session) {
-        Frame frame = (Frame) session.getAttribute("frame");
+        Frame frame = (Frame) session.getAttribute(FRAME);
         frameService.addFrame(frame);
         session.invalidate();
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -279,8 +286,8 @@ public class InsertItem {
                           @RequestParam("files") MultipartFile[] files,
                           @RequestParam("pinDefinitionDiagramUrl") MultipartFile pinDef) throws IOException {
         HttpSession session = request.getSession();
-        session.setAttribute("flightControl", flightControl);
-        return "itemInsert/FcIntergrat";
+        session.setAttribute(FLIGHT_CONTROL, flightControl);
+        return ITEM_INSERT_FC_INTERGRAT;
     }
 
     /**
@@ -293,10 +300,10 @@ public class InsertItem {
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertFC", method = RequestMethod.GET)
     public String insertFc(HttpSession session) {
-        FlightControl flightControl = (FlightControl) session.getAttribute("flightControl");
+        FlightControl flightControl = (FlightControl) session.getAttribute(FLIGHT_CONTROL);
         flightControlService.addFlightControl(flightControl);
         session.invalidate();
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
     /**
@@ -319,14 +326,14 @@ public class InsertItem {
                           @RequestParam("pinDefinitionDiagramUrl") MultipartFile pinDef,
                           @RequestParam("frequencyTableUrl") MultipartFile fre) throws IOException {
         HttpSession session = request.getSession();
-        FlightControl flightControl = (FlightControl) session.getAttribute("flightControl");
+        FlightControl flightControl = (FlightControl) session.getAttribute(FLIGHT_CONTROL);
         if ((flightControl != null)) {
             flightControl.setImageTransmission(imageTransmission);
-            session.setAttribute("flightControl", flightControl);
-            return "itemInsert/FcIntergrat";
+            session.setAttribute(FLIGHT_CONTROL, flightControl);
+            return ITEM_INSERT_FC_INTERGRAT;
         } else {
             imageTransmission.setUseAlone(true);
-            session.setAttribute("imageTransmission", imageTransmission);
+            session.setAttribute(IMAGE_TRANSMISSION, imageTransmission);
             return "itemInsert/ItIntergrat";
         }
     }
@@ -341,9 +348,9 @@ public class InsertItem {
     @Transactional(propagation = Propagation.REQUIRED)
     @RequestMapping(value = "InsertIt", method = RequestMethod.GET)
     public String insertIt(HttpSession session) {
-        ImageTransmission imageTransmission = (ImageTransmission) session.getAttribute("imageTransmission");
+        ImageTransmission imageTransmission = (ImageTransmission) session.getAttribute(IMAGE_TRANSMISSION);
         imageTransmissionService.addImageTransmission(imageTransmission);
         session.invalidate();
-        return "itemInsert/InsertSuccessed";
+        return ITEM_INSERT_INSERT_SUCCESSED;
     }
 }

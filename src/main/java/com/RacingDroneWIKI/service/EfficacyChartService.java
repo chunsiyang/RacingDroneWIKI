@@ -4,7 +4,6 @@ import java.util.*;
 
 import com.RacingDroneWIKI.dao.EfficacyChartDao;
 import com.RacingDroneWIKI.pojo.EfficacyChart;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,29 +21,34 @@ public class EfficacyChartService implements EfficacyChartDao {
     @Autowired
     private EfficacyChartDao efficacyChartDao;
 
+    @Override
     public int addEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.addEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public int deleteEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.deleteEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public int updataEfficacyChart(EfficacyChart efct) {
         int res = 0;
         res = efficacyChartDao.updataEfficacyChart(efct);
         return res;
     }
 
+    @Override
     public List<EfficacyChart> findByModel(String model) {
         List<EfficacyChart> res;
         res = efficacyChartDao.findByModel(model);
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 

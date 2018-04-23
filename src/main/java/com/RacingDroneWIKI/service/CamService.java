@@ -4,7 +4,6 @@ import java.util.*;
 
 import com.RacingDroneWIKI.dao.CamDao;
 import com.RacingDroneWIKI.pojo.Cam;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,37 +21,44 @@ public class CamService implements CamDao {
     @Autowired
     private CamDao camDao;
 
+    @Override
     public int addCam(Cam cam) {
         int res = 0;
         res = camDao.addCam(cam);
         return res;
     }
 
+    @Override
     public int deleteCam(Cam cam) {
         int res = 0;
         res = camDao.deleteCam(cam);
         return res;
     }
 
+    @Override
     public int updataCam(Cam cam) {
         int res = 0;
         res = camDao.updataCam(cam);
         return res;
     }
 
+    @Override
     public List<Cam> findAll() {
         List<Cam> res;
         res = camDao.findAll();
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 
+    @Override
     public List<Cam> findByModel(String model) {
         List<Cam> res;
         res = camDao.findByModel(model);
-        if (res.isEmpty())
+        if (res.isEmpty()) {
             return null;
+        }
         return res;
     }
 

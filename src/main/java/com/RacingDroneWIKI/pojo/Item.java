@@ -68,7 +68,7 @@ public class Item {
         return weight;
     }
     public void setWeight(String weight) {
-        this.weight =weight.equals("")?0:Float.parseFloat(weight);
+        this.weight = "".equals(weight) ?0:Float.parseFloat(weight);
     }
     /**
      * Gets model.
@@ -121,8 +121,9 @@ public class Item {
      * @param referencePrice the reference price
      */
     public void setReferencePrice(String referencePrice) {
-        if (!referencePrice.equals(""))
+        if (!"".equals(referencePrice)) {
             this.referencePrice = Integer.parseInt(referencePrice);
+        }
     }
 
     /**

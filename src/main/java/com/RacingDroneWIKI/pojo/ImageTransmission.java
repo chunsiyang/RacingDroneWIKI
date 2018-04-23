@@ -195,8 +195,9 @@ public class ImageTransmission extends Item implements Integratable {
      * @param length the length
      */
     public void setLength(String length) {
-        if (!length.equals(""))
+        if (!"".equals(length)) {
             this.length = Float.parseFloat(length);
+        }
     }
 
     /**
@@ -214,8 +215,9 @@ public class ImageTransmission extends Item implements Integratable {
      * @param width the width
      */
     public void setWidth(String width) {
-        if (!width.equals(""))
+        if (!"".equals(width)) {
             this.width = Float.parseFloat(width);
+        }
     }
 
     /**
@@ -233,8 +235,9 @@ public class ImageTransmission extends Item implements Integratable {
      * @param thickness the thickness
      */
     public void setThickness(String thickness) {
-        if (!thickness.equals(""))
+        if (!"".equals(thickness)) {
             this.thickness = Float.parseFloat(thickness);
+        }
     }
 
     /**
@@ -270,8 +273,9 @@ public class ImageTransmission extends Item implements Integratable {
      * @param frequencyQuantity the frequency quantity
      */
     public void setFrequencyQuantity(String frequencyQuantity) {
-        if (!frequencyQuantity.equals(""))
+        if (!"".equals(frequencyQuantity)) {
             this.frequencyQuantity = Integer.parseInt(frequencyQuantity);
+        }
     }
 
     /**

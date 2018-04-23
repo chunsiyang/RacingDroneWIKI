@@ -2,14 +2,11 @@
   <artifact type="exploded-war" name="RacingDroneWIKI:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/RacingDroneWIKI_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="RacingDroneWIKI/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="RacingDroneWIKI" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="org.thymeleaf:thymeleaf:Release" />
-          <element id="library" level="project" name="org.thymeleaf:thymeleaf-spring4:Release" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.42" />
@@ -30,17 +27,20 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.1.7.RELEASE" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.1.7.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.13" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.13" />
-          <element id="library" level="project" name="Maven: cglib:cglib:3.2.5" />
-          <element id="library" level="project" name="Maven: org.ow2.asm:asm:5.2" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.2.6" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:6.0" />
           <element id="library" level="project" name="Maven: org.apache.ant:ant:1.9.6" />
           <element id="library" level="project" name="Maven: org.apache.ant:ant-launcher:1.9.6" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="RacingDroneWIKI/web/Web" />
     </root>
   </artifact>
 </component>

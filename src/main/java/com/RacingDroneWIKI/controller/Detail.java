@@ -91,7 +91,6 @@ public class Detail {
     @RequestMapping(value = "/it/{modelId}")
     public String imageTransmissionDetail(@PathVariable("modelId") String modelId, Model model) {
         model.addAttribute("item", imageTransmissionService.findDetail(modelId));
-        System.err.println(modelId);
         return "item/it";
     }
 
