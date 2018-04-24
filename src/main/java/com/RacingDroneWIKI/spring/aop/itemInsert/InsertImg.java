@@ -80,7 +80,7 @@ public class InsertImg {
         updataUtil.insertImg(item, request, mainImg);
         updataUtil.insertImgMutl(item, request, files);
         item.setPinDefinitionDiagram(updataUtil.insertSpecialImg
-                (item, request, pinDef, UpdataUtil.PINDEFINTIONDIAGRAM));
+                (item, request, pinDef, UpdataUtil.PIN_DEFINTION_DIAGRAM));
     }
 
     /**
@@ -103,7 +103,7 @@ public class InsertImg {
         updataUtil.insertImg(item, request, mainImg);
         updataUtil.insertImgMutl(item, request, files);
         item.setPinDefintionDiagram(updataUtil.insertSpecialImg
-                (item, request, pinDef, UpdataUtil.PINDEFINTIONDIAGRAM));
+                (item, request, pinDef, UpdataUtil.PIN_DEFINTION_DIAGRAM));
     }
 
     /**
@@ -128,8 +128,8 @@ public class InsertImg {
         updataUtil.insertImg(item, request, mainImg);
         updataUtil.insertImgMutl(item, request, files);
         item.setPinDefinitionDiagram(updataUtil.insertSpecialImg
-                (item, request, pinDef, UpdataUtil.PINDEFINTIONDIAGRAM));
+                (item, request, pinDef, UpdataUtil.PIN_DEFINTION_DIAGRAM));
         item.setFrequencyTable(updataUtil.insertSpecialImg
-                (item, request, pinDef, UpdataUtil.FREQUENCYTABLE));
+                (item, request, pinDef, UpdataUtil.FREQUENCY_TABLE));
     }
 }

@@ -19,13 +19,13 @@ import java.util.LinkedList;
 public class UpdataUtil {
 
     /**
-     * The constant PINDEFINTIONDIAGRAM. 引脚定义图  供外部使用的图片类型常量
+     * The constant PIN_DEFINTION_DIAGRAM. 引脚定义图  供外部使用的图片类型常量
      */
-    public static final String  PINDEFINTIONDIAGRAM="_pin";//引脚定义图
+    public static final String PIN_DEFINTION_DIAGRAM ="_pin";
     /**
-     * The constant FREQUENCYTABLE. 频率表  供外部使用的图片类型常量
+     * The constant FREQUENCY_TABLE. 频率表  供外部使用的图片类型常量
      */
-    public static final String  FREQUENCYTABLE="_fre";//频率表
+    public static final String FREQUENCY_TABLE ="_fre";
     private static final String IMG = "/img/";
 
     /**

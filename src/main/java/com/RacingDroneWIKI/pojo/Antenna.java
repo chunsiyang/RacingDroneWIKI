@@ -39,7 +39,6 @@ public class Antenna extends Item {
      */
     public Antenna() {
         super();
-        // TODO 自动生成的构造函数存根
     }
 
 

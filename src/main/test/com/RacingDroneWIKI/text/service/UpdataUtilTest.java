@@ -1,8 +1,28 @@
 package com.RacingDroneWIKI.text.service;
 
-import org.junit.Test; 
+import com.RacingDroneWIKI.pojo.Antenna;
+import com.RacingDroneWIKI.pojo.Item;
+import com.RacingDroneWIKI.service.UpdataUtil;
+import com.RacingDroneWIKI.spring.config.RootConfig;
+import com.RacingDroneWIKI.spring.config.WebConfig;
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.Before; 
-import org.junit.After; 
+import org.junit.After;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 /** 
 * UpdataUtil Tester. 
@@ -10,11 +30,21 @@ import org.junit.After;
 * @author <Authors name> 
 * @since <pre>4, 23, 2018</pre>
 * @version 1.0 
-*/ 
-public class UpdataUtilTest { 
-
+*/
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {RootConfig.class, WebConfig.class})
+@WebAppConfiguration
+@Transactional
+public class UpdataUtilTest {
+    private static MockMvc mockMvc;
+    @Autowired
+    private WebApplicationContext wac;
+@Autowired
+    UpdataUtil updataUtil;
 @Before
-public void before() throws Exception { 
+public void before() throws Exception {
+    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+
 } 
 
 @After
@@ -28,8 +58,17 @@ public void after() throws Exception {
 */ 
 @Test
 public void testInsertImg() throws Exception { 
-//TODO: Test goes here... 
-} 
+    Item item=new Antenna();
+    item.setModel("test");
+    MockHttpServletRequest request=new MockHttpServletRequest();
+    request.setRequestURI("/itemInsert/InsertAnt");
+    MultipartFile file = new MockMultipartFile("sda.jpg",
+            "sda.jpg",
+            null,
+            new byte[]{1,2,3,4,5});
+    item.setImgUrl(updataUtil.insertImg(item, request, file));
+    Assert.assertEquals("ant/test.jpg",item.getImgUrl());
+}
 
 /** 
 * 
@@ -37,8 +76,23 @@ public void testInsertImg() throws Exception {
 * 
 */ 
 @Test
-public void testInsertImgMutl() throws Exception { 
-//TODO: Test goes here... 
+public void testInsertImgMutl() throws Exception {
+    Item item=new Antenna();
+    item.setModel("test");
+    MockHttpServletRequest request=new MockHttpServletRequest();
+    request.setRequestURI("/itemInsert/InsertAnt");
+    MultipartFile[] file =new MultipartFile[]{new MockMultipartFile("sda.jpg",
+            "sda.jpg",
+            null,
+            new byte[]{1,2,3,4,5}),
+            new MockMultipartFile("sdb.jpg",
+            "sdb.jpg",
+            null,
+            new byte[]{1,2,3,4,5})};
+    item.setExtraPictures(updataUtil.insertImgMutl(item, request, file));
+    Assert.assertEquals("ant/test_ep0.jpg",item.getExtraPictures().get(0));
+    Assert.assertEquals("ant/test_ep1.jpg",item.getExtraPictures().get(1));
+
 } 
 
 /** 
@@ -47,49 +101,19 @@ public void testInsertImgMutl() throws Exception {
 * 
 */ 
 @Test
-public void testInsertSpecialImg() throws Exception { 
-//TODO: Test goes here... 
-} 
-
-
-/** 
-* 
-* Method: utf8Decode(String img) 
-* 
-*/ 
-@Test
-public void testUtf8Decode() throws Exception { 
-//TODO: Test goes here... 
-/* 
-try { 
-   Method method = UpdataUtil.getClass().getMethod("utf8Decode", String.class); 
-   method.setAccessible(true); 
-   method.invoke(<Object>, <Parameters>); 
-} catch(NoSuchMethodException e) { 
-} catch(IllegalAccessException e) { 
-} catch(InvocationTargetException e) { 
-} 
-*/ 
-} 
-
-/** 
-* 
-* Method: getPath(HttpServletRequest request) 
-* 
-*/ 
-@Test
-public void testGetPath() throws Exception { 
-//TODO: Test goes here... 
-/* 
-try { 
-   Method method = UpdataUtil.getClass().getMethod("getPath", HttpServletRequest.class); 
-   method.setAccessible(true); 
-   method.invoke(<Object>, <Parameters>); 
-} catch(NoSuchMethodException e) { 
-} catch(IllegalAccessException e) { 
-} catch(InvocationTargetException e) { 
-} 
-*/ 
-} 
+public void testInsertSpecialImg() throws Exception {
+    Item item=new Antenna();
+    item.setModel("test");
+    MockHttpServletRequest request=new MockHttpServletRequest();
+    request.setRequestURI("/itemInsert/InsertAnt");
+    MultipartFile file = new MockMultipartFile("sda.jpg",
+            "sda.jpg",
+            null,
+            new byte[]{1,2,3,4,5});
+    String pin=(updataUtil.insertSpecialImg(item, request, file, updataUtil.PIN_DEFINTION_DIAGRAM));
+    String fre=(updataUtil.insertSpecialImg(item, request, file, updataUtil.FREQUENCY_TABLE));
+    Assert.assertEquals("ant/test_pin.jpg",pin);
+    Assert.assertEquals("ant/test_fre.jpg",fre);
+}
 
 } 

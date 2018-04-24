@@ -77,11 +77,10 @@ public class InsertItem {
      * @throws IOException the io exception
      */
     @RequestMapping(value = "InsertAnt", method = RequestMethod.POST)
-    public String insertAnt(Model model, Antenna antenna, HttpServletRequest request,
+    public String insertAnt(Antenna antenna, HttpServletRequest request,
                             @RequestParam("mainImg") MultipartFile mainImg,
                             @RequestParam("files") MultipartFile[] files) throws IOException {
-        //antennaService.addAntenna(antenna);
-        model.addAttribute("files",files);
+        antennaService.addAntenna(antenna);
         return ITEM_INSERT_INSERT_SUCCESSED;
     }
 
