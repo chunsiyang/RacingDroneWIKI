@@ -1,11 +1,13 @@
 package com.RacingDroneWIKI.pojo;
 
+import java.io.Serializable;
+
 /**
  * The type Efficacy chart.力效表
  * @author ChunsiYang
  * @version SSM 3.0
  */
-public class EfficacyChart {
+public class EfficacyChart implements Serializable {
     /**
      * 力效表ID
      */

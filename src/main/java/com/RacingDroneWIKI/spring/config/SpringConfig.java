@@ -19,7 +19,7 @@ import javax.servlet.ServletRegistration;
 public class SpringConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{RootConfig.class};
+        return new Class[]{RootConfig.class, RedisConfig.class};
     }
 
     @Override

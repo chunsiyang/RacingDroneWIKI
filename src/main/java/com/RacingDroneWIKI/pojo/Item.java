@@ -1,5 +1,6 @@
 package com.RacingDroneWIKI.pojo;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.LinkedList;
  * @author ChunsiYang
  * @version SSM 3.0
  */
-public class Item {
+public class Item implements Serializable {
     /**
      * 型号
      */
