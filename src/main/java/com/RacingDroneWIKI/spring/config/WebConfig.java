@@ -21,7 +21,7 @@ import java.io.IOException;
  * @version SSM 3.0
  */
 @Configuration
-@ImportResource("classpath:spring/spring-mybatis.xml")
+@ImportResource("classpath:spring/dataSource.xml")
 @EnableWebMvc
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan(basePackages = "com.RacingDroneWIKI")

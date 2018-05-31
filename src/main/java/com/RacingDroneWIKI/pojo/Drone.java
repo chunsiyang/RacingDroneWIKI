@@ -1,5 +1,6 @@
 package com.RacingDroneWIKI.pojo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ import java.util.Map;
  * @author ChunsiYang
  * @version SSM 3.1
  */
-public class Drone {
+public class Drone implements Serializable {
     private Moto moto;
     private ElectroSpeedRegulator electroSpeedRegulator;
     private Battery battery;

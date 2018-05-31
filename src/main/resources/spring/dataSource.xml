@@ -9,9 +9,33 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <context:property-placeholder location="classpath:homeDB.properties"/>
+    <context:property-placeholder location="classpath:homeDB.properties,classpath:redis.properties"/>
+
+    <!--    redis session   -->
+    <bean id="redisHttpSessionConfiguration"
+          class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+        <property name="maxInactiveIntervalInSeconds" value="600"/>
+    </bean>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="100" />
+        <property name="maxIdle" value="10" />
+    </bean>
+
+    <bean id="jedisConnectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" destroy-method="destroy">
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.pass}" />
+        <property name="timeout" value="${redis.timeout}"/>
+        <property name="usePool" value="true"/>
+        <property name="poolConfig" ref="jedisPoolConfig"/>
+    </bean>
+
+
+    <!--    nmybatis    -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="driverClassName" value="${database.driver}" />
         <property name="url" value="${database.url}" />
         <property name="username" value="${database.username}" />
         <property name="password" value="${database.password}" />
@@ -24,6 +48,7 @@
         <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制   默认值是8 -->
         <property name="maxActive" value="60" />
     </bean>
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!-- 数据源 ref属性对应以上配置的连接池id -->
         <property name="dataSource" ref="dataSource" />
@@ -32,11 +57,14 @@
         <!--加载mapper-->
         <!--<property name="mapperLocations" value="classpath:mapper/*.xml" />-->
     </bean>
+
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.RacingDroneWIKI.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
     </bean>
+
+
     <!--spring事务-->
     <!-- transaction support-->
     <!-- PlatformTransactionMnager -->
