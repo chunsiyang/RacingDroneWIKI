@@ -22,35 +22,58 @@ import static io.lettuce.core.RedisURI.Builder.sentinel;
 public class RedisConfig {
     @Value("${redis.passwd}")
     private String passwd;
-    @Value("${redis.master}")
-    private String master;
-    @Value("${redis.sentineL1.host}")
-    private String sentineL1Host;
-    @Value("${redis.sentineL1.port}")
-    private int sentineL1Port;
-    @Value("${redis.sentineL2.host}")
-    private String sentineL2Host;
-    @Value("${redis.sentineL2.port}")
-    private int sentineL2Port;
-    @Value("${redis.sentineL3.host}")
-    private String sentineL3Host;
-    @Value("${redis.sentineL3.port}")
-    private int sentineL3Port;
+    @Value("${redis.cluster1.host}")
+    private String cluster1Host;
+    @Value("${redis.cluster1.port}")
+    private int cluster1Port;
+    @Value("${redis.cluster2.host}")
+    private String cluster2Host;
+    @Value("${redis.cluster2.port}")
+    private int cluster2Port;
+    @Value("${redis.cluster3.host}")
+    private String cluster3Host;
+    @Value("${redis.cluster3.port}")
+    private int cluster3Port;
+    @Value("${redis.cluster4.host}")
+    private String cluster4Host;
+    @Value("${redis.cluster4.port}")
+    private int cluster4Port;
+    @Value("${redis.cluster5.host}")
+    private String cluster5Host;
+    @Value("${redis.cluster5.port}")
+    private int cluster5Port;
+    @Value("${redis.cluster6.host}")
+    private String cluster6Host;
+    @Value("${redis.cluster6.port}")
+    private int cluster6Port;
     @Bean
     public JedisConnectionFactory redisConnectionFactory()
     {
-        JedisConnectionFactory jedisConnectionFactory= new JedisConnectionFactory(getRedisSentinelConfiguration());
+        JedisConnectionFactory jedisConnectionFactory=
+                new JedisConnectionFactory(getRedisClusterConfiguration(),getJedisPoolConfig());
         jedisConnectionFactory.setPassword(passwd);
-        jedisConnectionFactory.setUsePool(true);
-        jedisConnectionFactory.setPoolConfig(getJedisPoolConfig());
         jedisConnectionFactory.afterPropertiesSet();
         return jedisConnectionFactory;
     }
-    private RedisSentinelConfiguration getRedisSentinelConfiguration(){
-        return  new RedisSentinelConfiguration()
-                .master(master)
-                .sentinel(sentineL1Host, sentineL1Port);
+
+    private RedisClusterConfiguration getRedisClusterConfiguration(){
+        RedisClusterConfiguration redisClusterConfig = new RedisClusterConfiguration();
+        redisClusterConfig.setClusterNodes(getClusterNodes());
+        redisClusterConfig.setMaxRedirects(3);
+        return redisClusterConfig;
     }
+
+    private Set<RedisNode> getClusterNodes(){
+        Set<RedisNode> clusterNodes = new HashSet<RedisNode>();
+        clusterNodes.add(new RedisNode(cluster1Host, cluster1Port));
+        clusterNodes.add(new RedisNode(cluster2Host, cluster2Port));
+        clusterNodes.add(new RedisNode(cluster3Host, cluster3Port));
+        clusterNodes.add(new RedisNode(cluster4Host, cluster4Port));
+        clusterNodes.add(new RedisNode(cluster5Host, cluster5Port));
+        clusterNodes.add(new RedisNode(cluster6Host, cluster6Port));
+        return clusterNodes;
+    }
+
     private JedisPoolConfig getJedisPoolConfig(){
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxIdle(10);
