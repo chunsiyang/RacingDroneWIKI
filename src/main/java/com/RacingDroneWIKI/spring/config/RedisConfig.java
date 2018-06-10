@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisSentinelConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
@@ -55,7 +56,10 @@ public class RedisConfig {
     {
         JedisConnectionFactory jedisConnectionFactory=
                 new JedisConnectionFactory(getRedisClusterConfiguration(),getJedisPoolConfig());
+        /*
+        目前spring data 对redis cluster 集群密码支持有问题
         jedisConnectionFactory.setPassword(passwd);
+         */
         jedisConnectionFactory.setUsePool(true);
         return jedisConnectionFactory;
     }
@@ -64,6 +68,10 @@ public class RedisConfig {
         RedisClusterConfiguration redisClusterConfig = new RedisClusterConfiguration();
         redisClusterConfig.setClusterNodes(getClusterNodes());
         redisClusterConfig.setMaxRedirects(3);
+        /*
+        目前spring data 对redis cluster 集群密码支持有问题
+        redisClusterConfig.setPassword(RedisPassword.of(passwd));
+         */
         return redisClusterConfig;
     }
 
