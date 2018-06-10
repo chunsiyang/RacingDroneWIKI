@@ -56,7 +56,7 @@ public class RedisConfig {
         JedisConnectionFactory jedisConnectionFactory=
                 new JedisConnectionFactory(getRedisClusterConfiguration(),getJedisPoolConfig());
         jedisConnectionFactory.setPassword(passwd);
-        jedisConnectionFactory.afterPropertiesSet();
+        jedisConnectionFactory.setUsePool(true);
         return jedisConnectionFactory;
     }
 
